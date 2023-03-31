@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.editquestion_panel = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
+            this.cancel_button = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.savequit_button = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.savecontinue_button = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.choice5_grade = new System.Windows.Forms.ComboBox();
@@ -56,7 +56,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.morechoices_button = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.defaultmark_textbox = new System.Windows.Forms.TextBox();
@@ -74,13 +74,13 @@
             // editquestion_panel
             // 
             this.editquestion_panel.AutoScroll = true;
-            this.editquestion_panel.Controls.Add(this.button4);
+            this.editquestion_panel.Controls.Add(this.cancel_button);
             this.editquestion_panel.Controls.Add(this.label1);
-            this.editquestion_panel.Controls.Add(this.button3);
+            this.editquestion_panel.Controls.Add(this.savequit_button);
             this.editquestion_panel.Controls.Add(this.label17);
-            this.editquestion_panel.Controls.Add(this.button2);
+            this.editquestion_panel.Controls.Add(this.savecontinue_button);
             this.editquestion_panel.Controls.Add(this.panel2);
-            this.editquestion_panel.Controls.Add(this.button1);
+            this.editquestion_panel.Controls.Add(this.morechoices_button);
             this.editquestion_panel.Controls.Add(this.label6);
             this.editquestion_panel.Controls.Add(this.label2);
             this.editquestion_panel.Controls.Add(this.defaultmark_textbox);
@@ -96,18 +96,20 @@
             this.editquestion_panel.Size = new System.Drawing.Size(1333, 741);
             this.editquestion_panel.TabIndex = 25;
             this.editquestion_panel.UseWaitCursor = true;
+            this.editquestion_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.editquestion_panel_Paint);
             // 
-            // button4
+            // cancel_button
             // 
-            this.button4.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.button4.Font = new System.Drawing.Font("Stencil", 12F);
-            this.button4.Location = new System.Drawing.Point(566, 934);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(141, 36);
-            this.button4.TabIndex = 28;
-            this.button4.Text = "CANCEL";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.UseWaitCursor = true;
+            this.cancel_button.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.cancel_button.Font = new System.Drawing.Font("Stencil", 12F);
+            this.cancel_button.Location = new System.Drawing.Point(566, 934);
+            this.cancel_button.Name = "cancel_button";
+            this.cancel_button.Size = new System.Drawing.Size(141, 36);
+            this.cancel_button.TabIndex = 28;
+            this.cancel_button.Text = "CANCEL";
+            this.cancel_button.UseVisualStyleBackColor = false;
+            this.cancel_button.UseWaitCursor = true;
+            this.cancel_button.Click += new System.EventHandler(this.cancel_button_Click);
             // 
             // label1
             // 
@@ -120,17 +122,18 @@
             this.label1.Text = "EDIT MODE";
             this.label1.UseWaitCursor = true;
             // 
-            // button3
+            // savequit_button
             // 
-            this.button3.BackColor = System.Drawing.Color.Red;
-            this.button3.Font = new System.Drawing.Font("Stencil", 12F);
-            this.button3.Location = new System.Drawing.Point(365, 934);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(195, 36);
-            this.button3.TabIndex = 27;
-            this.button3.Text = "SAVE CHANGES";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.UseWaitCursor = true;
+            this.savequit_button.BackColor = System.Drawing.Color.Red;
+            this.savequit_button.Font = new System.Drawing.Font("Stencil", 12F);
+            this.savequit_button.Location = new System.Drawing.Point(365, 934);
+            this.savequit_button.Name = "savequit_button";
+            this.savequit_button.Size = new System.Drawing.Size(195, 36);
+            this.savequit_button.TabIndex = 27;
+            this.savequit_button.Text = "SAVE CHANGES";
+            this.savequit_button.UseVisualStyleBackColor = false;
+            this.savequit_button.UseWaitCursor = true;
+            this.savequit_button.Click += new System.EventHandler(this.button3_Click);
             // 
             // label17
             // 
@@ -144,17 +147,17 @@
             this.label17.Text = "Adding a Multiple choices question";
             this.label17.UseWaitCursor = true;
             // 
-            // button2
+            // savecontinue_button
             // 
-            this.button2.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.button2.Font = new System.Drawing.Font("Stencil", 12F);
-            this.button2.Location = new System.Drawing.Point(365, 892);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(456, 36);
-            this.button2.TabIndex = 26;
-            this.button2.Text = "SAVE CHANGES AND CONTINUE EDITING";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.UseWaitCursor = true;
+            this.savecontinue_button.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.savecontinue_button.Font = new System.Drawing.Font("Stencil", 12F);
+            this.savecontinue_button.Location = new System.Drawing.Point(365, 892);
+            this.savecontinue_button.Name = "savecontinue_button";
+            this.savecontinue_button.Size = new System.Drawing.Size(456, 36);
+            this.savecontinue_button.TabIndex = 26;
+            this.savecontinue_button.Text = "SAVE CHANGES AND CONTINUE EDITING";
+            this.savecontinue_button.UseVisualStyleBackColor = false;
+            this.savecontinue_button.UseWaitCursor = true;
             // 
             // panel2
             // 
@@ -581,17 +584,17 @@
             this.label7.Text = "Choice 1";
             this.label7.UseWaitCursor = true;
             // 
-            // button1
+            // morechoices_button
             // 
-            this.button1.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.button1.Font = new System.Drawing.Font("Stencil", 12F);
-            this.button1.Location = new System.Drawing.Point(365, 850);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(359, 36);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "BLANKS FOR 3 MORE CHOICES";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.UseWaitCursor = true;
+            this.morechoices_button.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.morechoices_button.Font = new System.Drawing.Font("Stencil", 12F);
+            this.morechoices_button.Location = new System.Drawing.Point(365, 850);
+            this.morechoices_button.Name = "morechoices_button";
+            this.morechoices_button.Size = new System.Drawing.Size(359, 36);
+            this.morechoices_button.TabIndex = 25;
+            this.morechoices_button.Text = "BLANKS FOR 3 MORE CHOICES";
+            this.morechoices_button.UseVisualStyleBackColor = false;
+            this.morechoices_button.UseWaitCursor = true;
             // 
             // label6
             // 
@@ -642,6 +645,7 @@
             this.questionname_textbox.Size = new System.Drawing.Size(738, 22);
             this.questionname_textbox.TabIndex = 9;
             this.questionname_textbox.UseWaitCursor = true;
+            this.questionname_textbox.TextChanged += new System.EventHandler(this.questionname_textbox_TextChanged);
             // 
             // questiontext_textbox
             // 
@@ -651,6 +655,7 @@
             this.questiontext_textbox.TabIndex = 2;
             this.questiontext_textbox.Text = "";
             this.questiontext_textbox.UseWaitCursor = true;
+            this.questiontext_textbox.TextChanged += new System.EventHandler(this.questiontext_textbox_TextChanged);
             // 
             // label4
             // 
@@ -705,11 +710,11 @@
         #endregion
 
         private System.Windows.Forms.Panel editquestion_panel;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button cancel_button;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button savequit_button;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button savecontinue_button;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ComboBox choice5_grade;
@@ -732,7 +737,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button morechoices_button;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox defaultmark_textbox;

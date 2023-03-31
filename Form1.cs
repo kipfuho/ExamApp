@@ -12,9 +12,11 @@ namespace ExamApp
 {
     public partial class Form1 : Form
     {
+        private List<Question> questions;
         public Form1()
         {
             InitializeComponent();
+            questions = new List<Question>();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -95,6 +97,35 @@ namespace ExamApp
         private void defaultmark_textbox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void editquestion_panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Question question = new Question();
+            question.QuestionName = questionname_textbox.Text;
+            question.QuestionText = questiontext_textbox.Text;
+            question.DefaultMark = Convert.ToDouble(defaultmark_textbox.Text);
+            questions.Add(question);
+        }
+
+        private void questionname_textbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void questiontext_textbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cancel_button_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(questions[0].QuestionName + questions[0].QuestionText + questions[0].DefaultMark);
         }
     }
 }
