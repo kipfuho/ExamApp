@@ -37,44 +37,48 @@
             this.label28 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.cancel_button = new System.Windows.Forms.Button();
+            this.CancelButton = new System.Windows.Forms.Button();
             this.SaveQuitButton = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.SaveContinueButton = new System.Windows.Forms.Button();
             this.ChoicePanel = new System.Windows.Forms.Panel();
             this.MoreChoicePanel = new System.Windows.Forms.Panel();
-            this.choice5_grade = new System.Windows.Forms.ComboBox();
-            this.choice4_grade = new System.Windows.Forms.ComboBox();
+            this.ChoiceGrade5 = new System.Windows.Forms.ComboBox();
+            this.ChoiceGrade4 = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.choice3_grade = new System.Windows.Forms.ComboBox();
+            this.ChoiceText5 = new System.Windows.Forms.TextBox();
+            this.ChoiceGrade3 = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.ChoiceText4 = new System.Windows.Forms.TextBox();
+            this.ChoiceText3 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.choice2_grade = new System.Windows.Forms.ComboBox();
-            this.choice1_grade = new System.Windows.Forms.ComboBox();
+            this.ChoiceGrade2 = new System.Windows.Forms.ComboBox();
+            this.ChoiceGrade1 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.ChoiceText2 = new System.Windows.Forms.TextBox();
+            this.ChoiceText1 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.morechoices_button = new System.Windows.Forms.Button();
+            this.MoreChoicesButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.defaultmark_textbox = new System.Windows.Forms.TextBox();
+            this.DefaultMarkTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.questionname_textbox = new System.Windows.Forms.TextBox();
-            this.questiontext_textbox = new System.Windows.Forms.RichTextBox();
+            this.QuestionNameTextBox = new System.Windows.Forms.TextBox();
+            this.QuestionTextTextBox = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.category_combobox = new System.Windows.Forms.ComboBox();
+            this.CategoryComboBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.HomePanel = new System.Windows.Forms.Panel();
+            this.HeadingPanel1 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.Home1 = new System.Windows.Forms.Label();
             this.TurnEditOnButton = new System.Windows.Forms.Button();
+            this.label33 = new System.Windows.Forms.Label();
             this.EditPanel = new System.Windows.Forms.Panel();
             this.HeadingPanel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -84,6 +88,8 @@
             this.label34 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.CreateQuestionButton = new System.Windows.Forms.Button();
@@ -94,31 +100,26 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.HeadingPanel1 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.Home1 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
             this.PopupPanel = new System.Windows.Forms.Panel();
             this.label30 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
+            this.QuestionFlowLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.EditQuestionPanel.SuspendLayout();
             this.HeadingPanel3.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.ChoicePanel.SuspendLayout();
             this.MoreChoicePanel.SuspendLayout();
             this.HomePanel.SuspendLayout();
+            this.HeadingPanel1.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
             this.EditPanel.SuspendLayout();
             this.HeadingPanel2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.HeadingPanel1.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
             this.PopupPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -126,20 +127,20 @@
             // 
             this.EditQuestionPanel.AutoScroll = true;
             this.EditQuestionPanel.Controls.Add(this.HeadingPanel3);
-            this.EditQuestionPanel.Controls.Add(this.cancel_button);
+            this.EditQuestionPanel.Controls.Add(this.CancelButton);
             this.EditQuestionPanel.Controls.Add(this.SaveQuitButton);
             this.EditQuestionPanel.Controls.Add(this.label17);
             this.EditQuestionPanel.Controls.Add(this.SaveContinueButton);
             this.EditQuestionPanel.Controls.Add(this.ChoicePanel);
-            this.EditQuestionPanel.Controls.Add(this.morechoices_button);
+            this.EditQuestionPanel.Controls.Add(this.MoreChoicesButton);
             this.EditQuestionPanel.Controls.Add(this.label6);
             this.EditQuestionPanel.Controls.Add(this.label2);
-            this.EditQuestionPanel.Controls.Add(this.defaultmark_textbox);
+            this.EditQuestionPanel.Controls.Add(this.DefaultMarkTextBox);
             this.EditQuestionPanel.Controls.Add(this.label3);
-            this.EditQuestionPanel.Controls.Add(this.questionname_textbox);
-            this.EditQuestionPanel.Controls.Add(this.questiontext_textbox);
+            this.EditQuestionPanel.Controls.Add(this.QuestionNameTextBox);
+            this.EditQuestionPanel.Controls.Add(this.QuestionTextTextBox);
             this.EditQuestionPanel.Controls.Add(this.label4);
-            this.EditQuestionPanel.Controls.Add(this.category_combobox);
+            this.EditQuestionPanel.Controls.Add(this.CategoryComboBox);
             this.EditQuestionPanel.Controls.Add(this.label5);
             this.EditQuestionPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EditQuestionPanel.Location = new System.Drawing.Point(0, 0);
@@ -175,7 +176,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label23.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.label23.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.IndianRed;
             this.label23.Location = new System.Drawing.Point(3, 0);
@@ -183,6 +184,7 @@
             this.label23.Size = new System.Drawing.Size(61, 23);
             this.label23.TabIndex = 0;
             this.label23.Text = "Home";
+            this.label23.UseWaitCursor = true;
             this.label23.Click += new System.EventHandler(this.label23_Click);
             // 
             // label27
@@ -200,7 +202,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label25.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.label25.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.ForeColor = System.Drawing.Color.IndianRed;
             this.label25.Location = new System.Drawing.Point(92, 0);
@@ -208,6 +210,7 @@
             this.label25.Size = new System.Drawing.Size(138, 23);
             this.label25.TabIndex = 1;
             this.label25.Text = "Question Bank";
+            this.label25.UseWaitCursor = true;
             this.label25.Click += new System.EventHandler(this.label25_Click);
             // 
             // label28
@@ -225,7 +228,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label26.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.label26.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label26.Location = new System.Drawing.Point(258, 0);
@@ -233,6 +236,7 @@
             this.label26.Size = new System.Drawing.Size(166, 23);
             this.label26.TabIndex = 2;
             this.label26.Text = "Adding a question";
+            this.label26.UseWaitCursor = true;
             // 
             // label1
             // 
@@ -246,18 +250,18 @@
             this.label1.Text = "IT";
             this.label1.UseWaitCursor = true;
             // 
-            // cancel_button
+            // CancelButton
             // 
-            this.cancel_button.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.cancel_button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cancel_button.Font = new System.Drawing.Font("Stencil", 12F);
-            this.cancel_button.Location = new System.Drawing.Point(669, 1084);
-            this.cancel_button.Name = "cancel_button";
-            this.cancel_button.Size = new System.Drawing.Size(141, 36);
-            this.cancel_button.TabIndex = 28;
-            this.cancel_button.Text = "CANCEL";
-            this.cancel_button.UseVisualStyleBackColor = false;
-            this.cancel_button.Click += new System.EventHandler(this.cancel_button_Click);
+            this.CancelButton.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.CancelButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CancelButton.Font = new System.Drawing.Font("Stencil", 12F);
+            this.CancelButton.Location = new System.Drawing.Point(669, 1084);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(141, 36);
+            this.CancelButton.TabIndex = 28;
+            this.CancelButton.Text = "CANCEL";
+            this.CancelButton.UseVisualStyleBackColor = false;
+            this.CancelButton.Click += new System.EventHandler(this.cancel_button_Click);
             // 
             // SaveQuitButton
             // 
@@ -300,11 +304,11 @@
             // 
             this.ChoicePanel.AutoScroll = true;
             this.ChoicePanel.Controls.Add(this.MoreChoicePanel);
-            this.ChoicePanel.Controls.Add(this.choice2_grade);
-            this.ChoicePanel.Controls.Add(this.choice1_grade);
+            this.ChoicePanel.Controls.Add(this.ChoiceGrade2);
+            this.ChoicePanel.Controls.Add(this.ChoiceGrade1);
             this.ChoicePanel.Controls.Add(this.label9);
-            this.ChoicePanel.Controls.Add(this.textBox4);
-            this.ChoicePanel.Controls.Add(this.textBox3);
+            this.ChoicePanel.Controls.Add(this.ChoiceText2);
+            this.ChoicePanel.Controls.Add(this.ChoiceText1);
             this.ChoicePanel.Controls.Add(this.label8);
             this.ChoicePanel.Controls.Add(this.label10);
             this.ChoicePanel.Controls.Add(this.label7);
@@ -315,15 +319,15 @@
             // 
             // MoreChoicePanel
             // 
-            this.MoreChoicePanel.Controls.Add(this.choice5_grade);
-            this.MoreChoicePanel.Controls.Add(this.choice4_grade);
+            this.MoreChoicePanel.Controls.Add(this.ChoiceGrade5);
+            this.MoreChoicePanel.Controls.Add(this.ChoiceGrade4);
             this.MoreChoicePanel.Controls.Add(this.label15);
-            this.MoreChoicePanel.Controls.Add(this.textBox7);
-            this.MoreChoicePanel.Controls.Add(this.choice3_grade);
+            this.MoreChoicePanel.Controls.Add(this.ChoiceText5);
+            this.MoreChoicePanel.Controls.Add(this.ChoiceGrade3);
             this.MoreChoicePanel.Controls.Add(this.label13);
             this.MoreChoicePanel.Controls.Add(this.label16);
-            this.MoreChoicePanel.Controls.Add(this.textBox6);
-            this.MoreChoicePanel.Controls.Add(this.textBox5);
+            this.MoreChoicePanel.Controls.Add(this.ChoiceText4);
+            this.MoreChoicePanel.Controls.Add(this.ChoiceText3);
             this.MoreChoicePanel.Controls.Add(this.label11);
             this.MoreChoicePanel.Controls.Add(this.label14);
             this.MoreChoicePanel.Controls.Add(this.label12);
@@ -333,10 +337,10 @@
             this.MoreChoicePanel.TabIndex = 18;
             this.MoreChoicePanel.Visible = false;
             // 
-            // choice5_grade
+            // ChoiceGrade5
             // 
-            this.choice5_grade.FormattingEnabled = true;
-            this.choice5_grade.Items.AddRange(new object[] {
+            this.ChoiceGrade5.FormattingEnabled = true;
+            this.ChoiceGrade5.Items.AddRange(new object[] {
             "None",
             "100%",
             "90%",
@@ -376,15 +380,16 @@
             "-75%",
             "-80%",
             "-83.33333%"});
-            this.choice5_grade.Location = new System.Drawing.Point(138, 309);
-            this.choice5_grade.Name = "choice5_grade";
-            this.choice5_grade.Size = new System.Drawing.Size(121, 24);
-            this.choice5_grade.TabIndex = 16;
+            this.ChoiceGrade5.Location = new System.Drawing.Point(138, 309);
+            this.ChoiceGrade5.Name = "ChoiceGrade5";
+            this.ChoiceGrade5.Size = new System.Drawing.Size(121, 24);
+            this.ChoiceGrade5.TabIndex = 16;
+            this.ChoiceGrade5.Text = "None";
             // 
-            // choice4_grade
+            // ChoiceGrade4
             // 
-            this.choice4_grade.FormattingEnabled = true;
-            this.choice4_grade.Items.AddRange(new object[] {
+            this.ChoiceGrade4.FormattingEnabled = true;
+            this.ChoiceGrade4.Items.AddRange(new object[] {
             "None",
             "100%",
             "90%",
@@ -424,10 +429,11 @@
             "-75%",
             "-80%",
             "-83.33333%"});
-            this.choice4_grade.Location = new System.Drawing.Point(138, 192);
-            this.choice4_grade.Name = "choice4_grade";
-            this.choice4_grade.Size = new System.Drawing.Size(121, 24);
-            this.choice4_grade.TabIndex = 16;
+            this.ChoiceGrade4.Location = new System.Drawing.Point(138, 192);
+            this.ChoiceGrade4.Name = "ChoiceGrade4";
+            this.ChoiceGrade4.Size = new System.Drawing.Size(121, 24);
+            this.ChoiceGrade4.TabIndex = 16;
+            this.ChoiceGrade4.Text = "None";
             // 
             // label15
             // 
@@ -438,17 +444,17 @@
             this.label15.TabIndex = 14;
             this.label15.Text = "Grade";
             // 
-            // textBox7
+            // ChoiceText5
             // 
-            this.textBox7.Location = new System.Drawing.Point(138, 250);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(518, 22);
-            this.textBox7.TabIndex = 15;
+            this.ChoiceText5.Location = new System.Drawing.Point(138, 250);
+            this.ChoiceText5.Name = "ChoiceText5";
+            this.ChoiceText5.Size = new System.Drawing.Size(518, 22);
+            this.ChoiceText5.TabIndex = 15;
             // 
-            // choice3_grade
+            // ChoiceGrade3
             // 
-            this.choice3_grade.FormattingEnabled = true;
-            this.choice3_grade.Items.AddRange(new object[] {
+            this.ChoiceGrade3.FormattingEnabled = true;
+            this.ChoiceGrade3.Items.AddRange(new object[] {
             "None",
             "100%",
             "90%",
@@ -488,10 +494,11 @@
             "-75%",
             "-80%",
             "-83.33333%"});
-            this.choice3_grade.Location = new System.Drawing.Point(138, 72);
-            this.choice3_grade.Name = "choice3_grade";
-            this.choice3_grade.Size = new System.Drawing.Size(121, 24);
-            this.choice3_grade.TabIndex = 16;
+            this.ChoiceGrade3.Location = new System.Drawing.Point(138, 72);
+            this.ChoiceGrade3.Name = "ChoiceGrade3";
+            this.ChoiceGrade3.Size = new System.Drawing.Size(121, 24);
+            this.ChoiceGrade3.TabIndex = 16;
+            this.ChoiceGrade3.Text = "None";
             // 
             // label13
             // 
@@ -511,19 +518,19 @@
             this.label16.TabIndex = 13;
             this.label16.Text = "Choice 5";
             // 
-            // textBox6
+            // ChoiceText4
             // 
-            this.textBox6.Location = new System.Drawing.Point(138, 138);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(518, 22);
-            this.textBox6.TabIndex = 15;
+            this.ChoiceText4.Location = new System.Drawing.Point(138, 138);
+            this.ChoiceText4.Name = "ChoiceText4";
+            this.ChoiceText4.Size = new System.Drawing.Size(518, 22);
+            this.ChoiceText4.TabIndex = 15;
             // 
-            // textBox5
+            // ChoiceText3
             // 
-            this.textBox5.Location = new System.Drawing.Point(138, 18);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(518, 22);
-            this.textBox5.TabIndex = 15;
+            this.ChoiceText3.Location = new System.Drawing.Point(138, 18);
+            this.ChoiceText3.Name = "ChoiceText3";
+            this.ChoiceText3.Size = new System.Drawing.Size(518, 22);
+            this.ChoiceText3.TabIndex = 15;
             // 
             // label11
             // 
@@ -552,10 +559,10 @@
             this.label12.TabIndex = 13;
             this.label12.Text = "Choice 3";
             // 
-            // choice2_grade
+            // ChoiceGrade2
             // 
-            this.choice2_grade.FormattingEnabled = true;
-            this.choice2_grade.Items.AddRange(new object[] {
+            this.ChoiceGrade2.FormattingEnabled = true;
+            this.ChoiceGrade2.Items.AddRange(new object[] {
             "None",
             "100%",
             "90%",
@@ -595,16 +602,17 @@
             "-75%",
             "-80%",
             "-83.33333%"});
-            this.choice2_grade.Location = new System.Drawing.Point(138, 164);
-            this.choice2_grade.Name = "choice2_grade";
-            this.choice2_grade.Size = new System.Drawing.Size(121, 24);
-            this.choice2_grade.TabIndex = 16;
+            this.ChoiceGrade2.Location = new System.Drawing.Point(138, 164);
+            this.ChoiceGrade2.Name = "ChoiceGrade2";
+            this.ChoiceGrade2.Size = new System.Drawing.Size(121, 24);
+            this.ChoiceGrade2.TabIndex = 16;
+            this.ChoiceGrade2.Text = "None";
             // 
-            // choice1_grade
+            // ChoiceGrade1
             // 
-            this.choice1_grade.DisplayMember = "1";
-            this.choice1_grade.FormattingEnabled = true;
-            this.choice1_grade.Items.AddRange(new object[] {
+            this.ChoiceGrade1.DisplayMember = "1";
+            this.ChoiceGrade1.FormattingEnabled = true;
+            this.ChoiceGrade1.Items.AddRange(new object[] {
             "None",
             "100%",
             "90%",
@@ -644,10 +652,11 @@
             "-75%",
             "-80%",
             "-83.33333%"});
-            this.choice1_grade.Location = new System.Drawing.Point(138, 66);
-            this.choice1_grade.Name = "choice1_grade";
-            this.choice1_grade.Size = new System.Drawing.Size(121, 24);
-            this.choice1_grade.TabIndex = 16;
+            this.ChoiceGrade1.Location = new System.Drawing.Point(138, 66);
+            this.ChoiceGrade1.Name = "ChoiceGrade1";
+            this.ChoiceGrade1.Size = new System.Drawing.Size(121, 24);
+            this.ChoiceGrade1.TabIndex = 16;
+            this.ChoiceGrade1.Text = "None";
             // 
             // label9
             // 
@@ -658,19 +667,19 @@
             this.label9.TabIndex = 14;
             this.label9.Text = "Grade";
             // 
-            // textBox4
+            // ChoiceText2
             // 
-            this.textBox4.Location = new System.Drawing.Point(138, 117);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(518, 22);
-            this.textBox4.TabIndex = 15;
+            this.ChoiceText2.Location = new System.Drawing.Point(138, 117);
+            this.ChoiceText2.Name = "ChoiceText2";
+            this.ChoiceText2.Size = new System.Drawing.Size(518, 22);
+            this.ChoiceText2.TabIndex = 15;
             // 
-            // textBox3
+            // ChoiceText1
             // 
-            this.textBox3.Location = new System.Drawing.Point(138, 18);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(518, 22);
-            this.textBox3.TabIndex = 15;
+            this.ChoiceText1.Location = new System.Drawing.Point(138, 18);
+            this.ChoiceText1.Name = "ChoiceText1";
+            this.ChoiceText1.Size = new System.Drawing.Size(518, 22);
+            this.ChoiceText1.TabIndex = 15;
             // 
             // label8
             // 
@@ -699,18 +708,18 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "Choice 1";
             // 
-            // morechoices_button
+            // MoreChoicesButton
             // 
-            this.morechoices_button.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.morechoices_button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.morechoices_button.Font = new System.Drawing.Font("Stencil", 12F);
-            this.morechoices_button.Location = new System.Drawing.Point(461, 1000);
-            this.morechoices_button.Name = "morechoices_button";
-            this.morechoices_button.Size = new System.Drawing.Size(336, 36);
-            this.morechoices_button.TabIndex = 25;
-            this.morechoices_button.Text = "BLANKS FOR 3 MORE CHOICES";
-            this.morechoices_button.UseVisualStyleBackColor = false;
-            this.morechoices_button.Click += new System.EventHandler(this.morechoices_button_Click);
+            this.MoreChoicesButton.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.MoreChoicesButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MoreChoicesButton.Font = new System.Drawing.Font("Stencil", 12F);
+            this.MoreChoicesButton.Location = new System.Drawing.Point(461, 1000);
+            this.MoreChoicesButton.Name = "MoreChoicesButton";
+            this.MoreChoicesButton.Size = new System.Drawing.Size(336, 36);
+            this.MoreChoicesButton.TabIndex = 25;
+            this.MoreChoicesButton.Text = "BLANKS FOR 3 MORE CHOICES";
+            this.MoreChoicesButton.UseVisualStyleBackColor = false;
+            this.MoreChoicesButton.Click += new System.EventHandler(this.morechoices_button_Click);
             // 
             // label6
             // 
@@ -732,13 +741,13 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Category";
             // 
-            // defaultmark_textbox
+            // DefaultMarkTextBox
             // 
-            this.defaultmark_textbox.Location = new System.Drawing.Point(461, 642);
-            this.defaultmark_textbox.Name = "defaultmark_textbox";
-            this.defaultmark_textbox.Size = new System.Drawing.Size(103, 22);
-            this.defaultmark_textbox.TabIndex = 10;
-            this.defaultmark_textbox.Text = "1";
+            this.DefaultMarkTextBox.Location = new System.Drawing.Point(461, 642);
+            this.DefaultMarkTextBox.Name = "DefaultMarkTextBox";
+            this.DefaultMarkTextBox.Size = new System.Drawing.Size(103, 22);
+            this.DefaultMarkTextBox.TabIndex = 10;
+            this.DefaultMarkTextBox.Text = "1";
             // 
             // label3
             // 
@@ -750,22 +759,22 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Question Name";
             // 
-            // questionname_textbox
+            // QuestionNameTextBox
             // 
-            this.questionname_textbox.Location = new System.Drawing.Point(461, 307);
-            this.questionname_textbox.Name = "questionname_textbox";
-            this.questionname_textbox.Size = new System.Drawing.Size(823, 22);
-            this.questionname_textbox.TabIndex = 9;
-            this.questionname_textbox.TextChanged += new System.EventHandler(this.questionname_textbox_TextChanged);
+            this.QuestionNameTextBox.Location = new System.Drawing.Point(461, 307);
+            this.QuestionNameTextBox.Name = "QuestionNameTextBox";
+            this.QuestionNameTextBox.Size = new System.Drawing.Size(823, 22);
+            this.QuestionNameTextBox.TabIndex = 9;
+            this.QuestionNameTextBox.TextChanged += new System.EventHandler(this.questionname_textbox_TextChanged);
             // 
-            // questiontext_textbox
+            // QuestionTextTextBox
             // 
-            this.questiontext_textbox.Location = new System.Drawing.Point(461, 373);
-            this.questiontext_textbox.Name = "questiontext_textbox";
-            this.questiontext_textbox.Size = new System.Drawing.Size(823, 217);
-            this.questiontext_textbox.TabIndex = 2;
-            this.questiontext_textbox.Text = "";
-            this.questiontext_textbox.TextChanged += new System.EventHandler(this.questiontext_textbox_TextChanged);
+            this.QuestionTextTextBox.Location = new System.Drawing.Point(461, 373);
+            this.QuestionTextTextBox.Name = "QuestionTextTextBox";
+            this.QuestionTextTextBox.Size = new System.Drawing.Size(823, 217);
+            this.QuestionTextTextBox.TabIndex = 2;
+            this.QuestionTextTextBox.Text = "";
+            this.QuestionTextTextBox.TextChanged += new System.EventHandler(this.questiontext_textbox_TextChanged);
             // 
             // label4
             // 
@@ -777,14 +786,17 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Question Text";
             // 
-            // category_combobox
+            // CategoryComboBox
             // 
-            this.category_combobox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.category_combobox.FormattingEnabled = true;
-            this.category_combobox.Location = new System.Drawing.Point(461, 246);
-            this.category_combobox.Name = "category_combobox";
-            this.category_combobox.Size = new System.Drawing.Size(823, 24);
-            this.category_combobox.TabIndex = 8;
+            this.CategoryComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CategoryComboBox.FormattingEnabled = true;
+            this.CategoryComboBox.Items.AddRange(new object[] {
+            "Default"});
+            this.CategoryComboBox.Location = new System.Drawing.Point(461, 246);
+            this.CategoryComboBox.Name = "CategoryComboBox";
+            this.CategoryComboBox.Size = new System.Drawing.Size(823, 24);
+            this.CategoryComboBox.TabIndex = 8;
+            this.CategoryComboBox.Text = "Default";
             // 
             // label5
             // 
@@ -805,6 +817,36 @@
             this.HomePanel.Size = new System.Drawing.Size(1366, 768);
             this.HomePanel.TabIndex = 33;
             // 
+            // HeadingPanel1
+            // 
+            this.HeadingPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.HeadingPanel1.Controls.Add(this.flowLayoutPanel3);
+            this.HeadingPanel1.Controls.Add(this.TurnEditOnButton);
+            this.HeadingPanel1.Controls.Add(this.label33);
+            this.HeadingPanel1.Location = new System.Drawing.Point(16, 20);
+            this.HeadingPanel1.Name = "HeadingPanel1";
+            this.HeadingPanel1.Size = new System.Drawing.Size(1312, 207);
+            this.HeadingPanel1.TabIndex = 35;
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.Home1);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 68);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(1294, 45);
+            this.flowLayoutPanel3.TabIndex = 33;
+            // 
+            // Home1
+            // 
+            this.Home1.AutoSize = true;
+            this.Home1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Home1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Home1.Location = new System.Drawing.Point(3, 0);
+            this.Home1.Name = "Home1";
+            this.Home1.Size = new System.Drawing.Size(61, 23);
+            this.Home1.TabIndex = 0;
+            this.Home1.Text = "Home";
+            // 
             // TurnEditOnButton
             // 
             this.TurnEditOnButton.BackColor = System.Drawing.Color.DeepSkyBlue;
@@ -818,6 +860,17 @@
             this.TurnEditOnButton.Text = "TURN EDITING ON";
             this.TurnEditOnButton.UseVisualStyleBackColor = false;
             this.TurnEditOnButton.Click += new System.EventHandler(this.button1_Click_2);
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Sylfaen", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.ForeColor = System.Drawing.Color.IndianRed;
+            this.label33.Location = new System.Drawing.Point(-1, -1);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(78, 66);
+            this.label33.TabIndex = 32;
+            this.label33.Text = "IT";
             // 
             // EditPanel
             // 
@@ -850,6 +903,7 @@
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(980, 45);
             this.flowLayoutPanel2.TabIndex = 33;
+            this.flowLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
             // 
             // Home2
             // 
@@ -917,6 +971,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.QuestionFlowLayout);
             this.tabPage1.Controls.Add(this.label35);
             this.tabPage1.Controls.Add(this.label32);
             this.tabPage1.Controls.Add(this.checkBox2);
@@ -926,6 +981,7 @@
             this.tabPage1.Controls.Add(this.comboBox1);
             this.tabPage1.Controls.Add(this.label20);
             this.tabPage1.Controls.Add(this.label22);
+            this.tabPage1.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabPage1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tabPage1.Location = new System.Drawing.Point(4, 35);
             this.tabPage1.Name = "tabPage1";
@@ -933,6 +989,26 @@
             this.tabPage1.Size = new System.Drawing.Size(1284, 485);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Questions";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label35.Location = new System.Drawing.Point(40, 186);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(221, 23);
+            this.label35.TabIndex = 30;
+            this.label35.Text = "Also show old questions";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label32.Location = new System.Drawing.Point(40, 151);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(364, 23);
+            this.label32.TabIndex = 29;
+            this.label32.Text = "Also show questions from subcategories";
             // 
             // checkBox2
             // 
@@ -980,11 +1056,14 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Default"});
             this.comboBox1.Location = new System.Drawing.Point(181, 67);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(214, 31);
             this.comboBox1.TabIndex = 2;
             this.comboBox1.Text = "Default";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label20
             // 
@@ -1036,47 +1115,6 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Export";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // HeadingPanel1
-            // 
-            this.HeadingPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.HeadingPanel1.Controls.Add(this.flowLayoutPanel3);
-            this.HeadingPanel1.Controls.Add(this.TurnEditOnButton);
-            this.HeadingPanel1.Controls.Add(this.label33);
-            this.HeadingPanel1.Location = new System.Drawing.Point(16, 20);
-            this.HeadingPanel1.Name = "HeadingPanel1";
-            this.HeadingPanel1.Size = new System.Drawing.Size(1312, 207);
-            this.HeadingPanel1.TabIndex = 35;
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.Controls.Add(this.Home1);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 68);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(1294, 45);
-            this.flowLayoutPanel3.TabIndex = 33;
-            // 
-            // Home1
-            // 
-            this.Home1.AutoSize = true;
-            this.Home1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Home1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Home1.Location = new System.Drawing.Point(3, 0);
-            this.Home1.Name = "Home1";
-            this.Home1.Size = new System.Drawing.Size(61, 23);
-            this.Home1.TabIndex = 0;
-            this.Home1.Text = "Home";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Sylfaen", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.ForeColor = System.Drawing.Color.IndianRed;
-            this.label33.Location = new System.Drawing.Point(-1, -1);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(78, 66);
-            this.label33.TabIndex = 32;
-            this.label33.Text = "IT";
             // 
             // PopupPanel
             // 
@@ -1152,34 +1190,27 @@
             this.label18.TabIndex = 1;
             this.label18.Text = "Question Bank";
             // 
-            // label32
+            // QuestionFlowLayout
             // 
-            this.label32.AutoSize = true;
-            this.label32.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label32.Location = new System.Drawing.Point(40, 151);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(364, 23);
-            this.label32.TabIndex = 29;
-            this.label32.Text = "Also show questions from subcategories";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label35.Location = new System.Drawing.Point(40, 186);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(221, 23);
-            this.label35.TabIndex = 30;
-            this.label35.Text = "Also show old questions";
+            this.QuestionFlowLayout.AutoScroll = true;
+            this.QuestionFlowLayout.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.QuestionFlowLayout.Cursor = System.Windows.Forms.Cursors.Default;
+            this.QuestionFlowLayout.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.QuestionFlowLayout.Location = new System.Drawing.Point(11, 284);
+            this.QuestionFlowLayout.Name = "QuestionFlowLayout";
+            this.QuestionFlowLayout.Size = new System.Drawing.Size(1213, 182);
+            this.QuestionFlowLayout.TabIndex = 31;
+            this.QuestionFlowLayout.Visible = false;
+            this.QuestionFlowLayout.WrapContents = false;
             // 
             // ExamApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.Controls.Add(this.EditPanel);
             this.Controls.Add(this.PopupPanel);
             this.Controls.Add(this.HomePanel);
-            this.Controls.Add(this.EditPanel);
             this.Controls.Add(this.EditQuestionPanel);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ExamApp";
@@ -1195,6 +1226,10 @@
             this.MoreChoicePanel.ResumeLayout(false);
             this.MoreChoicePanel.PerformLayout();
             this.HomePanel.ResumeLayout(false);
+            this.HeadingPanel1.ResumeLayout(false);
+            this.HeadingPanel1.PerformLayout();
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel3.PerformLayout();
             this.EditPanel.ResumeLayout(false);
             this.HeadingPanel2.ResumeLayout(false);
             this.HeadingPanel2.PerformLayout();
@@ -1203,10 +1238,6 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.HeadingPanel1.ResumeLayout(false);
-            this.HeadingPanel1.PerformLayout();
-            this.flowLayoutPanel3.ResumeLayout(false);
-            this.flowLayoutPanel3.PerformLayout();
             this.PopupPanel.ResumeLayout(false);
             this.PopupPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -1217,39 +1248,39 @@
         #endregion
 
         private System.Windows.Forms.Panel EditQuestionPanel;
-        private System.Windows.Forms.Button cancel_button;
+        private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button SaveQuitButton;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button SaveContinueButton;
         private System.Windows.Forms.Panel ChoicePanel;
-        private System.Windows.Forms.ComboBox choice2_grade;
-        private System.Windows.Forms.ComboBox choice1_grade;
+        private System.Windows.Forms.ComboBox ChoiceGrade2;
+        private System.Windows.Forms.ComboBox ChoiceGrade1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox ChoiceText2;
+        private System.Windows.Forms.TextBox ChoiceText1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button morechoices_button;
+        private System.Windows.Forms.Button MoreChoicesButton;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox defaultmark_textbox;
+        private System.Windows.Forms.TextBox DefaultMarkTextBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox questionname_textbox;
-        private System.Windows.Forms.RichTextBox questiontext_textbox;
+        private System.Windows.Forms.TextBox QuestionNameTextBox;
+        private System.Windows.Forms.RichTextBox QuestionTextTextBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox category_combobox;
+        private System.Windows.Forms.ComboBox CategoryComboBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel MoreChoicePanel;
-        private System.Windows.Forms.ComboBox choice5_grade;
-        private System.Windows.Forms.ComboBox choice4_grade;
+        private System.Windows.Forms.ComboBox ChoiceGrade5;
+        private System.Windows.Forms.ComboBox ChoiceGrade4;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.ComboBox choice3_grade;
+        private System.Windows.Forms.TextBox ChoiceText5;
+        private System.Windows.Forms.ComboBox ChoiceGrade3;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox ChoiceText4;
+        private System.Windows.Forms.TextBox ChoiceText3;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label12;
@@ -1294,6 +1325,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.FlowLayoutPanel QuestionFlowLayout;
     }
 }
 
