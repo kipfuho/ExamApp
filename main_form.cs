@@ -14,8 +14,8 @@ namespace ExamApp
     public partial class ExamApp : System.Windows.Forms.Form
     {
         private Question currentquestion;
-        private editpanel bigpanel1;
-        private editquestion bigpanel2;
+        private edit_form bigpanel1;
+        private editquestion_form bigpanel2;
         private List<Question> questions;
         private Category defaultCategory;
         public ExamApp()
@@ -41,11 +41,13 @@ namespace ExamApp
         {
             if(functionbutton1.Visible == true)
             {
+                Point point = headingElement.PointToScreen(Point.Empty);
+                popup.Location = new System.Drawing.Point(point.X + headingElement.Width - popup.Width - 50, point.Y);
                 popup.Show();
             }
         }
 
-        private void openeditpanel(editpanel form)
+        private void openeditpanel(edit_form form)
         {
             bigpanel1 = form;
             form.TopLevel = false;
@@ -58,7 +60,7 @@ namespace ExamApp
             form.Show();
         }
         
-        private void openeditquestionpanel(editquestion form)
+        private void openeditquestionpanel(editquestion_form form)
         {
             bigpanel2 = form;
             form.TopLevel = false;
@@ -83,7 +85,7 @@ namespace ExamApp
             }
             if(bigpanel1 == null)
             {
-                openeditpanel(new editpanel());
+                openeditpanel(new edit_form());
             }
             else
             {
@@ -110,7 +112,7 @@ namespace ExamApp
             }
             if (bigpanel2 == null)
             {
-                openeditquestionpanel(new editquestion());
+                openeditquestionpanel(new editquestion_form());
             }
             else
             {
@@ -137,7 +139,10 @@ namespace ExamApp
                 mainpanel.Controls.RemoveAt(0);
             }
             this.bigpanel1.Hide();
-            this.bigpanel2.Hide();
+            if (bigpanel2 != null)
+            {
+                this.bigpanel2.Hide();
+            }
             this.heading.Size = new System.Drawing.Size(1114, 117);
             this.functionbutton1.Show();
             slash1.Hide();

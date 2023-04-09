@@ -50,35 +50,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="category_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="category_form.Designer.cs">
+      <DependentUpon>category_form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Class.cs" />
-    <Compile Include="editpanel.cs">
+    <Compile Include="edit_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="editpanel.Designer.cs">
-      <DependentUpon>editpanel.cs</DependentUpon>
+    <Compile Include="edit_form.Designer.cs">
+      <DependentUpon>edit_form.cs</DependentUpon>
     </Compile>
-    <Compile Include="editquestion.cs">
+    <Compile Include="editquestion_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="editquestion.Designer.cs">
-      <DependentUpon>editquestion.cs</DependentUpon>
+    <Compile Include="editquestion_form.Designer.cs">
+      <DependentUpon>editquestion_form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="main_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="main_form.Designer.cs">
+      <DependentUpon>main_form.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="editpanel.resx">
-      <DependentUpon>editpanel.cs</DependentUpon>
+    <EmbeddedResource Include="category_form.resx">
+      <DependentUpon>category_form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="editquestion.resx">
-      <DependentUpon>editquestion.cs</DependentUpon>
+    <EmbeddedResource Include="edit_form.resx">
+      <DependentUpon>edit_form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="editquestion_form.resx">
+      <DependentUpon>editquestion_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="main_form.resx">
+      <DependentUpon>main_form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -106,6 +115,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.png" />
+    <None Include="picture\icon5.png" />
+    <None Include="picture\icon4.png" />
+    <None Include="picture\icon3.png" />
+    <None Include="picture\icon2.png" />
+    <None Include="picture\icon1.png" />
     <None Include="picture\icon.png" />
     <None Include="image.png" />
   </ItemGroup>

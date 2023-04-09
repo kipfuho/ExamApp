@@ -1,6 +1,6 @@
 ﻿namespace ExamApp
 {
-    partial class editquestion
+    partial class editquestion_form
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.MoreChoicesButton = new System.Windows.Forms.Button();
-            this.SaveContinueButton = new System.Windows.Forms.Button();
-            this.SaveQuitButton = new System.Windows.Forms.Button();
-            this.CancelButton = new System.Windows.Forms.Button();
             this.EditQuestionPanel = new System.Windows.Forms.Panel();
+            this.panel23 = new System.Windows.Forms.Panel();
             this.panel22 = new System.Windows.Forms.Panel();
             this.panel19 = new System.Windows.Forms.Panel();
             this.panel20 = new System.Windows.Forms.Panel();
+            this.CancelButton = new System.Windows.Forms.Button();
+            this.SaveQuitButton = new System.Windows.Forms.Button();
             this.panel21 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
+            this.SaveContinueButton = new System.Windows.Forms.Button();
             this.panel18 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.MoreChoicesButton = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.ChoicePanel = new System.Windows.Forms.Panel();
@@ -87,9 +88,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.panel26 = new System.Windows.Forms.Panel();
+            this.panel25 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
             this.EditQuestionPanel.SuspendLayout();
+            this.panel23.SuspendLayout();
             this.panel19.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel13.SuspendLayout();
@@ -99,49 +106,78 @@
             this.panel10.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel24.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // MoreChoicesButton
+            // EditQuestionPanel
             // 
-            this.MoreChoicesButton.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.MoreChoicesButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MoreChoicesButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.MoreChoicesButton.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MoreChoicesButton.Location = new System.Drawing.Point(124, 0);
-            this.MoreChoicesButton.Name = "MoreChoicesButton";
-            this.MoreChoicesButton.Size = new System.Drawing.Size(332, 43);
-            this.MoreChoicesButton.TabIndex = 25;
-            this.MoreChoicesButton.Text = "BLANKS FOR 3 MORE CHOICES";
-            this.MoreChoicesButton.UseVisualStyleBackColor = false;
-            this.MoreChoicesButton.Click += new System.EventHandler(this.MoreChoicesButton_Click);
+            this.EditQuestionPanel.AutoScroll = true;
+            this.EditQuestionPanel.Controls.Add(this.panel23);
+            this.EditQuestionPanel.Controls.Add(this.panel24);
+            this.EditQuestionPanel.Controls.Add(this.panel25);
+            this.EditQuestionPanel.Controls.Add(this.panel2);
+            this.EditQuestionPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.EditQuestionPanel.Location = new System.Drawing.Point(0, 0);
+            this.EditQuestionPanel.Name = "EditQuestionPanel";
+            this.EditQuestionPanel.Size = new System.Drawing.Size(1220, 663);
+            this.EditQuestionPanel.TabIndex = 26;
             // 
-            // SaveContinueButton
+            // panel23
             // 
-            this.SaveContinueButton.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.SaveContinueButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SaveContinueButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.SaveContinueButton.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveContinueButton.Location = new System.Drawing.Point(76, 0);
-            this.SaveContinueButton.Name = "SaveContinueButton";
-            this.SaveContinueButton.Size = new System.Drawing.Size(434, 43);
-            this.SaveContinueButton.TabIndex = 26;
-            this.SaveContinueButton.Text = "SAVE CHANGES AND CONTINUE EDITING";
-            this.SaveContinueButton.UseVisualStyleBackColor = false;
+            this.panel23.AutoScroll = true;
+            this.panel23.Controls.Add(this.panel22);
+            this.panel23.Controls.Add(this.panel19);
+            this.panel23.Controls.Add(this.panel16);
+            this.panel23.Controls.Add(this.panel13);
+            this.panel23.Controls.Add(this.panel12);
+            this.panel23.Controls.Add(this.ChoicePanel);
+            this.panel23.Controls.Add(this.panel11);
+            this.panel23.Controls.Add(this.panel10);
+            this.panel23.Controls.Add(this.panel9);
+            this.panel23.Controls.Add(this.QuestionTextTextBox);
+            this.panel23.Controls.Add(this.panel8);
+            this.panel23.Controls.Add(this.QuestionNameTextBox);
+            this.panel23.Controls.Add(this.panel7);
+            this.panel23.Controls.Add(this.CategoryComboBox);
+            this.panel23.Controls.Add(this.panel6);
+            this.panel23.Controls.Add(this.panel5);
+            this.panel23.Controls.Add(this.panel4);
+            this.panel23.Controls.Add(this.panel3);
+            this.panel23.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel23.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel23.Location = new System.Drawing.Point(0, 147);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(1199, 526);
+            this.panel23.TabIndex = 57;
             // 
-            // SaveQuitButton
+            // panel22
             // 
-            this.SaveQuitButton.BackColor = System.Drawing.Color.Red;
-            this.SaveQuitButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SaveQuitButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.SaveQuitButton.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveQuitButton.Location = new System.Drawing.Point(103, 0);
-            this.SaveQuitButton.Name = "SaveQuitButton";
-            this.SaveQuitButton.Size = new System.Drawing.Size(203, 43);
-            this.SaveQuitButton.TabIndex = 27;
-            this.SaveQuitButton.Text = "SAVE CHANGES";
-            this.SaveQuitButton.UseVisualStyleBackColor = false;
-            this.SaveQuitButton.Click += new System.EventHandler(this.SaveQuitButton_Click);
+            this.panel22.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel22.Location = new System.Drawing.Point(269, 986);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(709, 40);
+            this.panel22.TabIndex = 56;
+            // 
+            // panel19
+            // 
+            this.panel19.Controls.Add(this.panel20);
+            this.panel19.Controls.Add(this.CancelButton);
+            this.panel19.Controls.Add(this.SaveQuitButton);
+            this.panel19.Controls.Add(this.panel21);
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel19.Location = new System.Drawing.Point(269, 943);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(709, 43);
+            this.panel19.TabIndex = 55;
+            // 
+            // panel20
+            // 
+            this.panel20.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel20.Location = new System.Drawing.Point(467, 0);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(263, 43);
+            this.panel20.TabIndex = 1;
             // 
             // CancelButton
             // 
@@ -156,61 +192,18 @@
             this.CancelButton.Text = "CANCEL";
             this.CancelButton.UseVisualStyleBackColor = false;
             // 
-            // EditQuestionPanel
+            // SaveQuitButton
             // 
-            this.EditQuestionPanel.AutoScroll = true;
-            this.EditQuestionPanel.Controls.Add(this.panel22);
-            this.EditQuestionPanel.Controls.Add(this.panel19);
-            this.EditQuestionPanel.Controls.Add(this.panel16);
-            this.EditQuestionPanel.Controls.Add(this.panel13);
-            this.EditQuestionPanel.Controls.Add(this.panel12);
-            this.EditQuestionPanel.Controls.Add(this.ChoicePanel);
-            this.EditQuestionPanel.Controls.Add(this.panel11);
-            this.EditQuestionPanel.Controls.Add(this.panel10);
-            this.EditQuestionPanel.Controls.Add(this.panel9);
-            this.EditQuestionPanel.Controls.Add(this.QuestionTextTextBox);
-            this.EditQuestionPanel.Controls.Add(this.panel8);
-            this.EditQuestionPanel.Controls.Add(this.QuestionNameTextBox);
-            this.EditQuestionPanel.Controls.Add(this.panel7);
-            this.EditQuestionPanel.Controls.Add(this.CategoryComboBox);
-            this.EditQuestionPanel.Controls.Add(this.panel6);
-            this.EditQuestionPanel.Controls.Add(this.panel5);
-            this.EditQuestionPanel.Controls.Add(this.panel4);
-            this.EditQuestionPanel.Controls.Add(this.panel3);
-            this.EditQuestionPanel.Controls.Add(this.panel2);
-            this.EditQuestionPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.EditQuestionPanel.Location = new System.Drawing.Point(0, 0);
-            this.EditQuestionPanel.Name = "EditQuestionPanel";
-            this.EditQuestionPanel.Size = new System.Drawing.Size(1220, 681);
-            this.EditQuestionPanel.TabIndex = 26;
-            // 
-            // panel22
-            // 
-            this.panel22.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel22.Location = new System.Drawing.Point(269, 1100);
-            this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(730, 40);
-            this.panel22.TabIndex = 55;
-            // 
-            // panel19
-            // 
-            this.panel19.Controls.Add(this.panel20);
-            this.panel19.Controls.Add(this.CancelButton);
-            this.panel19.Controls.Add(this.SaveQuitButton);
-            this.panel19.Controls.Add(this.panel21);
-            this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel19.Location = new System.Drawing.Point(269, 1057);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(730, 43);
-            this.panel19.TabIndex = 54;
-            // 
-            // panel20
-            // 
-            this.panel20.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel20.Location = new System.Drawing.Point(467, 0);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(263, 43);
-            this.panel20.TabIndex = 1;
+            this.SaveQuitButton.BackColor = System.Drawing.Color.Red;
+            this.SaveQuitButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SaveQuitButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.SaveQuitButton.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveQuitButton.Location = new System.Drawing.Point(103, 0);
+            this.SaveQuitButton.Name = "SaveQuitButton";
+            this.SaveQuitButton.Size = new System.Drawing.Size(203, 43);
+            this.SaveQuitButton.TabIndex = 27;
+            this.SaveQuitButton.Text = "SAVE CHANGES";
+            this.SaveQuitButton.UseVisualStyleBackColor = false;
             // 
             // panel21
             // 
@@ -226,10 +219,10 @@
             this.panel16.Controls.Add(this.SaveContinueButton);
             this.panel16.Controls.Add(this.panel18);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel16.Location = new System.Drawing.Point(269, 1014);
+            this.panel16.Location = new System.Drawing.Point(269, 900);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(730, 43);
-            this.panel16.TabIndex = 53;
+            this.panel16.Size = new System.Drawing.Size(709, 43);
+            this.panel16.TabIndex = 54;
             // 
             // panel17
             // 
@@ -238,6 +231,19 @@
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(220, 43);
             this.panel17.TabIndex = 1;
+            // 
+            // SaveContinueButton
+            // 
+            this.SaveContinueButton.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.SaveContinueButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SaveContinueButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.SaveContinueButton.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveContinueButton.Location = new System.Drawing.Point(76, 0);
+            this.SaveContinueButton.Name = "SaveContinueButton";
+            this.SaveContinueButton.Size = new System.Drawing.Size(434, 43);
+            this.SaveContinueButton.TabIndex = 26;
+            this.SaveContinueButton.Text = "SAVE CHANGES AND CONTINUE EDITING";
+            this.SaveContinueButton.UseVisualStyleBackColor = false;
             // 
             // panel18
             // 
@@ -253,10 +259,10 @@
             this.panel13.Controls.Add(this.MoreChoicesButton);
             this.panel13.Controls.Add(this.panel15);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel13.Location = new System.Drawing.Point(269, 971);
+            this.panel13.Location = new System.Drawing.Point(269, 857);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(730, 43);
-            this.panel13.TabIndex = 52;
+            this.panel13.Size = new System.Drawing.Size(709, 43);
+            this.panel13.TabIndex = 53;
             // 
             // panel14
             // 
@@ -265,6 +271,20 @@
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(274, 43);
             this.panel14.TabIndex = 0;
+            // 
+            // MoreChoicesButton
+            // 
+            this.MoreChoicesButton.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.MoreChoicesButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MoreChoicesButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.MoreChoicesButton.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MoreChoicesButton.Location = new System.Drawing.Point(124, 0);
+            this.MoreChoicesButton.Name = "MoreChoicesButton";
+            this.MoreChoicesButton.Size = new System.Drawing.Size(332, 43);
+            this.MoreChoicesButton.TabIndex = 25;
+            this.MoreChoicesButton.Text = "BLANKS FOR 3 MORE CHOICES";
+            this.MoreChoicesButton.UseVisualStyleBackColor = false;
+            this.MoreChoicesButton.Click += new System.EventHandler(this.MoreChoicesButton_Click);
             // 
             // panel15
             // 
@@ -277,10 +297,10 @@
             // panel12
             // 
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(269, 931);
+            this.panel12.Location = new System.Drawing.Point(269, 817);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(730, 40);
-            this.panel12.TabIndex = 51;
+            this.panel12.Size = new System.Drawing.Size(709, 40);
+            this.panel12.TabIndex = 52;
             // 
             // ChoicePanel
             // 
@@ -289,10 +309,10 @@
             this.ChoicePanel.Controls.Add(this.MoreChoicePanel);
             this.ChoicePanel.Controls.Add(this.panel1);
             this.ChoicePanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ChoicePanel.Location = new System.Drawing.Point(269, 631);
+            this.ChoicePanel.Location = new System.Drawing.Point(269, 517);
             this.ChoicePanel.Name = "ChoicePanel";
-            this.ChoicePanel.Size = new System.Drawing.Size(730, 300);
-            this.ChoicePanel.TabIndex = 50;
+            this.ChoicePanel.Size = new System.Drawing.Size(709, 300);
+            this.ChoicePanel.TabIndex = 51;
             // 
             // MoreChoicePanel
             // 
@@ -312,7 +332,7 @@
             this.MoreChoicePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.MoreChoicePanel.Location = new System.Drawing.Point(0, 300);
             this.MoreChoicePanel.Name = "MoreChoicePanel";
-            this.MoreChoicePanel.Size = new System.Drawing.Size(709, 425);
+            this.MoreChoicePanel.Size = new System.Drawing.Size(688, 425);
             this.MoreChoicePanel.TabIndex = 35;
             this.MoreChoicePanel.Visible = false;
             // 
@@ -563,7 +583,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(709, 300);
+            this.panel1.Size = new System.Drawing.Size(688, 300);
             this.panel1.TabIndex = 0;
             // 
             // ChoiceGrade2
@@ -726,19 +746,19 @@
             // panel11
             // 
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel11.Location = new System.Drawing.Point(269, 591);
+            this.panel11.Location = new System.Drawing.Point(269, 477);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(730, 40);
-            this.panel11.TabIndex = 48;
+            this.panel11.Size = new System.Drawing.Size(709, 40);
+            this.panel11.TabIndex = 49;
             // 
             // panel10
             // 
             this.panel10.Controls.Add(this.DefaultMarkTextBox);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel10.Location = new System.Drawing.Point(269, 560);
+            this.panel10.Location = new System.Drawing.Point(269, 446);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(730, 31);
-            this.panel10.TabIndex = 47;
+            this.panel10.Size = new System.Drawing.Size(709, 31);
+            this.panel10.TabIndex = 48;
             // 
             // DefaultMarkTextBox
             // 
@@ -753,47 +773,47 @@
             // panel9
             // 
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(269, 520);
+            this.panel9.Location = new System.Drawing.Point(269, 406);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(730, 40);
-            this.panel9.TabIndex = 46;
+            this.panel9.Size = new System.Drawing.Size(709, 40);
+            this.panel9.TabIndex = 47;
             // 
             // QuestionTextTextBox
             // 
             this.QuestionTextTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.QuestionTextTextBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.QuestionTextTextBox.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.QuestionTextTextBox.Location = new System.Drawing.Point(269, 303);
+            this.QuestionTextTextBox.Location = new System.Drawing.Point(269, 189);
             this.QuestionTextTextBox.Name = "QuestionTextTextBox";
-            this.QuestionTextTextBox.Size = new System.Drawing.Size(730, 217);
-            this.QuestionTextTextBox.TabIndex = 45;
+            this.QuestionTextTextBox.Size = new System.Drawing.Size(709, 217);
+            this.QuestionTextTextBox.TabIndex = 46;
             this.QuestionTextTextBox.Text = "";
             // 
             // panel8
             // 
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(269, 263);
+            this.panel8.Location = new System.Drawing.Point(269, 149);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(730, 40);
-            this.panel8.TabIndex = 44;
+            this.panel8.Size = new System.Drawing.Size(709, 40);
+            this.panel8.TabIndex = 45;
             // 
             // QuestionNameTextBox
             // 
             this.QuestionNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.QuestionNameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.QuestionNameTextBox.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.QuestionNameTextBox.Location = new System.Drawing.Point(269, 232);
+            this.QuestionNameTextBox.Location = new System.Drawing.Point(269, 118);
             this.QuestionNameTextBox.Name = "QuestionNameTextBox";
-            this.QuestionNameTextBox.Size = new System.Drawing.Size(730, 31);
-            this.QuestionNameTextBox.TabIndex = 43;
+            this.QuestionNameTextBox.Size = new System.Drawing.Size(709, 31);
+            this.QuestionNameTextBox.TabIndex = 44;
             // 
             // panel7
             // 
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(269, 192);
+            this.panel7.Location = new System.Drawing.Point(269, 78);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(730, 40);
-            this.panel7.TabIndex = 42;
+            this.panel7.Size = new System.Drawing.Size(709, 40);
+            this.panel7.TabIndex = 43;
             // 
             // CategoryComboBox
             // 
@@ -802,10 +822,10 @@
             this.CategoryComboBox.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CategoryComboBox.Items.AddRange(new object[] {
             "Default"});
-            this.CategoryComboBox.Location = new System.Drawing.Point(269, 157);
+            this.CategoryComboBox.Location = new System.Drawing.Point(269, 43);
             this.CategoryComboBox.Name = "CategoryComboBox";
-            this.CategoryComboBox.Size = new System.Drawing.Size(730, 35);
-            this.CategoryComboBox.TabIndex = 40;
+            this.CategoryComboBox.Size = new System.Drawing.Size(709, 35);
+            this.CategoryComboBox.TabIndex = 41;
             this.CategoryComboBox.Text = "Default";
             // 
             // panel6
@@ -814,10 +834,10 @@
             this.panel6.Controls.Add(this.label6);
             this.panel6.Controls.Add(this.label1);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel6.Location = new System.Drawing.Point(200, 157);
+            this.panel6.Location = new System.Drawing.Point(200, 43);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(69, 983);
-            this.panel6.TabIndex = 39;
+            this.panel6.TabIndex = 40;
             // 
             // label18
             // 
@@ -858,18 +878,18 @@
             // panel5
             // 
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(200, 57);
+            this.panel5.Location = new System.Drawing.Point(200, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(799, 100);
-            this.panel5.TabIndex = 38;
+            this.panel5.Size = new System.Drawing.Size(778, 43);
+            this.panel5.TabIndex = 39;
             // 
             // panel4
             // 
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(999, 57);
+            this.panel4.Location = new System.Drawing.Point(978, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(200, 1083);
-            this.panel4.TabIndex = 37;
+            this.panel4.Size = new System.Drawing.Size(200, 1026);
+            this.panel4.TabIndex = 38;
             // 
             // panel3
             // 
@@ -878,16 +898,16 @@
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 57);
+            this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 1083);
-            this.panel3.TabIndex = 36;
+            this.panel3.Size = new System.Drawing.Size(200, 1026);
+            this.panel3.TabIndex = 37;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 100);
+            this.label2.Location = new System.Drawing.Point(22, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(108, 27);
             this.label2.TabIndex = 8;
@@ -897,7 +917,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 175);
+            this.label3.Location = new System.Drawing.Point(22, 118);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(168, 27);
             this.label3.TabIndex = 9;
@@ -907,7 +927,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 246);
+            this.label4.Location = new System.Drawing.Point(22, 189);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(168, 27);
             this.label4.TabIndex = 10;
@@ -917,11 +937,64 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 503);
+            this.label5.Location = new System.Drawing.Point(22, 446);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(156, 27);
             this.label5.TabIndex = 11;
             this.label5.Text = "Default Mark";
+            // 
+            // panel24
+            // 
+            this.panel24.Controls.Add(this.label19);
+            this.panel24.Controls.Add(this.label20);
+            this.panel24.Controls.Add(this.panel26);
+            this.panel24.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel24.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel24.Location = new System.Drawing.Point(0, 107);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(1199, 40);
+            this.panel24.TabIndex = 58;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label19.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label19.ForeColor = System.Drawing.Color.IndianRed;
+            this.label19.Location = new System.Drawing.Point(34, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(96, 27);
+            this.label19.TabIndex = 1;
+            this.label19.Text = "General";
+            this.label19.Click += new System.EventHandler(this.label19_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label20.Image = global::ExamApp.Properties.Resources.icon2;
+            this.label20.Location = new System.Drawing.Point(10, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(24, 27);
+            this.label20.TabIndex = 2;
+            this.label20.Text = " ";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel26
+            // 
+            this.panel26.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel26.Location = new System.Drawing.Point(0, 0);
+            this.panel26.Name = "panel26";
+            this.panel26.Size = new System.Drawing.Size(10, 40);
+            this.panel26.TabIndex = 0;
+            // 
+            // panel25
+            // 
+            this.panel25.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel25.Location = new System.Drawing.Point(0, 57);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(1199, 50);
+            this.panel25.TabIndex = 60;
             // 
             // panel2
             // 
@@ -944,16 +1017,17 @@
             this.label17.TabIndex = 32;
             this.label17.Text = "Adding a Multiple choices question";
             // 
-            // editquestion
+            // editquestion_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1220, 681);
+            this.ClientSize = new System.Drawing.Size(1220, 663);
             this.Controls.Add(this.EditQuestionPanel);
-            this.Name = "editquestion";
+            this.Name = "editquestion_form";
             this.Text = "editquestion";
             this.EditQuestionPanel.ResumeLayout(false);
-            this.EditQuestionPanel.PerformLayout();
+            this.panel23.ResumeLayout(false);
+            this.panel23.PerformLayout();
             this.panel19.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
@@ -969,6 +1043,8 @@
             this.panel6.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel24.ResumeLayout(false);
+            this.panel24.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -976,15 +1052,24 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button MoreChoicesButton;
-        private System.Windows.Forms.Button SaveContinueButton;
-        private System.Windows.Forms.Button SaveQuitButton;
-        private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Panel EditQuestionPanel;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Panel panel23;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Button SaveQuitButton;
+        private System.Windows.Forms.Panel panel21;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Button SaveContinueButton;
+        private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Button MoreChoicesButton;
+        private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Panel ChoicePanel;
         private System.Windows.Forms.Panel MoreChoicePanel;
@@ -1019,6 +1104,9 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.ComboBox CategoryComboBox;
         private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
@@ -1026,17 +1114,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Panel panel19;
-        private System.Windows.Forms.Panel panel20;
-        private System.Windows.Forms.Panel panel21;
-        private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.Panel panel18;
-        private System.Windows.Forms.Panel panel22;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel24;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Panel panel26;
+        private System.Windows.Forms.Panel panel25;
+        private System.Windows.Forms.Label label20;
     }
 }

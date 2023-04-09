@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ExamApp
 {
-    public partial class editquestion : Form
+    public partial class editquestion_form : Form
     {
-        public editquestion()
+        public editquestion_form()
         {
             InitializeComponent();
         } 
@@ -118,9 +118,18 @@ namespace ExamApp
             this.MoreChoicePanel.Show();
         }
 
-        private void SaveQuitButton_Click(object sender, EventArgs e)
+        private void label19_Click(object sender, EventArgs e)
         {
-            this.MoreChoicePanel.Hide();
+            if(panel23.Visible == true)
+            {
+                panel23.Hide();
+                this.label20.Image = global::ExamApp.Properties.Resources.icon1;
+            }
+            else
+            {
+                panel23.Show();
+                this.label20.Image = global::ExamApp.Properties.Resources.icon2;
+            }
         }
     }
 }
