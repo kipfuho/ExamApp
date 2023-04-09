@@ -16,6 +16,7 @@ namespace ExamApp
         private Question currentquestion;
         private edit_form bigpanel1;
         private editquestion_form bigpanel2;
+        private quiz_form bigpanel3;
         private List<Question> questions;
         private Category defaultCategory;
         public ExamApp()
@@ -37,9 +38,9 @@ namespace ExamApp
             this.popup.Hide();
         }
 
-        private void functionbutton1_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
-            if(functionbutton1.Visible == true)
+            if (label1.Visible == true)
             {
                 Point point = headingElement.PointToScreen(Point.Empty);
                 popup.Location = new System.Drawing.Point(point.X + headingElement.Width - popup.Width - 50, point.Y);
@@ -47,7 +48,39 @@ namespace ExamApp
             }
         }
 
-        private void openeditpanel(edit_form form)
+        private void functionbutton1_Click(object sender, EventArgs e)
+        {
+            label1.Hide();
+            functionbutton1.Hide();
+            popup.Hide();
+            this.heading.Size = new System.Drawing.Size(1114, 86);
+
+            if (mainpanel.Controls.Count > 0)
+            {
+                mainpanel.Controls.RemoveAt(0);
+            }
+
+            if(bigpanel3 == null)
+            {
+                openquizpanel(new quiz_form());
+            }
+            else
+            {
+                mainpanel.Controls.Add(bigpanel3);
+                mainpanel.Tag = bigpanel3;
+                bigpanel3.Show();
+            }
+            direction1.Cursor = System.Windows.Forms.Cursors.Hand;
+            direction1.ForeColor = Color.IndianRed;
+            direction1.Click += new System.EventHandler(this.direction1_Click);
+            slash1.Show();
+            direction2.Text = "Adding a new quiz";
+            direction2.ForeColor = System.Drawing.SystemColors.ControlText;
+            direction2.Cursor = System.Windows.Forms.Cursors.Default;
+            direction2.Show();
+        }
+
+        private void openeditpanel(edit_form form, int index)
         {
             bigpanel1 = form;
             form.TopLevel = false;
@@ -55,6 +88,7 @@ namespace ExamApp
             form.Dock = DockStyle.Fill;
             form.DirectingButton1.Click += new System.EventHandler(this.createquestion_Click);
             form.SubcategoriesQ.CheckedChanged += new System.EventHandler(this.BP1checkbox1_CheckedChanged);
+            form.DirectTab.SelectedIndex = index;
             mainpanel.Controls.Add(form);
             mainpanel.Tag = form;
             form.Show();
@@ -74,32 +108,101 @@ namespace ExamApp
             form.Show();
         }
 
+        private void openquizpanel(quiz_form form)
+        {
+            bigpanel3 = form;
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            mainpanel.Controls.Add(form);
+            mainpanel.Tag = form;
+            form.Show();
+        }
+
         private void questions1_Click(object sender, EventArgs e)
         {
             this.popup.Hide();
             this.functionbutton1.Hide();
             this.heading.Size = new System.Drawing.Size(1114, 86);
+
             if(mainpanel.Controls.Count > 0)
             {
                 mainpanel.Controls.RemoveAt(0);
             }
+
             if(bigpanel1 == null)
             {
-                openeditpanel(new edit_form());
+                openeditpanel(new edit_form(), 0);
             }
             else
             {
                 mainpanel.Controls.Add(bigpanel1);
                 mainpanel.Tag = bigpanel1;
+                bigpanel1.DirectTab.SelectedIndex = 0;
                 bigpanel1.Show();
             }
-            slash1.Show();
-            direction2.Show();
+
             direction1.Cursor = System.Windows.Forms.Cursors.Hand;
             direction1.ForeColor = Color.IndianRed;
             direction1.Click += new System.EventHandler(this.direction1_Click);
         }
-        
+
+        private void categories1_Click(object sender, EventArgs e)
+        {
+            this.popup.Hide();
+            this.functionbutton1.Hide();
+            this.heading.Size = new System.Drawing.Size(1114, 86);
+
+            if (mainpanel.Controls.Count > 0)
+            {
+                mainpanel.Controls.RemoveAt(0);
+            }
+
+            if (bigpanel1 == null)
+            {
+                openeditpanel(new edit_form(), 1);
+            }
+            else
+            {
+                mainpanel.Controls.Add(bigpanel1);
+                mainpanel.Tag = bigpanel1;
+                bigpanel1.DirectTab.SelectedIndex = 1;
+                bigpanel1.Show();
+            }
+
+            direction1.Cursor = System.Windows.Forms.Cursors.Hand;
+            direction1.ForeColor = Color.IndianRed;
+            direction1.Click += new System.EventHandler(this.direction1_Click);
+        }
+
+        private void import1_Click(object sender, EventArgs e)
+        {
+            this.popup.Hide();
+            this.functionbutton1.Hide();
+            this.heading.Size = new System.Drawing.Size(1114, 86);
+
+            if (mainpanel.Controls.Count > 0)
+            {
+                mainpanel.Controls.RemoveAt(0);
+            }
+
+            if (bigpanel1 == null)
+            {
+                openeditpanel(new edit_form(), 2);
+            }
+            else
+            {
+                mainpanel.Controls.Add(bigpanel1);
+                mainpanel.Tag = bigpanel1;
+                bigpanel1.DirectTab.SelectedIndex = 2;
+                bigpanel1.Show();
+            }
+
+            direction1.Cursor = System.Windows.Forms.Cursors.Hand;
+            direction1.ForeColor = Color.IndianRed;
+            direction1.Click += new System.EventHandler(this.direction1_Click);
+        }
+
         private void createquestion_Click(object sender, EventArgs e)
         {
             if (bigpanel1.Visible == false)
@@ -125,7 +228,10 @@ namespace ExamApp
             }
             bigpanel2.BigLabel.Text = "Adding a Multiple choices question";
             bigpanel1.Hide();
+            slash1.Show();
             slash2.Show();
+            direction2.Text = "Question Bank";
+            direction2.Show();
             direction3.Show();
             direction2.Cursor = System.Windows.Forms.Cursors.Hand;
             direction2.ForeColor = Color.IndianRed;
@@ -138,18 +244,26 @@ namespace ExamApp
             {
                 mainpanel.Controls.RemoveAt(0);
             }
-            this.bigpanel1.Hide();
+            if (bigpanel1 != null)
+            {
+                this.bigpanel1.Hide();
+            }
             if (bigpanel2 != null)
             {
                 this.bigpanel2.Hide();
             }
+            if(bigpanel3 != null)
+            {
+                this.bigpanel3.Hide();
+            }
             this.heading.Size = new System.Drawing.Size(1114, 117);
             this.functionbutton1.Show();
+            this.label1.Show();
             slash1.Hide();
             slash2.Hide();
             direction2.Hide();
             direction3.Hide();
-            direction1.ForeColor = System.Drawing.Color.Black;
+            direction1.ForeColor = System.Drawing.SystemColors.ControlText;
             direction1.Cursor = System.Windows.Forms.Cursors.Default;
         }
         
@@ -162,9 +276,9 @@ namespace ExamApp
             bigpanel2.Hide();
             slash2.Hide();
             direction3.Hide();
+            direction2.Hide();
+            slash1.Hide();
             direction2.Click -= new System.EventHandler(this.direction2_Click);
-            direction2.ForeColor = System.Drawing.Color.Black;
-            direction2.Cursor = System.Windows.Forms.Cursors.Default;
             mainpanel.Controls.Add(bigpanel1);
             mainpanel.Tag = bigpanel1;
             bigpanel1.Show();

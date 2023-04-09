@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -97,10 +98,36 @@ class Question
 	}
 }
 
+class Timing
+{
+	private DateTime open;
+    private DateTime close;
+	private int timeLimit;
+
+	public DateTime Open
+	{
+		get { return open; }
+		set { open = value; }
+	}
+
+	public DateTime Close
+	{
+		get { return close; }
+		set { close = value; }
+	}
+
+	public int TimeLimit
+	{
+		get { return timeLimit; }
+		set { timeLimit = value; }
+	}
+}
+
 class Quiz
 {
 	private string quizName;
 	private string quizDescription;
+	Timing time;
 
 	public string Name
 	{
@@ -112,6 +139,12 @@ class Quiz
 	{
 		get { return quizDescription; }
         set { quizDescription = value; }
+	}
+
+	public Timing Time
+	{
+		get { return time; }
+        set { time = value; }
 	}
 }
 

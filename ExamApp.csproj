@@ -50,11 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="category_form.cs">
+    <Compile Include="quiz_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="category_form.Designer.cs">
-      <DependentUpon>category_form.cs</DependentUpon>
+    <Compile Include="quiz_form.Designer.cs">
+      <DependentUpon>quiz_form.cs</DependentUpon>
     </Compile>
     <Compile Include="Class.cs" />
     <Compile Include="edit_form.cs">
@@ -77,8 +77,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="category_form.resx">
-      <DependentUpon>category_form.cs</DependentUpon>
+    <EmbeddedResource Include="quiz_form.resx">
+      <DependentUpon>quiz_form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="edit_form.resx">
       <DependentUpon>edit_form.cs</DependentUpon>
@@ -115,6 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.png" />
+    <None Include="picture\icon6.png" />
     <None Include="picture\icon5.png" />
     <None Include="picture\icon4.png" />
     <None Include="picture\icon3.png" />

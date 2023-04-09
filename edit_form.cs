@@ -32,6 +32,11 @@ namespace ExamApp
             get { return this.ShowQuestionsSubcategoriesCheckBox; }
         }
 
+        public TabControl DirectTab
+        {
+            get { return DirectionInEditPanel; }
+        }
+
         public void tabControl_DrawItem(object sender, DrawItemEventArgs e)
         {
             if(e.Index == DirectionInEditPanel.SelectedIndex)

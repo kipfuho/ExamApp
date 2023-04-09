@@ -214,6 +214,7 @@
             this.label1.Size = new System.Drawing.Size(44, 38);
             this.label1.TabIndex = 2;
             this.label1.Text = "   ";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // signature1
             // 
@@ -263,7 +264,7 @@
             this.popup.Controls.Add(this.signature2);
             this.popup.Location = new System.Drawing.Point(337, 240);
             this.popup.Name = "popup";
-            this.popup.Size = new System.Drawing.Size(541, 185);
+            this.popup.Size = new System.Drawing.Size(541, 212);
             this.popup.TabIndex = 48;
             this.popup.Visible = false;
             // 
@@ -287,7 +288,7 @@
             this.export1.AutoSize = true;
             this.export1.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.export1.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.export1.Location = new System.Drawing.Point(369, 148);
+            this.export1.Location = new System.Drawing.Point(333, 174);
             this.export1.Name = "export1";
             this.export1.Size = new System.Drawing.Size(84, 27);
             this.export1.TabIndex = 4;
@@ -296,24 +297,28 @@
             // import1
             // 
             this.import1.AutoSize = true;
+            this.import1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.import1.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.import1.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.import1.Location = new System.Drawing.Point(369, 114);
+            this.import1.Location = new System.Drawing.Point(333, 127);
             this.import1.Name = "import1";
             this.import1.Size = new System.Drawing.Size(84, 27);
             this.import1.TabIndex = 3;
             this.import1.Text = "Import";
+            this.import1.Click += new System.EventHandler(this.import1_Click);
             // 
             // categories1
             // 
             this.categories1.AutoSize = true;
+            this.categories1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.categories1.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categories1.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.categories1.Location = new System.Drawing.Point(369, 80);
+            this.categories1.Location = new System.Drawing.Point(333, 81);
             this.categories1.Name = "categories1";
             this.categories1.Size = new System.Drawing.Size(132, 27);
             this.categories1.TabIndex = 2;
             this.categories1.Text = "Categories";
+            this.categories1.Click += new System.EventHandler(this.categories1_Click);
             // 
             // questions1
             // 
@@ -321,7 +326,7 @@
             this.questions1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.questions1.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.questions1.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.questions1.Location = new System.Drawing.Point(369, 46);
+            this.questions1.Location = new System.Drawing.Point(333, 24);
             this.questions1.Name = "questions1";
             this.questions1.Size = new System.Drawing.Size(120, 27);
             this.questions1.TabIndex = 1;
