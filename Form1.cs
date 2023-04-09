@@ -13,6 +13,9 @@ namespace ExamApp
 {
     public partial class ExamApp : System.Windows.Forms.Form
     {
+        private Question currentquestion;
+        private editpanel bigpanel1;
+        private editquestion bigpanel2;
         private List<Question> questions;
         private Category defaultCategory;
         public ExamApp()
@@ -29,451 +32,904 @@ namespace ExamApp
             };
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void closepopup_Click(object sender, EventArgs e)
         {
-
+            this.popup.Hide();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void functionbutton1_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void domainUpDown1_SelectedItemChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void richTextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MoreChoicePanel.Show();
-        }
-
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void editmode_bigpanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void defaultmark_textbox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void editquestion_panel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Question question = new Question
+            if(functionbutton1.Visible == true)
             {
-                Name = QuestionNameTextBox.Text,
-                Description = QuestionTextTextBox.Text,
-                Mark = Convert.ToDouble(DefaultMarkTextBox.Text),
-                Choices = new List<Choice> { }
-            };
-            QuestionNameTextBox.ResetText();
-            QuestionTextTextBox.ResetText();
-            DefaultMarkTextBox.Text = "1";
-            if (String.IsNullOrWhiteSpace(ChoiceText1.Text) == false)
-            {
-                double grade = 0;
-                if(ChoiceGrade1.Text != "None")
-                {
-                    grade = double.Parse(ChoiceGrade1.Text.TrimEnd('%')) / 100.0;
-                    ChoiceGrade1.Text = "None";
-                }
-                Choice choice1 = new Choice
-                {
-                    Text = ChoiceText1.Text,
-                    Grade = grade
-                };
-                question.addChoice(choice1);
-                ChoiceText1.ResetText();
+                popup.Show();
             }
-            if (String.IsNullOrWhiteSpace(ChoiceText2.Text) == false)
+        }
+
+        private void openeditpanel(editpanel form)
+        {
+            bigpanel1 = form;
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            form.DirectingButton1.Click += new System.EventHandler(this.createquestion_Click);
+            form.SubcategoriesQ.CheckedChanged += new System.EventHandler(this.BP1checkbox1_CheckedChanged);
+            mainpanel.Controls.Add(form);
+            mainpanel.Tag = form;
+            form.Show();
+        }
+        
+        private void openeditquestionpanel(editquestion form)
+        {
+            bigpanel2 = form;
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            form.FunctionButton1.Click += delegate (object sender, EventArgs e) { this.BP2savebutton1_Click(sender, e, this.currentquestion); };
+            form.FunctionButton2.Click += new System.EventHandler(this.BP2cancelbutton_Click);
+            form.FunctionButton3.Click += delegate (object sender, EventArgs e) { this.BP2savebutton2_Click(sender, e, this.currentquestion); };
+            mainpanel.Controls.Add(form);
+            mainpanel.Tag = form;
+            form.Show();
+        }
+
+        private void questions1_Click(object sender, EventArgs e)
+        {
+            this.popup.Hide();
+            this.functionbutton1.Hide();
+            this.heading.Size = new System.Drawing.Size(1114, 86);
+            if(mainpanel.Controls.Count > 0)
             {
-                double grade = 0;
-                if (ChoiceGrade2.Text != "None")
-                {
-                    grade = double.Parse(ChoiceGrade2.Text.TrimEnd('%')) / 100.0;
-                    ChoiceGrade2.Text = "None";
-                }
-                Choice choice2 = new Choice
-                {
-                    Text = ChoiceText2.Text,
-                    Grade = grade
-                };
-                question.addChoice(choice2);
-                ChoiceText2.ResetText();
+                mainpanel.Controls.RemoveAt(0);
             }
-            if(MoreChoicePanel.Visible == true)
+            if(bigpanel1 == null)
             {
-                if (String.IsNullOrWhiteSpace(ChoiceText3.Text) == false)
-                {
-                    double grade = 0;
-                    if (ChoiceGrade3.Text != "None")
-                    {
-                        grade = double.Parse(ChoiceGrade3.Text.TrimEnd('%')) / 100.0;
-                    }
-                    Choice choice3 = new Choice
-                    {
-                        Text = ChoiceText3.Text,
-                        Grade = grade
-                    };
-                    question.addChoice(choice3);
-                }
-                if (String.IsNullOrWhiteSpace(ChoiceText4.Text) == false)
-                {
-                    double grade = 0;
-                    if (ChoiceGrade4.Text != "None")
-                    {
-                        grade = double.Parse(ChoiceGrade4.Text.TrimEnd('%')) / 100.0;
-                    }
-                    Choice choice4 = new Choice
-                    {
-                        Text = ChoiceText4.Text,
-                        Grade = grade
-                    };
-                    question.addChoice(choice4);
-                }
-                if (String.IsNullOrWhiteSpace(ChoiceText5.Text) == false)
-                {
-                    double grade = 0;
-                    if (ChoiceGrade5.Text != "None")
-                    {
-                        grade = double.Parse(ChoiceGrade5.Text.TrimEnd('%')) / 100.0;
-                    }
-                    Choice choice5 = new Choice
-                    {
-                        Text = ChoiceText5.Text,
-                        Grade = grade
-                    };
-                    question.addChoice(choice5);
-                }
-                ChoiceText3.ResetText();
-                ChoiceText4.ResetText();
-                ChoiceText5.ResetText();
-                ChoiceGrade3.Text = "None";
-                ChoiceGrade4.Text = "None";
-                ChoiceGrade5.Text = "None";
-                MoreChoicePanel.Hide();
-            }
-            questions.Add(question);
-            EditQuestionPanel.Hide();
-            EditQuestionPanel.AutoScrollPosition = new Point(0, 0);
-            EditPanel.Show();
-        }
-
-        private void questionname_textbox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void questiontext_textbox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cancel_button_Click(object sender, EventArgs e)
-        {
-            QuestionNameTextBox.ResetText();
-            QuestionTextTextBox.ResetText();
-            DefaultMarkTextBox.Text = "1";
-            ChoiceText1.ResetText();
-            ChoiceGrade1.Text = "None";
-            ChoiceText2.ResetText();
-            ChoiceGrade2.Text = "None";
-            if(MoreChoicePanel.Visible == true)
-            {
-                ChoiceText3.ResetText();
-                ChoiceGrade3.Text = "None";
-                ChoiceText4.ResetText(); 
-                ChoiceGrade4.Text = "None";
-                ChoiceText5.ResetText();
-                ChoiceGrade5.Text = "None";
-                MoreChoicePanel.Hide();
-            }
-            EditQuestionPanel.Hide();
-            EditQuestionPanel.AutoScrollPosition = new Point(0, 0);
-            EditPanel.Show();
-        }
-
-        private void panel1_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label19_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_2(object sender, EventArgs e)
-        {
-            PopupPanel.Show();
-        }
-
-        private void label18_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            EditPanel.Hide();
-            label17.Text = "Adding a Multiple choices question";
-            EditQuestionPanel.Show();
-        }
-        private void Edit_Click(object sender, System.EventArgs e, Question question)
-        {
-            EditPanel.Hide();
-            label17.Text = "Editing a Multiple choices question";
-            QuestionNameTextBox.Text = question.Name;
-            QuestionTextTextBox.Text = question.Description;
-            DefaultMarkTextBox.Text = question.Mark.ToString();
-            int numberofchoice = question.Choices.Count;
-
-            if (numberofchoice > 0)
-            {
-                ChoiceText1.Text = question.Choices[0].Text;
-                if (question.Choices[0].Grade == 0)
-                {
-                    ChoiceGrade1.Text = "None";
-                }
-                else
-                {
-                    ChoiceGrade1.Text = (question.Choices[0].Grade*100.0).ToString() + "%";
-                }
-            }
-
-            if (numberofchoice > 1)
-            {
-                ChoiceText2.Text = question.Choices[1].Text;
-                if (question.Choices[1].Grade == 0)
-                {
-                    ChoiceGrade2.Text = "None";
-                }
-                else
-                {
-                    ChoiceGrade2.Text = (question.Choices[1].Grade * 100.0).ToString() + "%";
-                }
-            }
-
-            if (numberofchoice > 2)
-            {
-                MoreChoicePanel.Show();
-                ChoiceText3.Text = question.Choices[2].Text;
-                if (question.Choices[2].Grade == 0)
-                {
-                    ChoiceGrade3.Text = "None";
-                }
-                else
-                {
-                    ChoiceGrade3.Text = (question.Choices[2].Grade * 100.0).ToString() + "%";
-                }
-
-                if (numberofchoice > 3)
-                {
-                    ChoiceText4.Text = question.Choices[3].Text;
-                    if (question.Choices[3].Grade == 0)
-                    {
-                        ChoiceGrade4.Text = "None";
-                    }
-                    else
-                    {
-                        ChoiceGrade4.Text = (question.Choices[3].Grade * 100.0).ToString() + "%";
-                    }
-                }
-
-                if (numberofchoice > 4)
-                {
-                    ChoiceText5.Text = question.Choices[4].Text;
-                    if (question.Choices[4].Grade == 0)
-                    {
-                        ChoiceGrade5.Text = "None";
-                    }
-                    else
-                    {
-                        ChoiceGrade5.Text = (question.Choices[4].Grade * 100.0).ToString() + "%";
-                    }
-                }
-            }
-            EditQuestionPanel.Show();
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked)
-            {
-                QuestionFlowLayout.Controls.Clear();
-                foreach (Question question in questions)
-                {
-                    QuestionBlock temp = new QuestionBlock(question);
-                    temp.Edit.Click += delegate(object sender1, EventArgs e1) { this.Edit_Click(sender1, e1, temp.Question); };
-                    QuestionFlowLayout.Controls.Add(temp);
-                }
-                QuestionFlowLayout.Show();
+                openeditpanel(new editpanel());
             }
             else
             {
-                QuestionFlowLayout.Hide();
+                mainpanel.Controls.Add(bigpanel1);
+                mainpanel.Tag = bigpanel1;
+                bigpanel1.Show();
             }
+            slash1.Show();
+            direction2.Show();
+            direction1.Cursor = System.Windows.Forms.Cursors.Hand;
+            direction1.ForeColor = Color.IndianRed;
+            direction1.Click += new System.EventHandler(this.direction1_Click);
         }
-
-        private void morechoices_button_Click(object sender, EventArgs e)
+        
+        private void createquestion_Click(object sender, EventArgs e)
         {
-            if(MoreChoicePanel.Visible == false)
+            if (bigpanel1.Visible == false)
             {
-                MoreChoicePanel.Show();
+                return ;
+            }
+            if (mainpanel.Controls.Count > 0)
+            {
+                mainpanel.Controls.RemoveAt(0);
+            }
+            if (bigpanel2 == null)
+            {
+                openeditquestionpanel(new editquestion());
+            }
+            else
+            {
+                bigpanel2.MainPanel.AutoScrollPosition = new Point(0, 0);
+                bigpanel2.ChoiceP.AutoScrollPosition = new Point(0, 0);
+                bigpanel2.MoreChoiceP.Hide();
+                mainpanel.Controls.Add(bigpanel2);
+                mainpanel.Tag = bigpanel2;
+                bigpanel2.Show();
+            }
+            bigpanel2.BigLabel.Text = "Adding a Multiple choices question";
+            bigpanel1.Hide();
+            slash2.Show();
+            direction3.Show();
+            direction2.Cursor = System.Windows.Forms.Cursors.Hand;
+            direction2.ForeColor = Color.IndianRed;
+            direction2.Click += new System.EventHandler(this.direction2_Click);
+        }
+
+        private void direction1_Click(object sender, EventArgs e)
+        {
+            if (mainpanel.Controls.Count > 0)
+            {
+                mainpanel.Controls.RemoveAt(0);
+            }
+            this.bigpanel1.Hide();
+            this.bigpanel2.Hide();
+            this.heading.Size = new System.Drawing.Size(1114, 117);
+            this.functionbutton1.Show();
+            slash1.Hide();
+            slash2.Hide();
+            direction2.Hide();
+            direction3.Hide();
+            direction1.ForeColor = System.Drawing.Color.Black;
+            direction1.Cursor = System.Windows.Forms.Cursors.Default;
+        }
+        
+        private void direction2_Click(object sender, EventArgs e)
+        {
+            if (mainpanel.Controls.Count > 0)
+            {
+                mainpanel.Controls.RemoveAt(0);
+            }
+            bigpanel2.Hide();
+            slash2.Hide();
+            direction3.Hide();
+            direction2.Click -= new System.EventHandler(this.direction2_Click);
+            direction2.ForeColor = System.Drawing.Color.Black;
+            direction2.Cursor = System.Windows.Forms.Cursors.Default;
+            mainpanel.Controls.Add(bigpanel1);
+            mainpanel.Tag = bigpanel1;
+            bigpanel1.Show();
+        }
+        
+        private void BP2savebutton1_Click(object sender, EventArgs e, Question question)
+        {
+            if (String.IsNullOrWhiteSpace(this.bigpanel2.QName.Text))
+            {
+                MessageBox.Show("Question Name is empty");
+                return;
+            }
+
+            if (String.IsNullOrWhiteSpace(this.bigpanel2.QText.Text))
+            {
+                MessageBox.Show("Question Text is empty");
+                return;
+            }
+
+            if (String.IsNullOrWhiteSpace(this.bigpanel2.QMark.Text))
+            {
+                MessageBox.Show("Default Mark is empty");
+                return;
+            }
+
+            double mark;
+
+            try
+            {
+                mark = Convert.ToDouble(this.bigpanel2.QMark.Text);
+            }
+
+            catch (FormatException)
+            {
+                MessageBox.Show("Please input a valid value for Default Mark!");
+                return;
+            }
+
+            if (question == null)
+            {
+                question = new Question
+                {
+                    Name = this.bigpanel2.QName.Text,
+                    Description = this.bigpanel2.QText.Text,
+                    Mark = mark,
+                    Choices = new List<Choice>(5) {null, null, null, null, null }
+                };
+
+                this.questions.Add(question);
+
+                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C1Text.Text))
+                {
+                    double grade = 0;
+
+                    if (this.bigpanel2.C1Grade.Text != "None")
+                    {
+                        grade = Convert.ToDouble(this.bigpanel2.C1Grade.Text.TrimEnd('%')) / 100.0;
+                    }
+
+                    Choice choice = new Choice
+                    {
+                        Text = this.bigpanel2.C1Text.Text,
+                        Grade = grade
+                    };
+
+                    question.Choices[0] = choice;
+                }
+
+                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C2Text.Text))
+                {
+                    double grade = 0;
+                    if (this.bigpanel2.C2Grade.Text != "None")
+                    {
+                        grade = Convert.ToDouble(this.bigpanel2.C2Grade.Text.TrimEnd('%')) / 100.0;
+                    }
+                    Choice choice = new Choice
+                    {
+                        Text = this.bigpanel2.C2Text.Text,
+                        Grade = grade
+                    };
+                    question.Choices[1] = choice;
+                }
+
+                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C3Text.Text))
+                {
+                    double grade = 0;
+                    if (this.bigpanel2.C3Grade.Text != "None")
+                    {
+                        grade = Convert.ToDouble(this.bigpanel2.C3Grade.Text.TrimEnd('%')) / 100.0;
+                    }
+                    Choice choice = new Choice
+                    {
+                        Text = this.bigpanel2.C3Text.Text,
+                        Grade = grade
+                    };
+                    question.Choices[2] = choice;
+                }
+
+                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C4Text.Text))
+                {
+                    double grade = 0;
+                    if (this.bigpanel2.C4Grade.Text != "None")
+                    {
+                        grade = Convert.ToDouble(this.bigpanel2.C4Grade.Text.TrimEnd('%')) / 100.0;
+                    }
+                    Choice choice = new Choice
+                    {
+                        Text = this.bigpanel2.C4Text.Text,
+                        Grade = grade
+                    };
+                    question.Choices[3] = choice;
+                }
+
+                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C5Text.Text))
+                {
+                    double grade = 0;
+                    if (this.bigpanel2.C5Grade.Text != "None")
+                    {
+                        grade = Convert.ToDouble(this.bigpanel2.C5Grade.Text.TrimEnd('%')) / 100.0;
+                    }
+                    Choice choice = new Choice
+                    {
+                        Text = this.bigpanel2.C5Text.Text,
+                        Grade = grade
+                    };
+                    question.Choices[4] = choice;
+                }
+            }
+            else
+            {
+                this.currentquestion.Name = this.bigpanel2.QName.Text;
+                this.currentquestion.Description = this.bigpanel2.QText.Text;
+                this.currentquestion.Mark = mark;
+
+                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C1Text.Text))
+                {
+                    double grade = 0;
+
+                    if (this.bigpanel2.C1Grade.Text != "None")
+                    {
+                        grade = Convert.ToDouble(this.bigpanel2.C1Grade.Text.TrimEnd('%')) / 100.0;
+                    }
+
+                    if (currentquestion.Choices[0] != null)
+                    {
+                        currentquestion.Choices[0].Text = this.bigpanel2.C1Text.Text;
+                        currentquestion.Choices[0].Grade = grade;
+                    }
+                    else
+                    {
+                        Choice choice = new Choice
+                        {
+                            Text = this.bigpanel2.C1Text.Text,
+                            Grade = grade
+                        };
+                        currentquestion.Choices[0] = choice;
+                    }
+
+                }
+                else
+                {
+                    if (currentquestion.Choices[0] != null)
+                    {
+                        currentquestion.Choices[0] = null;
+                    }
+                }
+
+                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C2Text.Text))
+                {
+                    double grade = 0;
+
+                    if (this.bigpanel2.C2Grade.Text != "None")
+                    {
+                        grade = Convert.ToDouble(this.bigpanel2.C2Grade.Text.TrimEnd('%')) / 100.0;
+                    }
+
+                    if (currentquestion.Choices[1] != null)
+                    {
+                        currentquestion.Choices[1].Text = this.bigpanel2.C2Text.Text;
+                        currentquestion.Choices[1].Grade = grade;
+                    }
+                    else
+                    {
+                        Choice choice = new Choice
+                        {
+                            Text = this.bigpanel2.C2Text.Text,
+                            Grade = grade
+                        };
+                        currentquestion.Choices[1] = choice;
+                    }
+
+                }
+                else
+                {
+                    if (currentquestion.Choices[1] != null)
+                    {
+                        currentquestion.Choices[1] = null;
+                    }
+                }
+
+                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C3Text.Text))
+                {
+                    double grade = 0;
+
+                    if (this.bigpanel2.C3Grade.Text != "None")
+                    {
+                        grade = Convert.ToDouble(this.bigpanel2.C3Grade.Text.TrimEnd('%')) / 100.0;
+                    }
+
+                    if (currentquestion.Choices[2] != null)
+                    {
+                        currentquestion.Choices[2].Text = this.bigpanel2.C3Text.Text;
+                        currentquestion.Choices[2].Grade = grade;
+                    }
+                    else
+                    {
+                        Choice choice = new Choice
+                        {
+                            Text = this.bigpanel2.C3Text.Text,
+                            Grade = grade
+                        };
+                        currentquestion.Choices[2] = choice;
+                    }
+
+                }
+                else
+                {
+                    if (currentquestion.Choices[2] != null)
+                    {
+                        currentquestion.Choices[2] = null;
+                    }
+                }
+
+                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C4Text.Text))
+                {
+                    double grade = 0;
+
+                    if (this.bigpanel2.C4Grade.Text != "None")
+                    {
+                        grade = Convert.ToDouble(this.bigpanel2.C4Grade.Text.TrimEnd('%')) / 100.0;
+                    }
+
+                    if (currentquestion.Choices[3] != null)
+                    {
+                        currentquestion.Choices[3].Text = this.bigpanel2.C4Text.Text;
+                        currentquestion.Choices[3].Grade = grade;
+                    }
+                    else
+                    {
+                        Choice choice = new Choice
+                        {
+                            Text = this.bigpanel2.C4Text.Text,
+                            Grade = grade
+                        };
+                        currentquestion.Choices[3] = choice;
+                    }
+
+                }
+                else
+                {
+                    if (currentquestion.Choices[3] != null)
+                    {
+                        currentquestion.Choices[3] = null;
+                    }
+                }
+
+                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C5Text.Text))
+                {
+                    double grade = 0;
+
+                    if (this.bigpanel2.C5Grade.Text != "None")
+                    {
+                        grade = Convert.ToDouble(this.bigpanel2.C5Grade.Text.TrimEnd('%')) / 100.0;
+                    }
+
+                    if (currentquestion.Choices[4] != null)
+                    {
+                        currentquestion.Choices[4].Text = this.bigpanel2.C5Text.Text;
+                        currentquestion.Choices[4].Grade = grade;
+                    }
+                    else
+                    {
+                        Choice choice = new Choice
+                        {
+                            Text = this.bigpanel2.C5Text.Text,
+                            Grade = grade
+                        };
+                        currentquestion.Choices[4] = choice;
+                    }
+
+                }
+                else
+                {
+                    if (currentquestion.Choices[4] != null)
+                    {
+                        currentquestion.Choices[4] = null;
+                    }
+                }
+
+                currentquestion = null;
+            }    
+            bigpanel2.QName.ResetText();
+            bigpanel2.QText.ResetText();
+            bigpanel2.QMark.Text = "1";
+            bigpanel2.C1Text.ResetText();
+            bigpanel2.C2Text.ResetText();
+            bigpanel2.C3Text.ResetText();
+            bigpanel2.C4Text.ResetText();
+            bigpanel2.C5Text.ResetText();
+            bigpanel2.C1Grade.Text = "None";
+            bigpanel2.C2Grade.Text = "None";
+            bigpanel2.C3Grade.Text = "None";
+            bigpanel2.C4Grade.Text = "None";
+            bigpanel2.C5Grade.Text = "None";
+            slash2.Hide();
+            direction3.Hide();
+            direction2.Click -= new System.EventHandler(this.direction2_Click);
+            direction2.ForeColor = System.Drawing.Color.Black;
+            direction2.Cursor = System.Windows.Forms.Cursors.Default;
+            mainpanel.Controls.RemoveAt(0);
+            mainpanel.Controls.Add(bigpanel1);
+            bigpanel1.Show();
+        }
+
+        private void BP2savebutton2_Click(object sender, EventArgs e, Question question)
+        {
+            if (String.IsNullOrWhiteSpace(this.bigpanel2.QName.Text))
+            {
+                MessageBox.Show("Question Name is empty");
+                return ;
+            }
+
+            if (String.IsNullOrWhiteSpace(this.bigpanel2.QText.Text))
+            {
+                MessageBox.Show("Question Text is empty");
+                return ;
+            }
+
+            if (String.IsNullOrWhiteSpace(this.bigpanel2.QMark.Text))
+            {
+                MessageBox.Show("Default Mark is empty");
+                return ;
+            }
+
+            double mark;
+
+            try
+            {
+                mark = Convert.ToDouble(this.bigpanel2.QMark.Text);
+            }
+
+            catch (FormatException)
+            {
+                MessageBox.Show("Please input a valid value for Default Mark!");
+                return ;
+            }
+
+            if (question == null)
+            {
+                question = new Question
+                {
+                    Name = this.bigpanel2.QName.Text,
+                    Description = this.bigpanel2.QText.Text,
+                    Mark = mark,
+                    Choices = new List<Choice>(5) { null, null, null, null, null }
+                };
+
+                this.questions.Add(question);
+
+                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C1Text.Text))
+                {
+                    double grade = 0;
+
+                    if (this.bigpanel2.C1Grade.Text != "None")
+                    {
+                        grade = Convert.ToDouble(this.bigpanel2.C1Grade.Text.TrimEnd('%')) / 100.0;
+                    }
+
+                    Choice choice = new Choice
+                    {
+                        Text = this.bigpanel2.C1Text.Text,
+                        Grade = grade
+                    };
+
+                    question.Choices[0] = choice;
+                }
+
+                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C2Text.Text))
+                {
+                    double grade = 0;
+                    if (this.bigpanel2.C2Grade.Text != "None")
+                    {
+                        grade = Convert.ToDouble(this.bigpanel2.C2Grade.Text.TrimEnd('%')) / 100.0;
+                    }
+                    Choice choice = new Choice
+                    {
+                        Text = this.bigpanel2.C2Text.Text,
+                        Grade = grade
+                    };
+                    question.Choices[1] = choice;
+                }
+
+                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C3Text.Text))
+                {
+                    double grade = 0;
+                    if (this.bigpanel2.C3Grade.Text != "None")
+                    {
+                        grade = Convert.ToDouble(this.bigpanel2.C3Grade.Text.TrimEnd('%')) / 100.0;
+                    }
+                    Choice choice = new Choice
+                    {
+                        Text = this.bigpanel2.C3Text.Text,
+                        Grade = grade
+                    };
+                    question.Choices[2] = choice;
+                }
+
+                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C4Text.Text))
+                {
+                    double grade = 0;
+                    if (this.bigpanel2.C4Grade.Text != "None")
+                    {
+                        grade = Convert.ToDouble(this.bigpanel2.C4Grade.Text.TrimEnd('%')) / 100.0;
+                    }
+                    Choice choice = new Choice
+                    {
+                        Text = this.bigpanel2.C4Text.Text,
+                        Grade = grade
+                    };
+                    question.Choices[3] = choice;
+                }
+
+                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C5Text.Text))
+                {
+                    double grade = 0;
+                    if (this.bigpanel2.C5Grade.Text != "None")
+                    {
+                        grade = Convert.ToDouble(this.bigpanel2.C5Grade.Text.TrimEnd('%')) / 100.0;
+                    }
+                    Choice choice = new Choice
+                    {
+                        Text = this.bigpanel2.C5Text.Text,
+                        Grade = grade
+                    };
+                    question.Choices[4] = choice;
+                }
+
+                currentquestion = question;
+            }
+            else
+            {
+                this.currentquestion.Name = this.bigpanel2.QName.Text;
+                this.currentquestion.Description = this.bigpanel2.QText.Text;
+                this.currentquestion.Mark = mark;
+
+                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C1Text.Text))
+                {
+                    double grade = 0;
+
+                    if (this.bigpanel2.C1Grade.Text != "None")
+                    {
+                        grade = Convert.ToDouble(this.bigpanel2.C1Grade.Text.TrimEnd('%')) / 100.0;
+                    }
+
+                    if (currentquestion.Choices[0] != null)
+                    {
+                        currentquestion.Choices[0].Text = this.bigpanel2.C1Text.Text;
+                        currentquestion.Choices[0].Grade = grade;
+                    }
+                    else
+                    {
+                        Choice choice = new Choice
+                        {
+                            Text = this.bigpanel2.C1Text.Text,
+                            Grade = grade
+                        };
+                        currentquestion.Choices[0] = choice;
+                    }
+
+                }
+                else
+                {
+                    if (currentquestion.Choices[0] != null)
+                    {
+                        currentquestion.Choices[0] = null;
+                    }
+                }
+
+                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C2Text.Text))
+                {
+                    double grade = 0;
+
+                    if (this.bigpanel2.C2Grade.Text != "None")
+                    {
+                        grade = Convert.ToDouble(this.bigpanel2.C2Grade.Text.TrimEnd('%')) / 100.0;
+                    }
+
+                    if (currentquestion.Choices[1] != null)
+                    {
+                        currentquestion.Choices[1].Text = this.bigpanel2.C2Text.Text;
+                        currentquestion.Choices[1].Grade = grade;
+                    }
+                    else
+                    {
+                        Choice choice = new Choice
+                        {
+                            Text = this.bigpanel2.C2Text.Text,
+                            Grade = grade
+                        };
+                        currentquestion.Choices[1] = choice;
+                    }
+
+                }
+                else
+                {
+                    if (currentquestion.Choices[1] != null)
+                    {
+                        currentquestion.Choices[1] = null;
+                    }
+                }
+
+                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C3Text.Text))
+                {
+                    double grade = 0;
+
+                    if (this.bigpanel2.C3Grade.Text != "None")
+                    {
+                        grade = Convert.ToDouble(this.bigpanel2.C3Grade.Text.TrimEnd('%')) / 100.0;
+                    }
+
+                    if (currentquestion.Choices[2] != null)
+                    {
+                        currentquestion.Choices[2].Text = this.bigpanel2.C3Text.Text;
+                        currentquestion.Choices[2].Grade = grade;
+                    }
+                    else
+                    {
+                        Choice choice = new Choice
+                        {
+                            Text = this.bigpanel2.C3Text.Text,
+                            Grade = grade
+                        };
+                        currentquestion.Choices[2] = choice;
+                    }
+
+                }
+                else
+                {
+                    if (currentquestion.Choices[2] != null)
+                    {
+                        currentquestion.Choices[2] = null;
+                    }
+                }
+
+                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C4Text.Text))
+                {
+                    double grade = 0;
+
+                    if (this.bigpanel2.C4Grade.Text != "None")
+                    {
+                        grade = Convert.ToDouble(this.bigpanel2.C4Grade.Text.TrimEnd('%')) / 100.0;
+                    }
+
+                    if (currentquestion.Choices[3] != null)
+                    {
+                        currentquestion.Choices[3].Text = this.bigpanel2.C4Text.Text;
+                        currentquestion.Choices[3].Grade = grade;
+                    }
+                    else
+                    {
+                        Choice choice = new Choice
+                        {
+                            Text = this.bigpanel2.C4Text.Text,
+                            Grade = grade
+                        };
+                        currentquestion.Choices[3] = choice;
+                    }
+
+                }
+                else
+                {
+                    if (currentquestion.Choices[3] != null)
+                    {
+                        currentquestion.Choices[3] = null;
+                    }
+                }
+
+                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C5Text.Text))
+                {
+                    double grade = 0;
+
+                    if (this.bigpanel2.C5Grade.Text != "None")
+                    {
+                        grade = Convert.ToDouble(this.bigpanel2.C5Grade.Text.TrimEnd('%')) / 100.0;
+                    }
+
+                    if (currentquestion.Choices[4] != null)
+                    {
+                        currentquestion.Choices[4].Text = this.bigpanel2.C5Text.Text;
+                        currentquestion.Choices[4].Grade = grade;
+                    }
+                    else
+                    {
+                        Choice choice = new Choice
+                        {
+                            Text = this.bigpanel2.C5Text.Text,
+                            Grade = grade
+                        };
+                        currentquestion.Choices[4] = choice;
+                    }
+
+                }
+                else
+                {
+                    if (currentquestion.Choices[4] != null)
+                    {
+                        currentquestion.Choices[4] = null;
+                    }
+                }
+            }
+            MessageBox.Show("Saved!");
+        }
+
+        private void BP2cancelbutton_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("You will lose what you've typed. Are you sure?", "Cancel", MessageBoxButtons.YesNo);
+            if(result == DialogResult.No)
+            {
+                return ;
+            }
+            bigpanel2.QName.ResetText();
+            bigpanel2.QText.ResetText();
+            bigpanel2.QMark.Text = "1";
+            bigpanel2.C1Text.ResetText();
+            bigpanel2.C2Text.ResetText();
+            bigpanel2.C3Text.ResetText();
+            bigpanel2.C4Text.ResetText();
+            bigpanel2.C5Text.ResetText();
+            bigpanel2.C1Grade.Text = "None";
+            bigpanel2.C2Grade.Text = "None";
+            bigpanel2.C3Grade.Text = "None";
+            bigpanel2.C4Grade.Text = "None";
+            bigpanel2.C5Grade.Text = "None";
+            bigpanel2.Hide();
+            slash2.Hide();
+            direction3.Hide();
+            direction2.Click -= new System.EventHandler(this.direction2_Click);
+            direction2.ForeColor = System.Drawing.Color.Black;
+            direction2.Cursor = System.Windows.Forms.Cursors.Default;
+            mainpanel.Controls.RemoveAt(0);
+            mainpanel.Controls.Add(bigpanel1);
+            bigpanel1.Show();
+        }
+
+        private void BP1checkbox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(this.bigpanel1.QBox.Visible == false)
+            {
+                this.bigpanel1.QBox.Controls.Clear();
+                foreach (Question question in this.questions)
+                {
+                    QuestionBlock temp = new QuestionBlock(question);
+                    this.bigpanel1.QBox.Controls.Add(temp);
+                    temp.Edit.Click += delegate (object sender1, EventArgs e1) { this.BP1editlabel_Click(sender1, e1, temp.Question); };
+                }
+                this.bigpanel1.QBox.Visible = true;
+            }
+            else
+            {
+                this.bigpanel1.QBox.Visible = false;
             }
         }
 
-        private void label24_Click(object sender, EventArgs e)
+        private void BP1editlabel_Click(object sender, EventArgs e, Question question)
         {
-            EditPanel.Hide();
-            HomePanel.Show();
-        }
+            if(mainpanel.Controls.Count > 0)
+            {
+                mainpanel.Controls.RemoveAt(0);
+            }
 
-        private void label19_Click_1(object sender, EventArgs e)
-        {
+            currentquestion = question;
+            bigpanel2.QName.Text = question.Name;
+            bigpanel2.QText.Text = question.Description;
+            bigpanel2.QMark.Text = Convert.ToString(question.Mark);
 
-        }
+            if (question.Choices[2] != null || question.Choices[3] != null || question.Choices[4] != null)
+            {
+                bigpanel2.MoreChoiceP.Show();
+            }
 
-        private void label23_Click(object sender, EventArgs e)
-        {
-            EditQuestionPanel.Hide();
-            HomePanel.Show();
-        }
+            for (int i = 0; i <= 4; i++)
+            {
+                Choice choice = currentquestion.Choices[i];
+                if (choice != null)
+                {
+                    if (i == 0)
+                    {
+                        bigpanel2.C1Text.Text = choice.Text;
+                        if(choice.Grade != 0)
+                        {
+                            bigpanel2.C1Grade.Text = Convert.ToString(choice.Grade * 100.0) + "%";
+                        }
+                        else
+                        {
+                            bigpanel2.C1Grade.Text = "None";
+                        }
+                    }
+                    else if (i == 1)
+                    {
+                        bigpanel2.C2Text.Text = choice.Text;
+                        if (choice.Grade != 0)
+                        {
+                            bigpanel2.C2Grade.Text = Convert.ToString(choice.Grade * 100.0) + "%";
+                        }
+                        else
+                        {
+                            bigpanel2.C2Grade.Text = "None";
+                        }
+                    }
+                    else if (i == 2)
+                    {
+                        bigpanel2.C3Text.Text = choice.Text;
+                        if (choice.Grade != 0)
+                        {
+                            bigpanel2.C3Grade.Text = Convert.ToString(choice.Grade * 100.0) + "%";
+                        }
+                        else
+                        {
+                            bigpanel2.C3Grade.Text = "None";
+                        }
+                    }
+                    else if (i == 3)
+                    {
+                        bigpanel2.C4Text.Text = choice.Text;
+                        if (choice.Grade != 0)
+                        {
+                            bigpanel2.C4Grade.Text = Convert.ToString(choice.Grade * 100.0) + "%";
+                        }
+                        else
+                        {
+                            bigpanel2.C4Grade.Text = "None";
+                        }
+                    }
+                    else if (i == 4)
+                    {
+                        bigpanel2.C5Text.Text = choice.Text;
+                        if (choice.Grade != 0)
+                        {
+                            bigpanel2.C5Grade.Text = Convert.ToString(choice.Grade * 100.0) + "%";
+                        }
+                        else
+                        {
+                            bigpanel2.C5Grade.Text = "None";
+                        }
+                    }
+                }
+            }
 
-        private void label25_Click(object sender, EventArgs e)
-        {
-            EditQuestionPanel.Hide();
-            EditPanel.Show();
-        }
-
-        private void savecontinue_button_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label31_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label29_Click(object sender, EventArgs e)
-        {
-            EditPanel.Hide();
-            HomePanel.Show();
-        }
-
-        private void label18_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label19_Click_2(object sender, EventArgs e)
-        {
-            PopupPanel.Hide();
-            HomePanel.Hide();
-            EditPanel.Show();
-        }
-
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint_2(object sender, PaintEventArgs e)
-        {
-
+            slash2.Show();
+            direction3.Show();
+            direction2.Cursor = System.Windows.Forms.Cursors.Hand;
+            direction2.ForeColor = Color.IndianRed;
+            direction2.Click += new System.EventHandler(this.direction2_Click);
+            bigpanel1.Hide();
+            bigpanel2.BigLabel.Text = "Editing a Multiple choices question";
+            bigpanel2.MainPanel.AutoScrollPosition = new Point(0, 0);
+            bigpanel2.ChoiceP.AutoScrollPosition = new Point(0, 0);
+            mainpanel.Controls.Add(bigpanel2);
+            mainpanel.Controls.Add(bigpanel2);
+            bigpanel2.Show();
         }
     }
 }
