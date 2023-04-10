@@ -17,14 +17,29 @@ namespace ExamApp
             InitializeComponent();
         }
 
+        public TextBox CName
+        {
+            get { return newCategoryName; }
+        }
+
+        public TextBox CId
+        {
+            get { return newCategoryId; }
+        }
+
+        public RichTextBox CInfo
+        {
+            get { return newCategoryInfo; }
+        }
+
         public Button DirectingButton1
         {
             get { return this.CreateQuestionButton; }
         }
 
-        public FlowLayoutPanel QBox
+        public Button addCategoryButton
         {
-            get { return QuestionFlowLayout; }
+            get { return this.addCategorybutton; }
         }
 
         public CheckBox SubcategoriesQ
@@ -32,9 +47,24 @@ namespace ExamApp
             get { return this.ShowQuestionsSubcategoriesCheckBox; }
         }
 
+        public ComboBox QCategory
+        {
+            get { return comboBox1; }
+        }
+
+        public ComboBox PCategory
+        {
+            get { return comboBox2; }
+        }
+
         public TabControl DirectTab
         {
             get { return DirectionInEditPanel; }
+        }
+
+        public FlowLayoutPanel QBox
+        {
+            get { return QuestionFlowLayout; }
         }
 
         public void tabControl_DrawItem(object sender, DrawItemEventArgs e)

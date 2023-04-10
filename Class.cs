@@ -6,11 +6,24 @@ using System.Windows.Forms;
 
 class Category
 {
+	private Category parent;
 	private List<Category> child;
 	private string categoryName;
 	private string categoryInfo;
 	private int categoryId;
+	private int gen;
 	private List<Question> questionList;
+
+	public Category(Category parent, List<Category> child, string categoryName, string categoryInfo, int categoryId, int gen, List<Question> questionList)
+	{
+		this.Parent = parent;
+		this.child = child;
+		this.Name = categoryName;
+		this.Info = categoryInfo;
+		this.Id = categoryId;
+        this.Gen = gen;
+        this.QuestionList = questionList;
+	}
 
 	public string Name
 	{
@@ -24,6 +37,12 @@ class Category
 		set { categoryInfo = value; }
 	}
 
+	public int Gen
+	{
+		get { return gen; }
+		set { gen = value; }
+	}
+
 	public int Id
 	{
 		get { return categoryId; }
@@ -35,15 +54,41 @@ class Category
 		set { questionList = value; } 
 	}
 
+	public Category Parent
+	{
+		get { return parent; }
+		set { parent = value; }
+	}
+
 	public List<Category> Child
 	{
 		get { return child; }
 		set { child = value; }
 	}
 
-	public void addQuestion(Question question)
+    public string NameAndGen
+    {
+        get
+        {
+            if (QuestionList.Count > 0)
+			{
+                return $"{new string(' ', Gen)}{Name}({QuestionList.Count})";
+            }
+			else
+			{
+                return $"{new string(' ', Gen)}{Name}";
+            }
+        }
+    }
+
+    public void addQuestion(Question question)
 	{
-		questionList.Add(question);
+		this.QuestionList.Add(question);
+	}
+
+	public void addChild(Category subcategory)
+	{
+		this.Child.Add(subcategory);
 	}
 }
 
@@ -72,6 +117,12 @@ class Question
 	private string questionText;
 	private double defaultMark;
 	private List<Choice> choices;
+
+	public Category Category
+	{
+		get { return category; }
+		set { category = value; }
+	}
 
 	public string Name
 	{

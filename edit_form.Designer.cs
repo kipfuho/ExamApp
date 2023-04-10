@@ -68,9 +68,9 @@ namespace ExamApp
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.newCategoryId = new System.Windows.Forms.TextBox();
+            this.newCategoryInfo = new System.Windows.Forms.RichTextBox();
+            this.newCategoryName = new System.Windows.Forms.TextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.panel24 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -89,7 +89,7 @@ namespace ExamApp
             this.panel33 = new System.Windows.Forms.Panel();
             this.panel38 = new System.Windows.Forms.Panel();
             this.panel37 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.addCategorybutton = new System.Windows.Forms.Button();
             this.panel32 = new System.Windows.Forms.Panel();
             this.panel28 = new System.Windows.Forms.Panel();
             this.panel23 = new System.Windows.Forms.Panel();
@@ -241,7 +241,6 @@ namespace ExamApp
             this.QuestionFlowLayout.Name = "QuestionFlowLayout";
             this.QuestionFlowLayout.Size = new System.Drawing.Size(950, 213);
             this.QuestionFlowLayout.TabIndex = 31;
-            this.QuestionFlowLayout.Visible = false;
             this.QuestionFlowLayout.WrapContents = false;
             // 
             // panel18
@@ -450,7 +449,7 @@ namespace ExamApp
             "Default"});
             this.comboBox1.Location = new System.Drawing.Point(228, 0);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(214, 35);
+            this.comboBox1.Size = new System.Drawing.Size(414, 35);
             this.comboBox1.TabIndex = 2;
             this.comboBox1.Text = "Default";
             // 
@@ -543,9 +542,9 @@ namespace ExamApp
             this.panel25.Controls.Add(this.label11);
             this.panel25.Controls.Add(this.label10);
             this.panel25.Controls.Add(this.label9);
-            this.panel25.Controls.Add(this.textBox2);
-            this.panel25.Controls.Add(this.richTextBox1);
-            this.panel25.Controls.Add(this.textBox1);
+            this.panel25.Controls.Add(this.newCategoryId);
+            this.panel25.Controls.Add(this.newCategoryInfo);
+            this.panel25.Controls.Add(this.newCategoryName);
             this.panel25.Controls.Add(this.comboBox2);
             this.panel25.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel25.Location = new System.Drawing.Point(264, 22);
@@ -583,28 +582,28 @@ namespace ExamApp
             this.label9.TabIndex = 4;
             this.label9.Text = " ";
             // 
-            // textBox2
+            // newCategoryId
             // 
-            this.textBox2.Location = new System.Drawing.Point(105, 290);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(125, 31);
-            this.textBox2.TabIndex = 3;
+            this.newCategoryId.Location = new System.Drawing.Point(105, 290);
+            this.newCategoryId.Name = "newCategoryId";
+            this.newCategoryId.Size = new System.Drawing.Size(125, 31);
+            this.newCategoryId.TabIndex = 3;
             // 
-            // richTextBox1
+            // newCategoryInfo
             // 
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBox1.Location = new System.Drawing.Point(105, 111);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(673, 159);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
+            this.newCategoryInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.newCategoryInfo.Location = new System.Drawing.Point(105, 111);
+            this.newCategoryInfo.Name = "newCategoryInfo";
+            this.newCategoryInfo.Size = new System.Drawing.Size(673, 159);
+            this.newCategoryInfo.TabIndex = 2;
+            this.newCategoryInfo.Text = "";
             // 
-            // textBox1
+            // newCategoryName
             // 
-            this.textBox1.Location = new System.Drawing.Point(105, 58);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(529, 31);
-            this.textBox1.TabIndex = 1;
+            this.newCategoryName.Location = new System.Drawing.Point(105, 58);
+            this.newCategoryName.Name = "newCategoryName";
+            this.newCategoryName.Size = new System.Drawing.Size(529, 31);
+            this.newCategoryName.TabIndex = 1;
             // 
             // comboBox2
             // 
@@ -774,26 +773,26 @@ namespace ExamApp
             // 
             // panel37
             // 
-            this.panel37.Controls.Add(this.button1);
+            this.panel37.Controls.Add(this.addCategorybutton);
             this.panel37.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel37.Location = new System.Drawing.Point(0, 0);
             this.panel37.Name = "panel37";
             this.panel37.Size = new System.Drawing.Size(200, 45);
             this.panel37.TabIndex = 0;
             // 
-            // button1
+            // addCategorybutton
             // 
-            this.button1.BackColor = System.Drawing.Color.Firebrick;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 45);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "ADD CATEGORY";
-            this.button1.UseVisualStyleBackColor = false;
+            this.addCategorybutton.BackColor = System.Drawing.Color.Firebrick;
+            this.addCategorybutton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addCategorybutton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addCategorybutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addCategorybutton.ForeColor = System.Drawing.SystemColors.Control;
+            this.addCategorybutton.Location = new System.Drawing.Point(0, 0);
+            this.addCategorybutton.Name = "addCategorybutton";
+            this.addCategorybutton.Size = new System.Drawing.Size(200, 45);
+            this.addCategorybutton.TabIndex = 0;
+            this.addCategorybutton.Text = "ADD CATEGORY";
+            this.addCategorybutton.UseVisualStyleBackColor = false;
             // 
             // panel32
             // 
@@ -1357,9 +1356,9 @@ namespace ExamApp
         private Panel panel22;
         private Panel panel26;
         private Panel panel25;
-        private TextBox textBox2;
-        private RichTextBox richTextBox1;
-        private TextBox textBox1;
+        private TextBox newCategoryId;
+        private RichTextBox newCategoryInfo;
+        private TextBox newCategoryName;
         private ComboBox comboBox2;
         private Panel panel24;
         private Label label6;
@@ -1378,7 +1377,7 @@ namespace ExamApp
         private Panel panel33;
         private Panel panel38;
         private Panel panel37;
-        private Button button1;
+        private Button addCategorybutton;
         private Panel panel32;
         private Panel panel28;
         private Label label8;

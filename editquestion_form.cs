@@ -22,11 +22,6 @@ namespace ExamApp
             get { return this.QuestionNameTextBox; }
         }
 
-        public RichTextBox QText
-        {
-            get { return this.QuestionTextTextBox; }
-        }
-
         public TextBox QMark
         {
             get { return this.DefaultMarkTextBox; }
@@ -37,45 +32,59 @@ namespace ExamApp
             get { return this.ChoiceText1; }
         }
 
-        public ComboBox C1Grade
-        {
-            get { return this.ChoiceGrade1; }
-        }
-
         public TextBox C2Text
         {
             get { return this.ChoiceText2; }
-        }
-        public ComboBox C2Grade
-        {
-            get { return this.ChoiceGrade2; }
         }
 
         public TextBox C3Text
         {
             get { return this.ChoiceText3; }
         }
-        public ComboBox C3Grade
-        {
-            get { return this.ChoiceGrade3; }
-        }
 
         public TextBox C4Text
         {
             get { return this.ChoiceText4; }
-        }
-        public ComboBox C4Grade
-        {
-            get { return this.ChoiceGrade4; }
         }
 
         public TextBox C5Text
         {
             get { return this.ChoiceText5; }
         }
+
+        public RichTextBox QText
+        {
+            get { return this.QuestionTextTextBox; }
+        }
+
+        public ComboBox C1Grade
+        {
+            get { return this.ChoiceGrade1; }
+        }
+
+        public ComboBox C2Grade
+        {
+            get { return this.ChoiceGrade2; }
+        }
+
+        public ComboBox C3Grade
+        {
+            get { return this.ChoiceGrade3; }
+        }
+
+        public ComboBox C4Grade
+        {
+            get { return this.ChoiceGrade4; }
+        }
+
         public ComboBox C5Grade
         {
             get { return this.ChoiceGrade5; }
+        }
+
+        public ComboBox QCategory
+        {
+            get { return CategoryComboBox; }
         }
 
         public Button FunctionButton1
@@ -111,6 +120,11 @@ namespace ExamApp
         public Panel ChoiceP
         {
             get { return ChoicePanel; }
+        }
+
+        public Panel SubMainPanel
+        {
+            get { return panel23; }
         }
 
         private void MoreChoicesButton_Click(object sender, EventArgs e)

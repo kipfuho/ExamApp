@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ExamApp
@@ -17,27 +18,24 @@ namespace ExamApp
         private edit_form bigpanel1;
         private editquestion_form bigpanel2;
         private quiz_form bigpanel3;
-        private List<Question> questions;
-        private Category defaultCategory;
+        private List<Category> categories;
+        private Category currentcategory;
         public ExamApp()
         {
             InitializeComponent();
-            questions = new List<Question>();
-            defaultCategory = new Category
+            categories = new List<Category>
             {
-                Name = "Default",
-                Info = "Default Category",
-                Id = 0,
-                QuestionList = questions,
-                Child = new List<Category> { }
+                new Category(null, new List<Category>(), "Default", "Default category", -1, 0, new List<Question>())
             };
         }
 
+        // x button in popup
         private void closepopup_Click(object sender, EventArgs e)
         {
             this.popup.Hide();
         }
 
+        // setting label (gear icon)
         private void label1_Click(object sender, EventArgs e)
         {
             if (label1.Visible == true)
@@ -48,6 +46,7 @@ namespace ExamApp
             }
         }
 
+        // turn edit on button
         private void functionbutton1_Click(object sender, EventArgs e)
         {
             label1.Hide();
@@ -80,34 +79,65 @@ namespace ExamApp
             direction2.Show();
         }
 
+        // function to open edit form
         private void openeditpanel(edit_form form, int index)
         {
             bigpanel1 = form;
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
             form.Dock = DockStyle.Fill;
+            // Events
             form.DirectingButton1.Click += new System.EventHandler(this.createquestion_Click);
             form.SubcategoriesQ.CheckedChanged += new System.EventHandler(this.BP1checkbox1_CheckedChanged);
+            form.addCategoryButton.Click += new System.EventHandler(this.BP1addcategory_Click);
+            //
+            // Category ComboBox in Questions tab
+            //
+            form.QCategory.SelectedIndexChanged += new System.EventHandler(this.qcategory1_SelectIndexChanged);
+            form.QCategory.Items.Clear();
+            form.QCategory.DataSource = categories;
+            form.QCategory.DisplayMember = "NameAndGen";
+            //
+            // Category ComboBox in Categories tab
+            //
+            form.PCategory.SelectedIndexChanged += new System.EventHandler(this.pcategory1_SelectIndexChanged);
+            form.PCategory.Items.Clear();
+            form.PCategory.DataSource = categories;
+            form.PCategory.DisplayMember = "NameAndGen";
+            //
             form.DirectTab.SelectedIndex = index;
             mainpanel.Controls.Add(form);
             mainpanel.Tag = form;
             form.Show();
         }
         
+        // function to open edit question form
         private void openeditquestionpanel(editquestion_form form)
         {
             bigpanel2 = form;
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
             form.Dock = DockStyle.Fill;
+            //
+            // add events to buttons
+            //
             form.FunctionButton1.Click += delegate (object sender, EventArgs e) { this.BP2savebutton1_Click(sender, e, this.currentquestion); };
             form.FunctionButton2.Click += new System.EventHandler(this.BP2cancelbutton_Click);
             form.FunctionButton3.Click += delegate (object sender, EventArgs e) { this.BP2savebutton2_Click(sender, e, this.currentquestion); };
+            //
+            // Category ComboBox
+            //
+            form.QCategory.SelectedIndexChanged += new System.EventHandler(this.qcategory2_SelectIndexChanged);
+            form.QCategory.Items.Clear();
+            form.QCategory.DataSource = categories;
+            form.QCategory.DisplayMember = "NameAndGen";
+            //
             mainpanel.Controls.Add(form);
             mainpanel.Tag = form;
             form.Show();
         }
 
+        // function to open quiz form
         private void openquizpanel(quiz_form form)
         {
             bigpanel3 = form;
@@ -119,6 +149,7 @@ namespace ExamApp
             form.Show();
         }
 
+        // direct to questions tab in edit form
         private void questions1_Click(object sender, EventArgs e)
         {
             this.popup.Hide();
@@ -147,6 +178,98 @@ namespace ExamApp
             direction1.Click += new System.EventHandler(this.direction1_Click);
         }
 
+        // function to update questions display in questions tab in edit form
+        private void updateQdisplay(bool mode)
+        {
+            currentcategory = bigpanel1.QCategory.SelectedItem as Category;
+            if (currentcategory != null)
+            {
+                if (mode)
+                {
+                    this.bigpanel1.QBox.Controls.Clear();
+                    foreach (Question question in this.currentcategory.QuestionList)
+                    {
+                        QuestionBlock temp = new QuestionBlock(question);
+                        this.bigpanel1.QBox.Controls.Add(temp);
+                        temp.Edit.Click += delegate (object sender1, EventArgs e1) { this.BP1editlabel_Click(sender1, e1, temp.Question); };
+                    }
+
+                    foreach (Category subcategory in currentcategory.Child)
+                    {
+                        foreach (Question question in subcategory.QuestionList)
+                        {
+                            QuestionBlock temp = new QuestionBlock(question);
+                            this.bigpanel1.QBox.Controls.Add(temp);
+                            temp.Edit.Click += delegate (object sender1, EventArgs e1) { this.BP1editlabel_Click(sender1, e1, temp.Question); };
+                        }
+                    }
+                }
+                else
+                {
+                    if (currentcategory != null)
+                    {
+                        this.bigpanel1.QBox.Controls.Clear();
+                        foreach (Question question in currentcategory.QuestionList)
+                        {
+                            QuestionBlock temp = new QuestionBlock(question);
+                            this.bigpanel1.QBox.Controls.Add(temp);
+                            temp.Edit.Click += delegate (object sender1, EventArgs e1) { this.BP1editlabel_Click(sender1, e1, temp.Question); };
+                        }
+                    }
+                }
+            }
+        }
+
+        // event when category items changed, it will update the category combobox
+        private void Category_ItemsChanged()
+        {
+            if(bigpanel1 != null)
+            {
+                bigpanel1.QCategory.DataSource = null;
+                bigpanel1.QCategory.DataSource = categories;
+                bigpanel1.QCategory.DisplayMember = "NameAndGen";
+                //
+                bigpanel1.PCategory.DataSource = null;
+                bigpanel1.PCategory.DataSource = categories;
+                bigpanel1.PCategory.DisplayMember = "NameAndGen";
+                //
+            }
+            if (bigpanel2 != null)
+            {
+                bigpanel2.QCategory.DataSource = null;
+                bigpanel2.QCategory.DataSource = categories;
+                bigpanel2.QCategory.DisplayMember = "NameAndGen";
+            }
+        }
+
+        // set currentcategory as the selected items in category combobox in questions tab
+        private void qcategory1_SelectIndexChanged(object sender, EventArgs e)
+        {
+            if(bigpanel1.QCategory.SelectedItem != null)
+            {
+                currentcategory = bigpanel1.QCategory.SelectedItem as Category;
+            }
+        }
+
+        // set currentcategory as the selected items in category combobox in edit question
+        private void qcategory2_SelectIndexChanged(object sender, EventArgs e)
+        {
+            if (bigpanel2.QCategory.SelectedItem != null)
+            {
+                currentcategory = bigpanel2.QCategory.SelectedItem as Category;
+            }
+        }
+
+        // set currentcategory as the selected items in category combobox in categories tab
+        private void pcategory1_SelectIndexChanged(object sender, EventArgs e)
+        {
+            if (bigpanel1.PCategory.SelectedItem != null)
+            {
+                currentcategory = bigpanel1.PCategory.SelectedItem as Category;
+            }
+        }
+
+        // direct to categories tab in edit form
         private void categories1_Click(object sender, EventArgs e)
         {
             this.popup.Hide();
@@ -175,6 +298,7 @@ namespace ExamApp
             direction1.Click += new System.EventHandler(this.direction1_Click);
         }
 
+        // direct to import tab in edit form
         private void import1_Click(object sender, EventArgs e)
         {
             this.popup.Hide();
@@ -203,6 +327,7 @@ namespace ExamApp
             direction1.Click += new System.EventHandler(this.direction1_Click);
         }
 
+        // direct to edit question form when click the create question button
         private void createquestion_Click(object sender, EventArgs e)
         {
             if (bigpanel1.Visible == false)
@@ -220,6 +345,7 @@ namespace ExamApp
             else
             {
                 bigpanel2.MainPanel.AutoScrollPosition = new Point(0, 0);
+                bigpanel2.SubMainPanel.AutoScrollPosition = new Point(0, 0);
                 bigpanel2.ChoiceP.AutoScrollPosition = new Point(0, 0);
                 bigpanel2.MoreChoiceP.Hide();
                 mainpanel.Controls.Add(bigpanel2);
@@ -238,6 +364,7 @@ namespace ExamApp
             direction2.Click += new System.EventHandler(this.direction2_Click);
         }
 
+        // direct to home when click the home label on top
         private void direction1_Click(object sender, EventArgs e)
         {
             if (mainpanel.Controls.Count > 0)
@@ -266,24 +393,30 @@ namespace ExamApp
             direction1.ForeColor = System.Drawing.SystemColors.ControlText;
             direction1.Cursor = System.Windows.Forms.Cursors.Default;
         }
-        
+
+        // direct to edit form when click the question bank label on top
         private void direction2_Click(object sender, EventArgs e)
         {
             if (mainpanel.Controls.Count > 0)
             {
                 mainpanel.Controls.RemoveAt(0);
             }
+            //
             bigpanel2.Hide();
-            slash2.Hide();
-            direction3.Hide();
-            direction2.Hide();
+            //
             slash1.Hide();
+            slash2.Hide();
+            direction2.Hide();
+            direction3.Hide();
             direction2.Click -= new System.EventHandler(this.direction2_Click);
+            updateQdisplay(bigpanel1.SubcategoriesQ.Checked);
+            //
             mainpanel.Controls.Add(bigpanel1);
             mainpanel.Tag = bigpanel1;
             bigpanel1.Show();
         }
         
+        // save and quit button in edit question form
         private void BP2savebutton1_Click(object sender, EventArgs e, Question question)
         {
             if (String.IsNullOrWhiteSpace(this.bigpanel2.QName.Text))
@@ -327,7 +460,9 @@ namespace ExamApp
                     Choices = new List<Choice>(5) {null, null, null, null, null }
                 };
 
-                this.questions.Add(question);
+                question.Category = currentcategory;
+                this.currentcategory.addQuestion(question);
+                Category_ItemsChanged();
 
                 if (!String.IsNullOrWhiteSpace(this.bigpanel2.C1Text.Text))
                 {
@@ -412,6 +547,14 @@ namespace ExamApp
                 this.currentquestion.Name = this.bigpanel2.QName.Text;
                 this.currentquestion.Description = this.bigpanel2.QText.Text;
                 this.currentquestion.Mark = mark;
+
+                if(currentcategory != currentquestion.Category)
+                {
+                    currentquestion.Category.QuestionList.Remove(currentquestion);
+                    currentquestion.Category = currentcategory;
+                    currentcategory.addQuestion(currentquestion);
+                    Category_ItemsChanged();
+                }
 
                 if (!String.IsNullOrWhiteSpace(this.bigpanel2.C1Text.Text))
                 {
@@ -579,7 +722,8 @@ namespace ExamApp
                 }
 
                 currentquestion = null;
-            }    
+            }
+            //
             bigpanel2.QName.ResetText();
             bigpanel2.QText.ResetText();
             bigpanel2.QMark.Text = "1";
@@ -593,16 +737,20 @@ namespace ExamApp
             bigpanel2.C3Grade.Text = "None";
             bigpanel2.C4Grade.Text = "None";
             bigpanel2.C5Grade.Text = "None";
+            //
             slash2.Hide();
             direction3.Hide();
             direction2.Click -= new System.EventHandler(this.direction2_Click);
             direction2.ForeColor = System.Drawing.Color.Black;
             direction2.Cursor = System.Windows.Forms.Cursors.Default;
+            updateQdisplay(bigpanel1.SubcategoriesQ.Checked);
+            //
             mainpanel.Controls.RemoveAt(0);
             mainpanel.Controls.Add(bigpanel1);
             bigpanel1.Show();
         }
 
+        // save and continue button in edit question form
         private void BP2savebutton2_Click(object sender, EventArgs e, Question question)
         {
             if (String.IsNullOrWhiteSpace(this.bigpanel2.QName.Text))
@@ -636,6 +784,13 @@ namespace ExamApp
                 return ;
             }
 
+            DialogResult result = MessageBox.Show("Do you want to save this question?", "Save question", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
             if (question == null)
             {
                 question = new Question
@@ -646,7 +801,9 @@ namespace ExamApp
                     Choices = new List<Choice>(5) { null, null, null, null, null }
                 };
 
-                this.questions.Add(question);
+                question.Category = currentcategory;
+                this.currentcategory.addQuestion(question);
+                Category_ItemsChanged();
 
                 if (!String.IsNullOrWhiteSpace(this.bigpanel2.C1Text.Text))
                 {
@@ -733,6 +890,14 @@ namespace ExamApp
                 this.currentquestion.Name = this.bigpanel2.QName.Text;
                 this.currentquestion.Description = this.bigpanel2.QText.Text;
                 this.currentquestion.Mark = mark;
+
+                if (currentcategory != currentquestion.Category)
+                {
+                    currentquestion.Category.QuestionList.Remove(currentquestion);
+                    currentquestion.Category = currentcategory;
+                    currentcategory.addQuestion(currentquestion);
+                    Category_ItemsChanged();
+                }
 
                 if (!String.IsNullOrWhiteSpace(this.bigpanel2.C1Text.Text))
                 {
@@ -902,13 +1067,16 @@ namespace ExamApp
             MessageBox.Show("Saved!");
         }
 
+        // cancel button in edit question form
         private void BP2cancelbutton_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("You will lose what you've typed. Are you sure?", "Cancel", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Do you want to discard the changes you have made?", "Cancel", MessageBoxButtons.YesNo);
+            
             if(result == DialogResult.No)
             {
                 return ;
             }
+
             bigpanel2.QName.ResetText();
             bigpanel2.QText.ResetText();
             bigpanel2.QMark.Text = "1";
@@ -933,25 +1101,13 @@ namespace ExamApp
             bigpanel1.Show();
         }
 
+        // checkbox to also show questions from subcategories
         private void BP1checkbox1_CheckedChanged(object sender, EventArgs e)
         {
-            if(this.bigpanel1.QBox.Visible == false)
-            {
-                this.bigpanel1.QBox.Controls.Clear();
-                foreach (Question question in this.questions)
-                {
-                    QuestionBlock temp = new QuestionBlock(question);
-                    this.bigpanel1.QBox.Controls.Add(temp);
-                    temp.Edit.Click += delegate (object sender1, EventArgs e1) { this.BP1editlabel_Click(sender1, e1, temp.Question); };
-                }
-                this.bigpanel1.QBox.Visible = true;
-            }
-            else
-            {
-                this.bigpanel1.QBox.Visible = false;
-            }
+            updateQdisplay(true);
         }
 
+        // event for edit label beside each question in questions, edit form to edit the selected question
         private void BP1editlabel_Click(object sender, EventArgs e, Question question)
         {
             if(mainpanel.Controls.Count > 0)
@@ -1049,6 +1205,51 @@ namespace ExamApp
             mainpanel.Controls.Add(bigpanel2);
             mainpanel.Controls.Add(bigpanel2);
             bigpanel2.Show();
+        }
+    
+        private void BP1addcategory_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(bigpanel1.CName.Text))
+            {
+                MessageBox.Show("Category name is invalid");
+                return ;
+            }
+
+            int cid = -1;
+            if (!String.IsNullOrWhiteSpace(bigpanel1.CId.Text))
+            {
+                try
+                {
+                    cid = Convert.ToInt32(cid);
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Please enter a valid Id");
+                }
+            }
+
+            Category Cparent = bigpanel1.PCategory.SelectedItem as Category;
+            Category category = new Category(Cparent, new List<Category>(), bigpanel1.CName.Text, bigpanel1.CInfo.Text, cid, Cparent.Gen + 1, new List<Question>());
+            int index = categories.FindIndex(cat => cat == Cparent);
+
+            if (index != -1)
+            {
+                categories.Insert(index + 1, category);
+            }
+            else
+            {
+                categories.Add(category);
+            }
+
+            // reset textbox
+            bigpanel1.CName.ResetText();
+            bigpanel1.CInfo.ResetText();
+            bigpanel1.CId.ResetText();
+            bigpanel1.PCategory.SelectedIndex = 0;
+            //
+            Category_ItemsChanged();
+            bigpanel1.DirectTab.SelectedIndex = 0;
+            MessageBox.Show("Successfully created a new category!");
         }
     }
 }
