@@ -149,35 +149,86 @@ class Question
 	}
 }
 
+class QAnswer
+{
+	private Question question;
+	private Choice answer;
+
+	public Question Question
+	{
+		get { return question; }
+		set { question = value; }
+	}
+
+	public Choice Answer
+	{
+		get { return answer; }
+		set { answer = value; }
+	}
+}
+
 class Timing
 {
 	private DateTime open;
     private DateTime close;
-	private int timeLimit;
+	private int timecoeff;
+	private string unit;
 
-	public DateTime Open
+	public DateTime TimeOpen
 	{
 		get { return open; }
 		set { open = value; }
 	}
 
-	public DateTime Close
+	public DateTime TimeClose
 	{
 		get { return close; }
 		set { close = value; }
 	}
 
+	public int TimeCoefficient
+	{
+		get { return timecoeff; }
+		set { timecoeff = value; }
+	}
+	public string TimeUnit
+	{
+		get { return unit; }
+		set { unit = value; }
+	}
+
 	public int TimeLimit
 	{
-		get { return timeLimit; }
-		set { timeLimit = value; }
+		get
+		{
+			if (this.TimeUnit == "minutes")
+			{
+				return 60 * timecoeff;
+			}
+			else if (this.TimeUnit == "hours")
+			{
+				return 3600 * timecoeff;
+			}
+			else
+			{
+				return timecoeff;
+			}
+		}
 	}
+}
+
+class PreviewQuiz
+{
+	Quiz quiz;
+	List<QAnswer> answers;
 }
 
 class Quiz
 {
 	private string quizName;
 	private string quizDescription;
+	private List<Question> questions;
+	private List<PreviewQuiz> previews; 
 	Timing time;
 
 	public string Name
@@ -192,10 +243,32 @@ class Quiz
         set { quizDescription = value; }
 	}
 
+	public List<Question> QuestionList
+	{
+		get { return questions; }
+		set { questions = value; }
+	}
+
+	public List<PreviewQuiz> Previews
+	{
+		get { return previews; }
+		set { previews = value; }
+	}
+
 	public Timing Time
 	{
 		get { return time; }
         set { time = value; }
+	}
+
+	public void addquestion(Question question)
+	{
+		this.QuestionList.Add(question);
+	}
+
+	public void addpreview(PreviewQuiz previewQuiz)
+	{
+		Previews.Add(previewQuiz);
 	}
 }
 
@@ -246,7 +319,6 @@ class QuestionBlock : Panel
 		if (question.Name.Length > 60)
 		{
             this.label.Text = Question.Name.Substring(0, 60) + "...";
-
         }
 		else
 		{
@@ -259,4 +331,11 @@ class QuestionBlock : Panel
         this.edit.Cursor = System.Windows.Forms.Cursors.Hand;
         this.edit.ForeColor = System.Drawing.Color.DeepSkyBlue;
     }
+}
+
+class QuizBlock : Panel
+{
+    private Quiz quiz;
+    private Label image;
+    private Label quizname;
 }

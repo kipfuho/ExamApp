@@ -31,13 +31,17 @@ namespace ExamApp
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.TimeLimit = new System.Windows.Forms.TextBox();
+            this.timelim = new System.Windows.Forms.TextBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.DtClose = new System.Windows.Forms.DateTimePicker();
@@ -61,14 +65,15 @@ namespace ExamApp
             this.panel6 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -79,6 +84,7 @@ namespace ExamApp
             // panel1
             // 
             this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.panel11);
             this.panel1.Controls.Add(this.panel9);
             this.panel1.Controls.Add(this.panel8);
             this.panel1.Controls.Add(this.panel7);
@@ -93,6 +99,42 @@ namespace ExamApp
             this.panel1.Size = new System.Drawing.Size(1199, 626);
             this.panel1.TabIndex = 0;
             // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.button2);
+            this.panel11.Controls.Add(this.button1);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel11.Location = new System.Drawing.Point(37, 604);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(1141, 54);
+            this.panel11.TabIndex = 7;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Firebrick;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.SystemColors.Control;
+            this.button2.Location = new System.Drawing.Point(525, 6);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(173, 40);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "CANCEL";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.Control;
+            this.button1.Location = new System.Drawing.Point(345, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(174, 40);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "CREATE";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // panel9
             // 
             this.panel9.AutoScroll = true;
@@ -101,7 +143,8 @@ namespace ExamApp
             this.panel9.Controls.Add(this.label16);
             this.panel9.Controls.Add(this.comboBox2);
             this.panel9.Controls.Add(this.comboBox1);
-            this.panel9.Controls.Add(this.TimeLimit);
+            this.panel9.Controls.Add(this.timelim);
+            this.panel9.Controls.Add(this.checkBox4);
             this.panel9.Controls.Add(this.checkBox3);
             this.panel9.Controls.Add(this.checkBox2);
             this.panel9.Controls.Add(this.DtClose);
@@ -113,7 +156,7 @@ namespace ExamApp
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel9.Location = new System.Drawing.Point(37, 412);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1141, 218);
+            this.panel9.Size = new System.Drawing.Size(1141, 192);
             this.panel9.TabIndex = 5;
             // 
             // label18
@@ -148,6 +191,7 @@ namespace ExamApp
             // 
             // comboBox2
             // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
             "Open attempts are submitted automatically"});
@@ -155,10 +199,11 @@ namespace ExamApp
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(469, 35);
             this.comboBox2.TabIndex = 10;
-            this.comboBox2.Text = "Open attempts are submitted automatically";
+            this.comboBox2.SelectedIndex = 0;
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Enabled = false;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
@@ -169,17 +214,28 @@ namespace ExamApp
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(127, 35);
             this.comboBox1.TabIndex = 9;
-            this.comboBox1.Text = "minutes";
+            this.comboBox1.SelectedIndex = 1;
             // 
-            // TimeLimit
+            // timelim
             // 
-            this.TimeLimit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TimeLimit.Enabled = false;
-            this.TimeLimit.Location = new System.Drawing.Point(370, 94);
-            this.TimeLimit.Name = "TimeLimit";
-            this.TimeLimit.Size = new System.Drawing.Size(69, 31);
-            this.TimeLimit.TabIndex = 8;
-            this.TimeLimit.Text = "0";
+            this.timelim.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.timelim.Enabled = false;
+            this.timelim.Location = new System.Drawing.Point(370, 94);
+            this.timelim.Name = "timelim";
+            this.timelim.Size = new System.Drawing.Size(69, 31);
+            this.timelim.TabIndex = 8;
+            this.timelim.Text = "0";
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(601, 95);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(106, 31);
+            this.checkBox4.TabIndex = 14;
+            this.checkBox4.Text = "Enable";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
             // 
             // checkBox3
             // 
@@ -190,6 +246,7 @@ namespace ExamApp
             this.checkBox3.TabIndex = 7;
             this.checkBox3.Text = "Enable";
             this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
             // checkBox2
             // 
@@ -200,6 +257,7 @@ namespace ExamApp
             this.checkBox2.TabIndex = 6;
             this.checkBox2.Text = "Enable";
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // DtClose
             // 
@@ -272,6 +330,7 @@ namespace ExamApp
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label11.Dock = System.Windows.Forms.DockStyle.Left;
             this.label11.ForeColor = System.Drawing.Color.IndianRed;
             this.label11.Location = new System.Drawing.Point(24, 0);
@@ -396,6 +455,7 @@ namespace ExamApp
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label4.Dock = System.Windows.Forms.DockStyle.Left;
             this.label4.ForeColor = System.Drawing.Color.IndianRed;
             this.label4.Location = new System.Drawing.Point(24, 0);
@@ -416,12 +476,20 @@ namespace ExamApp
             this.label3.TabIndex = 0;
             this.label3.Text = " ";
             // 
+            // panel10
+            // 
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel10.Location = new System.Drawing.Point(37, 54);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(1141, 23);
+            this.panel10.TabIndex = 6;
+            // 
             // panel5
             // 
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(0, 54);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(37, 576);
+            this.panel5.Size = new System.Drawing.Size(37, 604);
             this.panel5.TabIndex = 1;
             // 
             // panel2
@@ -479,14 +547,6 @@ namespace ExamApp
             this.panel3.Size = new System.Drawing.Size(1178, 10);
             this.panel3.TabIndex = 2;
             // 
-            // panel10
-            // 
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel10.Location = new System.Drawing.Point(37, 54);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1141, 23);
-            this.panel10.TabIndex = 6;
-            // 
             // quiz_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
@@ -498,6 +558,7 @@ namespace ExamApp
             this.Name = "quiz_form";
             this.Text = "categoryform";
             this.panel1.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel8.ResumeLayout(false);
@@ -546,11 +607,15 @@ namespace ExamApp
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox TimeLimit;
+        private System.Windows.Forms.TextBox timelim;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox checkBox4;
     }
 }

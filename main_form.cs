@@ -14,12 +14,16 @@ namespace ExamApp
 {
     public partial class ExamApp : System.Windows.Forms.Form
     {
-        private Question currentquestion;
         private edit_form bigpanel1;
         private editquestion_form bigpanel2;
         private quiz_form bigpanel3;
+        private quiz_attempt_form bigpanel4;
+        private Question currentquestion;
         private List<Category> categories;
         private Category currentcategory;
+        private List<Quiz> quizs;
+        private Quiz currentquiz;
+
         public ExamApp()
         {
             InitializeComponent();
@@ -27,29 +31,30 @@ namespace ExamApp
             {
                 new Category(null, new List<Category>(), "Default", "Default category", -1, 0, new List<Question>())
             };
+            quizs = new List<Quiz>();
         }
-
-        // x button in popup
-        private void closepopup_Click(object sender, EventArgs e)
-        {
-            this.popup.Hide();
-        }
-
+     
         // setting label (gear icon)
-        private void label1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            if (label1.Visible == true)
+            if (button1.Visible == true)
             {
-                Point point = headingElement.PointToScreen(Point.Empty);
-                popup.Location = new System.Drawing.Point(point.X + headingElement.Width - popup.Width - 50, point.Y);
-                popup.Show();
+                if (popup.Visible == false)
+                {
+                    popup.Location = new Point(this.heading.Right - popup.Width, this.heading.Bottom - 60);
+                    popup.Show();
+                }
+                else
+                {
+                    popup.Hide();
+                }
             }
         }
 
         // turn edit on button
         private void functionbutton1_Click(object sender, EventArgs e)
         {
-            label1.Hide();
+            button1.Hide();
             functionbutton1.Hide();
             popup.Hide();
             this.heading.Size = new System.Drawing.Size(1114, 86);
@@ -76,6 +81,50 @@ namespace ExamApp
             direction2.Text = "Adding a new quiz";
             direction2.ForeColor = System.Drawing.SystemColors.ControlText;
             direction2.Cursor = System.Windows.Forms.Cursors.Default;
+            direction2.Show();
+        }
+
+        private void quizName_Click(object sender, EventArgs e, Quiz quiz)
+        {
+            button1.Hide();
+            functionbutton1.Hide();
+            popup.Hide();
+            this.heading.Size = new System.Drawing.Size(1114, 86);
+
+            currentquiz = quiz;
+
+            if (mainpanel.Controls.Count > 0)
+            {
+                mainpanel.Controls.RemoveAt(0);
+            }
+
+            if (bigpanel4 == null)
+            {
+                openquizattemptpanel(new quiz_attempt_form());
+            }
+            else
+            {
+                mainpanel.Controls.Add(bigpanel4);
+                mainpanel.Tag = bigpanel4;
+                bigpanel4.Show();
+            }
+
+            direction1.Cursor = System.Windows.Forms.Cursors.Hand;
+            direction1.ForeColor = Color.IndianRed;
+            direction1.Click += new System.EventHandler(this.direction1_Click);
+            direction2.ForeColor = System.Drawing.SystemColors.ControlText;
+            direction2.Cursor = System.Windows.Forms.Cursors.Default;
+
+            if (quiz.Name.Length > 50)
+            {
+                direction2.Text = quiz.Name.Substring(0, 40) + "...";
+            }
+            else
+            {
+                direction2.Text = quiz.Name;
+            }
+            
+            slash1.Show();
             direction2.Show();
         }
 
@@ -144,38 +193,28 @@ namespace ExamApp
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
             form.Dock = DockStyle.Fill;
+            //
+            form.CreateQuizButton.Click += new System.EventHandler(this.BP3createbutton_Click);
+            form.CANCELbutton.Click += new System.EventHandler(this.BP3cancelbutton_Click);
+            //
             mainpanel.Controls.Add(form);
             mainpanel.Tag = form;
             form.Show();
         }
 
-        // direct to questions tab in edit form
-        private void questions1_Click(object sender, EventArgs e)
+        // function to open quiz attempt form
+        private void openquizattemptpanel(quiz_attempt_form form)
         {
-            this.popup.Hide();
-            this.functionbutton1.Hide();
-            this.heading.Size = new System.Drawing.Size(1114, 86);
-
-            if(mainpanel.Controls.Count > 0)
-            {
-                mainpanel.Controls.RemoveAt(0);
-            }
-
-            if(bigpanel1 == null)
-            {
-                openeditpanel(new edit_form(), 0);
-            }
-            else
-            {
-                mainpanel.Controls.Add(bigpanel1);
-                mainpanel.Tag = bigpanel1;
-                bigpanel1.DirectTab.SelectedIndex = 0;
-                bigpanel1.Show();
-            }
-
-            direction1.Cursor = System.Windows.Forms.Cursors.Hand;
-            direction1.ForeColor = Color.IndianRed;
-            direction1.Click += new System.EventHandler(this.direction1_Click);
+            bigpanel4 = form;
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            //
+            
+            //
+            mainpanel.Controls.Add(form);
+            mainpanel.Tag = form;
+            form.Show();
         }
 
         // function to update questions display in questions tab in edit form
@@ -269,11 +308,52 @@ namespace ExamApp
             }
         }
 
+        private void updateHome()
+        {
+            if(mainpanel.Controls.Count > 0)
+            {
+                mainpanel.Controls.RemoveAt(0);
+            }
+
+
+        }
+
+        // direct to questions tab in edit form
+        private void questions1_Click(object sender, EventArgs e)
+        {
+            this.popup.Hide();
+            this.functionbutton1.Hide();
+            this.button1.Hide();
+            this.heading.Size = new System.Drawing.Size(1114, 86);
+
+            if (mainpanel.Controls.Count > 0)
+            {
+                mainpanel.Controls.RemoveAt(0);
+            }
+
+            if (bigpanel1 == null)
+            {
+                openeditpanel(new edit_form(), 0);
+            }
+            else
+            {
+                mainpanel.Controls.Add(bigpanel1);
+                mainpanel.Tag = bigpanel1;
+                bigpanel1.DirectTab.SelectedIndex = 0;
+                bigpanel1.Show();
+            }
+
+            direction1.Cursor = System.Windows.Forms.Cursors.Hand;
+            direction1.ForeColor = Color.IndianRed;
+            direction1.Click += new System.EventHandler(this.direction1_Click);
+        }
+
         // direct to categories tab in edit form
         private void categories1_Click(object sender, EventArgs e)
         {
             this.popup.Hide();
             this.functionbutton1.Hide();
+            this.button1.Hide();
             this.heading.Size = new System.Drawing.Size(1114, 86);
 
             if (mainpanel.Controls.Count > 0)
@@ -303,6 +383,7 @@ namespace ExamApp
         {
             this.popup.Hide();
             this.functionbutton1.Hide();
+            this.button1.Hide();
             this.heading.Size = new System.Drawing.Size(1114, 86);
 
             if (mainpanel.Controls.Count > 0)
@@ -334,10 +415,12 @@ namespace ExamApp
             {
                 return ;
             }
+
             if (mainpanel.Controls.Count > 0)
             {
                 mainpanel.Controls.RemoveAt(0);
             }
+
             if (bigpanel2 == null)
             {
                 openeditquestionpanel(new editquestion_form());
@@ -352,6 +435,7 @@ namespace ExamApp
                 mainpanel.Tag = bigpanel2;
                 bigpanel2.Show();
             }
+
             bigpanel2.BigLabel.Text = "Adding a Multiple choices question";
             bigpanel1.Hide();
             slash1.Show();
@@ -371,27 +455,32 @@ namespace ExamApp
             {
                 mainpanel.Controls.RemoveAt(0);
             }
+
             if (bigpanel1 != null)
             {
                 this.bigpanel1.Hide();
             }
+
             if (bigpanel2 != null)
             {
                 this.bigpanel2.Hide();
             }
+
             if(bigpanel3 != null)
             {
                 this.bigpanel3.Hide();
             }
+
             this.heading.Size = new System.Drawing.Size(1114, 117);
             this.functionbutton1.Show();
-            this.label1.Show();
+            this.button1.Show();
             slash1.Hide();
             slash2.Hide();
             direction2.Hide();
             direction3.Hide();
             direction1.ForeColor = System.Drawing.SystemColors.ControlText;
             direction1.Cursor = System.Windows.Forms.Cursors.Default;
+            direction1.Click -= new System.EventHandler(this.direction1_Click);
         }
 
         // direct to edit form when click the question bank label on top
@@ -415,7 +504,160 @@ namespace ExamApp
             mainpanel.Tag = bigpanel1;
             bigpanel1.Show();
         }
-        
+
+        // checkbox to also show questions from subcategories
+        private void BP1checkbox1_CheckedChanged(object sender, EventArgs e)
+        {
+            updateQdisplay(true);
+        }
+
+        // event for edit label beside each question in questions, edit form to edit the selected question
+        private void BP1editlabel_Click(object sender, EventArgs e, Question question)
+        {
+            if (mainpanel.Controls.Count > 0)
+            {
+                mainpanel.Controls.RemoveAt(0);
+            }
+
+            currentquestion = question;
+            bigpanel2.QName.Text = question.Name;
+            bigpanel2.QText.Rtf = question.Description;
+            bigpanel2.QMark.Text = Convert.ToString(question.Mark);
+
+            if (question.Choices[2] != null || question.Choices[3] != null || question.Choices[4] != null)
+            {
+                bigpanel2.MoreChoiceP.Show();
+            }
+
+            for (int i = 0; i <= 4; i++)
+            {
+                Choice choice = currentquestion.Choices[i];
+                if (choice != null)
+                {
+                    if (i == 0)
+                    {
+                        bigpanel2.C1Text.Text = choice.Text;
+                        if (choice.Grade != 0)
+                        {
+                            bigpanel2.C1Grade.Text = Convert.ToString(choice.Grade * 100.0) + "%";
+                        }
+                        else
+                        {
+                            bigpanel2.C1Grade.Text = "None";
+                        }
+                    }
+                    else if (i == 1)
+                    {
+                        bigpanel2.C2Text.Text = choice.Text;
+                        if (choice.Grade != 0)
+                        {
+                            bigpanel2.C2Grade.Text = Convert.ToString(choice.Grade * 100.0) + "%";
+                        }
+                        else
+                        {
+                            bigpanel2.C2Grade.Text = "None";
+                        }
+                    }
+                    else if (i == 2)
+                    {
+                        bigpanel2.C3Text.Text = choice.Text;
+                        if (choice.Grade != 0)
+                        {
+                            bigpanel2.C3Grade.Text = Convert.ToString(choice.Grade * 100.0) + "%";
+                        }
+                        else
+                        {
+                            bigpanel2.C3Grade.Text = "None";
+                        }
+                    }
+                    else if (i == 3)
+                    {
+                        bigpanel2.C4Text.Text = choice.Text;
+                        if (choice.Grade != 0)
+                        {
+                            bigpanel2.C4Grade.Text = Convert.ToString(choice.Grade * 100.0) + "%";
+                        }
+                        else
+                        {
+                            bigpanel2.C4Grade.Text = "None";
+                        }
+                    }
+                    else if (i == 4)
+                    {
+                        bigpanel2.C5Text.Text = choice.Text;
+                        if (choice.Grade != 0)
+                        {
+                            bigpanel2.C5Grade.Text = Convert.ToString(choice.Grade * 100.0) + "%";
+                        }
+                        else
+                        {
+                            bigpanel2.C5Grade.Text = "None";
+                        }
+                    }
+                }
+            }
+
+            slash2.Show();
+            direction3.Show();
+            direction2.Cursor = System.Windows.Forms.Cursors.Hand;
+            direction2.ForeColor = Color.IndianRed;
+            direction2.Click += new System.EventHandler(this.direction2_Click);
+            bigpanel1.Hide();
+            bigpanel2.BigLabel.Text = "Editing a Multiple choices question";
+            bigpanel2.MainPanel.AutoScrollPosition = new Point(0, 0);
+            bigpanel2.ChoiceP.AutoScrollPosition = new Point(0, 0);
+            mainpanel.Controls.RemoveAt(0);
+            mainpanel.Controls.Add(bigpanel2);
+            mainpanel.Tag = bigpanel2;
+            bigpanel2.Show();
+        }
+
+        // add category event for button
+        private void BP1addcategory_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(bigpanel1.CName.Text))
+            {
+                MessageBox.Show("Category name is invalid");
+                return;
+            }
+
+            int cid = -1;
+            if (!String.IsNullOrWhiteSpace(bigpanel1.CId.Text))
+            {
+                try
+                {
+                    cid = Convert.ToInt32(cid);
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Please enter a valid Id");
+                }
+            }
+
+            Category Cparent = bigpanel1.PCategory.SelectedItem as Category;
+            Category category = new Category(Cparent, new List<Category>(), bigpanel1.CName.Text, bigpanel1.CInfo.Text, cid, Cparent.Gen + 1, new List<Question>());
+            int index = categories.FindIndex(cat => cat == Cparent);
+
+            if (index != -1)
+            {
+                categories.Insert(index + 1, category);
+            }
+            else
+            {
+                categories.Add(category);
+            }
+
+            // reset textbox
+            bigpanel1.CName.ResetText();
+            bigpanel1.CInfo.ResetText();
+            bigpanel1.CId.ResetText();
+            bigpanel1.PCategory.SelectedIndex = 0;
+            //
+            Category_ItemsChanged();
+            bigpanel1.DirectTab.SelectedIndex = 0;
+            MessageBox.Show("Successfully created a new category!");
+        }
+
         // save and quit button in edit question form
         private void BP2savebutton1_Click(object sender, EventArgs e, Question question)
         {
@@ -455,7 +697,7 @@ namespace ExamApp
                 question = new Question
                 {
                     Name = this.bigpanel2.QName.Text,
-                    Description = this.bigpanel2.QText.Text,
+                    Description = this.bigpanel2.QText.Rtf,
                     Mark = mark,
                     Choices = new List<Choice>(5) {null, null, null, null, null }
                 };
@@ -545,7 +787,7 @@ namespace ExamApp
             else
             {
                 this.currentquestion.Name = this.bigpanel2.QName.Text;
-                this.currentquestion.Description = this.bigpanel2.QText.Text;
+                this.currentquestion.Description = this.bigpanel2.QText.Rtf;
                 this.currentquestion.Mark = mark;
 
                 if(currentcategory != currentquestion.Category)
@@ -747,6 +989,7 @@ namespace ExamApp
             //
             mainpanel.Controls.RemoveAt(0);
             mainpanel.Controls.Add(bigpanel1);
+            mainpanel.Tag = bigpanel1;
             bigpanel1.Show();
         }
 
@@ -796,7 +1039,7 @@ namespace ExamApp
                 question = new Question
                 {
                     Name = this.bigpanel2.QName.Text,
-                    Description = this.bigpanel2.QText.Text,
+                    Description = this.bigpanel2.QText.Rtf,
                     Mark = mark,
                     Choices = new List<Choice>(5) { null, null, null, null, null }
                 };
@@ -888,7 +1131,7 @@ namespace ExamApp
             else
             {
                 this.currentquestion.Name = this.bigpanel2.QName.Text;
-                this.currentquestion.Description = this.bigpanel2.QText.Text;
+                this.currentquestion.Description = this.bigpanel2.QText.Rtf;
                 this.currentquestion.Mark = mark;
 
                 if (currentcategory != currentquestion.Category)
@@ -1070,7 +1313,7 @@ namespace ExamApp
         // cancel button in edit question form
         private void BP2cancelbutton_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to discard the changes you have made?", "Cancel", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Do you want to discard the changes and quit to Question Bank?", "Cancel", MessageBoxButtons.YesNo);
             
             if(result == DialogResult.No)
             {
@@ -1098,158 +1341,124 @@ namespace ExamApp
             direction2.Cursor = System.Windows.Forms.Cursors.Default;
             mainpanel.Controls.RemoveAt(0);
             mainpanel.Controls.Add(bigpanel1);
+            mainpanel.Tag = bigpanel1;
             bigpanel1.Show();
         }
 
-        // checkbox to also show questions from subcategories
-        private void BP1checkbox1_CheckedChanged(object sender, EventArgs e)
+        // create quiz button event
+        private void BP3createbutton_Click(object sender, EventArgs e)
         {
-            updateQdisplay(true);
-        }
-
-        // event for edit label beside each question in questions, edit form to edit the selected question
-        private void BP1editlabel_Click(object sender, EventArgs e, Question question)
-        {
-            if(mainpanel.Controls.Count > 0)
+            if (String.IsNullOrWhiteSpace(bigpanel3.QuizName.Text))
             {
-                mainpanel.Controls.RemoveAt(0);
-            }
-
-            currentquestion = question;
-            bigpanel2.QName.Text = question.Name;
-            bigpanel2.QText.Text = question.Description;
-            bigpanel2.QMark.Text = Convert.ToString(question.Mark);
-
-            if (question.Choices[2] != null || question.Choices[3] != null || question.Choices[4] != null)
-            {
-                bigpanel2.MoreChoiceP.Show();
-            }
-
-            for (int i = 0; i <= 4; i++)
-            {
-                Choice choice = currentquestion.Choices[i];
-                if (choice != null)
-                {
-                    if (i == 0)
-                    {
-                        bigpanel2.C1Text.Text = choice.Text;
-                        if(choice.Grade != 0)
-                        {
-                            bigpanel2.C1Grade.Text = Convert.ToString(choice.Grade * 100.0) + "%";
-                        }
-                        else
-                        {
-                            bigpanel2.C1Grade.Text = "None";
-                        }
-                    }
-                    else if (i == 1)
-                    {
-                        bigpanel2.C2Text.Text = choice.Text;
-                        if (choice.Grade != 0)
-                        {
-                            bigpanel2.C2Grade.Text = Convert.ToString(choice.Grade * 100.0) + "%";
-                        }
-                        else
-                        {
-                            bigpanel2.C2Grade.Text = "None";
-                        }
-                    }
-                    else if (i == 2)
-                    {
-                        bigpanel2.C3Text.Text = choice.Text;
-                        if (choice.Grade != 0)
-                        {
-                            bigpanel2.C3Grade.Text = Convert.ToString(choice.Grade * 100.0) + "%";
-                        }
-                        else
-                        {
-                            bigpanel2.C3Grade.Text = "None";
-                        }
-                    }
-                    else if (i == 3)
-                    {
-                        bigpanel2.C4Text.Text = choice.Text;
-                        if (choice.Grade != 0)
-                        {
-                            bigpanel2.C4Grade.Text = Convert.ToString(choice.Grade * 100.0) + "%";
-                        }
-                        else
-                        {
-                            bigpanel2.C4Grade.Text = "None";
-                        }
-                    }
-                    else if (i == 4)
-                    {
-                        bigpanel2.C5Text.Text = choice.Text;
-                        if (choice.Grade != 0)
-                        {
-                            bigpanel2.C5Grade.Text = Convert.ToString(choice.Grade * 100.0) + "%";
-                        }
-                        else
-                        {
-                            bigpanel2.C5Grade.Text = "None";
-                        }
-                    }
-                }
-            }
-
-            slash2.Show();
-            direction3.Show();
-            direction2.Cursor = System.Windows.Forms.Cursors.Hand;
-            direction2.ForeColor = Color.IndianRed;
-            direction2.Click += new System.EventHandler(this.direction2_Click);
-            bigpanel1.Hide();
-            bigpanel2.BigLabel.Text = "Editing a Multiple choices question";
-            bigpanel2.MainPanel.AutoScrollPosition = new Point(0, 0);
-            bigpanel2.ChoiceP.AutoScrollPosition = new Point(0, 0);
-            mainpanel.Controls.Add(bigpanel2);
-            mainpanel.Controls.Add(bigpanel2);
-            bigpanel2.Show();
-        }
-    
-        private void BP1addcategory_Click(object sender, EventArgs e)
-        {
-            if (String.IsNullOrWhiteSpace(bigpanel1.CName.Text))
-            {
-                MessageBox.Show("Category name is invalid");
+                MessageBox.Show("Please enter a valid name for the quiz");
                 return ;
             }
 
-            int cid = -1;
-            if (!String.IsNullOrWhiteSpace(bigpanel1.CId.Text))
+            DateTime open = DateTime.MinValue;
+            DateTime close = DateTime.MaxValue;
+            int coeff = 0;
+            string unit = null;
+
+            if (bigpanel3.CBTimeO.Checked)
+            {
+                open = bigpanel3.DTOpen.Value;
+            }
+
+            if (bigpanel3.CBTimeC.Checked)
+            {
+                close = bigpanel3.DTClose.Value;
+            }
+
+            if (bigpanel3.CBTimeL.Checked)
             {
                 try
                 {
-                    cid = Convert.ToInt32(cid);
+                    coeff = Convert.ToInt32(bigpanel3.TimeCoeff.Text);
                 }
+
                 catch (FormatException)
                 {
-                    MessageBox.Show("Please enter a valid Id");
+                    MessageBox.Show("Please input a valid value for Time Limit!");
+                    return;
                 }
+                unit = bigpanel3.TimeUnit.Text;
             }
 
-            Category Cparent = bigpanel1.PCategory.SelectedItem as Category;
-            Category category = new Category(Cparent, new List<Category>(), bigpanel1.CName.Text, bigpanel1.CInfo.Text, cid, Cparent.Gen + 1, new List<Question>());
-            int index = categories.FindIndex(cat => cat == Cparent);
-
-            if (index != -1)
+            Timing timing = new Timing
             {
-                categories.Insert(index + 1, category);
-            }
-            else
+                TimeOpen = open,
+                TimeClose = close,
+                TimeCoefficient = coeff,
+                TimeUnit = unit
+            };
+            
+            Quiz newquiz = new Quiz
             {
-                categories.Add(category);
-            }
+                Name = bigpanel3.QuizName.Text,
+                Description = bigpanel3.QuizDescription.Text,
+                QuestionList = new List<Question>(),
+                Previews = new List<PreviewQuiz>(),
+                Time = timing
+            };
 
-            // reset textbox
-            bigpanel1.CName.ResetText();
-            bigpanel1.CInfo.ResetText();
-            bigpanel1.CId.ResetText();
-            bigpanel1.PCategory.SelectedIndex = 0;
+            quizs.Add(newquiz);
+
+            bigpanel3.QuizName.ResetText();
+            bigpanel3.QuizDescription.ResetText();
+            bigpanel3.DTOpen.Value = DateTime.Now;
+            bigpanel3.DTClose.Value = DateTime.Now;
+            bigpanel3.TimeCoeff.Text = "0";
+            bigpanel3.TimeUnit.SelectedIndex = 1;
+            bigpanel3.CBTimeO.Checked = false;
+            bigpanel3.CBTimeC.Checked = false;
+            bigpanel3.CBTimeL.Checked = false;
+            bigpanel3.MainPanel.AutoScrollPosition = new Point(0, 0);
+            bigpanel3.Hide();
             //
-            Category_ItemsChanged();
-            bigpanel1.DirectTab.SelectedIndex = 0;
-            MessageBox.Show("Successfully created a new category!");
+            this.heading.Size = new System.Drawing.Size(1114, 117);
+            this.functionbutton1.Show();
+            this.button1.Show();
+            slash1.Hide();
+            direction2.Hide();
+            direction1.ForeColor = System.Drawing.SystemColors.ControlText;
+            direction1.Cursor = System.Windows.Forms.Cursors.Default;
+            direction1.Click -= new System.EventHandler(this.direction1_Click);
+            //
+            mainpanel.Controls.RemoveAt(0);
+        }
+        
+        // cancel quiz button event
+        private void BP3cancelbutton_Click(Object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to discard the changes and quit to Home?", "Cancel", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+            bigpanel3.QuizName.ResetText();
+            bigpanel3.QuizDescription.ResetText();
+            bigpanel3.DTOpen.Value = DateTime.Now;
+            bigpanel3.DTClose.Value = DateTime.Now;
+            bigpanel3.TimeCoeff.Text = "0";
+            bigpanel3.TimeUnit.SelectedIndex = 1;
+            bigpanel3.CBTimeO.Checked = false;
+            bigpanel3.CBTimeC.Checked = false;
+            bigpanel3.CBTimeL.Checked = false;
+            bigpanel3.MainPanel.AutoScrollPosition = new Point(0, 0);
+            bigpanel3.Hide();
+            //
+            this.heading.Size = new System.Drawing.Size(1114, 117);
+            this.functionbutton1.Show();
+            this.button1.Show();
+            slash1.Hide();
+            direction2.Hide();
+            direction1.ForeColor = System.Drawing.SystemColors.ControlText;
+            direction1.Cursor = System.Windows.Forms.Cursors.Default;
+            direction1.Click -= new System.EventHandler(this.direction1_Click);
+            //
+            mainpanel.Controls.RemoveAt(0);
         }
     }
 }

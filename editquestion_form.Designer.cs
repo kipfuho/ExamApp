@@ -181,10 +181,11 @@
             // 
             // CancelButton
             // 
-            this.CancelButton.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.CancelButton.BackColor = System.Drawing.SystemColors.HotTrack;
             this.CancelButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CancelButton.Dock = System.Windows.Forms.DockStyle.Left;
             this.CancelButton.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelButton.ForeColor = System.Drawing.SystemColors.Control;
             this.CancelButton.Location = new System.Drawing.Point(306, 0);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(161, 43);
@@ -194,10 +195,11 @@
             // 
             // SaveQuitButton
             // 
-            this.SaveQuitButton.BackColor = System.Drawing.Color.Red;
+            this.SaveQuitButton.BackColor = System.Drawing.Color.Firebrick;
             this.SaveQuitButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SaveQuitButton.Dock = System.Windows.Forms.DockStyle.Left;
             this.SaveQuitButton.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveQuitButton.ForeColor = System.Drawing.SystemColors.Control;
             this.SaveQuitButton.Location = new System.Drawing.Point(103, 0);
             this.SaveQuitButton.Name = "SaveQuitButton";
             this.SaveQuitButton.Size = new System.Drawing.Size(203, 43);
@@ -234,10 +236,11 @@
             // 
             // SaveContinueButton
             // 
-            this.SaveContinueButton.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.SaveContinueButton.BackColor = System.Drawing.SystemColors.HotTrack;
             this.SaveContinueButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SaveContinueButton.Dock = System.Windows.Forms.DockStyle.Left;
             this.SaveContinueButton.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveContinueButton.ForeColor = System.Drawing.SystemColors.Control;
             this.SaveContinueButton.Location = new System.Drawing.Point(76, 0);
             this.SaveContinueButton.Name = "SaveContinueButton";
             this.SaveContinueButton.Size = new System.Drawing.Size(434, 43);
@@ -274,10 +277,11 @@
             // 
             // MoreChoicesButton
             // 
-            this.MoreChoicesButton.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.MoreChoicesButton.BackColor = System.Drawing.SystemColors.HotTrack;
             this.MoreChoicesButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MoreChoicesButton.Dock = System.Windows.Forms.DockStyle.Left;
             this.MoreChoicesButton.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MoreChoicesButton.ForeColor = System.Drawing.SystemColors.Control;
             this.MoreChoicesButton.Location = new System.Drawing.Point(124, 0);
             this.MoreChoicesButton.Name = "MoreChoicesButton";
             this.MoreChoicesButton.Size = new System.Drawing.Size(332, 43);

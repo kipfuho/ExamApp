@@ -50,6 +50,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="quiz_attempt_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="quiz_attempt_form.Designer.cs">
+      <DependentUpon>quiz_attempt_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="quiz_edit_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="quiz_edit_form.Designer.cs">
+      <DependentUpon>quiz_edit_form.cs</DependentUpon>
+    </Compile>
     <Compile Include="quiz_form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +89,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="quiz_attempt_form.resx">
+      <DependentUpon>quiz_attempt_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="quiz_edit_form.resx">
+      <DependentUpon>quiz_edit_form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="quiz_form.resx">
       <DependentUpon>quiz_form.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,7 +132,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="icon.png" />
     <None Include="picture\icon6.png" />
     <None Include="picture\icon5.png" />
     <None Include="picture\icon4.png" />
@@ -122,7 +139,9 @@
     <None Include="picture\icon2.png" />
     <None Include="picture\icon1.png" />
     <None Include="picture\icon.png" />
-    <None Include="image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="picture\icon7.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1073,7 +1073,7 @@ namespace ExamApp
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.button2.BackColor = System.Drawing.SystemColors.HotTrack;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.Dock = System.Windows.Forms.DockStyle.Left;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

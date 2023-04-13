@@ -42,23 +42,24 @@
             this.direction3 = new System.Windows.Forms.Label();
             this.headingElement = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.signature1 = new System.Windows.Forms.Label();
             this.spacingm = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.mainpanel = new System.Windows.Forms.Panel();
             this.popup = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.export1 = new System.Windows.Forms.Label();
             this.import1 = new System.Windows.Forms.Label();
             this.categories1 = new System.Windows.Forms.Label();
             this.questions1 = new System.Windows.Forms.Label();
             this.signature2 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.heading.SuspendLayout();
             this.headingElement3.SuspendLayout();
             this.headingElement2.SuspendLayout();
             this.headingElement.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.mainpanel.SuspendLayout();
             this.popup.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -194,27 +195,25 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(1036, 0);
+            this.panel2.Location = new System.Drawing.Point(999, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(76, 69);
+            this.panel2.Size = new System.Drawing.Size(113, 69);
             this.panel2.TabIndex = 1;
             // 
-            // label1
+            // button1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Image = global::ExamApp.Properties.Resources.icon5;
-            this.label1.Location = new System.Drawing.Point(14, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 38);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "   ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.Control;
+            this.button1.Image = global::ExamApp.Properties.Resources.icon5;
+            this.button1.Location = new System.Drawing.Point(63, 37);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(45, 32);
+            this.button1.TabIndex = 0;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // signature1
             // 
@@ -247,6 +246,7 @@
             // mainpanel
             // 
             this.mainpanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mainpanel.Controls.Add(this.flowLayoutPanel1);
             this.mainpanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainpanel.Location = new System.Drawing.Point(50, 177);
             this.mainpanel.Name = "mainpanel";
@@ -256,7 +256,6 @@
             // popup
             // 
             this.popup.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.popup.Controls.Add(this.button1);
             this.popup.Controls.Add(this.export1);
             this.popup.Controls.Add(this.import1);
             this.popup.Controls.Add(this.categories1);
@@ -267,21 +266,6 @@
             this.popup.Size = new System.Drawing.Size(541, 212);
             this.popup.TabIndex = 48;
             this.popup.Visible = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Cascadia Mono", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(485, -1);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(55, 35);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "X";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.closepopup_Click);
             // 
             // export1
             // 
@@ -344,13 +328,22 @@
             this.signature2.TabIndex = 0;
             this.signature2.Text = "Question Bank";
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1112, 436);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
             // ExamApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1214, 665);
-            this.Controls.Add(this.popup);
             this.Controls.Add(this.mainpanel);
+            this.Controls.Add(this.popup);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.spacingm);
             this.Controls.Add(this.heading);
@@ -367,7 +360,7 @@
             this.headingElement.ResumeLayout(false);
             this.headingElement.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.mainpanel.ResumeLayout(false);
             this.popup.ResumeLayout(false);
             this.popup.PerformLayout();
             this.ResumeLayout(false);
@@ -393,14 +386,14 @@
         private System.Windows.Forms.Label slash2;
         private System.Windows.Forms.Label direction3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel popup;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label export1;
         private System.Windows.Forms.Label import1;
         private System.Windows.Forms.Label categories1;
         private System.Windows.Forms.Label questions1;
         private System.Windows.Forms.Label signature2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
 
