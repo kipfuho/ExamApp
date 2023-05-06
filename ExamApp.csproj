@@ -50,61 +50,61 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="quiz_attempt_form.cs">
+    <Compile Include="form\quiz_attempt_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="quiz_attempt_form.Designer.cs">
+    <Compile Include="form\quiz_attempt_form.Designer.cs">
       <DependentUpon>quiz_attempt_form.cs</DependentUpon>
     </Compile>
-    <Compile Include="quiz_edit_form.cs">
+    <Compile Include="form\quiz_edit_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="quiz_edit_form.Designer.cs">
+    <Compile Include="form\quiz_edit_form.Designer.cs">
       <DependentUpon>quiz_edit_form.cs</DependentUpon>
     </Compile>
-    <Compile Include="quiz_form.cs">
+    <Compile Include="form\quiz_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="quiz_form.Designer.cs">
+    <Compile Include="form\quiz_form.Designer.cs">
       <DependentUpon>quiz_form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Class.cs" />
-    <Compile Include="edit_form.cs">
+    <Compile Include="entity\Class.cs" />
+    <Compile Include="form\edit_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="edit_form.Designer.cs">
+    <Compile Include="form\edit_form.Designer.cs">
       <DependentUpon>edit_form.cs</DependentUpon>
     </Compile>
-    <Compile Include="editquestion_form.cs">
+    <Compile Include="form\editquestion_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="editquestion_form.Designer.cs">
+    <Compile Include="form\editquestion_form.Designer.cs">
       <DependentUpon>editquestion_form.cs</DependentUpon>
     </Compile>
-    <Compile Include="main_form.cs">
+    <Compile Include="form\main_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="main_form.Designer.cs">
+    <Compile Include="form\main_form.Designer.cs">
       <DependentUpon>main_form.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="quiz_attempt_form.resx">
+    <EmbeddedResource Include="form\quiz_attempt_form.resx">
       <DependentUpon>quiz_attempt_form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="quiz_edit_form.resx">
+    <EmbeddedResource Include="form\quiz_edit_form.resx">
       <DependentUpon>quiz_edit_form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="quiz_form.resx">
+    <EmbeddedResource Include="form\quiz_form.resx">
       <DependentUpon>quiz_form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="edit_form.resx">
+    <EmbeddedResource Include="form\edit_form.resx">
       <DependentUpon>edit_form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="editquestion_form.resx">
+    <EmbeddedResource Include="form\editquestion_form.resx">
       <DependentUpon>editquestion_form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="main_form.resx">
+    <EmbeddedResource Include="form\main_form.resx">
       <DependentUpon>main_form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
