@@ -338,4 +338,60 @@ class QuizBlock : Panel
     private Quiz quiz;
     private Label image;
     private Label quizname;
+	private bool state;
+
+	public Quiz Quiz
+	{
+		get { return quiz; }
+		set { quiz = value; }
+	}
+
+	public bool State
+	{
+		get { return state; }
+		set { state = value; }
+	}
+
+	public Label QName
+	{
+		get { return quizname; }
+	}
+
+	public void changeState()
+	{
+        this.image.Image = global::ExamApp.Properties.Resources.icon8;
+        this.quizname.ForeColor = System.Drawing.Color.SteelBlue;
+    }
+
+    public QuizBlock(Quiz quiz)
+    {
+        if (quiz == null)
+        {
+            MessageBox.Show("There's no questions!");
+            return;
+        }
+
+        this.Quiz = quiz;
+        this.image = new Label();
+        this.image.Image = global::ExamApp.Properties.Resources.icon6;
+        this.quizname = new Label();
+        this.Size = new System.Drawing.Size(705, 25);
+		this.Controls.Add(this.quizname);
+        this.Controls.Add(this.image);
+        this.image.Dock = DockStyle.Left;
+        this.image.Size = new System.Drawing.Size(60, 0);
+        this.quizname.Dock = DockStyle.Left;
+        this.quizname.Size = new System.Drawing.Size(600, 0);
+        this.quizname.Cursor = System.Windows.Forms.Cursors.Hand;
+        this.quizname.ForeColor = System.Drawing.Color.DeepSkyBlue;
+
+        if (quiz.Name.Length > 60)
+        {
+            this.quizname.Text = Quiz.Name.Substring(0, 60) + "...";
+        }
+        else
+        {
+            this.quizname.Text = Quiz.Name;
+        }
+    }
 }
