@@ -42,6 +42,7 @@
             this.direction3 = new System.Windows.Forms.Label();
             this.headingElement = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.signature1 = new System.Windows.Forms.Label();
             this.spacingm = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -53,7 +54,6 @@
             this.categories1 = new System.Windows.Forms.Label();
             this.questions1 = new System.Windows.Forms.Label();
             this.signature2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.heading.SuspendLayout();
             this.headingElement3.SuspendLayout();
             this.headingElement2.SuspendLayout();
@@ -67,7 +67,7 @@
             // 
             this.spacingl.Dock = System.Windows.Forms.DockStyle.Left;
             this.spacingl.Location = new System.Drawing.Point(0, 0);
-            this.spacingl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.spacingl.Margin = new System.Windows.Forms.Padding(2);
             this.spacingl.Name = "spacingl";
             this.spacingl.Size = new System.Drawing.Size(38, 540);
             this.spacingl.TabIndex = 0;
@@ -76,7 +76,7 @@
             // 
             this.spacingr.Dock = System.Windows.Forms.DockStyle.Right;
             this.spacingr.Location = new System.Drawing.Point(872, 0);
-            this.spacingr.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.spacingr.Margin = new System.Windows.Forms.Padding(2);
             this.spacingr.Name = "spacingr";
             this.spacingr.Size = new System.Drawing.Size(38, 540);
             this.spacingr.TabIndex = 1;
@@ -89,7 +89,7 @@
             this.heading.Controls.Add(this.headingElement);
             this.heading.Dock = System.Windows.Forms.DockStyle.Top;
             this.heading.Location = new System.Drawing.Point(38, 0);
-            this.heading.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.heading.Margin = new System.Windows.Forms.Padding(2);
             this.heading.Name = "heading";
             this.heading.Size = new System.Drawing.Size(834, 117);
             this.heading.TabIndex = 43;
@@ -99,7 +99,7 @@
             this.headingElement3.Controls.Add(this.functionbutton1);
             this.headingElement3.Dock = System.Windows.Forms.DockStyle.Top;
             this.headingElement3.Location = new System.Drawing.Point(0, 86);
-            this.headingElement3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.headingElement3.Margin = new System.Windows.Forms.Padding(2);
             this.headingElement3.Name = "headingElement3";
             this.headingElement3.Size = new System.Drawing.Size(832, 29);
             this.headingElement3.TabIndex = 2;
@@ -113,7 +113,7 @@
             this.functionbutton1.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.functionbutton1.ForeColor = System.Drawing.SystemColors.Control;
             this.functionbutton1.Location = new System.Drawing.Point(666, 0);
-            this.functionbutton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.functionbutton1.Margin = new System.Windows.Forms.Padding(2);
             this.functionbutton1.Name = "functionbutton1";
             this.functionbutton1.Size = new System.Drawing.Size(166, 29);
             this.functionbutton1.TabIndex = 0;
@@ -130,7 +130,7 @@
             this.headingElement2.Controls.Add(this.direction3);
             this.headingElement2.Dock = System.Windows.Forms.DockStyle.Top;
             this.headingElement2.Location = new System.Drawing.Point(0, 56);
-            this.headingElement2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.headingElement2.Margin = new System.Windows.Forms.Padding(2);
             this.headingElement2.Name = "headingElement2";
             this.headingElement2.Size = new System.Drawing.Size(832, 30);
             this.headingElement2.TabIndex = 1;
@@ -200,7 +200,7 @@
             this.headingElement.Controls.Add(this.signature1);
             this.headingElement.Dock = System.Windows.Forms.DockStyle.Top;
             this.headingElement.Location = new System.Drawing.Point(0, 0);
-            this.headingElement.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.headingElement.Margin = new System.Windows.Forms.Padding(2);
             this.headingElement.Name = "headingElement";
             this.headingElement.Size = new System.Drawing.Size(832, 56);
             this.headingElement.TabIndex = 0;
@@ -210,10 +210,24 @@
             this.panel2.Controls.Add(this.button1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(747, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(85, 56);
             this.panel2.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.Control;
+            this.button1.Image = global::ExamApp.Properties.Resources.icon5;
+            this.button1.Location = new System.Drawing.Point(47, 30);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(34, 26);
+            this.button1.TabIndex = 0;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // signature1
             // 
@@ -232,7 +246,7 @@
             // 
             this.spacingm.Dock = System.Windows.Forms.DockStyle.Top;
             this.spacingm.Location = new System.Drawing.Point(38, 117);
-            this.spacingm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.spacingm.Margin = new System.Windows.Forms.Padding(2);
             this.spacingm.Name = "spacingm";
             this.spacingm.Size = new System.Drawing.Size(834, 27);
             this.spacingm.TabIndex = 44;
@@ -241,7 +255,7 @@
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(38, 499);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(834, 41);
             this.panel1.TabIndex = 45;
@@ -252,7 +266,7 @@
             this.mainpanel.Controls.Add(this.quizFlowLayout);
             this.mainpanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainpanel.Location = new System.Drawing.Point(38, 144);
-            this.mainpanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mainpanel.Margin = new System.Windows.Forms.Padding(2);
             this.mainpanel.Name = "mainpanel";
             this.mainpanel.Size = new System.Drawing.Size(834, 355);
             this.mainpanel.TabIndex = 46;
@@ -265,7 +279,7 @@
             this.quizFlowLayout.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.quizFlowLayout.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quizFlowLayout.Location = new System.Drawing.Point(0, 0);
-            this.quizFlowLayout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.quizFlowLayout.Margin = new System.Windows.Forms.Padding(2);
             this.quizFlowLayout.Name = "quizFlowLayout";
             this.quizFlowLayout.Size = new System.Drawing.Size(832, 353);
             this.quizFlowLayout.TabIndex = 0;
@@ -279,7 +293,7 @@
             this.popup.Controls.Add(this.questions1);
             this.popup.Controls.Add(this.signature2);
             this.popup.Location = new System.Drawing.Point(253, 195);
-            this.popup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.popup.Margin = new System.Windows.Forms.Padding(2);
             this.popup.Name = "popup";
             this.popup.Size = new System.Drawing.Size(406, 173);
             this.popup.TabIndex = 48;
@@ -351,20 +365,6 @@
             this.signature2.TabIndex = 0;
             this.signature2.Text = "Question Bank";
             // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Image = global::ExamApp.Properties.Resources.icon5;
-            this.button1.Location = new System.Drawing.Point(47, 30);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(34, 26);
-            this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // ExamApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -378,7 +378,7 @@
             this.Controls.Add(this.spacingr);
             this.Controls.Add(this.spacingl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ExamApp";
             this.Text = "Exam App";
             this.heading.ResumeLayout(false);

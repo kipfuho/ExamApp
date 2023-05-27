@@ -1,6 +1,7 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Packaging;
+using System;
 using System.Collections.Generic;
-using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -316,13 +317,13 @@ class QuestionBlock : Panel
         this.label.Dock = DockStyle.Left;
 		this.label.Size = new System.Drawing.Size(600, 0);
 
-		if (question.Name.Length > 60)
+		if (question.Description.Length > 60)
 		{
-            this.label.Text = Question.Name.Substring(0, 60) + "...";
+            this.label.Text = Question.Description.Substring(0, 60) + "...";
         }
 		else
 		{
-			this.label.Text = Question.Name;
+			this.label.Text = Question.Description;
 		}
 
         this.edit.Text = "Edit";
@@ -393,5 +394,194 @@ class QuizBlock : Panel
         {
             this.quizname.Text = Quiz.Name;
         }
+    }
+}
+
+class AikenFormat
+{
+	private string filePath;
+	private List<Question> importedQuestions;
+
+	public string FilePath
+	{
+		set { filePath = value; }
+	}
+
+	public List<Question> ImportQuestion
+	{
+		get { return importedQuestions; }
+	}
+
+	public void ReadTxt()
+	{
+        List<Question> questions = new List<Question>();
+        string[] lines = File.ReadAllLines(filePath);
+
+        Question currentQuestion = null;
+		int Phase = 1;
+		int Index = 1;
+		int choiceNum = 0;
+        foreach (string line in lines)
+        {
+			if (Phase == 0)
+			{
+				Phase = 1;
+				continue;
+			}
+            if (Phase == 1)
+            {
+				if (currentQuestion != null)
+				{
+					questions.Add(currentQuestion);
+					currentQuestion = null;
+                }
+				Phase = 2;
+				choiceNum = 0;
+				currentQuestion = new Question
+				{
+					Name = "",
+					Description = line,
+					Mark = 1,
+                    Choices = new List<Choice>(5) { null, null, null, null, null }
+                };
+            }
+            else if (Phase == 2)
+            {
+                if (line.StartsWith("A. "))
+                {
+					currentQuestion.Choices[0] = new Choice { Text = line.Substring(3), Grade = 0};
+					choiceNum++;
+                }
+                else if (line.StartsWith("B. "))
+                {
+                    currentQuestion.Choices[1] = new Choice { Text = line.Substring(3), Grade = 0};
+					choiceNum++;
+                }
+                else if (line.StartsWith("C. "))
+                {
+                    currentQuestion.Choices[2] = new Choice { Text = line.Substring(3), Grade = 0 };
+					choiceNum++;
+                }
+				else if (line.StartsWith("D. "))
+                {
+                    currentQuestion.Choices[3] = new Choice { Text = line.Substring(3), Grade = 0 };
+					choiceNum++;
+                }
+                else if (line.StartsWith("E. "))
+                {
+                    currentQuestion.Choices[4] = new Choice { Text = line.Substring(3), Grade = 0 };
+					choiceNum++;
+                }
+				else if (line.StartsWith("ANSWER: ")) 
+				{
+					if (!String.IsNullOrEmpty(line.Substring(8).Trim()))
+					{
+                        string answer = line.Substring(8).Trim();
+                        if (answer.Length > 1)
+                        {
+                            MessageBox.Show($"Error at line {Index}\nANSWER seems to have more than 1 characters");
+                            return;
+                        }
+                        else if (answer.CompareTo("A") == 0)
+                        {
+							currentQuestion.Choices[0].Grade = 1;
+                        }
+                        else if (answer.CompareTo("B") == 0)
+                        {
+                            currentQuestion.Choices[1].Grade = 1;
+                        }
+                        else if (answer.CompareTo("C") == 0)
+                        {
+                            currentQuestion.Choices[2].Grade = 1;
+                        }
+                        else if (answer.CompareTo("D") == 0)
+                        {
+                            currentQuestion.Choices[3].Grade = 1;
+                        }
+                        else if (answer.CompareTo("E") == 0)
+                        {
+                            currentQuestion.Choices[4].Grade = 1;
+                        }
+						else
+						{
+                            MessageBox.Show($"Error at line {Index}\nANSWER is not one of A, B, C, D, E");
+                            return;
+                        }
+                    }
+					else
+					{
+                        MessageBox.Show($"Error at line {Index}\nANSWER seems to be empty!");
+                        return;
+                    }
+					Phase = 0;
+				}
+				else
+				{
+					MessageBox.Show($"Error at line {Index}");
+					return;
+				}
+            }
+        }
+
+        if (currentQuestion != null)
+        {
+            questions.Add(currentQuestion);
+        }
+
+        this.importedQuestions = questions;
+    }
+
+    public void ReadDocx()
+    {
+
+        using (WordprocessingDocument doc = WordprocessingDocument.Open(this.filePath, false))
+        {
+            var imageElements = doc.MainDocumentPart.Document.Descendants<DocumentFormat.OpenXml.Drawing.Blip>();
+
+            foreach (var imageElement in imageElements)
+            {
+                string imageId = imageElement.Embed;
+
+                var imagePart = doc.MainDocumentPart.GetPartById(imageId) as ImagePart;
+                byte[] imageData = ReadImageData(imagePart);
+
+                int location = GetImageLocation(imageElement);
+
+                
+            }
+        }
+    }
+
+    private byte[] ReadImageData(ImagePart imagePart)
+    {
+        using (Stream stream = imagePart.GetStream())
+        using (MemoryStream memoryStream = new MemoryStream())
+        {
+            stream.CopyTo(memoryStream);
+            return memoryStream.ToArray();
+        }
+    }
+
+    private int GetImageLocation(DocumentFormat.OpenXml.Drawing.Blip imageElement)
+    {
+        var run = imageElement.Ancestors<DocumentFormat.OpenXml.Wordprocessing.Run>().FirstOrDefault();
+        if (run != null)
+        {
+            var paragraph = run.Ancestors<DocumentFormat.OpenXml.Wordprocessing.Paragraph>().FirstOrDefault();
+            if (paragraph != null)
+            {
+                var document = paragraph.Ancestors<DocumentFormat.OpenXml.Wordprocessing.Document>().FirstOrDefault();
+                if (document != null)
+                {
+                    var body = document.Body;
+                    int lineIndex = body.Descendants<DocumentFormat.OpenXml.Wordprocessing.Paragraph>()
+                        .TakeWhile(p => p != paragraph)
+                        .Count() + 1;
+                    return lineIndex;
+                }
+            }
+        }
+
+        return -1;
     }
 }

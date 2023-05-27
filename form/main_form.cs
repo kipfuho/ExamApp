@@ -47,6 +47,9 @@ namespace ExamApp
             form.DirectingButton1.Click += new System.EventHandler(this.createquestion_Click);
             form.SubcategoriesQ.CheckedChanged += new System.EventHandler(this.BP1checkbox1_CheckedChanged);
             form.addCategoryButton.Click += new System.EventHandler(this.BP1addcategory_Click);
+
+            form.ImportPanel.DragEnter += this.importPanel_DragEnter;
+            form.ImportPanel.DragDrop += this.importPanel_DragDrop;
             //
             // Category ComboBox in Questions tab
             //
@@ -69,7 +72,7 @@ namespace ExamApp
         }
 
         // function to open edit question form
-        private void openeditquestionpanel(editquestion_form form)
+        private void openeditquestionpanel(editquestion_form form, Boolean show)
         {
             bigpanel2 = form;
             form.TopLevel = false;
@@ -89,9 +92,12 @@ namespace ExamApp
             form.QCategory.DataSource = categories;
             form.QCategory.DisplayMember = "NameAndGen";
             //
-            mainpanel.Controls.Add(form);
-            mainpanel.Tag = form;
-            form.Show();
+            if (show)
+            {
+                mainpanel.Controls.Add(form);
+                mainpanel.Tag = form;
+                form.Show();
+            }
         }
 
         // function to open quiz form
@@ -441,7 +447,7 @@ namespace ExamApp
 
             if (bigpanel2 == null)
             {
-                openeditquestionpanel(new editquestion_form());
+                openeditquestionpanel(new editquestion_form(), true);
             }
             else
             {
@@ -480,9 +486,21 @@ namespace ExamApp
                 mainpanel.Controls.RemoveAt(0);
             }
 
+            if (bigpanel2 == null)
+            {
+                this.openeditquestionpanel(new editquestion_form(), false);
+            }
+
             currentquestion = question;
             bigpanel2.QName.Text = question.Name;
-            bigpanel2.QText.Rtf = question.Description;
+            try
+            {
+                bigpanel2.QText.Rtf = question.Description;
+            }
+            catch (Exception ex)
+            {
+                bigpanel2.QText.Text = question.Description;
+            }
             bigpanel2.QMark.Text = Convert.ToString(question.Mark);
 
             if (question.Choices[2] != null || question.Choices[3] != null || question.Choices[4] != null)
@@ -558,16 +576,18 @@ namespace ExamApp
                 }
             }
 
+            // Change the heading
             slash2.Show();
             direction3.Show();
             direction2.Cursor = System.Windows.Forms.Cursors.Hand;
             direction2.ForeColor = Color.IndianRed;
             direction2.Click += new System.EventHandler(this.direction2_Click);
+
+            // Switch big panel
             bigpanel1.Hide();
             bigpanel2.BigLabel.Text = "Editing a Multiple choices question";
             bigpanel2.MainPanel.AutoScrollPosition = new Point(0, 0);
             bigpanel2.ChoiceP.AutoScrollPosition = new Point(0, 0);
-            mainpanel.Controls.RemoveAt(0);
             mainpanel.Controls.Add(bigpanel2);
             mainpanel.Tag = bigpanel2;
             bigpanel2.Show();
@@ -617,6 +637,99 @@ namespace ExamApp
             Category_ItemsChanged();
             bigpanel1.DirectTab.SelectedIndex = 0;
             MessageBox.Show("Successfully created a new category!");
+        }
+
+        private void importPanel_DragEnter(object sender, DragEventArgs e)
+        {
+            // Check if the dragged data contains file(s)
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                // Get the array of dropped files
+                string[] filepaths = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+                // Check the file type and size for each dropped file
+                foreach (string filepath in filepaths)
+                {
+                    // Check file extension
+                    string extension = System.IO.Path.GetExtension(filepath);
+                    if (extension != ".txt" && extension != ".docx")
+                    {
+                        // Invalid file type, reject the drag and drop operation
+                        e.Effect = DragDropEffects.None;
+                        return;
+                    }
+
+                    // Check file size
+                    long fileSize = new System.IO.FileInfo(filepath).Length;
+                    if (fileSize > 10*1024*1024) // MAX 10MB
+                    {
+                        // File size exceeds the limit, reject the drag and drop operation
+                        e.Effect = DragDropEffects.None;
+                        return;
+                    }
+                }
+
+                // All files are valid, allow the drag and drop operation
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                // No file(s) present in the dragged data, reject the drag and drop operation
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void importPanel_DragDrop(object sender, DragEventArgs e)
+        {
+            // Get the dropped data
+            string[] filepaths = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+            if(filepaths.Length > 1)
+            {
+                MessageBox.Show("Please drop 1 file at once");
+                return;
+            }
+
+            AikenFormat aikenFormat = new AikenFormat { FilePath = filepaths[0] };
+            string extension = System.IO.Path.GetExtension(filepaths[0]);
+
+            if(extension == ".txt")
+            {
+                aikenFormat.ReadTxt();
+            }
+            else
+            {
+                aikenFormat.ReadDocx();
+            }
+
+            if(aikenFormat == null)
+            {
+                MessageBox.Show("?Error!");
+            }
+
+            if(aikenFormat.ImportQuestion != null)
+            {
+                foreach (Question question in aikenFormat.ImportQuestion)
+                {
+                    question.Category = categories[0];
+                    categories[0].addQuestion(question);
+                }
+                updateQuestiondisplay(false);
+            }
+
+            int importedQuestionNum = aikenFormat.ImportQuestion.Count();
+            if (importedQuestionNum == 0)
+            {
+                MessageBox.Show("Nothing imported!");
+            }
+            else if(importedQuestionNum == 1)
+            {
+                MessageBox.Show("Successfully imported 1 question");
+            }
+            else
+            {
+                MessageBox.Show($"Successfully imported {importedQuestionNum} questions");
+            }
         }
 
 /* edit question form*/

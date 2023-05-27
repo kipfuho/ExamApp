@@ -112,7 +112,7 @@ namespace ExamApp
             this.panel53 = new System.Windows.Forms.Panel();
             this.panel47 = new System.Windows.Forms.Panel();
             this.panel48 = new System.Windows.Forms.Panel();
-            this.panel57 = new System.Windows.Forms.Panel();
+            this.importDragPanel = new System.Windows.Forms.Panel();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.panel50 = new System.Windows.Forms.Panel();
@@ -161,7 +161,7 @@ namespace ExamApp
             this.panel52.SuspendLayout();
             this.panel47.SuspendLayout();
             this.panel48.SuspendLayout();
-            this.panel57.SuspendLayout();
+            this.importDragPanel.SuspendLayout();
             this.panel50.SuspendLayout();
             this.panel49.SuspendLayout();
             this.panel43.SuspendLayout();
@@ -181,7 +181,7 @@ namespace ExamApp
             this.DirectionInEditPanel.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.DirectionInEditPanel.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DirectionInEditPanel.Location = new System.Drawing.Point(0, 0);
-            this.DirectionInEditPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DirectionInEditPanel.Margin = new System.Windows.Forms.Padding(2);
             this.DirectionInEditPanel.Name = "DirectionInEditPanel";
             this.DirectionInEditPanel.SelectedIndex = 0;
             this.DirectionInEditPanel.Size = new System.Drawing.Size(918, 487);
@@ -206,9 +206,9 @@ namespace ExamApp
             this.QuestionsTab_EditPanel.Cursor = System.Windows.Forms.Cursors.Default;
             this.QuestionsTab_EditPanel.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.QuestionsTab_EditPanel.Location = new System.Drawing.Point(4, 33);
-            this.QuestionsTab_EditPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.QuestionsTab_EditPanel.Margin = new System.Windows.Forms.Padding(2);
             this.QuestionsTab_EditPanel.Name = "QuestionsTab_EditPanel";
-            this.QuestionsTab_EditPanel.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.QuestionsTab_EditPanel.Padding = new System.Windows.Forms.Padding(2);
             this.QuestionsTab_EditPanel.Size = new System.Drawing.Size(910, 450);
             this.QuestionsTab_EditPanel.TabIndex = 0;
             this.QuestionsTab_EditPanel.Text = "Questions";
@@ -220,7 +220,7 @@ namespace ExamApp
             this.panel17.Controls.Add(this.panel18);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel17.Location = new System.Drawing.Point(25, 280);
-            this.panel17.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel17.Margin = new System.Windows.Forms.Padding(2);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(866, 173);
             this.panel17.TabIndex = 42;
@@ -229,7 +229,7 @@ namespace ExamApp
             // 
             this.panel19.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel19.Location = new System.Drawing.Point(751, 0);
-            this.panel19.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel19.Margin = new System.Windows.Forms.Padding(2);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(130, 173);
             this.panel19.TabIndex = 33;
@@ -242,7 +242,7 @@ namespace ExamApp
             this.QuestionFlowLayout.Dock = System.Windows.Forms.DockStyle.Left;
             this.QuestionFlowLayout.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.QuestionFlowLayout.Location = new System.Drawing.Point(38, 0);
-            this.QuestionFlowLayout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.QuestionFlowLayout.Margin = new System.Windows.Forms.Padding(2);
             this.QuestionFlowLayout.Name = "QuestionFlowLayout";
             this.QuestionFlowLayout.Size = new System.Drawing.Size(713, 173);
             this.QuestionFlowLayout.TabIndex = 31;
@@ -252,7 +252,7 @@ namespace ExamApp
             // 
             this.panel18.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel18.Location = new System.Drawing.Point(0, 0);
-            this.panel18.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel18.Margin = new System.Windows.Forms.Padding(2);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(38, 173);
             this.panel18.TabIndex = 32;
@@ -261,7 +261,7 @@ namespace ExamApp
             // 
             this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel16.Location = new System.Drawing.Point(25, 264);
-            this.panel16.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel16.Margin = new System.Windows.Forms.Padding(2);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(866, 16);
             this.panel16.TabIndex = 41;
@@ -273,7 +273,7 @@ namespace ExamApp
             this.panel13.Controls.Add(this.panel14);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel13.Location = new System.Drawing.Point(25, 223);
-            this.panel13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel13.Margin = new System.Windows.Forms.Padding(2);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(866, 41);
             this.panel13.TabIndex = 40;
@@ -282,7 +282,7 @@ namespace ExamApp
             // 
             this.panel15.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel15.Location = new System.Drawing.Point(332, 0);
-            this.panel15.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel15.Margin = new System.Windows.Forms.Padding(2);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(391, 41);
             this.panel15.TabIndex = 28;
@@ -296,7 +296,7 @@ namespace ExamApp
             this.CreateQuestionButton.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CreateQuestionButton.ForeColor = System.Drawing.SystemColors.Control;
             this.CreateQuestionButton.Location = new System.Drawing.Point(60, 0);
-            this.CreateQuestionButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CreateQuestionButton.Margin = new System.Windows.Forms.Padding(2);
             this.CreateQuestionButton.Name = "CreateQuestionButton";
             this.CreateQuestionButton.Size = new System.Drawing.Size(272, 41);
             this.CreateQuestionButton.TabIndex = 26;
@@ -307,7 +307,7 @@ namespace ExamApp
             // 
             this.panel14.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel14.Location = new System.Drawing.Point(0, 0);
-            this.panel14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel14.Margin = new System.Windows.Forms.Padding(2);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(60, 41);
             this.panel14.TabIndex = 27;
@@ -316,7 +316,7 @@ namespace ExamApp
             // 
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(25, 207);
-            this.panel12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel12.Margin = new System.Windows.Forms.Padding(2);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(866, 16);
             this.panel12.TabIndex = 39;
@@ -329,7 +329,7 @@ namespace ExamApp
             this.panel7.Controls.Add(this.panel10);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(25, 179);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel7.Margin = new System.Windows.Forms.Padding(2);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(866, 28);
             this.panel7.TabIndex = 38;
@@ -350,7 +350,7 @@ namespace ExamApp
             // 
             this.panel11.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel11.Location = new System.Drawing.Point(45, 0);
-            this.panel11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel11.Margin = new System.Windows.Forms.Padding(2);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(15, 28);
             this.panel11.TabIndex = 32;
@@ -361,7 +361,7 @@ namespace ExamApp
             this.checkBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBox2.Dock = System.Windows.Forms.DockStyle.Left;
             this.checkBox2.Location = new System.Drawing.Point(30, 0);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox2.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(15, 28);
             this.checkBox2.TabIndex = 28;
@@ -371,7 +371,7 @@ namespace ExamApp
             // 
             this.panel10.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel10.Location = new System.Drawing.Point(0, 0);
-            this.panel10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel10.Margin = new System.Windows.Forms.Padding(2);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(30, 28);
             this.panel10.TabIndex = 31;
@@ -384,7 +384,7 @@ namespace ExamApp
             this.panel6.Controls.Add(this.panel8);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(25, 151);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(866, 28);
             this.panel6.TabIndex = 37;
@@ -405,7 +405,7 @@ namespace ExamApp
             // 
             this.panel9.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel9.Location = new System.Drawing.Point(45, 0);
-            this.panel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel9.Margin = new System.Windows.Forms.Padding(2);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(15, 28);
             this.panel9.TabIndex = 31;
@@ -416,7 +416,7 @@ namespace ExamApp
             this.ShowQuestionsSubcategoriesCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ShowQuestionsSubcategoriesCheckBox.Dock = System.Windows.Forms.DockStyle.Left;
             this.ShowQuestionsSubcategoriesCheckBox.Location = new System.Drawing.Point(30, 0);
-            this.ShowQuestionsSubcategoriesCheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ShowQuestionsSubcategoriesCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.ShowQuestionsSubcategoriesCheckBox.Name = "ShowQuestionsSubcategoriesCheckBox";
             this.ShowQuestionsSubcategoriesCheckBox.Size = new System.Drawing.Size(15, 28);
             this.ShowQuestionsSubcategoriesCheckBox.TabIndex = 27;
@@ -426,7 +426,7 @@ namespace ExamApp
             // 
             this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel8.Location = new System.Drawing.Point(0, 0);
-            this.panel8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel8.Margin = new System.Windows.Forms.Padding(2);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(30, 28);
             this.panel8.TabIndex = 30;
@@ -436,7 +436,7 @@ namespace ExamApp
             this.panel3.Controls.Add(this.InfoLabel2_QuestionsTab_EditPanel);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(25, 119);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(866, 32);
             this.panel3.TabIndex = 34;
@@ -460,7 +460,7 @@ namespace ExamApp
             this.panel2.Controls.Add(this.InfoLabel1_QuestionsTab_EditPanel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(25, 70);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(866, 49);
             this.panel2.TabIndex = 33;
@@ -473,7 +473,7 @@ namespace ExamApp
             this.comboBox1.Items.AddRange(new object[] {
             "Default"});
             this.comboBox1.Location = new System.Drawing.Point(172, 0);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(312, 29);
             this.comboBox1.TabIndex = 2;
@@ -496,7 +496,7 @@ namespace ExamApp
             // 
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(25, 38);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(866, 32);
             this.panel5.TabIndex = 36;
@@ -505,7 +505,7 @@ namespace ExamApp
             // 
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(2, 38);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(23, 413);
             this.panel4.TabIndex = 35;
@@ -515,7 +515,7 @@ namespace ExamApp
             this.panel1.Controls.Add(this.TitleLabel1_QuestionsTab_EditPanel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(2, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(889, 36);
             this.panel1.TabIndex = 32;
@@ -540,9 +540,9 @@ namespace ExamApp
             this.CategoriesTab_EditPanel.Controls.Add(this.panel20);
             this.CategoriesTab_EditPanel.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CategoriesTab_EditPanel.Location = new System.Drawing.Point(4, 33);
-            this.CategoriesTab_EditPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CategoriesTab_EditPanel.Margin = new System.Windows.Forms.Padding(2);
             this.CategoriesTab_EditPanel.Name = "CategoriesTab_EditPanel";
-            this.CategoriesTab_EditPanel.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CategoriesTab_EditPanel.Padding = new System.Windows.Forms.Padding(2);
             this.CategoriesTab_EditPanel.Size = new System.Drawing.Size(910, 450);
             this.CategoriesTab_EditPanel.TabIndex = 1;
             this.CategoriesTab_EditPanel.Text = "Categories";
@@ -557,7 +557,7 @@ namespace ExamApp
             this.panel22.Controls.Add(this.panel23);
             this.panel22.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel22.Location = new System.Drawing.Point(2, 24);
-            this.panel22.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel22.Margin = new System.Windows.Forms.Padding(2);
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(906, 424);
             this.panel22.TabIndex = 1;
@@ -566,7 +566,7 @@ namespace ExamApp
             // 
             this.panel26.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel26.Location = new System.Drawing.Point(823, 18);
-            this.panel26.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel26.Margin = new System.Windows.Forms.Padding(2);
             this.panel26.Name = "panel26";
             this.panel26.Size = new System.Drawing.Size(85, 282);
             this.panel26.TabIndex = 3;
@@ -582,7 +582,7 @@ namespace ExamApp
             this.panel25.Controls.Add(this.comboBox2);
             this.panel25.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel25.Location = new System.Drawing.Point(198, 18);
-            this.panel25.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel25.Margin = new System.Windows.Forms.Padding(2);
             this.panel25.Name = "panel25";
             this.panel25.Size = new System.Drawing.Size(625, 282);
             this.panel25.TabIndex = 2;
@@ -623,7 +623,7 @@ namespace ExamApp
             // newCategoryId
             // 
             this.newCategoryId.Location = new System.Drawing.Point(79, 236);
-            this.newCategoryId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.newCategoryId.Margin = new System.Windows.Forms.Padding(2);
             this.newCategoryId.Name = "newCategoryId";
             this.newCategoryId.Size = new System.Drawing.Size(95, 26);
             this.newCategoryId.TabIndex = 3;
@@ -632,7 +632,7 @@ namespace ExamApp
             // 
             this.newCategoryInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.newCategoryInfo.Location = new System.Drawing.Point(79, 90);
-            this.newCategoryInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.newCategoryInfo.Margin = new System.Windows.Forms.Padding(2);
             this.newCategoryInfo.Name = "newCategoryInfo";
             this.newCategoryInfo.Size = new System.Drawing.Size(506, 130);
             this.newCategoryInfo.TabIndex = 2;
@@ -641,7 +641,7 @@ namespace ExamApp
             // newCategoryName
             // 
             this.newCategoryName.Location = new System.Drawing.Point(79, 47);
-            this.newCategoryName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.newCategoryName.Margin = new System.Windows.Forms.Padding(2);
             this.newCategoryName.Name = "newCategoryName";
             this.newCategoryName.Size = new System.Drawing.Size(398, 26);
             this.newCategoryName.TabIndex = 1;
@@ -651,7 +651,7 @@ namespace ExamApp
             this.comboBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(79, 2);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(291, 29);
             this.comboBox2.TabIndex = 0;
@@ -665,7 +665,7 @@ namespace ExamApp
             this.panel24.Controls.Add(this.label3);
             this.panel24.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel24.Location = new System.Drawing.Point(0, 18);
-            this.panel24.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel24.Margin = new System.Windows.Forms.Padding(2);
             this.panel24.Name = "panel24";
             this.panel24.Size = new System.Drawing.Size(198, 282);
             this.panel24.TabIndex = 1;
@@ -717,7 +717,7 @@ namespace ExamApp
             this.panel27.Controls.Add(this.panel28);
             this.panel27.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel27.Location = new System.Drawing.Point(0, 300);
-            this.panel27.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel27.Margin = new System.Windows.Forms.Padding(2);
             this.panel27.Name = "panel27";
             this.panel27.Size = new System.Drawing.Size(906, 124);
             this.panel27.TabIndex = 4;
@@ -726,7 +726,7 @@ namespace ExamApp
             // 
             this.panel30.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel30.Location = new System.Drawing.Point(758, 0);
-            this.panel30.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel30.Margin = new System.Windows.Forms.Padding(2);
             this.panel30.Name = "panel30";
             this.panel30.Size = new System.Drawing.Size(150, 124);
             this.panel30.TabIndex = 2;
@@ -740,7 +740,7 @@ namespace ExamApp
             this.panel29.Controls.Add(this.panel31);
             this.panel29.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel29.Location = new System.Drawing.Point(182, 0);
-            this.panel29.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel29.Margin = new System.Windows.Forms.Padding(2);
             this.panel29.Name = "panel29";
             this.panel29.Size = new System.Drawing.Size(576, 124);
             this.panel29.TabIndex = 1;
@@ -749,7 +749,7 @@ namespace ExamApp
             // 
             this.panel36.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel36.Location = new System.Drawing.Point(468, 42);
-            this.panel36.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel36.Margin = new System.Windows.Forms.Padding(2);
             this.panel36.Name = "panel36";
             this.panel36.Size = new System.Drawing.Size(29, 82);
             this.panel36.TabIndex = 3;
@@ -783,7 +783,7 @@ namespace ExamApp
             // 
             this.panel35.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel35.Location = new System.Drawing.Point(0, 42);
-            this.panel35.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel35.Margin = new System.Windows.Forms.Padding(2);
             this.panel35.Name = "panel35";
             this.panel35.Size = new System.Drawing.Size(16, 82);
             this.panel35.TabIndex = 1;
@@ -795,7 +795,7 @@ namespace ExamApp
             this.panel31.Controls.Add(this.panel32);
             this.panel31.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel31.Location = new System.Drawing.Point(0, 0);
-            this.panel31.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel31.Margin = new System.Windows.Forms.Padding(2);
             this.panel31.Name = "panel31";
             this.panel31.Size = new System.Drawing.Size(576, 42);
             this.panel31.TabIndex = 0;
@@ -804,7 +804,7 @@ namespace ExamApp
             // 
             this.panel34.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel34.Location = new System.Drawing.Point(328, 0);
-            this.panel34.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel34.Margin = new System.Windows.Forms.Padding(2);
             this.panel34.Name = "panel34";
             this.panel34.Size = new System.Drawing.Size(150, 42);
             this.panel34.TabIndex = 2;
@@ -815,7 +815,7 @@ namespace ExamApp
             this.panel33.Controls.Add(this.panel37);
             this.panel33.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel33.Location = new System.Drawing.Point(178, 0);
-            this.panel33.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel33.Margin = new System.Windows.Forms.Padding(2);
             this.panel33.Name = "panel33";
             this.panel33.Size = new System.Drawing.Size(150, 42);
             this.panel33.TabIndex = 1;
@@ -824,7 +824,7 @@ namespace ExamApp
             // 
             this.panel38.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel38.Location = new System.Drawing.Point(0, 37);
-            this.panel38.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel38.Margin = new System.Windows.Forms.Padding(2);
             this.panel38.Name = "panel38";
             this.panel38.Size = new System.Drawing.Size(150, 8);
             this.panel38.TabIndex = 1;
@@ -834,7 +834,7 @@ namespace ExamApp
             this.panel37.Controls.Add(this.addCategorybutton);
             this.panel37.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel37.Location = new System.Drawing.Point(0, 0);
-            this.panel37.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel37.Margin = new System.Windows.Forms.Padding(2);
             this.panel37.Name = "panel37";
             this.panel37.Size = new System.Drawing.Size(150, 37);
             this.panel37.TabIndex = 0;
@@ -847,7 +847,7 @@ namespace ExamApp
             this.addCategorybutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addCategorybutton.ForeColor = System.Drawing.SystemColors.Control;
             this.addCategorybutton.Location = new System.Drawing.Point(0, 0);
-            this.addCategorybutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addCategorybutton.Margin = new System.Windows.Forms.Padding(2);
             this.addCategorybutton.Name = "addCategorybutton";
             this.addCategorybutton.Size = new System.Drawing.Size(150, 37);
             this.addCategorybutton.TabIndex = 0;
@@ -858,7 +858,7 @@ namespace ExamApp
             // 
             this.panel32.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel32.Location = new System.Drawing.Point(0, 0);
-            this.panel32.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel32.Margin = new System.Windows.Forms.Padding(2);
             this.panel32.Name = "panel32";
             this.panel32.Size = new System.Drawing.Size(178, 42);
             this.panel32.TabIndex = 0;
@@ -867,7 +867,7 @@ namespace ExamApp
             // 
             this.panel28.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel28.Location = new System.Drawing.Point(0, 0);
-            this.panel28.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel28.Margin = new System.Windows.Forms.Padding(2);
             this.panel28.Name = "panel28";
             this.panel28.Size = new System.Drawing.Size(182, 124);
             this.panel28.TabIndex = 0;
@@ -876,7 +876,7 @@ namespace ExamApp
             // 
             this.panel23.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel23.Location = new System.Drawing.Point(0, 0);
-            this.panel23.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel23.Margin = new System.Windows.Forms.Padding(2);
             this.panel23.Name = "panel23";
             this.panel23.Size = new System.Drawing.Size(906, 18);
             this.panel23.TabIndex = 0;
@@ -888,7 +888,7 @@ namespace ExamApp
             this.panel20.Controls.Add(this.panel21);
             this.panel20.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel20.Location = new System.Drawing.Point(2, 2);
-            this.panel20.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel20.Margin = new System.Windows.Forms.Padding(2);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(906, 22);
             this.panel20.TabIndex = 0;
@@ -925,7 +925,7 @@ namespace ExamApp
             // 
             this.panel21.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel21.Location = new System.Drawing.Point(0, 0);
-            this.panel21.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel21.Margin = new System.Windows.Forms.Padding(2);
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(8, 22);
             this.panel21.TabIndex = 0;
@@ -936,7 +936,7 @@ namespace ExamApp
             this.ImportTab_EditPanel.Cursor = System.Windows.Forms.Cursors.Default;
             this.ImportTab_EditPanel.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ImportTab_EditPanel.Location = new System.Drawing.Point(4, 33);
-            this.ImportTab_EditPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ImportTab_EditPanel.Margin = new System.Windows.Forms.Padding(2);
             this.ImportTab_EditPanel.Name = "ImportTab_EditPanel";
             this.ImportTab_EditPanel.Size = new System.Drawing.Size(910, 450);
             this.ImportTab_EditPanel.TabIndex = 2;
@@ -954,7 +954,7 @@ namespace ExamApp
             this.panel39.Controls.Add(this.panel45);
             this.panel39.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel39.Location = new System.Drawing.Point(0, 0);
-            this.panel39.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel39.Margin = new System.Windows.Forms.Padding(2);
             this.panel39.Name = "panel39";
             this.panel39.Size = new System.Drawing.Size(910, 450);
             this.panel39.TabIndex = 0;
@@ -963,7 +963,7 @@ namespace ExamApp
             // 
             this.panel46.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel46.Location = new System.Drawing.Point(10, 451);
-            this.panel46.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel46.Margin = new System.Windows.Forms.Padding(2);
             this.panel46.Name = "panel46";
             this.panel46.Size = new System.Drawing.Size(883, 24);
             this.panel46.TabIndex = 7;
@@ -975,7 +975,7 @@ namespace ExamApp
             this.panel44.Controls.Add(this.panel47);
             this.panel44.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel44.Location = new System.Drawing.Point(10, 93);
-            this.panel44.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel44.Margin = new System.Windows.Forms.Padding(2);
             this.panel44.Name = "panel44";
             this.panel44.Size = new System.Drawing.Size(883, 358);
             this.panel44.TabIndex = 6;
@@ -987,7 +987,7 @@ namespace ExamApp
             this.panel55.Controls.Add(this.panel56);
             this.panel55.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel55.Location = new System.Drawing.Point(0, 272);
-            this.panel55.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel55.Margin = new System.Windows.Forms.Padding(2);
             this.panel55.Name = "panel55";
             this.panel55.Size = new System.Drawing.Size(883, 32);
             this.panel55.TabIndex = 2;
@@ -1021,7 +1021,7 @@ namespace ExamApp
             // 
             this.panel56.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel56.Location = new System.Drawing.Point(0, 0);
-            this.panel56.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel56.Margin = new System.Windows.Forms.Padding(2);
             this.panel56.Name = "panel56";
             this.panel56.Size = new System.Drawing.Size(225, 32);
             this.panel56.TabIndex = 0;
@@ -1031,7 +1031,7 @@ namespace ExamApp
             this.panel51.Controls.Add(this.panel52);
             this.panel51.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel51.Location = new System.Drawing.Point(0, 231);
-            this.panel51.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel51.Margin = new System.Windows.Forms.Padding(2);
             this.panel51.Name = "panel51";
             this.panel51.Size = new System.Drawing.Size(883, 41);
             this.panel51.TabIndex = 1;
@@ -1043,7 +1043,7 @@ namespace ExamApp
             this.panel52.Controls.Add(this.panel53);
             this.panel52.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel52.Location = new System.Drawing.Point(0, 0);
-            this.panel52.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel52.Margin = new System.Windows.Forms.Padding(2);
             this.panel52.Name = "panel52";
             this.panel52.Size = new System.Drawing.Size(883, 35);
             this.panel52.TabIndex = 0;
@@ -1052,7 +1052,7 @@ namespace ExamApp
             // 
             this.panel54.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel54.Location = new System.Drawing.Point(482, 0);
-            this.panel54.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel54.Margin = new System.Windows.Forms.Padding(2);
             this.panel54.Name = "panel54";
             this.panel54.Size = new System.Drawing.Size(150, 35);
             this.panel54.TabIndex = 2;
@@ -1064,7 +1064,7 @@ namespace ExamApp
             this.button3.Dock = System.Windows.Forms.DockStyle.Left;
             this.button3.ForeColor = System.Drawing.SystemColors.Control;
             this.button3.Location = new System.Drawing.Point(365, 0);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(117, 35);
             this.button3.TabIndex = 1;
@@ -1075,7 +1075,7 @@ namespace ExamApp
             // 
             this.panel53.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel53.Location = new System.Drawing.Point(0, 0);
-            this.panel53.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel53.Margin = new System.Windows.Forms.Padding(2);
             this.panel53.Name = "panel53";
             this.panel53.Size = new System.Drawing.Size(365, 35);
             this.panel53.TabIndex = 0;
@@ -1087,34 +1087,34 @@ namespace ExamApp
             this.panel47.Controls.Add(this.panel49);
             this.panel47.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel47.Location = new System.Drawing.Point(0, 0);
-            this.panel47.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel47.Margin = new System.Windows.Forms.Padding(2);
             this.panel47.Name = "panel47";
             this.panel47.Size = new System.Drawing.Size(883, 231);
             this.panel47.TabIndex = 0;
             // 
             // panel48
             // 
-            this.panel48.Controls.Add(this.panel57);
+            this.panel48.Controls.Add(this.importDragPanel);
             this.panel48.Controls.Add(this.panel50);
             this.panel48.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel48.Location = new System.Drawing.Point(350, 0);
-            this.panel48.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel48.Margin = new System.Windows.Forms.Padding(2);
             this.panel48.Name = "panel48";
             this.panel48.Size = new System.Drawing.Size(555, 214);
             this.panel48.TabIndex = 4;
             // 
-            // panel57
+            // importDragPanel
             // 
-            this.panel57.AllowDrop = true;
-            this.panel57.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel57.Controls.Add(this.label24);
-            this.panel57.Controls.Add(this.label23);
-            this.panel57.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panel57.Location = new System.Drawing.Point(4, 48);
-            this.panel57.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel57.Name = "panel57";
-            this.panel57.Size = new System.Drawing.Size(528, 166);
-            this.panel57.TabIndex = 1;
+            this.importDragPanel.AllowDrop = true;
+            this.importDragPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.importDragPanel.Controls.Add(this.label24);
+            this.importDragPanel.Controls.Add(this.label23);
+            this.importDragPanel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.importDragPanel.Location = new System.Drawing.Point(4, 48);
+            this.importDragPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.importDragPanel.Name = "importDragPanel";
+            this.importDragPanel.Size = new System.Drawing.Size(528, 166);
+            this.importDragPanel.TabIndex = 1;
             // 
             // label24
             // 
@@ -1141,7 +1141,7 @@ namespace ExamApp
             this.panel50.Controls.Add(this.button2);
             this.panel50.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel50.Location = new System.Drawing.Point(0, 0);
-            this.panel50.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel50.Margin = new System.Windows.Forms.Padding(2);
             this.panel50.Name = "panel50";
             this.panel50.Size = new System.Drawing.Size(555, 37);
             this.panel50.TabIndex = 0;
@@ -1166,7 +1166,7 @@ namespace ExamApp
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.SystemColors.Control;
             this.button2.Location = new System.Drawing.Point(0, 0);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(170, 37);
             this.button2.TabIndex = 0;
@@ -1179,7 +1179,7 @@ namespace ExamApp
             this.panel49.Controls.Add(this.label19);
             this.panel49.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel49.Location = new System.Drawing.Point(0, 0);
-            this.panel49.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel49.Margin = new System.Windows.Forms.Padding(2);
             this.panel49.Name = "panel49";
             this.panel49.Size = new System.Drawing.Size(350, 214);
             this.panel49.TabIndex = 3;
@@ -1213,7 +1213,7 @@ namespace ExamApp
             this.panel43.Controls.Add(this.label17);
             this.panel43.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel43.Location = new System.Drawing.Point(10, 61);
-            this.panel43.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel43.Margin = new System.Windows.Forms.Padding(2);
             this.panel43.Name = "panel43";
             this.panel43.Size = new System.Drawing.Size(883, 32);
             this.panel43.TabIndex = 5;
@@ -1250,7 +1250,7 @@ namespace ExamApp
             this.panel41.Controls.Add(this.label12);
             this.panel41.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel41.Location = new System.Drawing.Point(10, 33);
-            this.panel41.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel41.Margin = new System.Windows.Forms.Padding(2);
             this.panel41.Name = "panel41";
             this.panel41.Size = new System.Drawing.Size(883, 28);
             this.panel41.TabIndex = 1;
@@ -1287,7 +1287,7 @@ namespace ExamApp
             this.panel40.Controls.Add(this.label13);
             this.panel40.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel40.Location = new System.Drawing.Point(10, 0);
-            this.panel40.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel40.Margin = new System.Windows.Forms.Padding(2);
             this.panel40.Name = "panel40";
             this.panel40.Size = new System.Drawing.Size(883, 33);
             this.panel40.TabIndex = 0;
@@ -1307,7 +1307,7 @@ namespace ExamApp
             // 
             this.panel42.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel42.Location = new System.Drawing.Point(128, 0);
-            this.panel42.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel42.Margin = new System.Windows.Forms.Padding(2);
             this.panel42.Name = "panel42";
             this.panel42.Size = new System.Drawing.Size(239, 33);
             this.panel42.TabIndex = 6;
@@ -1340,7 +1340,7 @@ namespace ExamApp
             // 
             this.panel45.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel45.Location = new System.Drawing.Point(0, 0);
-            this.panel45.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel45.Margin = new System.Windows.Forms.Padding(2);
             this.panel45.Name = "panel45";
             this.panel45.Size = new System.Drawing.Size(10, 475);
             this.panel45.TabIndex = 4;
@@ -1349,7 +1349,7 @@ namespace ExamApp
             // 
             this.ExportTab_EditPanel.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ExportTab_EditPanel.Location = new System.Drawing.Point(4, 33);
-            this.ExportTab_EditPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ExportTab_EditPanel.Margin = new System.Windows.Forms.Padding(2);
             this.ExportTab_EditPanel.Name = "ExportTab_EditPanel";
             this.ExportTab_EditPanel.Size = new System.Drawing.Size(910, 450);
             this.ExportTab_EditPanel.TabIndex = 3;
@@ -1362,7 +1362,7 @@ namespace ExamApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(918, 487);
             this.Controls.Add(this.DirectionInEditPanel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "edit_form";
             this.Text = "editpanel";
             this.DirectionInEditPanel.ResumeLayout(false);
@@ -1402,8 +1402,8 @@ namespace ExamApp
             this.panel52.ResumeLayout(false);
             this.panel47.ResumeLayout(false);
             this.panel48.ResumeLayout(false);
-            this.panel57.ResumeLayout(false);
-            this.panel57.PerformLayout();
+            this.importDragPanel.ResumeLayout(false);
+            this.importDragPanel.PerformLayout();
             this.panel50.ResumeLayout(false);
             this.panel50.PerformLayout();
             this.panel49.ResumeLayout(false);
@@ -1520,7 +1520,7 @@ namespace ExamApp
         private Panel panel49;
         private Label label19;
         private Label label22;
-        private Panel panel57;
+        private Panel importDragPanel;
         private Label label24;
         private Label label23;
         private Label label25;

@@ -67,6 +67,11 @@ namespace ExamApp
             get { return QuestionFlowLayout; }
         }
 
+        public Panel ImportPanel
+        {
+            get { return importDragPanel; }
+        }
+
         public void tabControl_DrawItem(object sender, DrawItemEventArgs e)
         {
             if(e.Index == DirectionInEditPanel.SelectedIndex)
