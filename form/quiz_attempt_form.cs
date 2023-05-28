@@ -29,7 +29,7 @@ namespace ExamApp
 
         public Label GearSetting
         {
-            get { return label2; }
+            get { return gearLabel; }
         }
 
         public Button PrviewQzButton

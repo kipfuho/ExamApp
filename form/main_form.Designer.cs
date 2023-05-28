@@ -69,16 +69,16 @@
             this.spacingl.Location = new System.Drawing.Point(0, 0);
             this.spacingl.Margin = new System.Windows.Forms.Padding(2);
             this.spacingl.Name = "spacingl";
-            this.spacingl.Size = new System.Drawing.Size(38, 540);
+            this.spacingl.Size = new System.Drawing.Size(38, 624);
             this.spacingl.TabIndex = 0;
             // 
             // spacingr
             // 
             this.spacingr.Dock = System.Windows.Forms.DockStyle.Right;
-            this.spacingr.Location = new System.Drawing.Point(872, 0);
+            this.spacingr.Location = new System.Drawing.Point(1003, 0);
             this.spacingr.Margin = new System.Windows.Forms.Padding(2);
             this.spacingr.Name = "spacingr";
-            this.spacingr.Size = new System.Drawing.Size(38, 540);
+            this.spacingr.Size = new System.Drawing.Size(38, 624);
             this.spacingr.TabIndex = 1;
             // 
             // heading
@@ -91,7 +91,7 @@
             this.heading.Location = new System.Drawing.Point(38, 0);
             this.heading.Margin = new System.Windows.Forms.Padding(2);
             this.heading.Name = "heading";
-            this.heading.Size = new System.Drawing.Size(834, 117);
+            this.heading.Size = new System.Drawing.Size(965, 117);
             this.heading.TabIndex = 43;
             // 
             // headingElement3
@@ -101,7 +101,7 @@
             this.headingElement3.Location = new System.Drawing.Point(0, 86);
             this.headingElement3.Margin = new System.Windows.Forms.Padding(2);
             this.headingElement3.Name = "headingElement3";
-            this.headingElement3.Size = new System.Drawing.Size(832, 29);
+            this.headingElement3.Size = new System.Drawing.Size(963, 29);
             this.headingElement3.TabIndex = 2;
             // 
             // functionbutton1
@@ -112,7 +112,7 @@
             this.functionbutton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.functionbutton1.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.functionbutton1.ForeColor = System.Drawing.SystemColors.Control;
-            this.functionbutton1.Location = new System.Drawing.Point(666, 0);
+            this.functionbutton1.Location = new System.Drawing.Point(797, 0);
             this.functionbutton1.Margin = new System.Windows.Forms.Padding(2);
             this.functionbutton1.Name = "functionbutton1";
             this.functionbutton1.Size = new System.Drawing.Size(166, 29);
@@ -132,7 +132,7 @@
             this.headingElement2.Location = new System.Drawing.Point(0, 56);
             this.headingElement2.Margin = new System.Windows.Forms.Padding(2);
             this.headingElement2.Name = "headingElement2";
-            this.headingElement2.Size = new System.Drawing.Size(832, 30);
+            this.headingElement2.Size = new System.Drawing.Size(963, 30);
             this.headingElement2.TabIndex = 1;
             // 
             // direction1
@@ -202,14 +202,14 @@
             this.headingElement.Location = new System.Drawing.Point(0, 0);
             this.headingElement.Margin = new System.Windows.Forms.Padding(2);
             this.headingElement.Name = "headingElement";
-            this.headingElement.Size = new System.Drawing.Size(832, 56);
+            this.headingElement.Size = new System.Drawing.Size(963, 56);
             this.headingElement.TabIndex = 0;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.button1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(747, 0);
+            this.panel2.Location = new System.Drawing.Point(878, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(85, 56);
@@ -248,16 +248,16 @@
             this.spacingm.Location = new System.Drawing.Point(38, 117);
             this.spacingm.Margin = new System.Windows.Forms.Padding(2);
             this.spacingm.Name = "spacingm";
-            this.spacingm.Size = new System.Drawing.Size(834, 27);
+            this.spacingm.Size = new System.Drawing.Size(965, 27);
             this.spacingm.TabIndex = 44;
             // 
             // panel1
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(38, 499);
+            this.panel1.Location = new System.Drawing.Point(38, 583);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(834, 41);
+            this.panel1.Size = new System.Drawing.Size(965, 41);
             this.panel1.TabIndex = 45;
             // 
             // mainpanel
@@ -268,7 +268,7 @@
             this.mainpanel.Location = new System.Drawing.Point(38, 144);
             this.mainpanel.Margin = new System.Windows.Forms.Padding(2);
             this.mainpanel.Name = "mainpanel";
-            this.mainpanel.Size = new System.Drawing.Size(834, 355);
+            this.mainpanel.Size = new System.Drawing.Size(965, 439);
             this.mainpanel.TabIndex = 46;
             // 
             // quizFlowLayout
@@ -281,7 +281,7 @@
             this.quizFlowLayout.Location = new System.Drawing.Point(0, 0);
             this.quizFlowLayout.Margin = new System.Windows.Forms.Padding(2);
             this.quizFlowLayout.Name = "quizFlowLayout";
-            this.quizFlowLayout.Size = new System.Drawing.Size(832, 353);
+            this.quizFlowLayout.Size = new System.Drawing.Size(963, 437);
             this.quizFlowLayout.TabIndex = 0;
             // 
             // popup
@@ -369,7 +369,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(910, 540);
+            this.ClientSize = new System.Drawing.Size(1041, 624);
             this.Controls.Add(this.popup);
             this.Controls.Add(this.mainpanel);
             this.Controls.Add(this.panel1);

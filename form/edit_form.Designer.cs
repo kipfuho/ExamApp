@@ -184,7 +184,7 @@ namespace ExamApp
             this.DirectionInEditPanel.Margin = new System.Windows.Forms.Padding(2);
             this.DirectionInEditPanel.Name = "DirectionInEditPanel";
             this.DirectionInEditPanel.SelectedIndex = 0;
-            this.DirectionInEditPanel.Size = new System.Drawing.Size(918, 487);
+            this.DirectionInEditPanel.Size = new System.Drawing.Size(1003, 550);
             this.DirectionInEditPanel.TabIndex = 3;
             this.DirectionInEditPanel.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl_DrawItem);
             // 
@@ -209,7 +209,7 @@ namespace ExamApp
             this.QuestionsTab_EditPanel.Margin = new System.Windows.Forms.Padding(2);
             this.QuestionsTab_EditPanel.Name = "QuestionsTab_EditPanel";
             this.QuestionsTab_EditPanel.Padding = new System.Windows.Forms.Padding(2);
-            this.QuestionsTab_EditPanel.Size = new System.Drawing.Size(910, 450);
+            this.QuestionsTab_EditPanel.Size = new System.Drawing.Size(995, 513);
             this.QuestionsTab_EditPanel.TabIndex = 0;
             this.QuestionsTab_EditPanel.Text = "Questions";
             // 
@@ -222,7 +222,7 @@ namespace ExamApp
             this.panel17.Location = new System.Drawing.Point(25, 280);
             this.panel17.Margin = new System.Windows.Forms.Padding(2);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(866, 173);
+            this.panel17.Size = new System.Drawing.Size(968, 173);
             this.panel17.TabIndex = 42;
             // 
             // panel19
@@ -263,7 +263,7 @@ namespace ExamApp
             this.panel16.Location = new System.Drawing.Point(25, 264);
             this.panel16.Margin = new System.Windows.Forms.Padding(2);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(866, 16);
+            this.panel16.Size = new System.Drawing.Size(968, 16);
             this.panel16.TabIndex = 41;
             // 
             // panel13
@@ -275,7 +275,7 @@ namespace ExamApp
             this.panel13.Location = new System.Drawing.Point(25, 223);
             this.panel13.Margin = new System.Windows.Forms.Padding(2);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(866, 41);
+            this.panel13.Size = new System.Drawing.Size(968, 41);
             this.panel13.TabIndex = 40;
             // 
             // panel15
@@ -318,7 +318,7 @@ namespace ExamApp
             this.panel12.Location = new System.Drawing.Point(25, 207);
             this.panel12.Margin = new System.Windows.Forms.Padding(2);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(866, 16);
+            this.panel12.Size = new System.Drawing.Size(968, 16);
             this.panel12.TabIndex = 39;
             // 
             // panel7
@@ -331,7 +331,7 @@ namespace ExamApp
             this.panel7.Location = new System.Drawing.Point(25, 179);
             this.panel7.Margin = new System.Windows.Forms.Padding(2);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(866, 28);
+            this.panel7.Size = new System.Drawing.Size(968, 28);
             this.panel7.TabIndex = 38;
             // 
             // InfoLabel4_QuestionsTab_EditPanel
@@ -386,7 +386,7 @@ namespace ExamApp
             this.panel6.Location = new System.Drawing.Point(25, 151);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(866, 28);
+            this.panel6.Size = new System.Drawing.Size(968, 28);
             this.panel6.TabIndex = 37;
             // 
             // InfoLabel3_QuestionsTab_EditPanel
@@ -438,7 +438,7 @@ namespace ExamApp
             this.panel3.Location = new System.Drawing.Point(25, 119);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(866, 32);
+            this.panel3.Size = new System.Drawing.Size(968, 32);
             this.panel3.TabIndex = 34;
             // 
             // InfoLabel2_QuestionsTab_EditPanel
@@ -462,7 +462,7 @@ namespace ExamApp
             this.panel2.Location = new System.Drawing.Point(25, 70);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(866, 49);
+            this.panel2.Size = new System.Drawing.Size(968, 49);
             this.panel2.TabIndex = 33;
             // 
             // comboBox1
@@ -498,7 +498,7 @@ namespace ExamApp
             this.panel5.Location = new System.Drawing.Point(25, 38);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(866, 32);
+            this.panel5.Size = new System.Drawing.Size(968, 32);
             this.panel5.TabIndex = 36;
             // 
             // panel4
@@ -507,7 +507,7 @@ namespace ExamApp
             this.panel4.Location = new System.Drawing.Point(2, 38);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(23, 413);
+            this.panel4.Size = new System.Drawing.Size(23, 473);
             this.panel4.TabIndex = 35;
             // 
             // panel1
@@ -517,7 +517,7 @@ namespace ExamApp
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(889, 36);
+            this.panel1.Size = new System.Drawing.Size(991, 36);
             this.panel1.TabIndex = 32;
             // 
             // TitleLabel1_QuestionsTab_EditPanel
@@ -543,7 +543,7 @@ namespace ExamApp
             this.CategoriesTab_EditPanel.Margin = new System.Windows.Forms.Padding(2);
             this.CategoriesTab_EditPanel.Name = "CategoriesTab_EditPanel";
             this.CategoriesTab_EditPanel.Padding = new System.Windows.Forms.Padding(2);
-            this.CategoriesTab_EditPanel.Size = new System.Drawing.Size(910, 450);
+            this.CategoriesTab_EditPanel.Size = new System.Drawing.Size(995, 513);
             this.CategoriesTab_EditPanel.TabIndex = 1;
             this.CategoriesTab_EditPanel.Text = "Categories";
             this.CategoriesTab_EditPanel.UseVisualStyleBackColor = true;
@@ -559,7 +559,7 @@ namespace ExamApp
             this.panel22.Location = new System.Drawing.Point(2, 24);
             this.panel22.Margin = new System.Windows.Forms.Padding(2);
             this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(906, 424);
+            this.panel22.Size = new System.Drawing.Size(991, 487);
             this.panel22.TabIndex = 1;
             // 
             // panel26
@@ -568,7 +568,7 @@ namespace ExamApp
             this.panel26.Location = new System.Drawing.Point(823, 18);
             this.panel26.Margin = new System.Windows.Forms.Padding(2);
             this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(85, 282);
+            this.panel26.Size = new System.Drawing.Size(85, 345);
             this.panel26.TabIndex = 3;
             // 
             // panel25
@@ -584,7 +584,7 @@ namespace ExamApp
             this.panel25.Location = new System.Drawing.Point(198, 18);
             this.panel25.Margin = new System.Windows.Forms.Padding(2);
             this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(625, 282);
+            this.panel25.Size = new System.Drawing.Size(625, 345);
             this.panel25.TabIndex = 2;
             // 
             // label11
@@ -667,7 +667,7 @@ namespace ExamApp
             this.panel24.Location = new System.Drawing.Point(0, 18);
             this.panel24.Margin = new System.Windows.Forms.Padding(2);
             this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(198, 282);
+            this.panel24.Size = new System.Drawing.Size(198, 345);
             this.panel24.TabIndex = 1;
             // 
             // label6
@@ -716,10 +716,10 @@ namespace ExamApp
             this.panel27.Controls.Add(this.panel29);
             this.panel27.Controls.Add(this.panel28);
             this.panel27.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel27.Location = new System.Drawing.Point(0, 300);
+            this.panel27.Location = new System.Drawing.Point(0, 363);
             this.panel27.Margin = new System.Windows.Forms.Padding(2);
             this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(906, 124);
+            this.panel27.Size = new System.Drawing.Size(991, 124);
             this.panel27.TabIndex = 4;
             // 
             // panel30
@@ -878,7 +878,7 @@ namespace ExamApp
             this.panel23.Location = new System.Drawing.Point(0, 0);
             this.panel23.Margin = new System.Windows.Forms.Padding(2);
             this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(906, 18);
+            this.panel23.Size = new System.Drawing.Size(991, 18);
             this.panel23.TabIndex = 0;
             // 
             // panel20
@@ -890,7 +890,7 @@ namespace ExamApp
             this.panel20.Location = new System.Drawing.Point(2, 2);
             this.panel20.Margin = new System.Windows.Forms.Padding(2);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(906, 22);
+            this.panel20.Size = new System.Drawing.Size(991, 22);
             this.panel20.TabIndex = 0;
             // 
             // label2
@@ -938,7 +938,7 @@ namespace ExamApp
             this.ImportTab_EditPanel.Location = new System.Drawing.Point(4, 33);
             this.ImportTab_EditPanel.Margin = new System.Windows.Forms.Padding(2);
             this.ImportTab_EditPanel.Name = "ImportTab_EditPanel";
-            this.ImportTab_EditPanel.Size = new System.Drawing.Size(910, 450);
+            this.ImportTab_EditPanel.Size = new System.Drawing.Size(995, 513);
             this.ImportTab_EditPanel.TabIndex = 2;
             this.ImportTab_EditPanel.Text = "Import";
             this.ImportTab_EditPanel.UseVisualStyleBackColor = true;
@@ -956,7 +956,7 @@ namespace ExamApp
             this.panel39.Location = new System.Drawing.Point(0, 0);
             this.panel39.Margin = new System.Windows.Forms.Padding(2);
             this.panel39.Name = "panel39";
-            this.panel39.Size = new System.Drawing.Size(910, 450);
+            this.panel39.Size = new System.Drawing.Size(995, 513);
             this.panel39.TabIndex = 0;
             // 
             // panel46
@@ -965,7 +965,7 @@ namespace ExamApp
             this.panel46.Location = new System.Drawing.Point(10, 451);
             this.panel46.Margin = new System.Windows.Forms.Padding(2);
             this.panel46.Name = "panel46";
-            this.panel46.Size = new System.Drawing.Size(883, 24);
+            this.panel46.Size = new System.Drawing.Size(985, 24);
             this.panel46.TabIndex = 7;
             // 
             // panel44
@@ -977,7 +977,7 @@ namespace ExamApp
             this.panel44.Location = new System.Drawing.Point(10, 93);
             this.panel44.Margin = new System.Windows.Forms.Padding(2);
             this.panel44.Name = "panel44";
-            this.panel44.Size = new System.Drawing.Size(883, 358);
+            this.panel44.Size = new System.Drawing.Size(985, 358);
             this.panel44.TabIndex = 6;
             // 
             // panel55
@@ -989,7 +989,7 @@ namespace ExamApp
             this.panel55.Location = new System.Drawing.Point(0, 272);
             this.panel55.Margin = new System.Windows.Forms.Padding(2);
             this.panel55.Name = "panel55";
-            this.panel55.Size = new System.Drawing.Size(883, 32);
+            this.panel55.Size = new System.Drawing.Size(985, 32);
             this.panel55.TabIndex = 2;
             // 
             // label22
@@ -1033,7 +1033,7 @@ namespace ExamApp
             this.panel51.Location = new System.Drawing.Point(0, 231);
             this.panel51.Margin = new System.Windows.Forms.Padding(2);
             this.panel51.Name = "panel51";
-            this.panel51.Size = new System.Drawing.Size(883, 41);
+            this.panel51.Size = new System.Drawing.Size(985, 41);
             this.panel51.TabIndex = 1;
             // 
             // panel52
@@ -1045,7 +1045,7 @@ namespace ExamApp
             this.panel52.Location = new System.Drawing.Point(0, 0);
             this.panel52.Margin = new System.Windows.Forms.Padding(2);
             this.panel52.Name = "panel52";
-            this.panel52.Size = new System.Drawing.Size(883, 35);
+            this.panel52.Size = new System.Drawing.Size(985, 35);
             this.panel52.TabIndex = 0;
             // 
             // panel54
@@ -1089,7 +1089,7 @@ namespace ExamApp
             this.panel47.Location = new System.Drawing.Point(0, 0);
             this.panel47.Margin = new System.Windows.Forms.Padding(2);
             this.panel47.Name = "panel47";
-            this.panel47.Size = new System.Drawing.Size(883, 231);
+            this.panel47.Size = new System.Drawing.Size(985, 231);
             this.panel47.TabIndex = 0;
             // 
             // panel48
@@ -1100,7 +1100,7 @@ namespace ExamApp
             this.panel48.Location = new System.Drawing.Point(350, 0);
             this.panel48.Margin = new System.Windows.Forms.Padding(2);
             this.panel48.Name = "panel48";
-            this.panel48.Size = new System.Drawing.Size(555, 214);
+            this.panel48.Size = new System.Drawing.Size(544, 231);
             this.panel48.TabIndex = 4;
             // 
             // importDragPanel
@@ -1113,7 +1113,7 @@ namespace ExamApp
             this.importDragPanel.Location = new System.Drawing.Point(4, 48);
             this.importDragPanel.Margin = new System.Windows.Forms.Padding(2);
             this.importDragPanel.Name = "importDragPanel";
-            this.importDragPanel.Size = new System.Drawing.Size(528, 166);
+            this.importDragPanel.Size = new System.Drawing.Size(535, 179);
             this.importDragPanel.TabIndex = 1;
             // 
             // label24
@@ -1143,7 +1143,7 @@ namespace ExamApp
             this.panel50.Location = new System.Drawing.Point(0, 0);
             this.panel50.Margin = new System.Windows.Forms.Padding(2);
             this.panel50.Name = "panel50";
-            this.panel50.Size = new System.Drawing.Size(555, 37);
+            this.panel50.Size = new System.Drawing.Size(544, 44);
             this.panel50.TabIndex = 0;
             // 
             // label20
@@ -1154,9 +1154,9 @@ namespace ExamApp
             this.label20.Location = new System.Drawing.Point(170, 0);
             this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(307, 21);
+            this.label20.Size = new System.Drawing.Size(298, 42);
             this.label20.TabIndex = 1;
-            this.label20.Text = "Maximum size for new files: 100MB";
+            this.label20.Text = "Maximum size for new files: 50MB\nAccept .txt and .docx";
             // 
             // button2
             // 
@@ -1168,7 +1168,7 @@ namespace ExamApp
             this.button2.Location = new System.Drawing.Point(0, 0);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(170, 37);
+            this.button2.Size = new System.Drawing.Size(170, 44);
             this.button2.TabIndex = 0;
             this.button2.Text = "CHOOSE A FILE";
             this.button2.UseVisualStyleBackColor = false;
@@ -1181,7 +1181,7 @@ namespace ExamApp
             this.panel49.Location = new System.Drawing.Point(0, 0);
             this.panel49.Margin = new System.Windows.Forms.Padding(2);
             this.panel49.Name = "panel49";
-            this.panel49.Size = new System.Drawing.Size(350, 214);
+            this.panel49.Size = new System.Drawing.Size(350, 231);
             this.panel49.TabIndex = 3;
             // 
             // label25
@@ -1215,7 +1215,7 @@ namespace ExamApp
             this.panel43.Location = new System.Drawing.Point(10, 61);
             this.panel43.Margin = new System.Windows.Forms.Padding(2);
             this.panel43.Name = "panel43";
-            this.panel43.Size = new System.Drawing.Size(883, 32);
+            this.panel43.Size = new System.Drawing.Size(985, 32);
             this.panel43.TabIndex = 5;
             // 
             // label18
@@ -1252,7 +1252,7 @@ namespace ExamApp
             this.panel41.Location = new System.Drawing.Point(10, 33);
             this.panel41.Margin = new System.Windows.Forms.Padding(2);
             this.panel41.Name = "panel41";
-            this.panel41.Size = new System.Drawing.Size(883, 28);
+            this.panel41.Size = new System.Drawing.Size(985, 28);
             this.panel41.TabIndex = 1;
             // 
             // label16
@@ -1289,7 +1289,7 @@ namespace ExamApp
             this.panel40.Location = new System.Drawing.Point(10, 0);
             this.panel40.Margin = new System.Windows.Forms.Padding(2);
             this.panel40.Name = "panel40";
-            this.panel40.Size = new System.Drawing.Size(883, 33);
+            this.panel40.Size = new System.Drawing.Size(985, 33);
             this.panel40.TabIndex = 0;
             // 
             // label15
@@ -1342,7 +1342,7 @@ namespace ExamApp
             this.panel45.Location = new System.Drawing.Point(0, 0);
             this.panel45.Margin = new System.Windows.Forms.Padding(2);
             this.panel45.Name = "panel45";
-            this.panel45.Size = new System.Drawing.Size(10, 475);
+            this.panel45.Size = new System.Drawing.Size(10, 513);
             this.panel45.TabIndex = 4;
             // 
             // ExportTab_EditPanel
@@ -1351,7 +1351,7 @@ namespace ExamApp
             this.ExportTab_EditPanel.Location = new System.Drawing.Point(4, 33);
             this.ExportTab_EditPanel.Margin = new System.Windows.Forms.Padding(2);
             this.ExportTab_EditPanel.Name = "ExportTab_EditPanel";
-            this.ExportTab_EditPanel.Size = new System.Drawing.Size(910, 450);
+            this.ExportTab_EditPanel.Size = new System.Drawing.Size(995, 513);
             this.ExportTab_EditPanel.TabIndex = 3;
             this.ExportTab_EditPanel.Text = "Export";
             this.ExportTab_EditPanel.UseVisualStyleBackColor = true;
@@ -1360,7 +1360,7 @@ namespace ExamApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(918, 487);
+            this.ClientSize = new System.Drawing.Size(1003, 550);
             this.Controls.Add(this.DirectionInEditPanel);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "edit_form";

@@ -49,7 +49,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.gearLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -77,7 +77,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(922, 478);
             this.panel1.TabIndex = 0;
@@ -87,7 +87,7 @@
             this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(448, 427);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(117, 29);
             this.comboBox1.TabIndex = 8;
@@ -100,7 +100,7 @@
             this.panel12.Controls.Add(this.panel13);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(15, 334);
-            this.panel12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel12.Margin = new System.Windows.Forms.Padding(2);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(892, 37);
             this.panel12.TabIndex = 7;
@@ -109,7 +109,7 @@
             // 
             this.panel14.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel14.Location = new System.Drawing.Point(470, 0);
-            this.panel14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel14.Margin = new System.Windows.Forms.Padding(2);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(150, 37);
             this.panel14.TabIndex = 2;
@@ -122,7 +122,7 @@
             this.previewquizbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.previewquizbutton.ForeColor = System.Drawing.SystemColors.Control;
             this.previewquizbutton.Location = new System.Drawing.Point(620, 0);
-            this.previewquizbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.previewquizbutton.Margin = new System.Windows.Forms.Padding(2);
             this.previewquizbutton.Name = "previewquizbutton";
             this.previewquizbutton.Size = new System.Drawing.Size(190, 37);
             this.previewquizbutton.TabIndex = 1;
@@ -133,7 +133,7 @@
             // 
             this.panel13.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel13.Location = new System.Drawing.Point(810, 0);
-            this.panel13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel13.Margin = new System.Windows.Forms.Padding(2);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(82, 37);
             this.panel13.TabIndex = 0;
@@ -144,7 +144,7 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(15, 222);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(892, 112);
             this.flowLayoutPanel1.TabIndex = 6;
@@ -159,7 +159,7 @@
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(15, 181);
-            this.panel8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel8.Margin = new System.Windows.Forms.Padding(2);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(892, 41);
             this.panel8.TabIndex = 5;
@@ -168,7 +168,7 @@
             // 
             this.panel11.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel11.Location = new System.Drawing.Point(460, 0);
-            this.panel11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel11.Margin = new System.Windows.Forms.Padding(2);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(150, 41);
             this.panel11.TabIndex = 4;
@@ -190,7 +190,7 @@
             // 
             this.panel10.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel10.Location = new System.Drawing.Point(242, 0);
-            this.panel10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel10.Margin = new System.Windows.Forms.Padding(2);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(150, 41);
             this.panel10.TabIndex = 2;
@@ -212,7 +212,7 @@
             // 
             this.panel9.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel9.Location = new System.Drawing.Point(0, 0);
-            this.panel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel9.Margin = new System.Windows.Forms.Padding(2);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(150, 41);
             this.panel9.TabIndex = 0;
@@ -222,7 +222,7 @@
             this.panel7.Controls.Add(this.label5);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(15, 140);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel7.Margin = new System.Windows.Forms.Padding(2);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(892, 41);
             this.panel7.TabIndex = 4;
@@ -245,7 +245,7 @@
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(15, 42);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(892, 98);
             this.panel3.TabIndex = 1;
@@ -257,7 +257,7 @@
             this.panel4.Controls.Add(this.label3);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel4.Location = new System.Drawing.Point(595, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(297, 98);
             this.panel4.TabIndex = 0;
@@ -294,26 +294,26 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.gearLabel);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(15, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(892, 42);
             this.panel2.TabIndex = 0;
             // 
-            // label2
+            // gearLabel
             // 
-            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Image = global::ExamApp.Properties.Resources.icon5;
-            this.label2.Location = new System.Drawing.Point(845, 0);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 42);
-            this.label2.TabIndex = 1;
-            this.label2.Text = " ";
+            this.gearLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.gearLabel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.gearLabel.Image = global::ExamApp.Properties.Resources.icon5;
+            this.gearLabel.Location = new System.Drawing.Point(845, 0);
+            this.gearLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.gearLabel.Name = "gearLabel";
+            this.gearLabel.Size = new System.Drawing.Size(47, 42);
+            this.gearLabel.TabIndex = 1;
+            this.gearLabel.Text = " ";
             // 
             // label1
             // 
@@ -332,7 +332,7 @@
             // 
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(15, 478);
             this.panel5.TabIndex = 2;
@@ -341,7 +341,7 @@
             // 
             this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel6.Location = new System.Drawing.Point(907, 0);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(15, 478);
             this.panel6.TabIndex = 3;
@@ -352,7 +352,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 478);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "quiz_attempt_form";
             this.Text = "quiz_attempt_form";
             this.panel1.ResumeLayout(false);
@@ -373,7 +373,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label gearLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel11;

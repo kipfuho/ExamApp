@@ -16,5 +16,40 @@ namespace ExamApp
         {
             InitializeComponent();
         }
+
+        public void Add_Click(object sender ,EventArgs e)
+        {
+            if (popupPanel.Visible == false)
+            {
+                popupPanel.Location = new Point(this.panel17.Right - popupPanel.Width, this.panel17.Bottom);
+                popupPanel.Show();
+            }
+            else
+            {
+                popupPanel.Hide();
+            }
+        }
+
+        public CheckBox shuffleBox
+        {
+            get { return shuffleCheckBox; }
+        }
+
+        public Label addNewQuestionLabel
+        {
+            get { return this.add1Label; }
+        }
+
+        public Label addFromQuestionBankLabel
+        {
+            get { return this.add2Label; }
+        }
+
+        public Label addRandomQuestionLabel
+        {
+            get { return this.add3Label; }
+        }
+
+
     }
 }

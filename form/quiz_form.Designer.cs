@@ -106,7 +106,7 @@ namespace ExamApp
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(37, 604);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(1141, 54);
+            this.panel11.Size = new System.Drawing.Size(1145, 54);
             this.panel11.TabIndex = 7;
             // 
             // button2
@@ -156,7 +156,7 @@ namespace ExamApp
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel9.Location = new System.Drawing.Point(37, 412);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1141, 192);
+            this.panel9.Size = new System.Drawing.Size(1145, 192);
             this.panel9.TabIndex = 5;
             // 
             // label18
@@ -165,7 +165,7 @@ namespace ExamApp
             this.label18.Image = global::ExamApp.Properties.Resources.icon3;
             this.label18.Location = new System.Drawing.Point(340, 139);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(24, 27);
+            this.label18.Size = new System.Drawing.Size(19, 21);
             this.label18.TabIndex = 13;
             this.label18.Text = " ";
             // 
@@ -175,7 +175,7 @@ namespace ExamApp
             this.label17.Image = global::ExamApp.Properties.Resources.icon3;
             this.label17.Location = new System.Drawing.Point(340, 96);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(24, 27);
+            this.label17.Size = new System.Drawing.Size(19, 21);
             this.label17.TabIndex = 12;
             this.label17.Text = " ";
             // 
@@ -185,7 +185,7 @@ namespace ExamApp
             this.label16.Image = global::ExamApp.Properties.Resources.icon3;
             this.label16.Location = new System.Drawing.Point(340, 10);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(24, 27);
+            this.label16.Size = new System.Drawing.Size(19, 21);
             this.label16.TabIndex = 11;
             this.label16.Text = " ";
             // 
@@ -197,9 +197,8 @@ namespace ExamApp
             "Open attempts are submitted automatically"});
             this.comboBox2.Location = new System.Drawing.Point(370, 136);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(469, 35);
+            this.comboBox2.Size = new System.Drawing.Size(469, 29);
             this.comboBox2.TabIndex = 10;
-            this.comboBox2.SelectedIndex = 0;
             // 
             // comboBox1
             // 
@@ -212,9 +211,8 @@ namespace ExamApp
             "hours"});
             this.comboBox1.Location = new System.Drawing.Point(458, 92);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(127, 35);
+            this.comboBox1.Size = new System.Drawing.Size(127, 29);
             this.comboBox1.TabIndex = 9;
-            this.comboBox1.SelectedIndex = 1;
             // 
             // timelim
             // 
@@ -222,7 +220,7 @@ namespace ExamApp
             this.timelim.Enabled = false;
             this.timelim.Location = new System.Drawing.Point(370, 94);
             this.timelim.Name = "timelim";
-            this.timelim.Size = new System.Drawing.Size(69, 31);
+            this.timelim.Size = new System.Drawing.Size(69, 26);
             this.timelim.TabIndex = 8;
             this.timelim.Text = "0";
             // 
@@ -231,7 +229,7 @@ namespace ExamApp
             this.checkBox4.AutoSize = true;
             this.checkBox4.Location = new System.Drawing.Point(601, 95);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(106, 31);
+            this.checkBox4.Size = new System.Drawing.Size(83, 25);
             this.checkBox4.TabIndex = 14;
             this.checkBox4.Text = "Enable";
             this.checkBox4.UseVisualStyleBackColor = true;
@@ -242,7 +240,7 @@ namespace ExamApp
             this.checkBox3.AutoSize = true;
             this.checkBox3.Location = new System.Drawing.Point(804, 49);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(106, 31);
+            this.checkBox3.Size = new System.Drawing.Size(83, 25);
             this.checkBox3.TabIndex = 7;
             this.checkBox3.Text = "Enable";
             this.checkBox3.UseVisualStyleBackColor = true;
@@ -253,7 +251,7 @@ namespace ExamApp
             this.checkBox2.AutoSize = true;
             this.checkBox2.Location = new System.Drawing.Point(804, 6);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(106, 31);
+            this.checkBox2.Size = new System.Drawing.Size(83, 25);
             this.checkBox2.TabIndex = 6;
             this.checkBox2.Text = "Enable";
             this.checkBox2.UseVisualStyleBackColor = true;
@@ -267,7 +265,7 @@ namespace ExamApp
             this.DtClose.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DtClose.Location = new System.Drawing.Point(370, 49);
             this.DtClose.Name = "DtClose";
-            this.DtClose.Size = new System.Drawing.Size(422, 31);
+            this.DtClose.Size = new System.Drawing.Size(422, 26);
             this.DtClose.TabIndex = 5;
             // 
             // DtOpen
@@ -278,7 +276,7 @@ namespace ExamApp
             this.DtOpen.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DtOpen.Location = new System.Drawing.Point(370, 6);
             this.DtOpen.Name = "DtOpen";
-            this.DtOpen.Size = new System.Drawing.Size(422, 31);
+            this.DtOpen.Size = new System.Drawing.Size(422, 26);
             this.DtOpen.TabIndex = 4;
             // 
             // label15
@@ -286,7 +284,7 @@ namespace ExamApp
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(3, 139);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(216, 27);
+            this.label15.Size = new System.Drawing.Size(163, 21);
             this.label15.TabIndex = 3;
             this.label15.Text = "When time expires";
             // 
@@ -295,7 +293,7 @@ namespace ExamApp
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(0, 96);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(132, 27);
+            this.label14.Size = new System.Drawing.Size(100, 21);
             this.label14.TabIndex = 2;
             this.label14.Text = "Time limit";
             // 
@@ -304,7 +302,7 @@ namespace ExamApp
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(0, 53);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(180, 27);
+            this.label13.Size = new System.Drawing.Size(136, 21);
             this.label13.TabIndex = 1;
             this.label13.Text = "Close the quiz";
             // 
@@ -313,7 +311,7 @@ namespace ExamApp
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(3, 10);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(168, 27);
+            this.label12.Size = new System.Drawing.Size(127, 21);
             this.label12.TabIndex = 0;
             this.label12.Text = "Open the quiz";
             // 
@@ -324,7 +322,7 @@ namespace ExamApp
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(37, 370);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1141, 42);
+            this.panel8.Size = new System.Drawing.Size(1145, 42);
             this.panel8.TabIndex = 4;
             // 
             // label11
@@ -333,9 +331,9 @@ namespace ExamApp
             this.label11.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label11.Dock = System.Windows.Forms.DockStyle.Left;
             this.label11.ForeColor = System.Drawing.Color.IndianRed;
-            this.label11.Location = new System.Drawing.Point(24, 0);
+            this.label11.Location = new System.Drawing.Point(19, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(84, 27);
+            this.label11.Size = new System.Drawing.Size(64, 21);
             this.label11.TabIndex = 2;
             this.label11.Text = "Timing";
             this.label11.Click += new System.EventHandler(this.label11_Click);
@@ -347,7 +345,7 @@ namespace ExamApp
             this.label10.Image = global::ExamApp.Properties.Resources.icon2;
             this.label10.Location = new System.Drawing.Point(0, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(24, 27);
+            this.label10.Size = new System.Drawing.Size(19, 21);
             this.label10.TabIndex = 1;
             this.label10.Text = " ";
             // 
@@ -365,7 +363,7 @@ namespace ExamApp
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(37, 119);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1141, 251);
+            this.panel7.Size = new System.Drawing.Size(1145, 251);
             this.panel7.TabIndex = 3;
             // 
             // label9
@@ -374,7 +372,7 @@ namespace ExamApp
             this.label9.Image = global::ExamApp.Properties.Resources.icon3;
             this.label9.Location = new System.Drawing.Point(815, 220);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(24, 27);
+            this.label9.Size = new System.Drawing.Size(19, 21);
             this.label9.TabIndex = 7;
             this.label9.Text = " ";
             // 
@@ -384,7 +382,7 @@ namespace ExamApp
             this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.label8.Location = new System.Drawing.Point(392, 218);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(420, 27);
+            this.label8.Size = new System.Drawing.Size(316, 21);
             this.label8.TabIndex = 6;
             this.label8.Text = "Display description on course page";
             // 
@@ -393,7 +391,7 @@ namespace ExamApp
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(372, 225);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(18, 17);
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
             this.checkBox1.TabIndex = 5;
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
@@ -403,7 +401,7 @@ namespace ExamApp
             this.label7.Image = global::ExamApp.Properties.Resources.icon;
             this.label7.Location = new System.Drawing.Point(340, 7);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(24, 27);
+            this.label7.Size = new System.Drawing.Size(19, 21);
             this.label7.TabIndex = 4;
             this.label7.Text = " ";
             // 
@@ -421,7 +419,7 @@ namespace ExamApp
             this.QzName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.QzName.Location = new System.Drawing.Point(370, 5);
             this.QzName.Name = "QzName";
-            this.QzName.Size = new System.Drawing.Size(353, 31);
+            this.QzName.Size = new System.Drawing.Size(353, 26);
             this.QzName.TabIndex = 2;
             // 
             // label6
@@ -429,7 +427,7 @@ namespace ExamApp
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(3, 46);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(144, 27);
+            this.label6.Size = new System.Drawing.Size(109, 21);
             this.label6.TabIndex = 1;
             this.label6.Text = "Description";
             // 
@@ -438,7 +436,7 @@ namespace ExamApp
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(3, 3);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 27);
+            this.label5.Size = new System.Drawing.Size(46, 21);
             this.label5.TabIndex = 0;
             this.label5.Text = "Name";
             // 
@@ -449,7 +447,7 @@ namespace ExamApp
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(37, 77);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1141, 42);
+            this.panel6.Size = new System.Drawing.Size(1145, 42);
             this.panel6.TabIndex = 2;
             // 
             // label4
@@ -458,9 +456,9 @@ namespace ExamApp
             this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label4.Dock = System.Windows.Forms.DockStyle.Left;
             this.label4.ForeColor = System.Drawing.Color.IndianRed;
-            this.label4.Location = new System.Drawing.Point(24, 0);
+            this.label4.Location = new System.Drawing.Point(19, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 27);
+            this.label4.Size = new System.Drawing.Size(73, 21);
             this.label4.TabIndex = 1;
             this.label4.Text = "General";
             this.label4.Click += new System.EventHandler(this.label4_Click);
@@ -472,7 +470,7 @@ namespace ExamApp
             this.label3.Image = global::ExamApp.Properties.Resources.icon2;
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(24, 27);
+            this.label3.Size = new System.Drawing.Size(19, 21);
             this.label3.TabIndex = 0;
             this.label3.Text = " ";
             // 
@@ -481,7 +479,7 @@ namespace ExamApp
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(37, 54);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1141, 23);
+            this.panel10.Size = new System.Drawing.Size(1145, 23);
             this.panel10.TabIndex = 6;
             // 
             // panel5
@@ -502,14 +500,14 @@ namespace ExamApp
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1178, 54);
+            this.panel2.Size = new System.Drawing.Size(1182, 54);
             this.panel2.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.Dock = System.Windows.Forms.DockStyle.Left;
             this.label2.Image = global::ExamApp.Properties.Resources.icon3;
-            this.label2.Location = new System.Drawing.Point(333, 10);
+            this.label2.Location = new System.Drawing.Point(272, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(24, 44);
             this.label2.TabIndex = 1;
@@ -526,7 +524,7 @@ namespace ExamApp
             this.label1.Location = new System.Drawing.Point(12, 10);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(321, 37);
+            this.label1.Size = new System.Drawing.Size(260, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "  Adding a new Quiz";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -544,19 +542,19 @@ namespace ExamApp
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1178, 10);
+            this.panel3.Size = new System.Drawing.Size(1182, 10);
             this.panel3.TabIndex = 2;
             // 
             // quiz_form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1199, 626);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "quiz_form";
-            this.Text = "categoryform";
+            this.Text = "sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss";
             this.panel1.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel9.ResumeLayout(false);

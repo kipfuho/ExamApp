@@ -27,27 +27,27 @@ namespace ExamApp
             get { return this.DefaultMarkTextBox; }
         }
 
-        public TextBox C1Text
+        public RichTextBox C1Text
         {
             get { return this.ChoiceText1; }
         }
 
-        public TextBox C2Text
+        public RichTextBox C2Text
         {
             get { return this.ChoiceText2; }
         }
 
-        public TextBox C3Text
+        public RichTextBox C3Text
         {
             get { return this.ChoiceText3; }
         }
 
-        public TextBox C4Text
+        public RichTextBox C4Text
         {
             get { return this.ChoiceText4; }
         }
 
-        public TextBox C5Text
+        public RichTextBox C5Text
         {
             get { return this.ChoiceText5; }
         }

@@ -18,6 +18,7 @@ namespace ExamApp
         private editquestion_form bigpanel2;
         private quiz_form bigpanel3;
         private quiz_attempt_form bigpanel4;
+        private quiz_edit_form bigpanel5;
         private Question currentquestion;
         private List<Category> categories;
         private Category currentcategory;
@@ -37,7 +38,7 @@ namespace ExamApp
 /* form opening */
 
         // function to open edit form
-        private void openeditpanel(edit_form form, int index)
+        private void openEditPanel(edit_form form, int index)
         {
             bigpanel1 = form;
             form.TopLevel = false;
@@ -72,7 +73,7 @@ namespace ExamApp
         }
 
         // function to open edit question form
-        private void openeditquestionpanel(editquestion_form form, Boolean show)
+        private void openEditQuestionPanel(editquestion_form form, Boolean show)
         {
             bigpanel2 = form;
             form.TopLevel = false;
@@ -101,7 +102,7 @@ namespace ExamApp
         }
 
         // function to open quiz form
-        private void openquizpanel(quiz_form form)
+        private void openQuizPanel(quiz_form form)
         {
             bigpanel3 = form;
             form.TopLevel = false;
@@ -117,9 +118,24 @@ namespace ExamApp
         }
 
         // function to open quiz attempt form
-        private void openquizattemptpanel(quiz_attempt_form form)
+        private void openQuizAttemptPanel(quiz_attempt_form form)
         {
             bigpanel4 = form;
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            //
+            form.GearSetting.Click += delegate (object sender, EventArgs e) { this.gearSettingLabel_Click(sender, e, this.currentquiz); };
+            //
+            mainpanel.Controls.Add(form);
+            mainpanel.Tag = form;
+            form.Show();
+        }
+
+        // function to open quiz attempt form
+        private void openQuizEditPanel(quiz_edit_form form)
+        {
+            bigpanel5 = form;
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
             form.Dock = DockStyle.Fill;
@@ -130,7 +146,6 @@ namespace ExamApp
             mainpanel.Tag = form;
             form.Show();
         }
-
 
 /* main form */
 
@@ -151,7 +166,6 @@ namespace ExamApp
 
             this.mainpanel.Controls.Add(this.quizFlowLayout);
         }
-
 
         // "setting" label (gear icon)
         private void button1_Click(object sender, EventArgs e)
@@ -185,7 +199,7 @@ namespace ExamApp
 
             if(bigpanel3 == null)
             {
-                openquizpanel(new quiz_form());
+                openQuizPanel(new quiz_form());
             }
             else
             {
@@ -219,7 +233,7 @@ namespace ExamApp
 
             if (bigpanel4 == null)
             {
-                openquizattemptpanel(new quiz_attempt_form());
+                openQuizAttemptPanel(new quiz_attempt_form());
             }
             else
             {
@@ -357,7 +371,7 @@ namespace ExamApp
 
             if (bigpanel1 == null)
             {
-                openeditpanel(new edit_form(), 0);
+                openEditPanel(new edit_form(), 0);
             }
             else
             {
@@ -387,7 +401,7 @@ namespace ExamApp
 
             if (bigpanel1 == null)
             {
-                openeditpanel(new edit_form(), 1);
+                openEditPanel(new edit_form(), 1);
             }
             else
             {
@@ -417,7 +431,7 @@ namespace ExamApp
 
             if (bigpanel1 == null)
             {
-                openeditpanel(new edit_form(), 2);
+                openEditPanel(new edit_form(), 2);
             }
             else
             {
@@ -447,7 +461,7 @@ namespace ExamApp
 
             if (bigpanel2 == null)
             {
-                openeditquestionpanel(new editquestion_form(), true);
+                openEditQuestionPanel(new editquestion_form(), true);
             }
             else
             {
@@ -488,7 +502,7 @@ namespace ExamApp
 
             if (bigpanel2 == null)
             {
-                this.openeditquestionpanel(new editquestion_form(), false);
+                this.openEditQuestionPanel(new editquestion_form(), false);
             }
 
             currentquestion = question;
@@ -497,7 +511,7 @@ namespace ExamApp
             {
                 bigpanel2.QText.Rtf = question.Description;
             }
-            catch (Exception ex)
+            catch
             {
                 bigpanel2.QText.Text = question.Description;
             }
@@ -515,7 +529,14 @@ namespace ExamApp
                 {
                     if (i == 0)
                     {
-                        bigpanel2.C1Text.Text = choice.Text;
+                        try
+                        {
+                            bigpanel2.C1Text.Rtf = choice.Text;
+                        }
+                        catch
+                        {
+                            bigpanel2.C1Text.Text = choice.Text;
+                        }
                         if (choice.Grade != 0)
                         {
                             bigpanel2.C1Grade.Text = Convert.ToString(choice.Grade * 100.0) + "%";
@@ -527,7 +548,14 @@ namespace ExamApp
                     }
                     else if (i == 1)
                     {
-                        bigpanel2.C2Text.Text = choice.Text;
+                        try
+                        {
+                            bigpanel2.C2Text.Rtf = choice.Text;
+                        }
+                        catch
+                        {
+                            bigpanel2.C2Text.Text = choice.Text;
+                        }
                         if (choice.Grade != 0)
                         {
                             bigpanel2.C2Grade.Text = Convert.ToString(choice.Grade * 100.0) + "%";
@@ -539,7 +567,14 @@ namespace ExamApp
                     }
                     else if (i == 2)
                     {
-                        bigpanel2.C3Text.Text = choice.Text;
+                        try
+                        {
+                            bigpanel2.C3Text.Rtf = choice.Text;
+                        }
+                        catch
+                        {
+                            bigpanel2.C3Text.Text = choice.Text;
+                        }
                         if (choice.Grade != 0)
                         {
                             bigpanel2.C3Grade.Text = Convert.ToString(choice.Grade * 100.0) + "%";
@@ -551,7 +586,14 @@ namespace ExamApp
                     }
                     else if (i == 3)
                     {
-                        bigpanel2.C4Text.Text = choice.Text;
+                        try
+                        {
+                            bigpanel2.C4Text.Rtf = choice.Text;
+                        }
+                        catch
+                        {
+                            bigpanel2.C4Text.Text = choice.Text;
+                        }
                         if (choice.Grade != 0)
                         {
                             bigpanel2.C4Grade.Text = Convert.ToString(choice.Grade * 100.0) + "%";
@@ -563,7 +605,14 @@ namespace ExamApp
                     }
                     else if (i == 4)
                     {
-                        bigpanel2.C5Text.Text = choice.Text;
+                        try
+                        {
+                            bigpanel2.C5Text.Rtf = choice.Text;
+                        }
+                        catch
+                        {
+                            bigpanel2.C5Text.Text = choice.Text;
+                        }
                         if (choice.Grade != 0)
                         {
                             bigpanel2.C5Grade.Text = Convert.ToString(choice.Grade * 100.0) + "%";
@@ -587,6 +636,7 @@ namespace ExamApp
             bigpanel1.Hide();
             bigpanel2.BigLabel.Text = "Editing a Multiple choices question";
             bigpanel2.MainPanel.AutoScrollPosition = new Point(0, 0);
+            bigpanel2.SubMainPanel.AutoScrollPosition = new Point(0, 0);
             bigpanel2.ChoiceP.AutoScrollPosition = new Point(0, 0);
             mainpanel.Controls.Add(bigpanel2);
             mainpanel.Tag = bigpanel2;
@@ -661,7 +711,7 @@ namespace ExamApp
 
                     // Check file size
                     long fileSize = new System.IO.FileInfo(filepath).Length;
-                    if (fileSize > 10*1024*1024) // MAX 10MB
+                    if (fileSize > 50*1024*1024) // MAX 50MB
                     {
                         // File size exceeds the limit, reject the drag and drop operation
                         e.Effect = DragDropEffects.None;
@@ -693,42 +743,41 @@ namespace ExamApp
             AikenFormat aikenFormat = new AikenFormat { FilePath = filepaths[0] };
             string extension = System.IO.Path.GetExtension(filepaths[0]);
 
+            Boolean isDone = false;
             if(extension == ".txt")
             {
-                aikenFormat.ReadTxt();
+                isDone = aikenFormat.ReadTxt();
             }
             else
             {
-                aikenFormat.ReadDocx();
+                isDone = aikenFormat.ReadDocx();
             }
 
-            if(aikenFormat == null)
+            if (isDone)
             {
-                MessageBox.Show("?Error!");
-            }
-
-            if(aikenFormat.ImportQuestion != null)
-            {
-                foreach (Question question in aikenFormat.ImportQuestion)
+                if (aikenFormat.ImportQuestion != null)
                 {
-                    question.Category = categories[0];
-                    categories[0].addQuestion(question);
+                    foreach (Question question in aikenFormat.ImportQuestion)
+                    {
+                        question.Category = categories[0];
+                        categories[0].addQuestion(question);
+                    }
+                    updateQuestiondisplay(false);
                 }
-                updateQuestiondisplay(false);
-            }
 
-            int importedQuestionNum = aikenFormat.ImportQuestion.Count();
-            if (importedQuestionNum == 0)
-            {
-                MessageBox.Show("Nothing imported!");
-            }
-            else if(importedQuestionNum == 1)
-            {
-                MessageBox.Show("Successfully imported 1 question");
-            }
-            else
-            {
-                MessageBox.Show($"Successfully imported {importedQuestionNum} questions");
+                int importedQuestionNum = aikenFormat.ImportQuestion.Count();
+                if (importedQuestionNum == 0)
+                {
+                    MessageBox.Show("Nothing imported!");
+                }
+                else if (importedQuestionNum == 1)
+                {
+                    MessageBox.Show("Successfully imported 1 question");
+                }
+                else
+                {
+                    MessageBox.Show($"Successfully imported {importedQuestionNum} questions");
+                }
             }
         }
 
@@ -768,279 +817,127 @@ namespace ExamApp
                 return;
             }
 
-            if (question == null)
+
+            Question tempQuestion = new Question
             {
-                question = new Question
+                Name = this.bigpanel2.QName.Text,
+                Description = this.bigpanel2.QText.Rtf,
+                Mark = mark,
+                Choices = new List<Choice>(5) { null, null, null, null, null }
+            };
+
+            int choiceNum = 0;
+            if (!String.IsNullOrWhiteSpace(this.bigpanel2.C1Text.Text))
+            {
+                double grade = 0;
+
+                if (this.bigpanel2.C1Grade.Text != "None")
                 {
-                    Name = this.bigpanel2.QName.Text,
-                    Description = this.bigpanel2.QText.Rtf,
-                    Mark = mark,
-                    Choices = new List<Choice>(5) { null, null, null, null, null }
+                    grade = Convert.ToDouble(this.bigpanel2.C1Grade.Text.TrimEnd('%')) / 100.0;
+                }
+
+                Choice choice = new Choice
+                {
+                    Text = this.bigpanel2.C1Text.Rtf,
+                    Grade = grade
                 };
 
-                question.Category = currentcategory;
-                this.currentcategory.addQuestion(question);
+                tempQuestion.Choices[0] = choice;
+                choiceNum++;
+            }
+
+            if (!String.IsNullOrWhiteSpace(this.bigpanel2.C2Text.Text))
+            {
+                double grade = 0;
+                if (this.bigpanel2.C2Grade.Text != "None")
+                {
+                    grade = Convert.ToDouble(this.bigpanel2.C2Grade.Text.TrimEnd('%')) / 100.0;
+                }
+                Choice choice = new Choice
+                {
+                    Text = this.bigpanel2.C2Text.Rtf,
+                    Grade = grade
+                };
+                tempQuestion.Choices[1] = choice;
+                choiceNum++;
+            }
+
+            if (!String.IsNullOrWhiteSpace(this.bigpanel2.C3Text.Text))
+            {
+                double grade = 0;
+                if (this.bigpanel2.C3Grade.Text != "None")
+                {
+                    grade = Convert.ToDouble(this.bigpanel2.C3Grade.Text.TrimEnd('%')) / 100.0;
+                }
+                Choice choice = new Choice
+                {
+                    Text = this.bigpanel2.C3Text.Rtf,
+                    Grade = grade
+                };
+                tempQuestion.Choices[2] = choice;
+                choiceNum++;
+            }
+
+            if (!String.IsNullOrWhiteSpace(this.bigpanel2.C4Text.Text))
+            {
+                double grade = 0;
+                if (this.bigpanel2.C4Grade.Text != "None")
+                {
+                    grade = Convert.ToDouble(this.bigpanel2.C4Grade.Text.TrimEnd('%')) / 100.0;
+                }
+                Choice choice = new Choice
+                {
+                    Text = this.bigpanel2.C4Text.Rtf,
+                    Grade = grade
+                };
+                tempQuestion.Choices[3] = choice;
+                choiceNum++;
+            }
+
+            if (!String.IsNullOrWhiteSpace(this.bigpanel2.C5Text.Text))
+            {
+                double grade = 0;
+                if (this.bigpanel2.C5Grade.Text != "None")
+                {
+                    grade = Convert.ToDouble(this.bigpanel2.C5Grade.Text.TrimEnd('%')) / 100.0;
+                }
+                Choice choice = new Choice
+                {
+                    Text = this.bigpanel2.C5Text.Rtf,
+                    Grade = grade
+                };
+                tempQuestion.Choices[4] = choice;
+                choiceNum++;
+            }
+
+            if (choiceNum < 2)
+            {
+                MessageBox.Show("Please enter more than one choice");
+                return;
+            }
+
+            if(question == null)
+            {
+                tempQuestion.Category = currentcategory;
+                this.currentcategory.addQuestion(tempQuestion);
                 Category_ItemsChanged();
-
-                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C1Text.Text))
-                {
-                    double grade = 0;
-
-                    if (this.bigpanel2.C1Grade.Text != "None")
-                    {
-                        grade = Convert.ToDouble(this.bigpanel2.C1Grade.Text.TrimEnd('%')) / 100.0;
-                    }
-
-                    Choice choice = new Choice
-                    {
-                        Text = this.bigpanel2.C1Text.Text,
-                        Grade = grade
-                    };
-
-                    question.Choices[0] = choice;
-                }
-
-                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C2Text.Text))
-                {
-                    double grade = 0;
-                    if (this.bigpanel2.C2Grade.Text != "None")
-                    {
-                        grade = Convert.ToDouble(this.bigpanel2.C2Grade.Text.TrimEnd('%')) / 100.0;
-                    }
-                    Choice choice = new Choice
-                    {
-                        Text = this.bigpanel2.C2Text.Text,
-                        Grade = grade
-                    };
-                    question.Choices[1] = choice;
-                }
-
-                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C3Text.Text))
-                {
-                    double grade = 0;
-                    if (this.bigpanel2.C3Grade.Text != "None")
-                    {
-                        grade = Convert.ToDouble(this.bigpanel2.C3Grade.Text.TrimEnd('%')) / 100.0;
-                    }
-                    Choice choice = new Choice
-                    {
-                        Text = this.bigpanel2.C3Text.Text,
-                        Grade = grade
-                    };
-                    question.Choices[2] = choice;
-                }
-
-                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C4Text.Text))
-                {
-                    double grade = 0;
-                    if (this.bigpanel2.C4Grade.Text != "None")
-                    {
-                        grade = Convert.ToDouble(this.bigpanel2.C4Grade.Text.TrimEnd('%')) / 100.0;
-                    }
-                    Choice choice = new Choice
-                    {
-                        Text = this.bigpanel2.C4Text.Text,
-                        Grade = grade
-                    };
-                    question.Choices[3] = choice;
-                }
-
-                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C5Text.Text))
-                {
-                    double grade = 0;
-                    if (this.bigpanel2.C5Grade.Text != "None")
-                    {
-                        grade = Convert.ToDouble(this.bigpanel2.C5Grade.Text.TrimEnd('%')) / 100.0;
-                    }
-                    Choice choice = new Choice
-                    {
-                        Text = this.bigpanel2.C5Text.Text,
-                        Grade = grade
-                    };
-                    question.Choices[4] = choice;
-                }
             }
             else
             {
-                this.currentquestion.Name = this.bigpanel2.QName.Text;
-                this.currentquestion.Description = this.bigpanel2.QText.Rtf;
-                this.currentquestion.Mark = mark;
-
-                if (currentcategory != currentquestion.Category)
+                question.Name = tempQuestion.Name;
+                question.Description = tempQuestion.Description;
+                question.Mark = tempQuestion.Mark;
+                question.Choices = tempQuestion.Choices;
+                if (currentcategory != question.Category)
                 {
-                    currentquestion.Category.QuestionList.Remove(currentquestion);
-                    currentquestion.Category = currentcategory;
-                    currentcategory.addQuestion(currentquestion);
+                    question.Category.QuestionList.Remove(question);
+                    question.Category = currentcategory;
+                    currentcategory.addQuestion(question);
                     Category_ItemsChanged();
                 }
-
-                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C1Text.Text))
-                {
-                    double grade = 0;
-
-                    if (this.bigpanel2.C1Grade.Text != "None")
-                    {
-                        grade = Convert.ToDouble(this.bigpanel2.C1Grade.Text.TrimEnd('%')) / 100.0;
-                    }
-
-                    if (currentquestion.Choices[0] != null)
-                    {
-                        currentquestion.Choices[0].Text = this.bigpanel2.C1Text.Text;
-                        currentquestion.Choices[0].Grade = grade;
-                    }
-                    else
-                    {
-                        Choice choice = new Choice
-                        {
-                            Text = this.bigpanel2.C1Text.Text,
-                            Grade = grade
-                        };
-                        currentquestion.Choices[0] = choice;
-                    }
-
-                }
-                else
-                {
-                    if (currentquestion.Choices[0] != null)
-                    {
-                        currentquestion.Choices[0] = null;
-                    }
-                }
-
-                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C2Text.Text))
-                {
-                    double grade = 0;
-
-                    if (this.bigpanel2.C2Grade.Text != "None")
-                    {
-                        grade = Convert.ToDouble(this.bigpanel2.C2Grade.Text.TrimEnd('%')) / 100.0;
-                    }
-
-                    if (currentquestion.Choices[1] != null)
-                    {
-                        currentquestion.Choices[1].Text = this.bigpanel2.C2Text.Text;
-                        currentquestion.Choices[1].Grade = grade;
-                    }
-                    else
-                    {
-                        Choice choice = new Choice
-                        {
-                            Text = this.bigpanel2.C2Text.Text,
-                            Grade = grade
-                        };
-                        currentquestion.Choices[1] = choice;
-                    }
-
-                }
-                else
-                {
-                    if (currentquestion.Choices[1] != null)
-                    {
-                        currentquestion.Choices[1] = null;
-                    }
-                }
-
-                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C3Text.Text))
-                {
-                    double grade = 0;
-
-                    if (this.bigpanel2.C3Grade.Text != "None")
-                    {
-                        grade = Convert.ToDouble(this.bigpanel2.C3Grade.Text.TrimEnd('%')) / 100.0;
-                    }
-
-                    if (currentquestion.Choices[2] != null)
-                    {
-                        currentquestion.Choices[2].Text = this.bigpanel2.C3Text.Text;
-                        currentquestion.Choices[2].Grade = grade;
-                    }
-                    else
-                    {
-                        Choice choice = new Choice
-                        {
-                            Text = this.bigpanel2.C3Text.Text,
-                            Grade = grade
-                        };
-                        currentquestion.Choices[2] = choice;
-                    }
-
-                }
-                else
-                {
-                    if (currentquestion.Choices[2] != null)
-                    {
-                        currentquestion.Choices[2] = null;
-                    }
-                }
-
-                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C4Text.Text))
-                {
-                    double grade = 0;
-
-                    if (this.bigpanel2.C4Grade.Text != "None")
-                    {
-                        grade = Convert.ToDouble(this.bigpanel2.C4Grade.Text.TrimEnd('%')) / 100.0;
-                    }
-
-                    if (currentquestion.Choices[3] != null)
-                    {
-                        currentquestion.Choices[3].Text = this.bigpanel2.C4Text.Text;
-                        currentquestion.Choices[3].Grade = grade;
-                    }
-                    else
-                    {
-                        Choice choice = new Choice
-                        {
-                            Text = this.bigpanel2.C4Text.Text,
-                            Grade = grade
-                        };
-                        currentquestion.Choices[3] = choice;
-                    }
-
-                }
-                else
-                {
-                    if (currentquestion.Choices[3] != null)
-                    {
-                        currentquestion.Choices[3] = null;
-                    }
-                }
-
-                if (!String.IsNullOrWhiteSpace(this.bigpanel2.C5Text.Text))
-                {
-                    double grade = 0;
-
-                    if (this.bigpanel2.C5Grade.Text != "None")
-                    {
-                        grade = Convert.ToDouble(this.bigpanel2.C5Grade.Text.TrimEnd('%')) / 100.0;
-                    }
-
-                    if (currentquestion.Choices[4] != null)
-                    {
-                        currentquestion.Choices[4].Text = this.bigpanel2.C5Text.Text;
-                        currentquestion.Choices[4].Grade = grade;
-                    }
-                    else
-                    {
-                        Choice choice = new Choice
-                        {
-                            Text = this.bigpanel2.C5Text.Text,
-                            Grade = grade
-                        };
-                        currentquestion.Choices[4] = choice;
-                    }
-
-                }
-                else
-                {
-                    if (currentquestion.Choices[4] != null)
-                    {
-                        currentquestion.Choices[4] = null;
-                    }
-                }
-
                 currentquestion = null;
             }
+            
             //
             bigpanel2.QName.ResetText();
             bigpanel2.QText.ResetText();
@@ -1507,7 +1404,7 @@ namespace ExamApp
         }
 
         // cancel quiz button event
-        private void BP3cancelbutton_Click(Object sender, EventArgs e)
+        private void BP3cancelbutton_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Do you want to discard the changes and quit to Home?", "Cancel", MessageBoxButtons.YesNo);
 
@@ -1540,8 +1437,43 @@ namespace ExamApp
             mainpanel.Controls.RemoveAt(0);
         }
 
-        
+/* quiz attempt form*/
 
+        private void gearSettingLabel_Click(object sender, EventArgs e, Quiz quiz)
+        {
+            if (bigpanel4.Visible == false)
+            {
+                return;
+            }
+
+            if (mainpanel.Controls.Count > 0)
+            {
+                mainpanel.Controls.RemoveAt(0);
+            }
+
+            if (bigpanel5 == null)
+            {
+                openQuizEditPanel(new quiz_edit_form());
+            }
+            else
+            {
+                mainpanel.Controls.Add(bigpanel5);
+                mainpanel.Tag = bigpanel5;
+                bigpanel5.Show();
+            }
+
+            bigpanel4.Hide();
+            slash1.Show();
+            slash2.Show();
+            direction2.Text = "Edit quiz";
+            direction2.Show();
+            direction3.Show();
+            direction2.Cursor = System.Windows.Forms.Cursors.Hand;
+            direction2.ForeColor = Color.IndianRed;
+            direction2.Click += new System.EventHandler(this.direction2_Click);
+        }
+
+        //
 /* headings */
 
         // direct to home when click the home label on top

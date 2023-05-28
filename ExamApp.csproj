@@ -57,6 +57,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="entity\AikenFormat.cs" />
+    <Compile Include="entity\FormComplement.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="entity\tools.cs" />
     <Compile Include="form\quiz_attempt_form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,7 +156,9 @@
     <None Include="picture\icon7.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="picture\icon10.png" />
     <Content Include="picture\icon8.png" />
+    <Content Include="picture\icon9.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
