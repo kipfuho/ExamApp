@@ -50,6 +50,9 @@ namespace ExamApp
             get { return this.add3Label; }
         }
 
-
+        public Panel Popup
+        {
+            get { return popupPanel; }
+        }
     }
 }

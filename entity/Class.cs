@@ -225,7 +225,8 @@ class Quiz
 	private string quizName;
 	private string quizDescription;
 	private List<Question> questions;
-	private List<PreviewQuiz> previews; 
+    private List<Question> pendingQuestions;
+    private List<PreviewQuiz> previews; 
 	Timing time;
 
 	public string Name
@@ -246,7 +247,13 @@ class Quiz
 		set { questions = value; }
 	}
 
-	public List<PreviewQuiz> Previews
+    public List<Question> PendingList
+    {
+        get { return pendingQuestions; }
+        set { pendingQuestions = value; }
+    }
+
+    public List<PreviewQuiz> Previews
 	{
 		get { return previews; }
 		set { previews = value; }

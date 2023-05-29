@@ -65,9 +65,6 @@ namespace ExamApp
             this.panel22 = new System.Windows.Forms.Panel();
             this.panel26 = new System.Windows.Forms.Panel();
             this.panel25 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.newCategoryId = new System.Windows.Forms.TextBox();
             this.newCategoryInfo = new System.Windows.Forms.RichTextBox();
             this.newCategoryName = new System.Windows.Forms.TextBox();
@@ -81,7 +78,6 @@ namespace ExamApp
             this.panel30 = new System.Windows.Forms.Panel();
             this.panel29 = new System.Windows.Forms.Panel();
             this.panel36 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel35 = new System.Windows.Forms.Panel();
             this.panel31 = new System.Windows.Forms.Panel();
@@ -95,14 +91,12 @@ namespace ExamApp
             this.panel23 = new System.Windows.Forms.Panel();
             this.panel20 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel21 = new System.Windows.Forms.Panel();
             this.ImportTab_EditPanel = new System.Windows.Forms.TabPage();
             this.panel39 = new System.Windows.Forms.Panel();
             this.panel46 = new System.Windows.Forms.Panel();
             this.panel44 = new System.Windows.Forms.Panel();
             this.panel55 = new System.Windows.Forms.Panel();
-            this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.panel56 = new System.Windows.Forms.Panel();
             this.panel51 = new System.Windows.Forms.Panel();
@@ -113,27 +107,34 @@ namespace ExamApp
             this.panel47 = new System.Windows.Forms.Panel();
             this.panel48 = new System.Windows.Forms.Panel();
             this.importDragPanel = new System.Windows.Forms.Panel();
-            this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.panel50 = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.panel49 = new System.Windows.Forms.Panel();
-            this.label25 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.panel43 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.panel41 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel40 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.panel42 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.panel45 = new System.Windows.Forms.Panel();
             this.ExportTab_EditPanel = new System.Windows.Forms.TabPage();
+            this.closeImportButton = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.DirectionInEditPanel.SuspendLayout();
             this.QuestionsTab_EditPanel.SuspendLayout();
             this.panel17.SuspendLayout();
@@ -228,7 +229,7 @@ namespace ExamApp
             // panel19
             // 
             this.panel19.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel19.Location = new System.Drawing.Point(751, 0);
+            this.panel19.Location = new System.Drawing.Point(812, 0);
             this.panel19.Margin = new System.Windows.Forms.Padding(2);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(130, 173);
@@ -244,7 +245,7 @@ namespace ExamApp
             this.QuestionFlowLayout.Location = new System.Drawing.Point(38, 0);
             this.QuestionFlowLayout.Margin = new System.Windows.Forms.Padding(2);
             this.QuestionFlowLayout.Name = "QuestionFlowLayout";
-            this.QuestionFlowLayout.Size = new System.Drawing.Size(713, 173);
+            this.QuestionFlowLayout.Size = new System.Drawing.Size(774, 173);
             this.QuestionFlowLayout.TabIndex = 31;
             this.QuestionFlowLayout.WrapContents = false;
             // 
@@ -587,39 +588,6 @@ namespace ExamApp
             this.panel25.Size = new System.Drawing.Size(625, 345);
             this.panel25.TabIndex = 2;
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Image = global::ExamApp.Properties.Resources.icon3;
-            this.label11.Location = new System.Drawing.Point(56, 239);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(19, 21);
-            this.label11.TabIndex = 6;
-            this.label11.Text = " ";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Image = global::ExamApp.Properties.Resources.icon3;
-            this.label10.Location = new System.Drawing.Point(56, 5);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(19, 21);
-            this.label10.TabIndex = 5;
-            this.label10.Text = " ";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Image = global::ExamApp.Properties.Resources.icon;
-            this.label9.Location = new System.Drawing.Point(56, 50);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(19, 21);
-            this.label9.TabIndex = 4;
-            this.label9.Text = " ";
-            // 
             // newCategoryId
             // 
             this.newCategoryId.Location = new System.Drawing.Point(79, 236);
@@ -753,20 +721,6 @@ namespace ExamApp
             this.panel36.Name = "panel36";
             this.panel36.Size = new System.Drawing.Size(29, 82);
             this.panel36.TabIndex = 3;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label8.Image = global::ExamApp.Properties.Resources.icon;
-            this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label8.Location = new System.Drawing.Point(431, 42);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(37, 21);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "  .";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label7
             // 
@@ -908,19 +862,6 @@ namespace ExamApp
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Image = global::ExamApp.Properties.Resources.icon2;
-            this.label1.Location = new System.Drawing.Point(8, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(19, 21);
-            this.label1.TabIndex = 1;
-            this.label1.Text = " ";
-            // 
             // panel21
             // 
             this.panel21.Dock = System.Windows.Forms.DockStyle.Left;
@@ -991,20 +932,6 @@ namespace ExamApp
             this.panel55.Name = "panel55";
             this.panel55.Size = new System.Drawing.Size(985, 32);
             this.panel55.TabIndex = 2;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label22.Image = global::ExamApp.Properties.Resources.icon;
-            this.label22.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label22.Location = new System.Drawing.Point(640, 0);
-            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(37, 21);
-            this.label22.TabIndex = 5;
-            this.label22.Text = "  .";
-            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label21
             // 
@@ -1107,6 +1034,7 @@ namespace ExamApp
             // 
             this.importDragPanel.AllowDrop = true;
             this.importDragPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.importDragPanel.Controls.Add(this.closeImportButton);
             this.importDragPanel.Controls.Add(this.label24);
             this.importDragPanel.Controls.Add(this.label23);
             this.importDragPanel.Cursor = System.Windows.Forms.Cursors.Default;
@@ -1115,15 +1043,6 @@ namespace ExamApp
             this.importDragPanel.Name = "importDragPanel";
             this.importDragPanel.Size = new System.Drawing.Size(535, 179);
             this.importDragPanel.TabIndex = 1;
-            // 
-            // label24
-            // 
-            this.label24.Image = global::ExamApp.Properties.Resources.icon4;
-            this.label24.Location = new System.Drawing.Point(236, 63);
-            this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(71, 52);
-            this.label24.TabIndex = 1;
             // 
             // label23
             // 
@@ -1184,19 +1103,6 @@ namespace ExamApp
             this.panel49.Size = new System.Drawing.Size(350, 231);
             this.panel49.TabIndex = 3;
             // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Image = global::ExamApp.Properties.Resources.icon;
-            this.label25.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label25.Location = new System.Drawing.Point(322, 2);
-            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(19, 21);
-            this.label25.TabIndex = 6;
-            this.label25.Text = " ";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -1232,18 +1138,6 @@ namespace ExamApp
             this.label18.Text = "Import questions from file";
             this.label18.Click += new System.EventHandler(this.label18_Click);
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label17.Image = global::ExamApp.Properties.Resources.icon2;
-            this.label17.Location = new System.Drawing.Point(0, 0);
-            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(19, 21);
-            this.label17.TabIndex = 5;
-            this.label17.Text = " ";
-            // 
             // panel41
             // 
             this.panel41.Controls.Add(this.label16);
@@ -1266,18 +1160,6 @@ namespace ExamApp
             this.label16.Size = new System.Drawing.Size(73, 21);
             this.label16.TabIndex = 1;
             this.label16.Text = "General";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label12.Image = global::ExamApp.Properties.Resources.icon1;
-            this.label12.Location = new System.Drawing.Point(0, 0);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(19, 21);
-            this.label12.TabIndex = 0;
-            this.label12.Text = " ";
             // 
             // panel40
             // 
@@ -1324,18 +1206,6 @@ namespace ExamApp
             this.label14.TabIndex = 3;
             this.label14.Text = "File format";
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label13.Image = global::ExamApp.Properties.Resources.icon2;
-            this.label13.Location = new System.Drawing.Point(0, 0);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(19, 21);
-            this.label13.TabIndex = 4;
-            this.label13.Text = " ";
-            // 
             // panel45
             // 
             this.panel45.Dock = System.Windows.Forms.DockStyle.Left;
@@ -1355,6 +1225,153 @@ namespace ExamApp
             this.ExportTab_EditPanel.TabIndex = 3;
             this.ExportTab_EditPanel.Text = "Export";
             this.ExportTab_EditPanel.UseVisualStyleBackColor = true;
+            // 
+            // closeImportButton
+            // 
+            this.closeImportButton.BackColor = System.Drawing.Color.Red;
+            this.closeImportButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closeImportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeImportButton.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.closeImportButton.Location = new System.Drawing.Point(498, 0);
+            this.closeImportButton.Margin = new System.Windows.Forms.Padding(0);
+            this.closeImportButton.Name = "closeImportButton";
+            this.closeImportButton.Size = new System.Drawing.Size(35, 35);
+            this.closeImportButton.TabIndex = 2;
+            this.closeImportButton.Text = "x";
+            this.closeImportButton.UseVisualStyleBackColor = false;
+            this.closeImportButton.Visible = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Image = global::ExamApp.Properties.Resources.icon3;
+            this.label11.Location = new System.Drawing.Point(56, 239);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(19, 21);
+            this.label11.TabIndex = 6;
+            this.label11.Text = " ";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Image = global::ExamApp.Properties.Resources.icon3;
+            this.label10.Location = new System.Drawing.Point(56, 5);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(19, 21);
+            this.label10.TabIndex = 5;
+            this.label10.Text = " ";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Image = global::ExamApp.Properties.Resources.icon;
+            this.label9.Location = new System.Drawing.Point(56, 50);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(19, 21);
+            this.label9.TabIndex = 4;
+            this.label9.Text = " ";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label8.Image = global::ExamApp.Properties.Resources.icon;
+            this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label8.Location = new System.Drawing.Point(431, 42);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(37, 21);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "  .";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Image = global::ExamApp.Properties.Resources.icon2;
+            this.label1.Location = new System.Drawing.Point(8, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(19, 21);
+            this.label1.TabIndex = 1;
+            this.label1.Text = " ";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label22.Image = global::ExamApp.Properties.Resources.icon;
+            this.label22.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label22.Location = new System.Drawing.Point(640, 0);
+            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(37, 21);
+            this.label22.TabIndex = 5;
+            this.label22.Text = "  .";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label24
+            // 
+            this.label24.Image = global::ExamApp.Properties.Resources.icon4;
+            this.label24.Location = new System.Drawing.Point(236, 50);
+            this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(71, 65);
+            this.label24.TabIndex = 1;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Image = global::ExamApp.Properties.Resources.icon;
+            this.label25.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label25.Location = new System.Drawing.Point(322, 2);
+            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(19, 21);
+            this.label25.TabIndex = 6;
+            this.label25.Text = " ";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label17.Image = global::ExamApp.Properties.Resources.icon2;
+            this.label17.Location = new System.Drawing.Point(0, 0);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(19, 21);
+            this.label17.TabIndex = 5;
+            this.label17.Text = " ";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label12.Image = global::ExamApp.Properties.Resources.icon1;
+            this.label12.Location = new System.Drawing.Point(0, 0);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(19, 21);
+            this.label12.TabIndex = 0;
+            this.label12.Text = " ";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label13.Image = global::ExamApp.Properties.Resources.icon2;
+            this.label13.Location = new System.Drawing.Point(0, 0);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(19, 21);
+            this.label13.TabIndex = 4;
+            this.label13.Text = " ";
             // 
             // edit_form
             // 
@@ -1524,5 +1541,6 @@ namespace ExamApp
         private Label label24;
         private Label label23;
         private Label label25;
+        private Button closeImportButton;
     }
 }

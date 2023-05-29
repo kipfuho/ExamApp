@@ -63,6 +63,16 @@ namespace ExamApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap docxIcon {
+            get {
+                object obj = ResourceManager.GetObject("docxIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon {
             get {
                 object obj = ResourceManager.GetObject("icon", resourceCulture);
@@ -86,6 +96,16 @@ namespace ExamApp.Properties {
         internal static System.Drawing.Bitmap icon10 {
             get {
                 object obj = ResourceManager.GetObject("icon10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon11 {
+            get {
+                object obj = ResourceManager.GetObject("icon11", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,6 +186,16 @@ namespace ExamApp.Properties {
         internal static System.Drawing.Bitmap icon9 {
             get {
                 object obj = ResourceManager.GetObject("icon9", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txtIcon {
+            get {
+                object obj = ResourceManager.GetObject("txtIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

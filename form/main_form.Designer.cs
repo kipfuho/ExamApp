@@ -42,7 +42,6 @@
             this.direction3 = new System.Windows.Forms.Label();
             this.headingElement = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.signature1 = new System.Windows.Forms.Label();
             this.spacingm = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -54,6 +53,9 @@
             this.categories1 = new System.Windows.Forms.Label();
             this.questions1 = new System.Windows.Forms.Label();
             this.signature2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.slash3 = new System.Windows.Forms.Label();
+            this.direction4 = new System.Windows.Forms.Label();
             this.heading.SuspendLayout();
             this.headingElement3.SuspendLayout();
             this.headingElement2.SuspendLayout();
@@ -128,6 +130,8 @@
             this.headingElement2.Controls.Add(this.direction2);
             this.headingElement2.Controls.Add(this.slash2);
             this.headingElement2.Controls.Add(this.direction3);
+            this.headingElement2.Controls.Add(this.slash3);
+            this.headingElement2.Controls.Add(this.direction4);
             this.headingElement2.Dock = System.Windows.Forms.DockStyle.Top;
             this.headingElement2.Location = new System.Drawing.Point(0, 56);
             this.headingElement2.Margin = new System.Windows.Forms.Padding(2);
@@ -214,20 +218,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(85, 56);
             this.panel2.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Image = global::ExamApp.Properties.Resources.icon5;
-            this.button1.Location = new System.Drawing.Point(47, 30);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(34, 26);
-            this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // signature1
             // 
@@ -365,6 +355,44 @@
             this.signature2.TabIndex = 0;
             this.signature2.Text = "Question Bank";
             // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.Control;
+            this.button1.Image = global::ExamApp.Properties.Resources.icon5;
+            this.button1.Location = new System.Drawing.Point(47, 30);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(34, 26);
+            this.button1.TabIndex = 0;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // slash3
+            // 
+            this.slash3.AutoSize = true;
+            this.slash3.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.slash3.Location = new System.Drawing.Point(549, 0);
+            this.slash3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.slash3.Name = "slash3";
+            this.slash3.Size = new System.Drawing.Size(19, 21);
+            this.slash3.TabIndex = 5;
+            this.slash3.Text = "/";
+            this.slash3.Visible = false;
+            // 
+            // direction4
+            // 
+            this.direction4.AutoSize = true;
+            this.direction4.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.direction4.Location = new System.Drawing.Point(572, 0);
+            this.direction4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.direction4.Name = "direction4";
+            this.direction4.Size = new System.Drawing.Size(118, 21);
+            this.direction4.TabIndex = 6;
+            this.direction4.Text = "Add question";
+            this.direction4.Visible = false;
+            // 
             // ExamApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -422,6 +450,8 @@
         private System.Windows.Forms.Label signature2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.FlowLayoutPanel quizFlowLayout;
+        private System.Windows.Forms.Label slash3;
+        private System.Windows.Forms.Label direction4;
     }
 }
 

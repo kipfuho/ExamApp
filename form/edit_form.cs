@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ExamApp
@@ -15,6 +9,16 @@ namespace ExamApp
         public edit_form()
         {
             InitializeComponent();
+        }
+
+        public Label importLabel
+        {
+            get { return label23; }
+        }
+
+        public Label importImageLabel
+        {
+            get { return label24; }
         }
 
         public TextBox CName
@@ -40,6 +44,16 @@ namespace ExamApp
         public Button addCategoryButton
         {
             get { return this.addCategorybutton; }
+        }
+
+        public Button ImportButton
+        {
+            get { return this.button3; }
+        }
+
+        public Button closeImportBtn
+        {
+            get { return closeImportButton; }
         }
 
         public CheckBox SubcategoriesQ

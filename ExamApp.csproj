@@ -62,6 +62,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="entity\tools.cs" />
+    <Compile Include="form\addquestiontoquiz2_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\addquestiontoquiz2_form.Designer.cs">
+      <DependentUpon>addquestiontoquiz2_form.cs</DependentUpon>
+    </Compile>
     <Compile Include="form\quiz_attempt_form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="form\addquestiontoquiz2_form.resx">
+      <DependentUpon>addquestiontoquiz2_form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="form\quiz_attempt_form.resx">
       <DependentUpon>quiz_attempt_form.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,9 +165,12 @@
     <None Include="picture\icon7.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="picture\docxIcon.jpg" />
     <Content Include="picture\icon10.png" />
+    <Content Include="picture\icon11.png" />
     <Content Include="picture\icon8.png" />
     <Content Include="picture\icon9.png" />
+    <Content Include="picture\txtIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
