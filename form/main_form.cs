@@ -139,7 +139,7 @@ namespace ExamApp
             form.FormBorderStyle = FormBorderStyle.None;
             form.Dock = DockStyle.Fill;
             //
-            bigpanel5.addFromQuestionBankLabel.Click += delegate (object sender, EventArgs e) { this.addQ2Q2_Click(sender, e, this.currentquiz); };
+            bigpanel5.AddFromQuestionBankLabel.Click += delegate (object sender, EventArgs e) { this.addQ2Q2_Click(sender, e, this.currentquiz); };
             //
             mainpanel.Controls.Add(form);
             mainpanel.Tag = form;
@@ -156,6 +156,7 @@ namespace ExamApp
             //
             form.CategoryComboBox.SelectedIndexChanged += new System.EventHandler(this.Add2Category_SelectIndexChanged);
             form.SubcategoryCheckBox.CheckedChanged += new System.EventHandler(this.Add2_Subcategory_CheckedChanged);
+            form.AddToQuiz.Click += new System.EventHandler(this.Add2_AddSelectedToQuiz);
             //
             mainpanel.Controls.Add(form);
             mainpanel.Tag = form;
@@ -1600,10 +1601,26 @@ namespace ExamApp
         // click event for "add selected question to quiz"
         private void Add2_AddSelectedToQuiz(object sender, EventArgs e)
         {
+            double totalMark = 0;
             foreach (Question question in currentquiz.PendingList)
             {
                 currentquiz.QuestionList.Add(question);
+                totalMark += question.Mark;
             }
+            currentquiz.PendingList.Clear();
+            bigpanel5.QuestionNumberLabel.Text = currentquiz.QuestionList.Count().ToString();
+            bigpanel5.TotalMarkLabel.Text = totalMark.ToString();
+
+            if (mainpanel.Controls.Count > 0)
+            {
+                mainpanel.Controls.RemoveAt(0);
+            }
+
+            slash3.Hide();
+            direction4.Hide();
+            bigpanel5_2.Hide();
+            bigpanel5.Show();
+            mainpanel.Controls.Add(bigpanel5);
         }
 
         // refresh question display in add2

@@ -30,24 +30,34 @@ namespace ExamApp
             }
         }
 
-        public CheckBox shuffleBox
+        public CheckBox ShuffleBox
         {
             get { return shuffleCheckBox; }
         }
 
-        public Label addNewQuestionLabel
+        public Label AddNewQuestionLabel
         {
             get { return this.add1Label; }
         }
 
-        public Label addFromQuestionBankLabel
+        public Label AddFromQuestionBankLabel
         {
             get { return this.add2Label; }
         }
 
-        public Label addRandomQuestionLabel
+        public Label AddRandomQuestionLabel
         {
             get { return this.add3Label; }
+        }
+
+        public Label QuestionNumberLabel
+        {
+            get { return this.questionNumberLabel; }
+        }
+
+        public Label TotalMarkLabel
+        {
+            get { return this.totalMarkLabel; }
         }
 
         public Panel Popup

@@ -385,7 +385,7 @@
             // quizStateLabel
             // 
             this.quizStateLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.quizStateLabel.Location = new System.Drawing.Point(358, 0);
+            this.quizStateLabel.Location = new System.Drawing.Point(345, 0);
             this.quizStateLabel.Margin = new System.Windows.Forms.Padding(2);
             this.quizStateLabel.Name = "quizStateLabel";
             this.quizStateLabel.Size = new System.Drawing.Size(55, 32);
@@ -450,7 +450,7 @@
             // label6
             // 
             this.label6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label6.Location = new System.Drawing.Point(159, 0);
+            this.label6.Location = new System.Drawing.Point(146, 0);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(199, 32);
@@ -459,21 +459,23 @@
             // 
             // questionNumberLabel
             // 
+            this.questionNumberLabel.AutoSize = true;
             this.questionNumberLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.questionNumberLabel.Location = new System.Drawing.Point(99, 0);
+            this.questionNumberLabel.Location = new System.Drawing.Point(100, 0);
             this.questionNumberLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.questionNumberLabel.Name = "questionNumberLabel";
-            this.questionNumberLabel.Size = new System.Drawing.Size(60, 32);
+            this.questionNumberLabel.Size = new System.Drawing.Size(46, 21);
             this.questionNumberLabel.TabIndex = 1;
             this.questionNumberLabel.Text = "size";
             // 
             // label4
             // 
+            this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Left;
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 32);
+            this.label4.Size = new System.Drawing.Size(100, 21);
             this.label4.TabIndex = 0;
             this.label4.Text = "Questions:";
             // 

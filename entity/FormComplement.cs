@@ -232,3 +232,19 @@ class QuizBlock : Panel
     }
 }
 
+class QuizNavigationQuestionBtn : Button
+{
+    private int index;
+
+    public int Index
+    {
+        get { return index; }
+    }
+
+    QuizNavigationQuestionBtn(int index)
+    {
+        this.index = index;
+        this.Text = "index";
+        this.AutoSize = true;
+    }
+}
