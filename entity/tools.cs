@@ -1,4 +1,6 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -62,5 +64,36 @@ public class ImageMessageBox : Form
         MinimizeBox = false;
         StartPosition = FormStartPosition.CenterScreen;
         Text = "Image Message Box";
+    }
+}
+
+class ShuffleTool
+{
+    public static List<int> shuffleIndex;
+    public static void Shuffle(int n)
+    {
+        shuffleIndex = new List<int>();
+        for(int i = 0; i < n; i++)
+        {
+            shuffleIndex.Add(i);
+        }
+        Random random = new Random();
+        while (n > 1)
+        {
+            n--;
+            int k = random.Next(n + 1);
+            int value = shuffleIndex[k];
+            shuffleIndex[k] = shuffleIndex[n];
+            shuffleIndex[n] = value;
+        }
+    }
+
+    public static void NonShuffle(int n)
+    {
+        shuffleIndex = new List<int>();
+        for (int i = 0; i < n; i++)
+        {
+            shuffleIndex.Add(i);
+        }
     }
 }

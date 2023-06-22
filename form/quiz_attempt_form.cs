@@ -26,12 +26,38 @@ namespace ExamApp
 
         public Button PrviewQzButton
         {
-            get { return previewquizbutton; }
+            get { return previewQuizBtn; }
+        }
+
+        public Button StartAttemptButton
+        {
+            get { return startAttemptBtn; }
         }
 
         public FlowLayoutPanel QzPR
         {
             get { return flowLayoutPanel1; }
+        }
+
+        private void previewQuizBtn_Click(object sender, System.EventArgs e)
+        {
+            if(panel15.Visible == false)
+            {
+                int x = flowLayoutPanel1.Left + flowLayoutPanel1.Width / 2 - panel15.Width / 2;
+                int y = flowLayoutPanel1.Top;
+                panel15.Location = new System.Drawing.Point(x, y);
+                panel15.Show();
+            }
+        }
+
+        private void button3_Click(object sender, System.EventArgs e)
+        {
+            panel15.Hide();
+        }
+
+        private void cancelAttemptBtn_Click(object sender, System.EventArgs e)
+        {
+            panel15.Hide();
         }
     }
 }

@@ -3,12 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace ExamApp
 {
-    public partial class ExamApp : System.Windows.Forms.Form
+    public partial class ExamApp : Form
     {
         private edit_form bigpanel1;
         private editquestion_form bigpanel2;
@@ -16,6 +15,7 @@ namespace ExamApp
         private quiz_attempt_form bigpanel4;
         private quiz_edit_form bigpanel5;
         private addquestiontoquiz2_form bigpanel5_2;
+        private quiz_play bigpanel6;
         private Question currentquestion;
         private List<Category> categories;
         private Category currentcategory;
@@ -33,6 +33,7 @@ namespace ExamApp
             quizs = new List<Quiz>();
         }
 
+        //
 /* form opening */
 
         // function to open edit form
@@ -43,24 +44,24 @@ namespace ExamApp
             form.FormBorderStyle = FormBorderStyle.None;
             form.Dock = DockStyle.Fill;
             // Events
-            form.DirectingButton1.Click += new System.EventHandler(this.createquestion_Click);
-            form.SubcategoriesQ.CheckedChanged += new System.EventHandler(this.BP1checkbox1_CheckedChanged);
-            form.addCategoryButton.Click += new System.EventHandler(this.BP1addcategory_Click);
+            form.DirectingButton1.Click += new EventHandler(this.createquestion_Click);
+            form.SubcategoriesQ.CheckedChanged += new EventHandler(this.BP1checkbox1_CheckedChanged);
+            form.addCategoryButton.Click += new EventHandler(this.BP1addcategory_Click);
 
             form.ImportPanel.DragEnter += this.importPanel_DragEnter;
             form.ImportPanel.DragDrop += this.importPanel_DragDrop;
-            form.ImportButton.Click += new System.EventHandler(this.BP1importbutton_Click);
+            form.ImportButton.Click += new EventHandler(this.BP1importbutton_Click);
             //
             // Category ComboBox in Questions tab
             //
-            form.QCategory.SelectedIndexChanged += new System.EventHandler(this.qcategory1_SelectIndexChanged);
+            form.QCategory.SelectedIndexChanged += new EventHandler(this.qcategory1_SelectIndexChanged);
             form.QCategory.Items.Clear();
             form.QCategory.DataSource = categories;
             form.QCategory.DisplayMember = "NameAndGen";
             //
             // Category ComboBox in Categories tab
             //
-            form.PCategory.SelectedIndexChanged += new System.EventHandler(this.pcategory1_SelectIndexChanged);
+            form.PCategory.SelectedIndexChanged += new EventHandler(this.pcategory1_SelectIndexChanged);
             form.PCategory.Items.Clear();
             form.PCategory.DataSource = categories;
             form.PCategory.DisplayMember = "NameAndGen";
@@ -82,12 +83,12 @@ namespace ExamApp
             // add events to buttons
             //
             form.FunctionButton1.Click += delegate (object sender, EventArgs e) { this.BP2savebutton1_Click(sender, e, this.currentquestion); };
-            form.FunctionButton2.Click += new System.EventHandler(this.BP2cancelbutton_Click);
+            form.FunctionButton2.Click += new EventHandler(this.BP2cancelbutton_Click);
             form.FunctionButton3.Click += delegate (object sender, EventArgs e) { this.BP2savebutton2_Click(sender, e, this.currentquestion); };
             //
             // Category ComboBox
             //
-            form.QCategory.SelectedIndexChanged += new System.EventHandler(this.qcategory2_SelectIndexChanged);
+            form.QCategory.SelectedIndexChanged += new EventHandler(this.qcategory2_SelectIndexChanged);
             form.QCategory.Items.Clear();
             form.QCategory.DataSource = categories;
             form.QCategory.DisplayMember = "NameAndGen";
@@ -108,8 +109,8 @@ namespace ExamApp
             form.FormBorderStyle = FormBorderStyle.None;
             form.Dock = DockStyle.Fill;
             //
-            form.CreateQuizButton.Click += new System.EventHandler(this.BP3createbutton_Click);
-            form.CANCELbutton.Click += new System.EventHandler(this.BP3cancelbutton_Click);
+            form.CreateQuizButton.Click += new EventHandler(this.BP3createbutton_Click);
+            form.CANCELbutton.Click += new EventHandler(this.BP3cancelbutton_Click);
             //
             mainpanel.Controls.Add(form);
             mainpanel.Tag = form;
@@ -125,6 +126,7 @@ namespace ExamApp
             form.Dock = DockStyle.Fill;
             //
             form.GearSetting.Click += delegate (object sender, EventArgs e) { this.gearSettingLabel_Click(sender, e, this.currentquiz); };
+            form.StartAttemptButton.Click += new EventHandler(this.startQuizAttempt_Click);
             //
             mainpanel.Controls.Add(form);
             mainpanel.Tag = form;
@@ -140,6 +142,7 @@ namespace ExamApp
             form.Dock = DockStyle.Fill;
             //
             bigpanel5.AddFromQuestionBankLabel.Click += delegate (object sender, EventArgs e) { this.addQ2Q2_Click(sender, e, this.currentquiz); };
+            bigpanel5.SaveQuizBtn.Click += new EventHandler(this.saveBP5_Click);
             //
             mainpanel.Controls.Add(form);
             mainpanel.Tag = form;
@@ -154,15 +157,29 @@ namespace ExamApp
             form.FormBorderStyle = FormBorderStyle.None;
             form.Dock = DockStyle.Fill;
             //
-            form.CategoryComboBox.SelectedIndexChanged += new System.EventHandler(this.Add2Category_SelectIndexChanged);
-            form.SubcategoryCheckBox.CheckedChanged += new System.EventHandler(this.Add2_Subcategory_CheckedChanged);
-            form.AddToQuiz.Click += new System.EventHandler(this.Add2_AddSelectedToQuiz);
+            form.SubcategoryCheckBox.CheckedChanged += new EventHandler(this.Add2_Subcategory_CheckedChanged);
+            form.AddToQuiz.Click += new EventHandler(this.Add2_AddSelectedToQuiz);
             //
             mainpanel.Controls.Add(form);
             mainpanel.Tag = form;
             form.Show();
         }
 
+        // function to open quiz_play form
+        private void openQuizPlay(quiz_play form)
+        {
+            bigpanel6 = form;
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            //
+            //
+            mainpanel.Controls.Add(form);
+            mainpanel.Tag = form;
+            form.Show();
+        }
+        
+        //
 /* main form */
 
         private void updateQuizdisplay()
@@ -206,7 +223,7 @@ namespace ExamApp
             button1.Hide();
             functionbutton1.Hide();
             popup.Hide();
-            this.heading.Size = new System.Drawing.Size(1114, 86);
+            this.heading.Size = new Size(1114, 86);
 
             if (mainpanel.Controls.Count > 0)
             {
@@ -223,13 +240,13 @@ namespace ExamApp
                 mainpanel.Tag = bigpanel3;
                 bigpanel3.Show();
             }
-            direction1.Cursor = System.Windows.Forms.Cursors.Hand;
+            direction1.Cursor = Cursors.Hand;
             direction1.ForeColor = Color.IndianRed;
-            direction1.Click += new System.EventHandler(this.direction1_Click);
+            direction1.Click += new EventHandler(this.direction1_Click);
             slash1.Show();
             direction2.Text = "Adding a new quiz";
-            direction2.ForeColor = System.Drawing.SystemColors.ControlText;
-            direction2.Cursor = System.Windows.Forms.Cursors.Default;
+            direction2.ForeColor = SystemColors.ControlText;
+            direction2.Cursor = Cursors.Default;
             direction2.Show();
         }
 
@@ -239,7 +256,7 @@ namespace ExamApp
             button1.Hide();
             functionbutton1.Hide();
             popup.Hide();
-            this.heading.Size = new System.Drawing.Size(1114, 86);
+            this.heading.Size = new Size(1114, 86);
 
             if (mainpanel.Controls.Count > 0)
             {
@@ -267,11 +284,11 @@ namespace ExamApp
                 bigpanel4.TimeLimitLabel.Text = $"{quiz.Time.TimeCoefficient} {quiz.Time.TimeUnit}";
             }
             //
-            direction1.Cursor = System.Windows.Forms.Cursors.Hand;
+            direction1.Cursor = Cursors.Hand;
             direction1.ForeColor = Color.IndianRed;
-            direction1.Click += new System.EventHandler(this.direction1_Click);
-            direction2.ForeColor = System.Drawing.SystemColors.ControlText;
-            direction2.Cursor = System.Windows.Forms.Cursors.Default;
+            direction1.Click += new EventHandler(this.direction1_Click);
+            direction2.ForeColor = SystemColors.ControlText;
+            direction2.Cursor = Cursors.Default;
             if (quiz.Name.Length > 50)
             {
                 direction2.Text = quiz.Name.Substring(0, 40) + "...";
@@ -284,8 +301,9 @@ namespace ExamApp
             direction2.Show();
         }
         
-        
 
+        
+        //
 /* edit form */
 
         // function to update questions display in questions tab in edit form
@@ -384,7 +402,7 @@ namespace ExamApp
             this.popup.Hide();
             this.functionbutton1.Hide();
             this.button1.Hide();
-            this.heading.Size = new System.Drawing.Size(1114, 86);
+            this.heading.Size = new Size(1114, 86);
 
             if (mainpanel.Controls.Count > 0)
             {
@@ -405,7 +423,7 @@ namespace ExamApp
 
             direction1.Cursor = System.Windows.Forms.Cursors.Hand;
             direction1.ForeColor = Color.IndianRed;
-            direction1.Click += new System.EventHandler(this.direction1_Click);
+            direction1.Click += new EventHandler(this.direction1_Click);
         }
 
         // direct to categories tab in edit form
@@ -862,6 +880,7 @@ namespace ExamApp
             bigpanel1.closeImportBtn.Click -= new System.EventHandler(this.closeImportFileButton_Click);
         }
 
+        //
 /* edit question form*/
 
         // save and quit button in edit question form
@@ -1399,6 +1418,7 @@ namespace ExamApp
             bigpanel1.Show();
         }
 
+        //
 /* quiz form*/
 
         // create quiz button event
@@ -1453,6 +1473,8 @@ namespace ExamApp
                 Name = bigpanel3.QuizName.Text,
                 Description = bigpanel3.QuizDescription.Text,
                 QuestionList = new List<Question>(),
+                TotalMark = 0,
+                MaxGrade = 10.0,
                 PendingList = new List<Question>(),
                 Previews = new List<PreviewQuiz>(),
                 Time = timing
@@ -1472,14 +1494,14 @@ namespace ExamApp
             bigpanel3.MainPanel.AutoScrollPosition = new Point(0, 0);
             bigpanel3.Hide();
             //
-            this.heading.Size = new System.Drawing.Size(1114, 117);
+            this.heading.Size = new Size(1114, 117);
             this.functionbutton1.Show();
             this.button1.Show();
             slash1.Hide();
             direction2.Hide();
-            direction1.ForeColor = System.Drawing.SystemColors.ControlText;
-            direction1.Cursor = System.Windows.Forms.Cursors.Default;
-            direction1.Click -= new System.EventHandler(this.direction1_Click);
+            direction1.ForeColor = SystemColors.ControlText;
+            direction1.Cursor = Cursors.Default;
+            direction1.Click -= new EventHandler(this.direction1_Click);
             //
             mainpanel.Controls.RemoveAt(0);
             updateQuizdisplay();
@@ -1507,19 +1529,20 @@ namespace ExamApp
             bigpanel3.MainPanel.AutoScrollPosition = new Point(0, 0);
             bigpanel3.Hide();
             //
-            this.heading.Size = new System.Drawing.Size(1114, 117);
+            this.heading.Size = new Size(1114, 117);
             this.functionbutton1.Show();
             this.button1.Show();
             slash1.Hide();
             direction2.Hide();
-            direction1.ForeColor = System.Drawing.SystemColors.ControlText;
-            direction1.Cursor = System.Windows.Forms.Cursors.Default;
-            direction1.Click -= new System.EventHandler(this.direction1_Click);
+            direction1.ForeColor = SystemColors.ControlText;
+            direction1.Cursor = Cursors.Default;
+            direction1.Click -= new EventHandler(this.direction1_Click);
             //
             mainpanel.Controls.RemoveAt(0);
             updateQuizdisplay();
         }
 
+        //
 /* quiz attempt form*/
 
         private void gearSettingLabel_Click(object sender, EventArgs e, Quiz quiz)
@@ -1545,18 +1568,152 @@ namespace ExamApp
                 bigpanel5.Show();
             }
 
+            bigpanel5.QuestionNameLabel.Text = quiz.Name;
+            bigpanel5.QuestionNumberLabel.Text = quiz.QuestionList.Count.ToString();
+            bigpanel5.TotalMarkLabel.Text = quiz.TotalMark.ToString();
+
             bigpanel4.Hide();
             slash1.Show();
             slash2.Show();
-            direction1.Click -= new System.EventHandler(this.direction1_Click);
-            direction1.Click += new System.EventHandler(this.direction1_1_Click);
+            direction1.Click -= new EventHandler(this.direction1_Click);
+            direction1.Click += new EventHandler(this.direction1_1_Click);
             direction3.Text = "Edit quiz";
             direction3.Show();
-            direction2.Cursor = System.Windows.Forms.Cursors.Hand;
+            direction2.Cursor = Cursors.Hand;
             direction2.ForeColor = Color.IndianRed;
-            direction2.Click += new System.EventHandler(this.direction2_1_Click);
+            direction2.Click += new EventHandler(this.direction2_1_Click);
         }
 
+        private void startQuizAttempt_Click(object sender, EventArgs e)
+        {
+            if (mainpanel.Controls.Count > 0)
+            {
+                mainpanel.Controls.RemoveAt(0);
+            }
+
+            if (bigpanel6 == null)
+            {
+                openQuizPlay(new quiz_play());
+            }
+            else
+            {
+                mainpanel.Controls.Add(bigpanel6);
+                mainpanel.Tag = bigpanel6;
+                bigpanel6.Show();
+            }
+
+            initiateQuizPlay();
+        }
+
+        private void continueQuizAttempt_Click(object sender, EventArgs e)
+        {
+            if (mainpanel.Controls.Count > 0)
+            {
+                mainpanel.Controls.RemoveAt(0);
+            }
+
+            if (bigpanel6 == null)
+            {
+                openQuizPlay(new quiz_play());
+            }
+            else
+            {
+                mainpanel.Controls.Add(bigpanel6);
+                mainpanel.Tag = bigpanel6;
+                bigpanel6.Show();
+            }
+
+        }
+
+
+        //
+/* quiz play form*/
+
+        // initiate function
+        private void initiateQuizPlay()
+        {
+            if (currentquiz.Time.TimeLimit == 0)
+            {
+                bigpanel6.Timer.Text = "Time Left: None";
+            }
+            else
+            {
+                bigpanel6.StartTimer(currentquiz.Time.TimeLimit);
+            }
+
+            int quizSize = currentquiz.QuestionList.Count();
+            currentquiz.OngoingPreview = new PreviewQuiz
+            {
+                AnswerList = new List<QAnswer>(),
+                qLayouts = new List<QuestionDisplay>()
+            };
+
+            for (int i = 0; i < quizSize; i++)
+            {
+                currentquiz.OngoingPreview.qLayouts.Add(null);
+            }
+            
+            if (currentquiz.Shuffle)
+            {
+                ShuffleTool.Shuffle(quizSize);
+            }
+            else
+            {
+                ShuffleTool.NonShuffle(quizSize);
+            }
+            int index = 1;
+            for (int i = 0; i < quizSize; i++)
+            {
+                Question question = currentquiz.QuestionList[ShuffleTool.shuffleIndex[i]];
+                ButtonPlus temp = new ButtonPlus
+                {
+                    QuestionAttached = question,
+                    Text = index.ToString(),
+                    AutoSize = true,
+                    AutoSizeMode = AutoSizeMode.GrowAndShrink
+                };
+                index++;
+                temp.Click += new EventHandler(this.BP6_QuestionIndex_Click);
+                bigpanel6.QuestionIndexFlowLayout.Controls.Add(temp);
+            }
+
+            Question question_1 = currentquiz.QuestionList[ShuffleTool.shuffleIndex[0]];
+            QuestionDisplay temp1 = new QuestionDisplay(question_1);
+            bigpanel6.QuestionPanel.Controls.Add(temp1);
+            bigpanel6.QuestionPanel.Controls.SetChildIndex(temp1, 1);
+            bigpanel6.QuestionIndexLabel.Text = "1";
+            currentquiz.OngoingPreview.qLayouts[0] = temp1;
+        }
+
+        // question index click event
+        private void BP6_QuestionIndex_Click(object sender, EventArgs e)
+        {
+            ButtonPlus button = sender as ButtonPlus;
+            int index = Convert.ToInt32(button.Text) - 1;
+            if (currentquiz.OngoingPreview.qLayouts[index] != null)
+            {
+                bigpanel6.QuestionPanel.Controls.RemoveAt(1);
+                bigpanel6.QuestionPanel.Controls.Add(currentquiz.OngoingPreview.qLayouts[index]);
+                bigpanel6.QuestionPanel.Controls.SetChildIndex(currentquiz.OngoingPreview.qLayouts[index], 1);
+            }
+            else
+            {
+                BP6_ShowQuestion(button.QuestionAttached, index);
+            }
+        }
+
+        // method to show question
+        private void BP6_ShowQuestion(Question question, int index)
+        {
+            QuestionDisplay temp = new QuestionDisplay(question);
+            bigpanel6.QuestionPanel.Controls.RemoveAt(1);
+            bigpanel6.QuestionPanel.Controls.Add(temp);
+            bigpanel6.QuestionPanel.Controls.SetChildIndex(temp, 1);
+            bigpanel6.QuestionIndexLabel.Text = $"{index + 1}";
+            currentquiz.OngoingPreview.qLayouts[index] = temp;
+        }
+
+        //
 /* quiz edit form*/
 
         // add question to quiz 2 ("from question bank")
@@ -1581,35 +1738,178 @@ namespace ExamApp
                 mainpanel.Tag = bigpanel5_2;
                 bigpanel5_2.Show();
             }
+            try
+            {
+                bigpanel5_2.CategoryComboBox.SelectedIndexChanged -= new EventHandler(this.Add2Category_SelectIndexChanged);
+            }
+            catch
+            {
+
+            }
             bigpanel5_2.CategoryComboBox.DataSource = null;
             bigpanel5_2.CategoryComboBox.DataSource = categories;
             bigpanel5_2.CategoryComboBox.DisplayMember = "NameAndGen";
             bigpanel5_2.CategoryComboBox.SelectedItem = null;
             bigpanel5_2.QuestionDisplay.Controls.Clear();
+            bigpanel5_2.CategoryComboBox.SelectedIndexChanged += new EventHandler(this.Add2Category_SelectIndexChanged);
 
             bigpanel5.Hide();
             bigpanel5.Popup.Hide();
             slash3.Show();
             direction4.Show();
-            direction3.Cursor = System.Windows.Forms.Cursors.Hand;
+            direction3.Cursor = Cursors.Hand;
             direction3.ForeColor = Color.IndianRed;
-            direction3.Click += new System.EventHandler(this.direction3_Click);
+            direction3.Click += new EventHandler(this.direction3_Click);
         }
 
+        // save button event on edit form
+        private void saveBP5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                currentquiz.MaxGrade = Convert.ToDouble(bigpanel5.GradeTextBox.Text);
+            }
+            catch
+            {
+                currentquiz.MaxGrade = 10.0;
+            }
+
+            currentquiz.TotalMark = Convert.ToDouble(bigpanel5.TotalMarkLabel.Text);
+            if (bigpanel5.ShuffleBox.Checked)
+            {
+                currentquiz.Shuffle = true;
+            }
+
+            if (mainpanel.Controls.Count > 0)
+            {
+                mainpanel.Controls.RemoveAt(0);
+            }
+
+            slash2.Hide();
+            direction3.Hide();
+            direction2.Cursor = Cursors.Default;
+            direction2.ForeColor = Color.Black;
+            direction2.Click -= new EventHandler(this.direction2_1_Click);
+            bigpanel5.Hide();
+            bigpanel4.Show();
+            mainpanel.Controls.Add(bigpanel4);
+        }
+
+        //
 /* add question to quiz forms*/
+
+        // event for indexing page
+        private void IndexingPage_BP5()
+        {
+            bigpanel5.PageFlowLayout.Controls.Clear();
+            int pageNum = (currentquiz.QuestionList.Count() - 1) / 10 + 1;
+            for(int i = 1; i <= pageNum; i++)
+            {
+                Button temp = new Button();
+                temp.Text = i.ToString();
+                temp.AutoSize = true;
+                temp.Click += new EventHandler(this.BP5_PageBtn_Click);
+                bigpanel5.PageFlowLayout.Controls.Add(temp);
+            }
+        }
+
+        // click event for page button
+        private void BP5_PageBtn_Click(object sender, EventArgs e)
+        {
+            Button temp = (Button)sender;
+            ChangePage_BP5(Convert.ToInt32(temp.Text));
+        }
+
+        // event for changing page
+        private void ChangePage_BP5(int page)
+        {
+            bigpanel5.PageNumberLabel.Text = $"Page {page}";
+            int quizQuestionLen = currentquiz.QuestionList.Count();
+            int start = (page - 1) * 10, end = page * 10 - 1;
+
+            if((quizQuestionLen - 1) < end)
+            {
+                end = quizQuestionLen - 1;
+            }
+
+            bigpanel5.QuestionLayout.Controls.Clear();
+            for(int i = end; i >= start; i--)
+            {
+                QuizQuestionBlockBP5 temp = new QuizQuestionBlockBP5(currentquiz.QuestionList[i], i + 1);
+                temp.Edit.Click += new EventHandler(BP5_QuestionTrashIcon_Click);
+                bigpanel5.QuestionLayout.Controls.Add(temp);
+            }
+        }
+
+        // click event for trash icon in question layout
+        private void BP5_QuestionTrashIcon_Click(object sender, EventArgs e)
+        {
+            QuizQuestionBlockBP5 temp = (QuizQuestionBlockBP5)((Label)sender).Parent;
+            Panel container = temp.Parent as Panel;
+            int index = temp.Index;
+            foreach(QuizQuestionBlockBP5 temp1 in container.Controls)
+            {
+                if(temp1.Index > index)
+                {
+                    temp1.setIndex(temp1.Index - 1);
+                }
+            }
+            bigpanel5.QuestionLayout.Controls.Remove(temp);
+            currentquiz.QuestionList.RemoveAt(index - 1);
+            if (currentquiz.QuestionList.Count() % 10 == 0)
+            {
+                bigpanel5.PageFlowLayout.Controls.RemoveAt(currentquiz.QuestionList.Count() / 10);
+            }
+            int lastIndex = ((index - 1) / 10 + 1) * 10;
+            if(lastIndex <= currentquiz.QuestionList.Count())
+            {
+                QuizQuestionBlockBP5 temp2 = new QuizQuestionBlockBP5(currentquiz.QuestionList[lastIndex - 1], lastIndex);
+                temp2.Edit.Click += new EventHandler(BP5_QuestionTrashIcon_Click);
+                bigpanel5.QuestionLayout.Controls.Add(temp2);
+                bigpanel5.QuestionLayout.Controls.SetChildIndex(temp2, 0);
+            }
+        }
 
         // click event for "add selected question to quiz"
         private void Add2_AddSelectedToQuiz(object sender, EventArgs e)
         {
             double totalMark = 0;
-            foreach (Question question in currentquiz.PendingList)
+            if (bigpanel5_2.AddAll.Checked)
             {
-                currentquiz.QuestionList.Add(question);
-                totalMark += question.Mark;
+                foreach (Question question in this.currentcategory.QuestionList)
+                {
+                    totalMark += question.Mark;
+                    currentquiz.addquestion(question);
+                }
+
+                if (bigpanel5_2.SubcategoryCheckBox.Checked)
+                {
+                    foreach (Category subcategory in currentcategory.Child)
+                    {
+                        foreach (Question question in subcategory.QuestionList)
+                        {
+                            totalMark += question.Mark;
+                            currentquiz.addquestion(question);
+                        }
+                    }
+                    bigpanel5_2.SubcategoryCheckBox.Checked = false;
+                }
+                bigpanel5_2.AddAll.Checked = false;
             }
+            else
+            {
+                foreach (Question question in currentquiz.PendingList)
+                {
+                    totalMark += question.Mark;
+                    currentquiz.addquestion(question);
+                }
+            }
+
             currentquiz.PendingList.Clear();
             bigpanel5.QuestionNumberLabel.Text = currentquiz.QuestionList.Count().ToString();
             bigpanel5.TotalMarkLabel.Text = totalMark.ToString();
+            IndexingPage_BP5();
+            ChangePage_BP5(1);
 
             if (mainpanel.Controls.Count > 0)
             {
@@ -1618,6 +1918,9 @@ namespace ExamApp
 
             slash3.Hide();
             direction4.Hide();
+            direction3.Cursor = Cursors.Default;
+            direction3.ForeColor = Color.Black;
+            direction3.Click -= new EventHandler(this.direction3_Click);
             bigpanel5_2.Hide();
             bigpanel5.Show();
             mainpanel.Controls.Add(bigpanel5);
@@ -1630,58 +1933,36 @@ namespace ExamApp
             {
                 this.bigpanel5_2.QuestionDisplay.Controls.Clear();
                 this.bigpanel5_2.AddedQuestionDisplay.Controls.Clear();
-                //this.bigpanel5_2.AddedQuestionDisplay.Controls.Clear();
+                foreach (Question question in this.currentcategory.QuestionList)
+                {
+                    if (!currentquiz.PendingList.Contains(question))
+                    {
+                        QuizQuestionBlockBP5_2 temp = new QuizQuestionBlockBP5_2(question, false);
+                        this.bigpanel5_2.QuestionDisplay.Controls.Add(temp);
+                        temp.Edit.Click += delegate (object sender1, EventArgs e1) { this.Add2_addToPending_Click(sender1, e1, temp.Question); };
+                    }
+                }
+
                 if (mode)
                 {
-                    foreach (Question question in this.currentcategory.QuestionList)
-                    {
-                        if (!currentquiz.PendingList.Contains(question))
-                        {
-                            QuizQuestionBlock temp = new QuizQuestionBlock(question, false) ;
-                            this.bigpanel5_2.QuestionDisplay.Controls.Add(temp);
-                            temp.Edit.Click -= delegate (object sender, EventArgs e) { this.Add2_minusFromPending_Click(sender, e, temp.Question); };
-                            temp.Edit.Click += delegate (object sender, EventArgs e) { this.Add2_addToPending_Click(sender, e, temp.Question); };
-                            temp.selectionCheckBox.CheckedChanged += delegate (object sender, EventArgs e) { this.Add2_questionCheckBox_CheckChanged(sender, e, temp.Question); ; };
-                        }
-                    }
-
                     foreach (Category subcategory in currentcategory.Child)
                     {
                         foreach (Question question in subcategory.QuestionList)
                         {
                             if (!currentquiz.PendingList.Contains(question))
                             {
-                                QuizQuestionBlock temp = new QuizQuestionBlock(question, false);
+                                QuizQuestionBlockBP5_2 temp = new QuizQuestionBlockBP5_2(question, false);
                                 this.bigpanel5_2.QuestionDisplay.Controls.Add(temp);
-                                temp.Edit.Click -= delegate (object sender, EventArgs e) { this.Add2_minusFromPending_Click(sender, e, temp.Question); };
-                                temp.Edit.Click += delegate (object sender, EventArgs e) { this.Add2_addToPending_Click(sender, e, temp.Question); };
-                                temp.selectionCheckBox.CheckedChanged += delegate (object sender, EventArgs e) { this.Add2_questionCheckBox_CheckChanged(sender, e, temp.Question); ; };
+                                temp.Edit.Click += delegate (object sender1, EventArgs e1) { this.Add2_addToPending_Click(sender1, e1, temp.Question); };
                             }
-                        }
-                    }
-                }
-                else
-                {
-                    foreach (Question question in currentcategory.QuestionList)
-                    {
-                        if (!currentquiz.PendingList.Contains(question))
-                        {
-                            QuizQuestionBlock temp = new QuizQuestionBlock(question, false);
-                            this.bigpanel5_2.QuestionDisplay.Controls.Add(temp);
-                            temp.Edit.Click -= delegate (object sender, EventArgs e) { this.Add2_minusFromPending_Click(sender, e, temp.Question); };
-                            temp.Edit.Click += delegate (object sender, EventArgs e) { this.Add2_addToPending_Click(sender, e, temp.Question); };
-                            temp.selectionCheckBox.CheckedChanged += delegate (object sender, EventArgs e) { this.Add2_questionCheckBox_CheckChanged(sender, e, temp.Question); ; };
                         }
                     }
                 }
 
                 foreach (Question question in currentquiz.PendingList)
                 {
-                    QuizQuestionBlock temp = new QuizQuestionBlock(question, true);
+                    QuizQuestionBlockBP5_2 temp = new QuizQuestionBlockBP5_2(question, true);
                     this.bigpanel5_2.AddedQuestionDisplay.Controls.Add(temp);
-                    temp.Edit.Click -= delegate (object sender, EventArgs e) { this.Add2_addToPending_Click(sender, e, temp.Question); };
-                    temp.Edit.Click += delegate (object sender, EventArgs e) { this.Add2_minusFromPending_Click(sender, e, temp.Question); };
-                    temp.selectionCheckBox.CheckedChanged -= delegate (object sender, EventArgs e) { this.Add2_questionCheckBox_CheckChanged(sender, e, temp.Question); ; };
                 }
             }
         }
@@ -1690,34 +1971,25 @@ namespace ExamApp
         private void Add2_addToPending_Click(object sender, EventArgs e, Question question)
         {
             currentquiz.PendingList.Add(question);
-            Add2_RefreshQuestionDisplay(bigpanel5_2.SubcategoryCheckBox.Checked);
+            QuizQuestionBlockBP5_2 temp = (QuizQuestionBlockBP5_2)((Label)sender).Parent;
+            temp.Edit.Image = Properties.Resources.icon11;
+            temp.Edit.Click -= delegate (object sender1, EventArgs e1) { this.Add2_addToPending_Click(sender1, e1, temp.Question); };
+            temp.Edit.Click += delegate (object sender1, EventArgs e1) { this.Add2_minusFromPending_Click(sender1, e1, temp.Question); };
         }
 
         // click event for when clicking minus icon on the left of the question block in add2
         private void Add2_minusFromPending_Click(object sender, EventArgs e, Question question)
         {
             currentquiz.PendingList.Remove(question);
-            Add2_RefreshQuestionDisplay(bigpanel5_2.SubcategoryCheckBox.Checked);
+            QuizQuestionBlockBP5_2 temp = (QuizQuestionBlockBP5_2)((Label)sender).Parent;
+            temp.Edit.Image = Properties.Resources.icon10;
+            temp.Edit.Click -= delegate (object sender1, EventArgs e1) { this.Add2_minusFromPending_Click(sender1, e1, temp.Question); };
+            temp.Edit.Click += delegate (object sender1, EventArgs e1) { this.Add2_addToPending_Click(sender1, e1, temp.Question); };
         }
 
         // checkchanged event for "subcategory" checkbox in add2
         private void Add2_Subcategory_CheckedChanged(object sender, EventArgs e)
         {
-            Add2_RefreshQuestionDisplay(bigpanel5_2.SubcategoryCheckBox.Checked);
-        }
-
-        // checkchanged event for checkbox on the left of the question block in add2
-        private void Add2_questionCheckBox_CheckChanged(object sender, EventArgs e, Question question)
-        {
-            CheckBox checkBox = (CheckBox)sender;
-            if (checkBox.Checked)
-            {
-                currentquiz.PendingList.Add(question);
-            }
-            else
-            {
-                currentquiz.PendingList.Remove(question);
-            }
             Add2_RefreshQuestionDisplay(bigpanel5_2.SubcategoryCheckBox.Checked);
         }
 
@@ -1731,7 +2003,7 @@ namespace ExamApp
             }
         }
 
-        
+        //
 /* headings */
 
         // direct to home when click the home label on top
@@ -1757,16 +2029,16 @@ namespace ExamApp
                 this.bigpanel3.Hide();
             }
 
-            this.heading.Size = new System.Drawing.Size(1114, 117);
+            this.heading.Size = new Size(1114, 117);
             this.functionbutton1.Show();
             this.button1.Show();
             slash1.Hide();
             slash2.Hide();
             direction2.Hide();
             direction3.Hide();
-            direction1.ForeColor = System.Drawing.SystemColors.ControlText;
-            direction1.Cursor = System.Windows.Forms.Cursors.Default;
-            direction1.Click -= new System.EventHandler(this.direction1_Click);
+            direction1.ForeColor = SystemColors.ControlText;
+            direction1.Cursor = Cursors.Default;
+            direction1.Click -= new EventHandler(this.direction1_Click);
             mainpanel.Controls.Add(quizFlowLayout);
         }
 
@@ -1795,7 +2067,7 @@ namespace ExamApp
                 this.bigpanel5.Hide();
             }
 
-            this.heading.Size = new System.Drawing.Size(1114, 117);
+            this.heading.Size = new Size(1114, 117);
             this.functionbutton1.Show();
             this.button1.Show();
             slash1.Hide();
@@ -1804,11 +2076,11 @@ namespace ExamApp
             direction2.Hide();
             direction3.Hide();
             direction4.Hide();
-            direction1.ForeColor = System.Drawing.SystemColors.ControlText;
-            direction1.Cursor = System.Windows.Forms.Cursors.Default;
-            direction1.Click -= new System.EventHandler(this.direction1_1_Click);
-            direction2.Click -= new System.EventHandler(this.direction2_1_Click);
-            direction3.Click -= new System.EventHandler(this.direction3_Click);
+            direction1.ForeColor = SystemColors.ControlText;
+            direction1.Cursor = Cursors.Default;
+            direction1.Click -= new EventHandler(this.direction1_1_Click);
+            direction2.Click -= new EventHandler(this.direction2_1_Click);
+            direction3.Click -= new EventHandler(this.direction3_Click);
             mainpanel.Controls.Add(quizFlowLayout);
         }
 
@@ -1826,7 +2098,7 @@ namespace ExamApp
             slash2.Hide();
             direction2.Hide();
             direction3.Hide();
-            direction2.Click -= new System.EventHandler(this.direction2_Click);
+            direction2.Click -= new EventHandler(this.direction2_Click);
             updateQuestiondisplay(bigpanel1.SubcategoriesQ.Checked);
             //
             mainpanel.Controls.Add(bigpanel1);
@@ -1860,10 +2132,10 @@ namespace ExamApp
             //
             slash2.Hide();
             slash3.Hide();
-            direction2.ForeColor = System.Drawing.SystemColors.ControlText;
-            direction2.Cursor = System.Windows.Forms.Cursors.Default;
-            direction2.Click -= new System.EventHandler(this.direction2_1_Click);
-            direction3.Click -= new System.EventHandler(this.direction3_Click);
+            direction2.ForeColor = SystemColors.ControlText;
+            direction2.Cursor = Cursors.Default;
+            direction2.Click -= new EventHandler(this.direction2_1_Click);
+            direction3.Click -= new EventHandler(this.direction3_Click);
             direction3.Hide();
             direction4.Hide();
             //
@@ -1890,10 +2162,10 @@ namespace ExamApp
             bigpanel5_2.Hide();
             //
             slash3.Hide();
-            direction3.ForeColor = System.Drawing.SystemColors.ControlText;
-            direction3.Cursor = System.Windows.Forms.Cursors.Default;
+            direction3.ForeColor = SystemColors.ControlText;
+            direction3.Cursor = Cursors.Default;
             direction4.Hide();
-            direction3.Click -= new System.EventHandler(this.direction3_Click);
+            direction3.Click -= new EventHandler(this.direction3_Click);
             //
             mainpanel.Controls.Add(bigpanel5);
             mainpanel.Tag = bigpanel5;

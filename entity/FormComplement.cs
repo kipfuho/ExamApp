@@ -1,12 +1,15 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows;
 
-class QuestionBlock : Panel
+// parent class for inheritance
+class PartialQBlock : Panel
 {
     private Question question;
-    private CheckBox checkBox;
-    private Label label;
     private Label edit;
-    private Label delete;
+    private Label qName;
 
     public Question Question
     {
@@ -17,7 +20,21 @@ class QuestionBlock : Panel
     public Label Edit
     {
         get { return edit; }
+        set {  edit = value; }
     }
+
+    public Label QName
+    {
+        get { return qName; }
+        set { qName = value; }
+    }
+}
+
+// question block in question tab in edit question BP1
+class QuestionBlock : PartialQBlock
+{
+    private CheckBox checkBox;
+    private Label delete;
 
     public Label Delete
     {
@@ -35,22 +52,22 @@ class QuestionBlock : Panel
         this.Question = question;
         Panel spacing = new Panel();
         this.checkBox = new CheckBox();
-        this.label = new Label();
-        this.edit = new Label();
+        QName = new Label();
+        Edit = new Label();
         this.delete = new Label();
         this.Size = new System.Drawing.Size(755, 25);
         this.BorderStyle = BorderStyle.FixedSingle;
-        this.Controls.Add(this.edit);
+        this.Controls.Add(Edit);
         this.Controls.Add(this.delete);
-        this.Controls.Add(this.label);
+        this.Controls.Add(QName);
         this.Controls.Add(this.checkBox);
         this.Controls.Add(spacing);
         spacing.Dock = DockStyle.Left;
         spacing.Size = new System.Drawing.Size(10, 0);
         this.checkBox.Dock = DockStyle.Left;
         this.checkBox.Size = new System.Drawing.Size(30, 0);
-        this.label.Dock = DockStyle.Left;
-        this.label.Size = new System.Drawing.Size(600, 0);
+        QName.Dock = DockStyle.Left;
+        QName.Size = new System.Drawing.Size(600, 0);
 
         string qDescription;
         try
@@ -64,11 +81,11 @@ class QuestionBlock : Panel
 
         if (qDescription.Length > 60)
         {
-            this.label.Text = qDescription.Substring(0, 60) + "...";
+            QName.Text = qDescription.Substring(0, 60) + "...";
         }
         else
         {
-            this.label.Text = qDescription;
+            QName.Text = qDescription;
         }
 
         this.delete.Text = "Delete";
@@ -76,38 +93,18 @@ class QuestionBlock : Panel
         this.delete.Size = new System.Drawing.Size(80, 0);
         this.delete.Cursor = System.Windows.Forms.Cursors.Hand;
         this.delete.ForeColor = System.Drawing.Color.DeepSkyBlue;
-        this.edit.Text = "Edit";
-        this.edit.Dock = DockStyle.Right;
-        this.edit.Size = new System.Drawing.Size(60, 0);
-        this.edit.Cursor = System.Windows.Forms.Cursors.Hand;
-        this.edit.ForeColor = System.Drawing.Color.DeepSkyBlue;
+        Edit.Text = "Edit";
+        Edit.Dock = DockStyle.Right;
+        Edit.Size = new System.Drawing.Size(60, 0);
+        Edit.Cursor = System.Windows.Forms.Cursors.Hand;
+        Edit.ForeColor = System.Drawing.Color.DeepSkyBlue;
     }
 }
 
-class QuizQuestionBlock : Panel
+// question block in add question from question bank in edit quiz - BP5_2
+class QuizQuestionBlockBP5_2 : PartialQBlock
 {
-    private Question question;
-    private CheckBox checkBox;
-    private Label label;
-    private Label edit;
-
-    public Question Question
-    {
-        get { return question; }
-        set { question = value; }
-    }
-
-    public Label Edit
-    {
-        get { return edit; }
-    }
-
-    public CheckBox selectionCheckBox
-    {
-        get { return checkBox; }
-    }
-
-    public QuizQuestionBlock(Question question, bool pending)
+    public QuizQuestionBlockBP5_2(Question question, bool pending)
     {
         if (question == null)
         {
@@ -116,21 +113,17 @@ class QuizQuestionBlock : Panel
         }
         this.Question = question;
         Panel spacing = new Panel();
-        this.checkBox = new CheckBox();
-        this.label = new Label();
-        this.edit = new Label();
-        this.Size = new System.Drawing.Size(705, 30);
+        QName = new Label();
+        Edit = new Label();
+        this.Size = new System.Drawing.Size(705, 25);
         this.Dock = DockStyle.Top;
-        this.Controls.Add(this.label);
-        this.Controls.Add(this.checkBox);
+        this.Controls.Add(QName);
         this.Controls.Add(spacing);
-        this.Controls.Add(this.edit);
+        this.Controls.Add(Edit);
         spacing.Dock = DockStyle.Left;
         spacing.Size = new System.Drawing.Size(10, 0);
-        this.checkBox.Dock = DockStyle.Left;
-        this.checkBox.Size = new System.Drawing.Size(75, 0);
-        this.label.Dock = DockStyle.Left;
-        this.label.Size = new System.Drawing.Size(600, 0);
+        QName.Dock = DockStyle.Left;
+        QName.Size = new System.Drawing.Size(600, 0);
 
         string qDescription;
         try
@@ -144,30 +137,98 @@ class QuizQuestionBlock : Panel
 
         if (qDescription.Length > 60)
         {
-            this.label.Text = qDescription.Substring(0, 60) + "...";
+            QName.Text = qDescription.Substring(0, 60) + "...";
         }
         else
         {
-            this.label.Text = qDescription;
+            QName.Text = qDescription;
         }
 
-        this.edit.Text = " ";
+        Edit.Text = " ";
         if (pending)
         {
-            this.edit.Image = global::ExamApp.Properties.Resources.icon11;
-            this.checkBox.Hide();
+            Edit.Image = global::ExamApp.Properties.Resources.icon11;
         }
         else
         {
-            this.edit.Image = global::ExamApp.Properties.Resources.icon10;
+            Edit.Image = global::ExamApp.Properties.Resources.icon10;
         }
-        this.edit.Dock = DockStyle.Left;
-        this.edit.Size = new System.Drawing.Size(36, 0);
-        this.edit.Cursor = System.Windows.Forms.Cursors.Hand;
-        this.edit.ForeColor = System.Drawing.Color.DeepSkyBlue;
+        Edit.Dock = DockStyle.Left;
+        Edit.Size = new System.Drawing.Size(36, 0);
+        Edit.Cursor = System.Windows.Forms.Cursors.Hand;
+        Edit.ForeColor = System.Drawing.Color.DeepSkyBlue;
     }
 }
 
+class QuizQuestionBlockBP5 : PartialQBlock
+{
+    private Label index;
+
+    public int Index
+    {
+        get { return Convert.ToInt32(index.Text); }
+    }
+
+    public void setIndex(int i)
+    {
+        index.Text = i.ToString();
+    }
+
+    public QuizQuestionBlockBP5(Question question, int i)
+    {
+        if (question == null)
+        {
+            MessageBox.Show("There's no questions!");
+            return;
+        }
+        this.Question = question;
+        Panel spacing = new Panel();
+        QName = new Label();
+        Edit = new Label();
+        index = new Label();
+        this.Size = new System.Drawing.Size(0, 30);
+        this.BorderStyle = BorderStyle.FixedSingle;
+        this.Dock = DockStyle.Top;
+        this.Controls.Add(QName);
+        this.Controls.Add(spacing);
+        this.Controls.Add(index);
+        this.Controls.Add(Edit);
+        spacing.Dock = DockStyle.Left;
+        spacing.Size = new System.Drawing.Size(10, 0);
+        QName.Dock = DockStyle.Left;
+        QName.Size = new System.Drawing.Size(600, 0);
+        index.Dock = DockStyle.Left;
+        index.Size = new System.Drawing.Size(50, 0);
+        index.Text = i.ToString();
+        index.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+        index.BackColor = System.Drawing.Color.Gray;
+
+        string qDescription;
+        try
+        {
+            qDescription = RtfConverter.ConvertToPlainText(question.Description);
+        }
+        catch
+        {
+            qDescription = question.Description;
+        }
+
+        if (qDescription.Length > 60)
+        {
+            QName.Text = qDescription.Substring(0, 60) + "...";
+        }
+        else
+        {
+            QName.Text = qDescription;
+        }
+
+        Edit.Text = " ";
+        Edit.Image = global::ExamApp.Properties.Resources.icon12;
+        Edit.Dock = DockStyle.Right;
+        Edit.Size = new System.Drawing.Size(36, 0);
+        Edit.Cursor = System.Windows.Forms.Cursors.Hand;
+    }
+}
 
 class QuizBlock : Panel
 {
@@ -196,7 +257,7 @@ class QuizBlock : Panel
     public void changeState()
     {
         this.image.Image = global::ExamApp.Properties.Resources.icon8;
-        this.quizname.ForeColor = System.Drawing.Color.SteelBlue;
+        this.quizname.ForeColor = Color.SteelBlue;
     }
 
     public QuizBlock(Quiz quiz)
@@ -218,8 +279,8 @@ class QuizBlock : Panel
         this.image.Size = new System.Drawing.Size(60, 0);
         this.quizname.Dock = DockStyle.Left;
         this.quizname.Size = new System.Drawing.Size(600, 0);
-        this.quizname.Cursor = System.Windows.Forms.Cursors.Hand;
-        this.quizname.ForeColor = System.Drawing.Color.DeepSkyBlue;
+        this.quizname.Cursor = Cursors.Hand;
+        this.quizname.ForeColor = Color.DeepSkyBlue;
 
         if (quiz.Name.Length > 60)
         {
@@ -245,6 +306,105 @@ class QuizNavigationQuestionBtn : Button
     {
         this.index = index;
         this.Text = "index";
+        this.AutoSize = true;
+    }
+}
+
+class ButtonPlus : Button
+{
+    private Question question;
+    public Question QuestionAttached
+    {
+        get { return question; }
+        set { question = value; }
+    }
+}
+
+class QuestionDisplay : Panel
+{
+    private List<CheckBox> choiceCheckBox;
+    private List<RichTextBox> choiceText;
+    private RichTextBox qText;
+    private List<String> choiceLetter = new List<String> { "a.", "b.", "c.", "d.", "e."};
+
+    public QuestionDisplay(Question question)
+    {
+        int i = 0;
+        choiceCheckBox = new List<CheckBox>();
+        choiceText = new List<RichTextBox>();
+        foreach (Choice choice in question.Choices)
+        {
+            if(choice != null)
+            {
+                CheckBox temp1 = new CheckBox();
+                temp1.Text = choiceLetter[i];
+                temp1.AutoSize = true;
+                temp1.Dock = DockStyle.Top;
+                RichTextBox temp2 = new RichTextBox();
+                temp2.ReadOnly = false;
+                try
+                {
+                    temp2.Rtf = choice.Text;
+                }
+                catch
+                {
+                    temp2.Text = choice.Text;
+                }
+                temp2.Dock = DockStyle.Fill;
+                temp2.ReadOnly = true;
+                temp2.BorderStyle = BorderStyle.None;
+                temp2.Cursor = Cursors.Default;
+                temp2.BackColor = SystemColors.Control;
+                temp2.ReadOnly = true;
+                temp2.ContentsResized += (object sender, ContentsResizedEventArgs e) =>
+                {
+                    var richTextBox = (RichTextBox)sender;
+                    richTextBox.Width = e.NewRectangle.Width;
+                    richTextBox.Height = e.NewRectangle.Height;
+                    temp2.Width += temp2.Margin.Horizontal + SystemInformation.HorizontalResizeBorderThickness;
+                };
+                choiceCheckBox.Add(temp1);
+                choiceText.Add(temp2);
+                i++;
+            }
+        }
+        for (int j = i - 1; j >= 0; j--)
+        {
+            Panel temp = new Panel();
+            Panel spacing = new Panel();
+            spacing.Controls.Add(choiceCheckBox[j]);
+            spacing.Dock = DockStyle.Left;
+            spacing.Size = new System.Drawing.Size(50, 0);
+            temp.Dock = DockStyle.Top;
+            temp.Controls.Add(choiceText[j]);
+            temp.Controls.Add(spacing);
+            temp.Size = new System.Drawing.Size(0, choiceText[j].Height);
+            this.Controls.Add(temp);
+        }
+        qText = new RichTextBox();
+        qText.ReadOnly = false;
+        try
+        {
+            qText.Rtf = question.Description;
+        }
+        catch
+        {
+            qText.Text = question.Description;
+        }
+        qText.Dock = DockStyle.Top;
+        qText.BorderStyle = BorderStyle.None;
+        qText.Cursor = Cursors.Default;
+        qText.BackColor = SystemColors.Control;
+        qText.ReadOnly = true;
+        qText.ContentsResized += (object sender, ContentsResizedEventArgs e) =>
+        {
+            var richTextBox = (RichTextBox)sender;
+            richTextBox.Width = e.NewRectangle.Width;
+            richTextBox.Height = e.NewRectangle.Height;
+            qText.Width += qText.Margin.Horizontal + SystemInformation.HorizontalResizeBorderThickness;
+        };
+        this.Controls.Add(qText);
+        this.Dock = DockStyle.Top;
         this.AutoSize = true;
     }
 }

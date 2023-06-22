@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ExamApp.form
 {
     public partial class quiz_play : Form
     {
+        static Timer timer;
+        static DateTime startTime;
+        static DateTime endTime;
+        static TimeSpan timeLimit;
+
         public quiz_play()
         {
             InitializeComponent();
@@ -47,9 +45,60 @@ namespace ExamApp.form
             get { return label4; }
         }
 
+        public Label Back
+        {
+            get { return label9; }
+        }
+
+        public Label Next
+        {
+            get { return label10; }
+        }
+
         public Panel QuestionPanel
         {
             get { return panel8; }
+        }
+
+        public FlowLayoutPanel QuestionIndexFlowLayout
+        {
+            get { return flowLayoutPanel1; }
+        }
+
+        public void StartTimer(int seconds)
+        {
+            timeLimit = TimeSpan.FromSeconds(seconds);
+
+            // Calculate the end time based on the time limit
+            startTime = DateTime.Now;
+            endTime = startTime.Add(timeLimit);
+
+            // Create and configure the Timer
+            timer = new Timer();
+            timer.Interval = 1000; // Update the label every 100 milliseconds
+            timer.Tick += Timer_Tick;
+
+            // Start the timer
+            timer.Start();
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            // Calculate the remaining time
+            TimeSpan remainingTime = endTime - DateTime.Now;
+
+            // Check if the time limit has been reached
+            if (remainingTime <= TimeSpan.Zero)
+            {
+                // Stop the timer
+                timer.Stop();
+                timerLabel.Text = "Time's up!";
+            }
+            else
+            {
+                // Update the label with the remaining time
+                timerLabel.Text = "Time Left: " + remainingTime.ToString(@"mm\:ss");
+            }
         }
     }
 }

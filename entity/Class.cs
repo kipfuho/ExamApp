@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Spreadsheet;
+using System;
 using System.Collections.Generic;
 
 class Category
@@ -150,6 +151,7 @@ class QAnswer
 {
 	private Question question;
 	private Choice answer;
+	private bool flag;
 
 	public Question Question
 	{
@@ -162,6 +164,12 @@ class QAnswer
 		get { return answer; }
 		set { answer = value; }
 	}
+
+    public bool Flag
+    {
+        get { return flag; }
+        set { flag = value; }
+    }
 }
 
 class Timing
@@ -194,6 +202,7 @@ class Timing
 		set { unit = value; }
 	}
 
+	// return time limit with unit of seconds
 	public int TimeLimit
 	{
 		get
@@ -216,8 +225,13 @@ class Timing
 
 class PreviewQuiz
 {
-	Quiz quiz;
-	List<QAnswer> answers;
+	private List<QAnswer> answers;
+	public List<QuestionDisplay> qLayouts;
+	public List<QAnswer> AnswerList
+	{
+		get { return answers; }
+		set { answers = value; }
+	}
 }
 
 class Quiz
@@ -225,8 +239,12 @@ class Quiz
 	private string quizName;
 	private string quizDescription;
 	private List<Question> questions;
+	private double maxGrade;
+	private double totalMark;
+	private bool shuffle;
     private List<Question> pendingQuestions;
-    private List<PreviewQuiz> previews; 
+    private List<PreviewQuiz> previews;
+	private PreviewQuiz ongoingPreview;
 	Timing time;
 
 	public string Name
@@ -239,6 +257,24 @@ class Quiz
 	{
 		get { return quizDescription; }
         set { quizDescription = value; }
+	}
+
+	public double MaxGrade
+	{
+		get { return maxGrade; }
+		set { maxGrade = value; }
+	}
+
+    public double TotalMark
+    {
+        get { return totalMark; }
+        set { totalMark = value; }
+    }
+
+    public bool Shuffle
+	{
+		get { return shuffle; }
+		set { shuffle = value; }
 	}
 
 	public List<Question> QuestionList
@@ -259,7 +295,13 @@ class Quiz
 		set { previews = value; }
 	}
 
-	public Timing Time
+    public PreviewQuiz OngoingPreview
+    {
+        get { return ongoingPreview; }
+        set { ongoingPreview = value; }
+    }
+
+    public Timing Time
 	{
 		get { return time; }
         set { time = value; }

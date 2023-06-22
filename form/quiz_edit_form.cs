@@ -60,9 +60,39 @@ namespace ExamApp
             get { return this.totalMarkLabel; }
         }
 
+        public Label QuestionNameLabel
+        {
+            get { return this.label2; }
+        }
+
+        public Label PageNumberLabel
+        {
+            get { return this.pageNumberLabel; }
+        }
+
+        public TextBox GradeTextBox
+        {
+            get { return this.textBox1; }
+        }
+
+        public Button SaveQuizBtn
+        {
+            get { return button1; }
+        }
+
         public Panel Popup
         {
             get { return popupPanel; }
+        }
+
+        public Panel QuestionLayout
+        {
+            get { return questionLayout; }
+        }
+
+        public FlowLayoutPanel PageFlowLayout
+        {
+            get { return pageFlowLayout; }
         }
     }
 }
