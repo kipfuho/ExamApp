@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace ExamApp
 {
-    public partial class editquestion_form : Form
+    public partial class EditQuestion_Form : Form
     {
-        public editquestion_form()
+        public EditQuestion_Form()
         {
             InitializeComponent();
-        } 
+        }
 
         public TextBox QName
         {
@@ -134,15 +134,15 @@ namespace ExamApp
 
         private void label19_Click(object sender, EventArgs e)
         {
-            if(panel23.Visible == true)
+            if (panel23.Visible == true)
             {
                 panel23.Hide();
-                this.label20.Image = global::ExamApp.Properties.Resources.icon1;
+                this.label20.Image = Properties.Resources.icon1;
             }
             else
             {
                 panel23.Show();
-                this.label20.Image = global::ExamApp.Properties.Resources.icon2;
+                this.label20.Image = Properties.Resources.icon2;
             }
         }
     }

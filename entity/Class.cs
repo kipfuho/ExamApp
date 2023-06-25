@@ -1,132 +1,132 @@
-﻿using DocumentFormat.OpenXml.Spreadsheet;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 class Category
 {
-	private Category parent;
-	private List<Category> child;
-	private string categoryName;
-	private string categoryInfo;
-	private int categoryId;
-	private int gen;
-	private List<Question> questionList;
+    private Category parent;
+    private List<Category> child;
+    private string categoryName;
+    private string categoryInfo;
+    private int categoryId;
+    private int gen;
+    private List<Question> questionList;
 
-	public Category(Category parent, List<Category> child, string categoryName, string categoryInfo, int categoryId, int gen, List<Question> questionList)
-	{
-		this.Parent = parent;
-		this.child = child;
-		this.Name = categoryName;
-		this.Info = categoryInfo;
-		this.Id = categoryId;
+    public Category(Category parent, List<Category> child, string categoryName, string categoryInfo, int categoryId, int gen, List<Question> questionList)
+    {
+        this.Parent = parent;
+        this.child = child;
+        this.Name = categoryName;
+        this.Info = categoryInfo;
+        this.Id = categoryId;
         this.Gen = gen;
         this.QuestionList = questionList;
-	}
+    }
 
-	public string Name
-	{
-		get { return categoryName; }
-		set { categoryName = value; }
-	}
+    public string Name
+    {
+        get { return categoryName; }
+        set { categoryName = value; }
+    }
 
-	public string Info
-	{
-		get { return categoryInfo; }
-		set { categoryInfo = value; }
-	}
+    public string Info
+    {
+        get { return categoryInfo; }
+        set { categoryInfo = value; }
+    }
 
-	public int Gen
-	{
-		get { return gen; }
-		set { gen = value; }
-	}
+    public int Gen
+    {
+        get { return gen; }
+        set { gen = value; }
+    }
 
-	public int Id
-	{
-		get { return categoryId; }
-		set { categoryId = value; }
-	}
+    public int Id
+    {
+        get { return categoryId; }
+        set { categoryId = value; }
+    }
 
-	public List<Question> QuestionList
-	{	get { return questionList; } 
-		set { questionList = value; } 
-	}
+    public List<Question> QuestionList
+    {
+        get { return questionList; }
+        set { questionList = value; }
+    }
 
-	public Category Parent
-	{
-		get { return parent; }
-		set { parent = value; }
-	}
+    public Category Parent
+    {
+        get { return parent; }
+        set { parent = value; }
+    }
 
-	public List<Category> Child
-	{
-		get { return child; }
-		set { child = value; }
-	}
+    public List<Category> Child
+    {
+        get { return child; }
+        set { child = value; }
+    }
 
     public string NameAndGen
     {
         get
         {
             if (QuestionList.Count > 0)
-			{
+            {
                 return $"{new string(' ', Gen)}{Name}({QuestionList.Count})";
             }
-			else
-			{
+            else
+            {
                 return $"{new string(' ', Gen)}{Name}";
             }
         }
     }
 
-    public void addQuestion(Question question)
-	{
-		this.QuestionList.Add(question);
-	}
+    public void AddQuestion(Question question)
+    {
+        this.QuestionList.Add(question);
+    }
 
-	public void addChild(Category subcategory)
-	{
-		this.Child.Add(subcategory);
-	}
+    public void AddChild(Category subcategory)
+    {
+        this.Child.Add(subcategory);
+    }
 }
 
 class Choice
 {
-	private string choiceText;
-	private double choideGrade;
+    private string choiceText;
+    private double choideGrade;
 
-	public string Text
-	{
-		get { return choiceText; }
-		set { choiceText = value; }
-	}
+    public string Text
+    {
+        get { return choiceText; }
+        set { choiceText = value; }
+    }
 
-	public double Grade
-	{
-		get { return choideGrade;}
-		set { choideGrade = value; }
-	}
+    public double Grade
+    {
+        get { return choideGrade; }
+        set { choideGrade = value; }
+    }
 }
 
 class Question
 {
-	private Category category;
-	private string questionName;
-	private string questionText;
-	private double defaultMark;
-	private List<Choice> choices;
+    private Category category;
+    private string questionName;
+    private string questionText;
+    private double defaultMark;
+    private List<Choice> choices;
 
-	public Category Category
-	{
-		get { return category; }
-		set { category = value; }
-	}
+    public Category Category
+    {
+        get { return category; }
+        set { category = value; }
+    }
 
-	public string Name
-	{
-		get { return questionName; }
-		set { questionName = value; }
-	}
+    public string Name
+    {
+        get { return questionName; }
+        set { questionName = value; }
+    }
 
     public string Description
     {
@@ -140,30 +140,30 @@ class Question
         set { defaultMark = value; }
     }
 
-	public List<Choice> Choices
-	{
-		get { return choices; }
-		set { choices = value; }
-	}
+    public List<Choice> Choices
+    {
+        get { return choices; }
+        set { choices = value; }
+    }
 }
 
 class QAnswer
 {
-	private Question question;
-	private Choice answer;
-	private bool flag;
+    private Question question;
+    private Choice answer;
+    private bool flag;
 
-	public Question Question
-	{
-		get { return question; }
-		set { question = value; }
-	}
+    public Question Question
+    {
+        get { return question; }
+        set { question = value; }
+    }
 
-	public Choice Answer
-	{
-		get { return answer; }
-		set { answer = value; }
-	}
+    public Choice Answer
+    {
+        get { return answer; }
+        set { answer = value; }
+    }
 
     public bool Flag
     {
@@ -174,96 +174,125 @@ class QAnswer
 
 class Timing
 {
-	private DateTime open;
+    private DateTime open;
     private DateTime close;
-	private int timecoeff;
-	private string unit;
+    private int timecoeff;
+    private string unit;
 
-	public DateTime TimeOpen
-	{
-		get { return open; }
-		set { open = value; }
-	}
+    public DateTime TimeOpen
+    {
+        get { return open; }
+        set { open = value; }
+    }
 
-	public DateTime TimeClose
-	{
-		get { return close; }
-		set { close = value; }
-	}
+    public DateTime TimeClose
+    {
+        get { return close; }
+        set { close = value; }
+    }
 
-	public int TimeCoefficient
-	{
-		get { return timecoeff; }
-		set { timecoeff = value; }
-	}
-	public string TimeUnit
-	{
-		get { return unit; }
-		set { unit = value; }
-	}
+    public int TimeCoefficient
+    {
+        get { return timecoeff; }
+        set { timecoeff = value; }
+    }
+    public string TimeUnit
+    {
+        get { return unit; }
+        set { unit = value; }
+    }
 
-	// return time limit with unit of seconds
-	public int TimeLimit
-	{
-		get
-		{
-			if (this.TimeUnit == "minutes")
-			{
-				return 60 * timecoeff;
-			}
-			else if (this.TimeUnit == "hours")
-			{
-				return 3600 * timecoeff;
-			}
-			else
-			{
-				return timecoeff;
-			}
-		}
-	}
+    // return time limit with unit of seconds
+    public int TimeLimit
+    {
+        get
+        {
+            if (this.TimeUnit == "minutes")
+            {
+                return 60 * timecoeff;
+            }
+            else if (this.TimeUnit == "hours")
+            {
+                return 3600 * timecoeff;
+            }
+            else
+            {
+                return timecoeff;
+            }
+        }
+    }
 }
 
 class PreviewQuiz
 {
-	private List<QAnswer> answers;
-	public List<QuestionDisplay> qLayouts;
-	public List<QAnswer> AnswerList
-	{
-		get { return answers; }
-		set { answers = value; }
-	}
+    private List<QAnswer> answers;
+    public List<QuestionDisplay> qLayouts;
+    private DateTime startTime;
+    private DateTime endTime;
+    private double mark;
+
+    public List<QAnswer> QAnswerList
+    {
+        get { return answers; }
+        set { answers = value; }
+    }
+
+    public DateTime StartTime
+    {
+        get { return startTime; }
+        set { startTime = value; }
+    }
+
+    public DateTime EndTime
+    {
+        get { return endTime; }
+        set { endTime = value; }
+    }
+
+    public double Mark
+    {
+        get { return mark; }
+        set { mark = value; }
+    }
+
+    // get time taken as in seconds
+    public TimeSpan GetRemainingTime()
+    {
+        TimeSpan timeTaken = endTime - startTime;
+        return timeTaken;
+    }
 }
 
 class Quiz
 {
-	private string quizName;
-	private string quizDescription;
-	private List<Question> questions;
-	private double maxGrade;
-	private double totalMark;
-	private bool shuffle;
+    private string quizName;
+    private string quizDescription;
+    private List<Question> questions;
+    private double maxGrade;
+    private double totalMark;
+    private bool shuffle;
     private List<Question> pendingQuestions;
     private List<PreviewQuiz> previews;
-	private PreviewQuiz ongoingPreview;
-	Timing time;
+    private PreviewQuiz ongoingPreview;
+    Timing time;
 
-	public string Name
-	{
-		get { return quizName; }
+    public string Name
+    {
+        get { return quizName; }
         set { quizName = value; }
-	}
+    }
 
-	public string Description
-	{
-		get { return quizDescription; }
+    public string Description
+    {
+        get { return quizDescription; }
         set { quizDescription = value; }
-	}
+    }
 
-	public double MaxGrade
-	{
-		get { return maxGrade; }
-		set { maxGrade = value; }
-	}
+    public double MaxGrade
+    {
+        get { return maxGrade; }
+        set { maxGrade = value; }
+    }
 
     public double TotalMark
     {
@@ -272,16 +301,16 @@ class Quiz
     }
 
     public bool Shuffle
-	{
-		get { return shuffle; }
-		set { shuffle = value; }
-	}
+    {
+        get { return shuffle; }
+        set { shuffle = value; }
+    }
 
-	public List<Question> QuestionList
-	{
-		get { return questions; }
-		set { questions = value; }
-	}
+    public List<Question> QuestionList
+    {
+        get { return questions; }
+        set { questions = value; }
+    }
 
     public List<Question> PendingList
     {
@@ -290,10 +319,10 @@ class Quiz
     }
 
     public List<PreviewQuiz> Previews
-	{
-		get { return previews; }
-		set { previews = value; }
-	}
+    {
+        get { return previews; }
+        set { previews = value; }
+    }
 
     public PreviewQuiz OngoingPreview
     {
@@ -302,19 +331,19 @@ class Quiz
     }
 
     public Timing Time
-	{
-		get { return time; }
+    {
+        get { return time; }
         set { time = value; }
-	}
+    }
 
-	public void addquestion(Question question)
-	{
-		this.QuestionList.Add(question);
-	}
+    public void AddQuestion(Question question)
+    {
+        this.QuestionList.Add(question);
+    }
 
-	public void addpreview(PreviewQuiz previewQuiz)
-	{
-		Previews.Add(previewQuiz);
-	}
+    public void AddPreview(PreviewQuiz previewQuiz)
+    {
+        Previews.Add(previewQuiz);
+    }
 }
 

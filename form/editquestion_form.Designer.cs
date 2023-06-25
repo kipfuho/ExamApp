@@ -1,6 +1,6 @@
 ﻿namespace ExamApp
 {
-    partial class editquestion_form
+    partial class EditQuestion_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -1189,14 +1189,14 @@
             this.label17.TabIndex = 32;
             this.label17.Text = "Adding a Multiple choices question";
             // 
-            // editquestion_form
+            // EditQuestion_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1058, 616);
             this.Controls.Add(this.EditQuestionPanel);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "editquestion_form";
+            this.Name = "EditQuestion_Form";
             this.Text = "editquestion";
             this.EditQuestionPanel.ResumeLayout(false);
             this.panel23.ResumeLayout(false);
@@ -1238,7 +1238,7 @@
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.Panel panel20;
-        private System.Windows.Forms.Button CancelButton;
+        private new System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button SaveQuitButton;
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Panel panel16;

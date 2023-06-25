@@ -2,7 +2,7 @@
 
 namespace ExamApp
 {
-    partial class edit_form
+    partial class Edit_Form
     {
         /// <summary>
         /// Required designer variable.

@@ -121,7 +121,7 @@
             this.functionbutton1.TabIndex = 0;
             this.functionbutton1.Text = "TURN EDITING ON";
             this.functionbutton1.UseVisualStyleBackColor = false;
-            this.functionbutton1.Click += new System.EventHandler(this.functionbutton1_Click);
+            this.functionbutton1.Click += new System.EventHandler(this.MP_TurnEditOnButton_Click);
             // 
             // headingElement2
             // 
@@ -255,7 +255,7 @@
             this.button1.Size = new System.Drawing.Size(34, 26);
             this.button1.TabIndex = 0;
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.MP_GearIconLabel_Click);
             // 
             // signature1
             // 
@@ -351,7 +351,7 @@
             this.import1.Size = new System.Drawing.Size(64, 21);
             this.import1.TabIndex = 3;
             this.import1.Text = "Import";
-            this.import1.Click += new System.EventHandler(this.import1_Click);
+            this.import1.Click += new System.EventHandler(this.MP_Popup_Import_Click);
             // 
             // categories1
             // 
@@ -365,7 +365,7 @@
             this.categories1.Size = new System.Drawing.Size(100, 21);
             this.categories1.TabIndex = 2;
             this.categories1.Text = "Categories";
-            this.categories1.Click += new System.EventHandler(this.categories1_Click);
+            this.categories1.Click += new System.EventHandler(this.MP_Popup_Categories_Click);
             // 
             // questions1
             // 
@@ -379,7 +379,7 @@
             this.questions1.Size = new System.Drawing.Size(91, 21);
             this.questions1.TabIndex = 1;
             this.questions1.Text = "Questions";
-            this.questions1.Click += new System.EventHandler(this.questions1_Click);
+            this.questions1.Click += new System.EventHandler(this.MP_Popup_Questions_Click);
             // 
             // signature2
             // 

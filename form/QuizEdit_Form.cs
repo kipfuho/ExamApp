@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace ExamApp
 {
-    public partial class quiz_edit_form : Form
+    public partial class QuizEdit_Form : Form
     {
-        public quiz_edit_form()
+        public QuizEdit_Form()
         {
             InitializeComponent();
         }
 
-        public void Add_Click(object sender ,EventArgs e)
+        public void Add_Click(object sender, EventArgs e)
         {
             if (popupPanel.Visible == false)
             {

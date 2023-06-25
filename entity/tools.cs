@@ -8,19 +8,23 @@ class RtfConverter
 {
     public static string ConvertToPlainText(string rtf)
     {
-        RichTextBox richTextBox = new RichTextBox();
-        richTextBox.Font = new Font("Cascadia Mono", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+        RichTextBox richTextBox = new RichTextBox
+        {
+            Font = new Font("Cascadia Mono", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0))),
 
-        richTextBox.Rtf = rtf;
+            Rtf = rtf
+        };
         return richTextBox.Text;
     }
 
     public static string ConvertToRtf(string plainText, byte[] imageData)
     {
-        RichTextBox richTextBox = new RichTextBox();
-        richTextBox.Font = new Font("Cascadia Mono", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+        RichTextBox richTextBox = new RichTextBox
+        {
+            Font = new Font("Cascadia Mono", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0))),
 
-        richTextBox.Text = plainText;
+            Text = plainText
+        };
         Clipboard.SetImage(ConvertImageDataToImage(imageData));
         richTextBox.SelectionStart = richTextBox.Text.Length - 1;
         richTextBox.Paste();
@@ -73,7 +77,7 @@ class ShuffleTool
     public static void Shuffle(int n)
     {
         shuffleIndex = new List<int>();
-        for(int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++)
         {
             shuffleIndex.Add(i);
         }
@@ -82,9 +86,7 @@ class ShuffleTool
         {
             n--;
             int k = random.Next(n + 1);
-            int value = shuffleIndex[k];
-            shuffleIndex[k] = shuffleIndex[n];
-            shuffleIndex[n] = value;
+            (shuffleIndex[n], shuffleIndex[k]) = (shuffleIndex[k], shuffleIndex[n]);
         }
     }
 

@@ -1,6 +1,6 @@
 ﻿namespace ExamApp
 {
-    partial class quiz_edit_form
+    partial class QuizEdit_Form
     {
         /// <summary>
         /// Required designer variable.

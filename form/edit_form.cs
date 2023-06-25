@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace ExamApp
 {
-    public partial class edit_form : Form
+    public partial class Edit_Form : Form
     {
-        public edit_form()
+        public Edit_Form()
         {
             InitializeComponent();
         }
@@ -88,7 +88,7 @@ namespace ExamApp
 
         public void tabControl_DrawItem(object sender, DrawItemEventArgs e)
         {
-            if(e.Index == DirectionInEditPanel.SelectedIndex)
+            if (e.Index == DirectionInEditPanel.SelectedIndex)
             {
                 e.Graphics.DrawString(DirectionInEditPanel.TabPages[e.Index].Text, new Font(DirectionInEditPanel.Font, FontStyle.Regular), Brushes.Black, new PointF(e.Bounds.X, e.Bounds.Y));
             }
@@ -100,7 +100,7 @@ namespace ExamApp
 
         private void label2_Click(object sender, EventArgs e)
         {
-            if(panel22.Visible == true)
+            if (panel22.Visible == true)
             {
                 panel22.Hide();
                 this.label1.Image = global::ExamApp.Properties.Resources.icon1;

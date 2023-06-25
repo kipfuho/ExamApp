@@ -1,6 +1,6 @@
 ﻿namespace ExamApp.form
 {
-    partial class addquestiontoquiz2_form
+    partial class AddQuestionToQuiz2_Form
     {
         /// <summary>
         /// Required designer variable.

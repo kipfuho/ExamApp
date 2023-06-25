@@ -2,9 +2,9 @@
 
 namespace ExamApp.form
 {
-    public partial class addquestiontoquiz2_form : Form
+    public partial class AddQuestionToQuiz2_Form : Form
     {
-        public addquestiontoquiz2_form()
+        public AddQuestionToQuiz2_Form()
         {
             InitializeComponent();
         }

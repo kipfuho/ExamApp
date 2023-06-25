@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ExamApp
 {
-    public partial class quiz_form : Form
+    public partial class QuizCreate_Form : Form
     {
-        public quiz_form()
+        public QuizCreate_Form()
         {
             InitializeComponent();
         }
@@ -105,7 +105,7 @@ namespace ExamApp
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-            if(this.DtOpen.Enabled == false)
+            if (this.DtOpen.Enabled == false)
             {
                 this.DtOpen.Enabled = true;
             }
@@ -118,11 +118,11 @@ namespace ExamApp
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
             if (this.DtClose.Enabled == false)
-            {        
+            {
                 this.DtClose.Enabled = true;
-            }        
-            else     
-            {        
+            }
+            else
+            {
                 this.DtClose.Enabled = false;
             }
         }

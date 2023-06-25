@@ -2,9 +2,9 @@
 
 namespace ExamApp
 {
-    public partial class quiz_attempt_form : Form
+    public partial class QuizAttempt_Form : Form
     {
-        public quiz_attempt_form()
+        public QuizAttempt_Form()
         {
             InitializeComponent();
         }
@@ -34,6 +34,11 @@ namespace ExamApp
             get { return startAttemptBtn; }
         }
 
+        public Panel PopupPanel
+        {
+            get { return panel15; }
+        }
+
         public FlowLayoutPanel QzPR
         {
             get { return flowLayoutPanel1; }
@@ -41,7 +46,7 @@ namespace ExamApp
 
         private void previewQuizBtn_Click(object sender, System.EventArgs e)
         {
-            if(panel15.Visible == false)
+            if (panel15.Visible == false)
             {
                 int x = flowLayoutPanel1.Left + flowLayoutPanel1.Width / 2 - panel15.Width / 2;
                 int y = flowLayoutPanel1.Top;

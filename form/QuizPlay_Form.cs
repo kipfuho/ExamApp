@@ -3,14 +3,14 @@ using System.Windows.Forms;
 
 namespace ExamApp.form
 {
-    public partial class quiz_play : Form
+    public partial class QuizPlay_Form : Form
     {
         static Timer timer;
         static DateTime startTime;
         static DateTime endTime;
         static TimeSpan timeLimit;
 
-        public quiz_play()
+        public QuizPlay_Form()
         {
             InitializeComponent();
         }
@@ -55,9 +55,45 @@ namespace ExamApp.form
             get { return label10; }
         }
 
+        public Label AttemptInformation_StartedOn
+        {
+            get { return label17; }
+        }
+
+        public Label AttemptInformation_State
+        {
+            get { return label18; }
+        }
+        public Label AttemptInformation_CompletedOn
+        {
+            get { return label19; }
+        }
+        public Label AttemptInformation_TimeTaken
+        {
+            get { return label20; }
+        }
+        public Label AttemptInformation_Marks
+        {
+            get { return label21; }
+        }
+        public Label AttemptInformation_Grade
+        {
+            get { return label22; }
+        }
+
+        public TextBox CorrectAnswerTextBox
+        {
+            get { return textBox1; }
+        }
+
         public Panel QuestionPanel
         {
             get { return panel8; }
+        }
+
+        public Panel AttemptInformationPanel
+        {
+            get { return panel5; }
         }
 
         public FlowLayoutPanel QuestionIndexFlowLayout
@@ -74,12 +110,23 @@ namespace ExamApp.form
             endTime = startTime.Add(timeLimit);
 
             // Create and configure the Timer
-            timer = new Timer();
-            timer.Interval = 1000; // Update the label every 100 milliseconds
+            timer = new Timer
+            {
+                Interval = 1000 // Update the label every 1 second
+            };
             timer.Tick += Timer_Tick;
 
             // Start the timer
             timer.Start();
+        }
+
+        public void StopTimer()
+        {
+            if(timer != null)
+            {
+                timer.Stop();
+                timer.Dispose();
+            }
         }
 
         private void Timer_Tick(object sender, EventArgs e)

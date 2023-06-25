@@ -61,81 +61,81 @@
     <Compile Include="entity\FormComplement.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="entity\tools.cs" />
-    <Compile Include="form\addquestiontoquiz2_form.cs">
+    <Compile Include="entity\Tools.cs" />
+    <Compile Include="form\AddQuestionToQuiz2_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="form\addquestiontoquiz2_form.Designer.cs">
-      <DependentUpon>addquestiontoquiz2_form.cs</DependentUpon>
+    <Compile Include="form\AddQuestionToQuiz2_Form.Designer.cs">
+      <DependentUpon>AddQuestionToQuiz2_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="form\quiz_attempt_form.cs">
+    <Compile Include="form\QuizAttempt_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="form\quiz_attempt_form.Designer.cs">
-      <DependentUpon>quiz_attempt_form.cs</DependentUpon>
+    <Compile Include="form\QuizAttempt_Form.Designer.cs">
+      <DependentUpon>QuizAttempt_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="form\quiz_edit_form.cs">
+    <Compile Include="form\QuizEdit_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="form\quiz_edit_form.Designer.cs">
-      <DependentUpon>quiz_edit_form.cs</DependentUpon>
+    <Compile Include="form\QuizEdit_Form.Designer.cs">
+      <DependentUpon>QuizEdit_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="form\quiz_form.cs">
+    <Compile Include="form\QuizCreate_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="form\quiz_form.Designer.cs">
-      <DependentUpon>quiz_form.cs</DependentUpon>
+    <Compile Include="form\QuizCreate_Form.Designer.cs">
+      <DependentUpon>QuizCreate_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="entity\Class.cs" />
-    <Compile Include="form\edit_form.cs">
+    <Compile Include="form\Edit_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="form\edit_form.Designer.cs">
-      <DependentUpon>edit_form.cs</DependentUpon>
+    <Compile Include="form\Edit_Form.Designer.cs">
+      <DependentUpon>Edit_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="form\editquestion_form.cs">
+    <Compile Include="form\EditQuestion_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="form\editquestion_form.Designer.cs">
-      <DependentUpon>editquestion_form.cs</DependentUpon>
+    <Compile Include="form\EditQuestion_Form.Designer.cs">
+      <DependentUpon>EditQuestion_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="form\main_form.cs">
+    <Compile Include="form\MainDisplay_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="form\main_form.Designer.cs">
-      <DependentUpon>main_form.cs</DependentUpon>
+    <Compile Include="form\MainDisplay_Form.Designer.cs">
+      <DependentUpon>MainDisplay_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="form\quiz_play.cs">
+    <Compile Include="form\QuizPlay_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="form\quiz_play.Designer.cs">
-      <DependentUpon>quiz_play.cs</DependentUpon>
+    <Compile Include="form\QuizPlay_Form.Designer.cs">
+      <DependentUpon>QuizPlay_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="form\addquestiontoquiz2_form.resx">
-      <DependentUpon>addquestiontoquiz2_form.cs</DependentUpon>
+    <EmbeddedResource Include="form\AddQuestionToQuiz2_Form.resx">
+      <DependentUpon>AddQuestionToQuiz2_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="form\quiz_attempt_form.resx">
-      <DependentUpon>quiz_attempt_form.cs</DependentUpon>
+    <EmbeddedResource Include="form\QuizAttempt_Form.resx">
+      <DependentUpon>QuizAttempt_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="form\quiz_edit_form.resx">
-      <DependentUpon>quiz_edit_form.cs</DependentUpon>
+    <EmbeddedResource Include="form\QuizEdit_Form.resx">
+      <DependentUpon>QuizEdit_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="form\quiz_form.resx">
-      <DependentUpon>quiz_form.cs</DependentUpon>
+    <EmbeddedResource Include="form\QuizCreate_Form.resx">
+      <DependentUpon>QuizCreate_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="form\edit_form.resx">
-      <DependentUpon>edit_form.cs</DependentUpon>
+    <EmbeddedResource Include="form\Edit_Form.resx">
+      <DependentUpon>Edit_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="form\editquestion_form.resx">
-      <DependentUpon>editquestion_form.cs</DependentUpon>
+    <EmbeddedResource Include="form\EditQuestion_Form.resx">
+      <DependentUpon>EditQuestion_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="form\main_form.resx">
-      <DependentUpon>main_form.cs</DependentUpon>
+    <EmbeddedResource Include="form\MainDisplay_Form.resx">
+      <DependentUpon>MainDisplay_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="form\quiz_play.resx">
-      <DependentUpon>quiz_play.cs</DependentUpon>
+    <EmbeddedResource Include="form\QuizPlay_Form.resx">
+      <DependentUpon>QuizPlay_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
