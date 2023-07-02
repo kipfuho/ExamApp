@@ -2,7 +2,8 @@
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Windows;
+using DocumentFormat.OpenXml.Drawing.Diagrams;
+using static System.Net.Mime.MediaTypeNames;
 
 // parent class for inheritance
 class PartialQBlock : Panel
@@ -55,7 +56,7 @@ class QuestionBlock : PartialQBlock
         QName = new Label();
         Edit = new Label();
         delete = new Label();
-        Size = new System.Drawing.Size(755, 25);
+        Size = new Size(755, 25);
         BorderStyle = BorderStyle.FixedSingle;
         Controls.Add(Edit);
         Controls.Add(delete);
@@ -63,21 +64,13 @@ class QuestionBlock : PartialQBlock
         Controls.Add(checkBox);
         Controls.Add(spacing);
         spacing.Dock = DockStyle.Left;
-        spacing.Size = new System.Drawing.Size(10, 0);
+        spacing.Size = new Size(10, 0);
         checkBox.Dock = DockStyle.Left;
-        checkBox.Size = new System.Drawing.Size(30, 0);
+        checkBox.Size = new Size(30, 0);
         QName.Dock = DockStyle.Left;
-        QName.Size = new System.Drawing.Size(600, 0);
+        QName.Size = new Size(600, 0);
 
-        string qDescription;
-        try
-        {
-            qDescription = RtfConverter.ConvertToPlainText(question.Description);
-        }
-        catch
-        {
-            qDescription = question.Description;
-        }
+        string qDescription = question.Description;
 
         if (qDescription.Length > 60)
         {
@@ -90,16 +83,53 @@ class QuestionBlock : PartialQBlock
 
         delete.Text = "Delete";
         delete.Dock = DockStyle.Right;
-        delete.Size = new System.Drawing.Size(80, 0);
-        delete.Cursor = System.Windows.Forms.Cursors.Hand;
-        delete.ForeColor = System.Drawing.Color.DeepSkyBlue;
+        delete.Size = new Size(80, 0);
+        delete.Cursor = Cursors.Hand;
+        delete.ForeColor = Color.DeepSkyBlue;
         Edit.Text = "Edit";
         Edit.Dock = DockStyle.Right;
-        Edit.Size = new System.Drawing.Size(60, 0);
-        Edit.Cursor = System.Windows.Forms.Cursors.Hand;
-        Edit.ForeColor = System.Drawing.Color.DeepSkyBlue;
+        Edit.Size = new Size(60, 0);
+        Edit.Cursor = Cursors.Hand;
+        Edit.ForeColor = Color.DeepSkyBlue;
     }
 }
+
+// question block in add a random question in edit quiz - BP5_1
+class QuizQuestionBlockBP5_1 : PartialQBlock
+{
+    public QuizQuestionBlockBP5_1(Question question)
+    {
+        if (question == null)
+        {
+            MessageBox.Show("There's no questions!");
+            return;
+        }
+        this.BorderStyle = BorderStyle.FixedSingle;
+        Question = question;
+        Panel spacing = new Panel();
+        QName = new Label();
+        Size = new Size(705, 25);
+        Dock = DockStyle.Top;
+        Controls.Add(QName);
+        Controls.Add(spacing);
+        spacing.Dock = DockStyle.Left;
+        spacing.Size = new Size(10, 0);
+        QName.Dock = DockStyle.Left;
+        QName.Size = new Size(600, 0);
+
+        string qDescription = question.Description;
+
+        if (qDescription.Length > 60)
+        {
+            QName.Text = qDescription.Substring(0, 60) + "...";
+        }
+        else
+        {
+            QName.Text = qDescription;
+        }
+    }
+}
+
 
 // question block in add question from question bank in edit quiz - BP5_2
 class QuizQuestionBlockBP5_2 : PartialQBlock
@@ -115,25 +145,17 @@ class QuizQuestionBlockBP5_2 : PartialQBlock
         Panel spacing = new Panel();
         QName = new Label();
         Edit = new Label();
-        Size = new System.Drawing.Size(705, 25);
+        Size = new Size(705, 25);
         Dock = DockStyle.Top;
         Controls.Add(QName);
         Controls.Add(spacing);
         Controls.Add(Edit);
         spacing.Dock = DockStyle.Left;
-        spacing.Size = new System.Drawing.Size(10, 0);
+        spacing.Size = new Size(10, 0);
         QName.Dock = DockStyle.Left;
-        QName.Size = new System.Drawing.Size(600, 0);
+        QName.Size = new Size(600, 0);
 
-        string qDescription;
-        try
-        {
-            qDescription = RtfConverter.ConvertToPlainText(question.Description);
-        }
-        catch
-        {
-            qDescription = question.Description;
-        }
+        string qDescription = question.Description;
 
         if (qDescription.Length > 60)
         {
@@ -154,7 +176,7 @@ class QuizQuestionBlockBP5_2 : PartialQBlock
             Edit.Image = ExamApp.Properties.Resources.icon10;
         }
         Edit.Dock = DockStyle.Left;
-        Edit.Size = new System.Drawing.Size(36, 0);
+        Edit.Size = new Size(36, 0);
         Edit.Cursor = Cursors.Hand;
         Edit.ForeColor = Color.DeepSkyBlue;
     }
@@ -186,7 +208,7 @@ class QuizQuestionBlockBP5 : PartialQBlock
         QName = new Label();
         Edit = new Label();
         index = new Label();
-        Size = new System.Drawing.Size(0, 30);
+        Size = new Size(0, 30);
         BorderStyle = BorderStyle.FixedSingle;
         Dock = DockStyle.Top;
         Controls.Add(QName);
@@ -194,24 +216,16 @@ class QuizQuestionBlockBP5 : PartialQBlock
         Controls.Add(index);
         Controls.Add(Edit);
         spacing.Dock = DockStyle.Left;
-        spacing.Size = new System.Drawing.Size(10, 0);
+        spacing.Size = new Size(10, 0);
         QName.Dock = DockStyle.Left;
-        QName.Size = new System.Drawing.Size(600, 0);
+        QName.Size = new Size(600, 0);
         index.Dock = DockStyle.Left;
-        index.Size = new System.Drawing.Size(50, 0);
+        index.Size = new Size(50, 0);
         index.Text = i.ToString();
-        index.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-        index.BackColor = System.Drawing.Color.Gray;
+        index.TextAlign = ContentAlignment.MiddleCenter;
+        index.BackColor = Color.Gray;
 
-        string qDescription;
-        try
-        {
-            qDescription = RtfConverter.ConvertToPlainText(question.Description);
-        }
-        catch
-        {
-            qDescription = question.Description;
-        }
+        string qDescription = question.Description;
 
         if (qDescription.Length > 60)
         {
@@ -225,7 +239,7 @@ class QuizQuestionBlockBP5 : PartialQBlock
         Edit.Text = " ";
         Edit.Image = ExamApp.Properties.Resources.icon12;
         Edit.Dock = DockStyle.Right;
-        Edit.Size = new System.Drawing.Size(36, 0);
+        Edit.Size = new Size(36, 0);
         Edit.Cursor = Cursors.Hand;
     }
 }
@@ -274,13 +288,13 @@ class QuizBlock : Panel
             Image = ExamApp.Properties.Resources.icon6
         };
         quizname = new Label();
-        Size = new System.Drawing.Size(705, 25);
+        Size = new Size(705, 25);
         Controls.Add(quizname);
         Controls.Add(image);
         image.Dock = DockStyle.Left;
-        image.Size = new System.Drawing.Size(60, 0);
+        image.Size = new Size(60, 0);
         quizname.Dock = DockStyle.Left;
-        quizname.Size = new System.Drawing.Size(600, 0);
+        quizname.Size = new Size(600, 0);
         quizname.Cursor = Cursors.Hand;
         quizname.ForeColor = Color.DeepSkyBlue;
 
@@ -292,6 +306,109 @@ class QuizBlock : Panel
         {
             quizname.Text = Quiz.Name;
         }
+    }
+}
+
+class PreviewBlock : Panel
+{
+    private PreviewQuiz preQuiz;
+    private readonly Label attemptLabel;
+    private readonly Label stateLabel;
+
+    public PreviewQuiz PreQuiz
+    {
+        get { return preQuiz; }
+        set { preQuiz = value; }
+    }
+
+    public Label StateLabel
+    {
+        get { return stateLabel; }
+    }
+
+    public PreviewBlock(PreviewQuiz preview)
+    {
+        if (preview == null)
+        {
+            MessageBox.Show("There's no Preview Quiz!");
+            return;
+        }
+
+        PreQuiz = preview;
+        attemptLabel = new Label
+        {
+            Text = "Preview",
+            Dock = DockStyle.Left,
+            Width = 92,
+            Cursor = Cursors.Hand,
+        };
+        attemptLabel.MouseEnter += (sender, e) =>
+        {
+            // Change the background color on mouse enter
+            BackColor = SystemColors.Control;
+        };
+        attemptLabel.MouseLeave += (sender, e) =>
+        {
+            // Restore the original background color on mouse leave
+            BackColor = SystemColors.ControlDark;
+        };
+        stateLabel = new Label
+        {
+            Text = "Ongoing",
+            Dock = DockStyle.Left,
+            Width = 250,
+            Cursor = Cursors.Hand,
+        };
+        stateLabel.MouseEnter += (sender, e) =>
+        {
+            // Change the background color on mouse enter
+            BackColor = SystemColors.Control;
+        };
+        stateLabel.MouseLeave += (sender, e) =>
+        {
+            // Restore the original background color on mouse leave
+            BackColor = SystemColors.ControlDark;
+        };
+        Panel spacing1 = new Panel { Dock = DockStyle.Left, Width = 150, Cursor = Cursors.Hand };
+        spacing1.MouseEnter += (sender, e) =>
+        {
+            // Change the background color on mouse enter
+            BackColor = SystemColors.Control;
+        };
+        spacing1.MouseLeave += (sender, e) =>
+        {
+            // Restore the original background color on mouse leave
+            BackColor = SystemColors.ControlDark;
+        };
+        Panel spacing2 = new Panel { Dock = DockStyle.Left, Width = 150, Cursor = Cursors.Hand };
+        spacing2.MouseEnter += (sender, e) =>
+        {
+            // Change the background color on mouse enter
+            BackColor = SystemColors.Control;
+        };
+        spacing2.MouseLeave += (sender, e) =>
+        {
+            // Restore the original background color on mouse leave
+            BackColor = SystemColors.ControlDark;
+        };
+        Panel spacing = new Panel { Dock = DockStyle.Fill, Width = 150, Cursor = Cursors.Hand };
+        spacing.MouseEnter += (sender, e) =>
+        {
+            // Change the background color on mouse enter
+            BackColor = SystemColors.Control;
+        };
+        spacing.MouseLeave += (sender, e) =>
+        {
+            // Restore the original background color on mouse leave
+            BackColor = SystemColors.ControlDark;
+        };
+        Controls.Add(spacing);
+        Controls.Add(stateLabel);
+        Controls.Add(spacing1);
+        Controls.Add(attemptLabel);
+        Controls.Add(spacing2);
+        Size = new Size(0, 35);
+        Dock = DockStyle.Top;
     }
 }
 
@@ -315,18 +432,18 @@ class CheckBoxPlus : CheckBox
     }
 }
 
-class QuestionDisplay : Panel
+class QuestionDisplayPanel : Panel
 {
     public List<CheckBoxPlus> choiceCheckBox;
-    private readonly List<RichTextBox> choiceText;
-    private readonly RichTextBox qText;
+    private readonly List<Trestan.TRichTextBox> choiceText;
+    private readonly Trestan.TRichTextBox qText;
     private readonly List<string> choiceLetter = new List<string> { "a.", "b.", "c.", "d.", "e." };
 
-    public QuestionDisplay(Question question)
+    public QuestionDisplayPanel(Question question)
     {
         int i = 0;
         choiceCheckBox = new List<CheckBoxPlus> { null, null, null, null, null };
-        choiceText = new List<RichTextBox> { null, null, null, null, null };
+        choiceText = new List<Trestan.TRichTextBox> { null, null, null, null, null };
         for (int j = 0; j < 5; j++)
         {
             Choice choice = question.Choices[j];
@@ -339,28 +456,38 @@ class QuestionDisplay : Panel
                     AutoSize = true,
                     Dock = DockStyle.Top
                 };
-                RichTextBox temp2 = new RichTextBox();
+                Trestan.TRichTextBox temp2 = new Trestan.TRichTextBox
+                {
+                    Dock = DockStyle.Fill,
+                    BorderStyle = BorderStyle.None,
+                    Cursor = Cursors.Default,
+                    BackColor = SystemColors.Control,
+                    ReadOnly = false,
+                    WordWrap = false
+                };
+                temp2.GotFocus += (sender, e) =>
+                {
+                    var richTextBox = (Trestan.TRichTextBox)sender;
+                    this.Focus();
+                };
                 temp2.ContentsResized += (object sender, ContentsResizedEventArgs e) =>
                 {
                     var richTextBox = (RichTextBox)sender;
                     richTextBox.Width = e.NewRectangle.Width;
                     richTextBox.Height = e.NewRectangle.Height;
-                    temp2.Width += temp2.Margin.Horizontal + SystemInformation.HorizontalResizeBorderThickness;
                 };
-                temp2.ReadOnly = false;
-                try
+                temp2.AppendText(choice.Text + Environment.NewLine);
+                temp2.ContentsResized -= (object sender, ContentsResizedEventArgs e) =>
                 {
-                    temp2.Rtf = choice.Text;
-                }
-                catch
+                    var richTextBox = (RichTextBox)sender;
+                    richTextBox.Width = e.NewRectangle.Width;
+                    richTextBox.Height = e.NewRectangle.Height;
+                };
+                foreach (Control control in choice.ChoiceImages)
                 {
-                    temp2.Text = choice.Text;
+                    temp2.AddControl(control);
+                    temp2.Height += control.Height;
                 }
-                temp2.Dock = DockStyle.Fill;
-                temp2.ReadOnly = true;
-                temp2.BorderStyle = BorderStyle.None;
-                temp2.Cursor = Cursors.Default;
-                temp2.BackColor = SystemColors.Control;
                 temp2.ReadOnly = true;
                 choiceCheckBox[i] = temp1;
                 choiceText[i] = temp2;
@@ -373,34 +500,45 @@ class QuestionDisplay : Panel
             Panel spacing = new Panel();
             spacing.Controls.Add(choiceCheckBox[j]);
             spacing.Dock = DockStyle.Left;
-            spacing.Size = new System.Drawing.Size(50, 0);
+            spacing.Size = new Size(25, 0);
             temp.Dock = DockStyle.Top;
             temp.Controls.Add(choiceText[j]);
             temp.Controls.Add(spacing);
-            temp.Size = new System.Drawing.Size(0, choiceText[j].Height);
+            temp.Size = new Size(0, choiceText[j].Height);
             Controls.Add(temp);
         }
-        qText = new RichTextBox();
+        qText = new Trestan.TRichTextBox
+        {
+            Dock = DockStyle.Top,
+            BorderStyle = BorderStyle.None,
+            Cursor = Cursors.Default,
+            BackColor = SystemColors.Control,
+            ScrollBars = RichTextBoxScrollBars.Both,
+            ReadOnly = false
+        };
+        qText.GotFocus += (sender, e) =>
+        {
+            var richTextBox = (Trestan.TRichTextBox)sender;
+            this.Focus();
+        };
         qText.ContentsResized += (object sender, ContentsResizedEventArgs e) =>
         {
             var richTextBox = (RichTextBox)sender;
             richTextBox.Width = e.NewRectangle.Width;
             richTextBox.Height = e.NewRectangle.Height;
-            qText.Width += qText.Margin.Horizontal + SystemInformation.HorizontalResizeBorderThickness;
         };
-        qText.ReadOnly = false;
-        try
+        qText.AppendText(question.Description + Environment.NewLine);
+        qText.ContentsResized -= (object sender, ContentsResizedEventArgs e) =>
         {
-            qText.Rtf = question.Description;
-        }
-        catch
+            var richTextBox = (RichTextBox)sender;
+            richTextBox.Width = e.NewRectangle.Width;
+            richTextBox.Height = e.NewRectangle.Height;
+        };
+        foreach (Control control in question.QuestionImages)
         {
-            qText.Text = question.Description;
+            qText.AddControl(control);
+            qText.Height += control.Height;
         }
-        qText.Dock = DockStyle.Top;
-        qText.BorderStyle = BorderStyle.None;
-        qText.Cursor = Cursors.Default;
-        qText.BackColor = SystemColors.Control;
         qText.ReadOnly = true;
         Controls.Add(qText);
         Dock = DockStyle.Top;

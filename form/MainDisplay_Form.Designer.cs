@@ -326,6 +326,7 @@
             this.popup.Size = new System.Drawing.Size(406, 173);
             this.popup.TabIndex = 48;
             this.popup.Visible = false;
+            this.popup.MouseLeave += new System.EventHandler(this.MP_Popup_MouseLeave);
             // 
             // export1
             // 

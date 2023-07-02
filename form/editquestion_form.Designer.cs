@@ -49,13 +49,13 @@
             this.MoreChoicePanel = new System.Windows.Forms.Panel();
             this.panel36 = new System.Windows.Forms.Panel();
             this.ChoiceGrade5 = new System.Windows.Forms.ComboBox();
-            this.ChoiceText5 = new System.Windows.Forms.RichTextBox();
+            this.ChoiceText5 = new Trestan.TRichTextBox();
             this.panel35 = new System.Windows.Forms.Panel();
             this.ChoiceGrade4 = new System.Windows.Forms.ComboBox();
-            this.ChoiceText4 = new System.Windows.Forms.RichTextBox();
+            this.ChoiceText4 = new Trestan.TRichTextBox();
             this.panel34 = new System.Windows.Forms.Panel();
             this.ChoiceGrade3 = new System.Windows.Forms.ComboBox();
-            this.ChoiceText3 = new System.Windows.Forms.RichTextBox();
+            this.ChoiceText3 = new Trestan.TRichTextBox();
             this.panel33 = new System.Windows.Forms.Panel();
             this.panel32 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
@@ -67,10 +67,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel31 = new System.Windows.Forms.Panel();
             this.ChoiceGrade2 = new System.Windows.Forms.ComboBox();
-            this.ChoiceText2 = new System.Windows.Forms.RichTextBox();
+            this.ChoiceText2 = new Trestan.TRichTextBox();
             this.panel30 = new System.Windows.Forms.Panel();
             this.ChoiceGrade1 = new System.Windows.Forms.ComboBox();
-            this.ChoiceText1 = new System.Windows.Forms.RichTextBox();
+            this.ChoiceText1 = new Trestan.TRichTextBox();
             this.panel29 = new System.Windows.Forms.Panel();
             this.panel28 = new System.Windows.Forms.Panel();
             this.panel27 = new System.Windows.Forms.Panel();
@@ -82,7 +82,6 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.DefaultMarkTextBox = new System.Windows.Forms.TextBox();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.QuestionTextTextBox = new System.Windows.Forms.RichTextBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.QuestionNameTextBox = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -105,6 +104,7 @@
             this.panel25 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
+            this.QuestionTextTextBox = new Trestan.TRichTextBox();
             this.EditQuestionPanel.SuspendLayout();
             this.panel23.SuspendLayout();
             this.panel19.SuspendLayout();
@@ -432,6 +432,7 @@
             // 
             // ChoiceText5
             // 
+            this.ChoiceText5.AllowDrop = true;
             this.ChoiceText5.Dock = System.Windows.Forms.DockStyle.Top;
             this.ChoiceText5.Location = new System.Drawing.Point(193, 430);
             this.ChoiceText5.Name = "ChoiceText5";
@@ -500,6 +501,7 @@
             // 
             // ChoiceText4
             // 
+            this.ChoiceText4.AllowDrop = true;
             this.ChoiceText4.Dock = System.Windows.Forms.DockStyle.Top;
             this.ChoiceText4.Location = new System.Drawing.Point(193, 214);
             this.ChoiceText4.Name = "ChoiceText4";
@@ -568,6 +570,7 @@
             // 
             // ChoiceText3
             // 
+            this.ChoiceText3.AllowDrop = true;
             this.ChoiceText3.Dock = System.Windows.Forms.DockStyle.Top;
             this.ChoiceText3.Location = new System.Drawing.Point(193, 0);
             this.ChoiceText3.Name = "ChoiceText3";
@@ -740,6 +743,7 @@
             // 
             // ChoiceText2
             // 
+            this.ChoiceText2.AllowDrop = true;
             this.ChoiceText2.Dock = System.Windows.Forms.DockStyle.Top;
             this.ChoiceText2.Location = new System.Drawing.Point(193, 237);
             this.ChoiceText2.Name = "ChoiceText2";
@@ -809,6 +813,7 @@
             // 
             // ChoiceText1
             // 
+            this.ChoiceText1.AllowDrop = true;
             this.ChoiceText1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ChoiceText1.Location = new System.Drawing.Point(193, 14);
             this.ChoiceText1.Name = "ChoiceText1";
@@ -926,18 +931,6 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(689, 32);
             this.panel9.TabIndex = 47;
-            // 
-            // QuestionTextTextBox
-            // 
-            this.QuestionTextTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.QuestionTextTextBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.QuestionTextTextBox.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.QuestionTextTextBox.Location = new System.Drawing.Point(202, 154);
-            this.QuestionTextTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.QuestionTextTextBox.Name = "QuestionTextTextBox";
-            this.QuestionTextTextBox.Size = new System.Drawing.Size(689, 177);
-            this.QuestionTextTextBox.TabIndex = 46;
-            this.QuestionTextTextBox.Text = "";
             // 
             // panel8
             // 
@@ -1189,6 +1182,19 @@
             this.label17.TabIndex = 32;
             this.label17.Text = "Adding a Multiple choices question";
             // 
+            // QuestionTextTextBox
+            // 
+            this.QuestionTextTextBox.AllowDrop = true;
+            this.QuestionTextTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.QuestionTextTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.QuestionTextTextBox.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.QuestionTextTextBox.Location = new System.Drawing.Point(202, 154);
+            this.QuestionTextTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.QuestionTextTextBox.Name = "QuestionTextTextBox";
+            this.QuestionTextTextBox.Size = new System.Drawing.Size(689, 177);
+            this.QuestionTextTextBox.TabIndex = 46;
+            this.QuestionTextTextBox.Text = "";
+            // 
             // EditQuestion_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1262,7 +1268,6 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.TextBox DefaultMarkTextBox;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.RichTextBox QuestionTextTextBox;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.TextBox QuestionNameTextBox;
         private System.Windows.Forms.Panel panel7;
@@ -1284,10 +1289,10 @@
         private System.Windows.Forms.Panel panel25;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Panel MoreChoicePanel;
-        private System.Windows.Forms.RichTextBox ChoiceText4;
+        private Trestan.TRichTextBox ChoiceText4;
         private System.Windows.Forms.Panel panel34;
         private System.Windows.Forms.ComboBox ChoiceGrade3;
-        private System.Windows.Forms.RichTextBox ChoiceText3;
+        private Trestan.TRichTextBox ChoiceText3;
         private System.Windows.Forms.Panel panel33;
         private System.Windows.Forms.Panel panel32;
         private System.Windows.Forms.Label label12;
@@ -1299,14 +1304,15 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel31;
-        private System.Windows.Forms.RichTextBox ChoiceText2;
+        private Trestan.TRichTextBox ChoiceText2;
         private System.Windows.Forms.Panel panel30;
-        private System.Windows.Forms.RichTextBox ChoiceText1;
+        private Trestan.TRichTextBox ChoiceText1;
         private System.Windows.Forms.Panel panel29;
         private System.Windows.Forms.Panel panel28;
         private System.Windows.Forms.Panel panel27;
-        private System.Windows.Forms.RichTextBox ChoiceText5;
+        private Trestan.TRichTextBox ChoiceText5;
         private System.Windows.Forms.Panel panel35;
         private System.Windows.Forms.Panel panel36;
+        private Trestan.TRichTextBox QuestionTextTextBox;
     }
 }

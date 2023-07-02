@@ -38,17 +38,17 @@ namespace ExamApp
 
         public Button DirectingButton1
         {
-            get { return this.CreateQuestionButton; }
+            get { return CreateQuestionButton; }
         }
 
         public Button addCategoryButton
         {
-            get { return this.addCategorybutton; }
+            get { return addCategorybutton; }
         }
 
         public Button ImportButton
         {
-            get { return this.button3; }
+            get { return button3; }
         }
 
         public Button closeImportBtn
@@ -56,9 +56,14 @@ namespace ExamApp
             get { return closeImportButton; }
         }
 
+        public Button ChooseFileButton
+        {
+            get { return button2; }
+        }
+
         public CheckBox SubcategoriesQ
         {
-            get { return this.ShowQuestionsSubcategoriesCheckBox; }
+            get { return ShowQuestionsSubcategoriesCheckBox; }
         }
 
         public ComboBox QCategory

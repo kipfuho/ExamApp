@@ -1,5 +1,8 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Drawing;
+using ExamApp;
+using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 class Category
 {
@@ -94,6 +97,7 @@ class Choice
 {
     private string choiceText;
     private double choideGrade;
+    private List<Control> images;
 
     public string Text
     {
@@ -106,6 +110,12 @@ class Choice
         get { return choideGrade; }
         set { choideGrade = value; }
     }
+
+    public List<Control> ChoiceImages
+    {
+        get { return images; }
+        set { images = value; }
+    }
 }
 
 class Question
@@ -115,6 +125,8 @@ class Question
     private string questionText;
     private double defaultMark;
     private List<Choice> choices;
+    private List<Control> images;
+    public QuestionBlock Tag;
 
     public Category Category
     {
@@ -144,6 +156,12 @@ class Question
     {
         get { return choices; }
         set { choices = value; }
+    }
+
+    public List<Control> QuestionImages
+    {
+        get { return images; }
+        set { images = value; }
     }
 }
 
@@ -225,11 +243,20 @@ class Timing
 
 class PreviewQuiz
 {
+    private Quiz tag;
     private List<QAnswer> answers;
-    public List<QuestionDisplay> qLayouts;
+    public List<QuestionDisplayPanel> qLayouts;
     private DateTime startTime;
     private DateTime endTime;
     private double mark;
+    private Timer timer;
+    private PreviewBlock containBlock;
+
+    public Quiz Tag
+    {
+        get { return tag; } 
+        set { tag = value; }
+    }
 
     public List<QAnswer> QAnswerList
     {
@@ -260,6 +287,18 @@ class PreviewQuiz
     {
         TimeSpan timeTaken = endTime - startTime;
         return timeTaken;
+    }
+
+    public Timer Timer
+    {
+        get { return timer; }
+        set {  timer = value; }
+    }
+
+    public PreviewBlock Container
+    {
+        get { return containBlock; }
+        set {  containBlock = value; }
     }
 }
 
@@ -334,16 +373,6 @@ class Quiz
     {
         get { return time; }
         set { time = value; }
-    }
-
-    public void AddQuestion(Question question)
-    {
-        this.QuestionList.Add(question);
-    }
-
-    public void AddPreview(PreviewQuiz previewQuiz)
-    {
-        Previews.Add(previewQuiz);
     }
 }
 

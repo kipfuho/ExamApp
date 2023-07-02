@@ -1373,14 +1373,14 @@ namespace ExamApp
             this.ExportTab_EditPanel.Text = "Export";
             this.ExportTab_EditPanel.UseVisualStyleBackColor = true;
             // 
-            // edit_form
+            // Edit_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1003, 550);
             this.Controls.Add(this.DirectionInEditPanel);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "edit_form";
+            this.Name = "Edit_Form";
             this.Text = "editpanel";
             this.DirectionInEditPanel.ResumeLayout(false);
             this.QuestionsTab_EditPanel.ResumeLayout(false);

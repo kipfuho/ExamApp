@@ -12,6 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,15 +38,16 @@
     <Reference Include="DocumentFormat.OpenXml, Version=2.20.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
       <HintPath>packages\DocumentFormat.OpenXml.2.20.0\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
+    <Reference Include="SautinSoft.Document, Version=2023.4.19.0, Culture=neutral, PublicKeyToken=e759c76c7515592a, processorArchitecture=MSIL">
+      <HintPath>packages\sautinsoft.document.2023.4.19\lib\net472\SautinSoft.Document.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing.Common, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Drawing.Common.7.0.0\lib\net462\System.Drawing.Common.dll</HintPath>
     </Reference>
     <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,11 +65,26 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="entity\Tools.cs" />
+    <Compile Include="entity\TRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="form\AddQuestionToQuiz1_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\AddQuestionToQuiz1_Form.Designer.cs">
+      <DependentUpon>AddQuestionToQuiz1_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="form\AddQuestionToQuiz2_Form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="form\AddQuestionToQuiz2_Form.Designer.cs">
       <DependentUpon>AddQuestionToQuiz2_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\Export_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\Export_Form.Designer.cs">
+      <DependentUpon>Export_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="form\QuizAttempt_Form.cs">
       <SubType>Form</SubType>
@@ -113,8 +131,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="form\AddQuestionToQuiz1_Form.resx">
+      <DependentUpon>AddQuestionToQuiz1_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="form\AddQuestionToQuiz2_Form.resx">
       <DependentUpon>AddQuestionToQuiz2_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\Export_Form.resx">
+      <DependentUpon>Export_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form\QuizAttempt_Form.resx">
       <DependentUpon>QuizAttempt_Form.cs</DependentUpon>

@@ -568,7 +568,7 @@
             this.add1Label.TabIndex = 0;
             this.add1Label.Text = "    a new question";
             // 
-            // quiz_edit_form
+            // QuizEdit_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -576,7 +576,7 @@
             this.Controls.Add(this.popupPanel);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "quiz_edit_form";
+            this.Name = "QuizEdit_Form";
             this.Text = "quiz_edit_form";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

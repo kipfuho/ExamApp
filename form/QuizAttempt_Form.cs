@@ -34,22 +34,27 @@ namespace ExamApp
             get { return startAttemptBtn; }
         }
 
+        public Button Export
+        {
+            get { return export; }
+        }
+
         public Panel PopupPanel
         {
             get { return panel15; }
         }
 
-        public FlowLayoutPanel QzPR
+        public Panel QzPR
         {
-            get { return flowLayoutPanel1; }
+            get { return panel17; }
         }
 
         private void previewQuizBtn_Click(object sender, System.EventArgs e)
         {
             if (panel15.Visible == false)
             {
-                int x = flowLayoutPanel1.Left + flowLayoutPanel1.Width / 2 - panel15.Width / 2;
-                int y = flowLayoutPanel1.Top;
+                int x = panel17.Left + panel17.Width / 2 - panel15.Width / 2;
+                int y = panel17.Top;
                 panel15.Location = new System.Drawing.Point(x, y);
                 panel15.Show();
             }

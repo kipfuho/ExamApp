@@ -5,6 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using ExamApp;
+using System.Drawing;
+using Control = System.Windows.Forms.Control;
+using DocumentFormat.OpenXml.Drawing.Charts;
 
 class ImageWithLine
 {
@@ -80,34 +84,35 @@ class AikenFormat
                         Name = "",
                         Description = line,
                         Mark = 1,
-                        Choices = new List<Choice>(5) { null, null, null, null, null }
+                        Choices = new List<Choice>(5) { null, null, null, null, null },
+                        QuestionImages = new List<Control>()
                     };
                 }
                 else if (Phase == 2)
                 {
                     if (line.StartsWith("A. "))
                     {
-                        currentQuestion.Choices[0] = new Choice { Text = line.Substring(3), Grade = 0 };
+                        currentQuestion.Choices[0] = new Choice { Text = line.Substring(3), Grade = 0, ChoiceImages = new List<Control>() };
                         choiceNum++;
                     }
                     else if (line.StartsWith("B. "))
                     {
-                        currentQuestion.Choices[1] = new Choice { Text = line.Substring(3), Grade = 0 };
+                        currentQuestion.Choices[1] = new Choice { Text = line.Substring(3), Grade = 0, ChoiceImages = new List<Control>() };
                         choiceNum++;
                     }
                     else if (line.StartsWith("C. "))
                     {
-                        currentQuestion.Choices[2] = new Choice { Text = line.Substring(3), Grade = 0 };
+                        currentQuestion.Choices[2] = new Choice { Text = line.Substring(3), Grade = 0, ChoiceImages = new List<Control>() };
                         choiceNum++;
                     }
                     else if (line.StartsWith("D. "))
                     {
-                        currentQuestion.Choices[3] = new Choice { Text = line.Substring(3), Grade = 0 };
+                        currentQuestion.Choices[3] = new Choice { Text = line.Substring(3), Grade = 0, ChoiceImages = new List<Control>() };
                         choiceNum++;
                     }
                     else if (line.StartsWith("E. "))
                     {
-                        currentQuestion.Choices[4] = new Choice { Text = line.Substring(3), Grade = 0 };
+                        currentQuestion.Choices[4] = new Choice { Text = line.Substring(3), Grade = 0, ChoiceImages = new List<Control>() };
                         choiceNum++;
                     }
                     else if (line.StartsWith("ANSWER: "))
@@ -248,16 +253,26 @@ class AikenFormat
                                 Phase = 2;
                                 choiceNum = 0;
 
-                                string qText;
-                                if (imageIndex < imagesLen && images[imageIndex].Line == lineIndex)
+                                string qText = line;
+                                List<Control> controls = new List<Control>();
+                                while (imageIndex < imagesLen && images[imageIndex].Line == lineIndex)
                                 {
-                                    qText = RtfConverter.ConvertToRtf(line, images[imageIndex].ImageData);
+                                    Image image = Utilities.ConvertImageDataToImage(images[imageIndex].ImageData);
+                                    Image resizedImage = new Bitmap(image, Utilities.CalculateImageSize(image.Size, 400, 300));
+                                    if (!Trestan.Utility.isImageCorrupted(image))
+                                    {
+                                        PictureBox thePic = new PictureBox
+                                        {
+                                            Image = resizedImage,
+                                            Size = resizedImage.Size
+                                        };
+                                        controls.Add(thePic);
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Error!?");
+                                    }
                                     imageIndex++;
-                                }
-                                else
-                                {
-                                    qText = line;
-
                                 }
 
                                 currentQuestion = new Question
@@ -265,89 +280,140 @@ class AikenFormat
                                     Name = "",
                                     Description = qText,
                                     Mark = 1,
-                                    Choices = new List<Choice>(5) { null, null, null, null, null }
+                                    Choices = new List<Choice>(5) { null, null, null, null, null },
+                                    QuestionImages = controls
                                 };
                             }
                             else if (Phase == 2)
                             {
                                 if (line.StartsWith("A. "))
                                 {
-                                    string cText;
-                                    if (imageIndex < imagesLen && images[imageIndex].Line == lineIndex)
+                                    string cText = line.Substring(3);
+                                    List<Control> controls = new List<Control>();
+                                    while (imageIndex < imagesLen && images[imageIndex].Line == lineIndex)
                                     {
-                                        cText = RtfConverter.ConvertToRtf(line.Substring(3), images[imageIndex].ImageData);
+                                        Image image = Utilities.ConvertImageDataToImage(images[imageIndex].ImageData);
+                                        if (!Trestan.Utility.isImageCorrupted(image))
+                                        {
+                                            PictureBox thePic = new PictureBox
+                                            {
+                                                Image = image,
+                                                Size = image.Size
+                                            };
+                                            controls.Add(thePic);
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Error!?");
+                                        }
                                         imageIndex++;
                                     }
-                                    else
-                                    {
-                                        cText = line.Substring(3);
 
-                                    }
-                                    currentQuestion.Choices[0] = new Choice { Text = cText, Grade = 0 };
+                                    currentQuestion.Choices[0] = new Choice { Text = cText, Grade = 0, ChoiceImages = controls };
                                     choiceNum++;
                                 }
                                 else if (line.StartsWith("B. "))
                                 {
-                                    string cText;
-                                    if (imageIndex < imagesLen && images[imageIndex].Line == lineIndex)
+                                    string cText = line.Substring(3);
+                                    List<Control> controls = new List<Control>();
+                                    while (imageIndex < imagesLen && images[imageIndex].Line == lineIndex)
                                     {
-                                        cText = RtfConverter.ConvertToRtf(line.Substring(3), images[imageIndex].ImageData);
+                                        Image image = Utilities.ConvertImageDataToImage(images[imageIndex].ImageData);
+                                        if (!Trestan.Utility.isImageCorrupted(image))
+                                        {
+                                            PictureBox thePic = new PictureBox
+                                            {
+                                                Image = image,
+                                                Size = image.Size
+                                            };
+                                            controls.Add(thePic);
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Error!?");
+                                        }
                                         imageIndex++;
                                     }
-                                    else
-                                    {
-                                        cText = line.Substring(3);
 
-                                    }
-                                    currentQuestion.Choices[1] = new Choice { Text = cText, Grade = 0 };
+                                    currentQuestion.Choices[1] = new Choice { Text = cText, Grade = 0, ChoiceImages = controls };
                                     choiceNum++;
                                 }
                                 else if (line.StartsWith("C. "))
                                 {
-                                    string cText;
-                                    if (imageIndex < imagesLen && images[imageIndex].Line == lineIndex)
+                                    string cText = line.Substring(3);
+                                    List<Control> controls = new List<Control>();
+                                    while (imageIndex < imagesLen && images[imageIndex].Line == lineIndex)
                                     {
-                                        cText = RtfConverter.ConvertToRtf(line.Substring(3), images[imageIndex].ImageData);
+                                        Image image = Utilities.ConvertImageDataToImage(images[imageIndex].ImageData);
+                                        if (!Trestan.Utility.isImageCorrupted(image))
+                                        {
+                                            PictureBox thePic = new PictureBox
+                                            {
+                                                Image = image,
+                                                Size = image.Size
+                                            };
+                                            controls.Add(thePic);
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Error!?");
+                                        }
                                         imageIndex++;
                                     }
-                                    else
-                                    {
-                                        cText = line.Substring(3);
 
-                                    }
-                                    currentQuestion.Choices[2] = new Choice { Text = cText, Grade = 0 };
+                                    currentQuestion.Choices[2] = new Choice { Text = cText, Grade = 0, ChoiceImages = controls };
                                     choiceNum++;
                                 }
                                 else if (line.StartsWith("D. "))
                                 {
-                                    string cText;
-                                    if (imageIndex < imagesLen && images[imageIndex].Line == lineIndex)
+                                    string cText = line.Substring(3);
+                                    List<Control> controls = new List<Control>();
+                                    while (imageIndex < imagesLen && images[imageIndex].Line == lineIndex)
                                     {
-                                        cText = RtfConverter.ConvertToRtf(line.Substring(3), images[imageIndex].ImageData);
+                                        Image image = Utilities.ConvertImageDataToImage(images[imageIndex].ImageData);
+                                        if (!Trestan.Utility.isImageCorrupted(image))
+                                        {
+                                            PictureBox thePic = new PictureBox
+                                            {
+                                                Image = image,
+                                                Size = image.Size
+                                            };
+                                            controls.Add(thePic);
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Error!?");
+                                        }
                                         imageIndex++;
                                     }
-                                    else
-                                    {
-                                        cText = line.Substring(3);
 
-                                    }
-                                    currentQuestion.Choices[3] = new Choice { Text = cText, Grade = 0 };
+                                    currentQuestion.Choices[3] = new Choice { Text = cText, Grade = 0, ChoiceImages = controls };
                                     choiceNum++;
                                 }
                                 else if (line.StartsWith("E. "))
                                 {
-                                    string cText;
-                                    if (imageIndex < imagesLen && images[imageIndex].Line == lineIndex)
+                                    string cText = line.Substring(3);
+                                    List<Control> controls = new List<Control>();
+                                    while (imageIndex < imagesLen && images[imageIndex].Line == lineIndex)
                                     {
-                                        cText = RtfConverter.ConvertToRtf(line.Substring(3), images[imageIndex].ImageData);
+                                        Image image = Utilities.ConvertImageDataToImage(images[imageIndex].ImageData);
+                                        if (!Trestan.Utility.isImageCorrupted(image))
+                                        {
+                                            PictureBox thePic = new PictureBox
+                                            {
+                                                Image = image,
+                                                Size = image.Size
+                                            };
+                                            controls.Add(thePic);
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Error!?");
+                                        }
                                         imageIndex++;
                                     }
-                                    else
-                                    {
-                                        cText = line.Substring(3);
 
-                                    }
-                                    currentQuestion.Choices[4] = new Choice { Text = cText, Grade = 0 };
+                                    currentQuestion.Choices[4] = new Choice { Text = cText, Grade = 0 , ChoiceImages = controls };
                                     choiceNum++;
                                 }
                                 else if (line.StartsWith("ANSWER: "))

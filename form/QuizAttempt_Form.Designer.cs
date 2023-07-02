@@ -31,10 +31,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.export = new System.Windows.Forms.Button();
+            this.panel16 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.previewQuizBtn = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -60,6 +61,7 @@
             this.startAttemptBtn = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel17 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -75,7 +77,7 @@
             this.panel1.AutoScroll = true;
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.panel12);
-            this.panel1.Controls.Add(this.flowLayoutPanel1);
+            this.panel1.Controls.Add(this.panel17);
             this.panel1.Controls.Add(this.panel8);
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.panel3);
@@ -103,15 +105,39 @@
             // 
             // panel12
             // 
+            this.panel12.Controls.Add(this.export);
+            this.panel12.Controls.Add(this.panel16);
             this.panel12.Controls.Add(this.panel14);
             this.panel12.Controls.Add(this.previewQuizBtn);
             this.panel12.Controls.Add(this.panel13);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(15, 334);
+            this.panel12.Location = new System.Drawing.Point(15, 338);
             this.panel12.Margin = new System.Windows.Forms.Padding(2);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(1055, 37);
             this.panel12.TabIndex = 7;
+            // 
+            // export
+            // 
+            this.export.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.export.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.export.Dock = System.Windows.Forms.DockStyle.Left;
+            this.export.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.export.ForeColor = System.Drawing.Color.White;
+            this.export.Location = new System.Drawing.Point(82, 0);
+            this.export.Name = "export";
+            this.export.Size = new System.Drawing.Size(117, 37);
+            this.export.TabIndex = 9;
+            this.export.Text = "EXPORT";
+            this.export.UseVisualStyleBackColor = false;
+            // 
+            // panel16
+            // 
+            this.panel16.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel16.Location = new System.Drawing.Point(0, 0);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(82, 37);
+            this.panel16.TabIndex = 10;
             // 
             // panel14
             // 
@@ -146,17 +172,6 @@
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(82, 37);
             this.panel13.TabIndex = 0;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(15, 222);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1055, 112);
-            this.flowLayoutPanel1.TabIndex = 6;
             // 
             // panel8
             // 
@@ -436,7 +451,17 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Start attempt";
             // 
-            // quiz_attempt_form
+            // panel17
+            // 
+            this.panel17.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel17.Location = new System.Drawing.Point(15, 222);
+            this.panel17.Margin = new System.Windows.Forms.Padding(2);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(1055, 116);
+            this.panel17.TabIndex = 1;
+            // 
+            // QuizAttempt_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -444,7 +469,7 @@
             this.Controls.Add(this.panel15);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "quiz_attempt_form";
+            this.Name = "QuizAttempt_Form";
             this.Text = "quiz_attempt_form";
             this.panel1.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
@@ -486,7 +511,6 @@
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Button previewQuizBtn;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label timelimitlabel;
         private System.Windows.Forms.Panel panel15;
@@ -496,5 +520,8 @@
         private System.Windows.Forms.Button startAttemptBtn;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button export;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Panel panel17;
     }
 }

@@ -227,13 +227,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Select a category:";
             // 
-            // addquestiontoquiz2_form
+            // AddQuestionToQuiz2_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 486);
             this.Controls.Add(this.panel1);
-            this.Name = "addquestiontoquiz2_form";
+            this.Name = "AddQuestionToQuiz2_Form";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

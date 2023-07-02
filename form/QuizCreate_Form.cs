@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ExamApp
@@ -80,12 +73,12 @@ namespace ExamApp
             if (panel7.Visible == true)
             {
                 panel7.Hide();
-                this.label3.Image = global::ExamApp.Properties.Resources.icon1;
+                this.label3.Image = Properties.Resources.icon1;
             }
             else
             {
                 panel7.Show();
-                this.label3.Image = global::ExamApp.Properties.Resources.icon2;
+                this.label3.Image = Properties.Resources.icon2;
             }
         }
 
@@ -94,12 +87,12 @@ namespace ExamApp
             if (panel9.Visible == true)
             {
                 panel9.Hide();
-                this.label10.Image = global::ExamApp.Properties.Resources.icon1;
+                this.label10.Image = Properties.Resources.icon1;
             }
             else
             {
                 panel9.Show();
-                this.label10.Image = global::ExamApp.Properties.Resources.icon2;
+                this.label10.Image = Properties.Resources.icon2;
             }
         }
 

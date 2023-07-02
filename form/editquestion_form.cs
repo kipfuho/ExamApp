@@ -27,32 +27,32 @@ namespace ExamApp
             get { return this.DefaultMarkTextBox; }
         }
 
-        public RichTextBox C1Text
+        public Trestan.TRichTextBox C1Text
         {
             get { return this.ChoiceText1; }
         }
 
-        public RichTextBox C2Text
+        public Trestan.TRichTextBox C2Text
         {
             get { return this.ChoiceText2; }
         }
 
-        public RichTextBox C3Text
+        public Trestan.TRichTextBox C3Text
         {
             get { return this.ChoiceText3; }
         }
 
-        public RichTextBox C4Text
+        public Trestan.TRichTextBox C4Text
         {
             get { return this.ChoiceText4; }
         }
 
-        public RichTextBox C5Text
+        public Trestan.TRichTextBox C5Text
         {
             get { return this.ChoiceText5; }
         }
 
-        public RichTextBox QText
+        public Trestan.TRichTextBox QText
         {
             get { return this.QuestionTextTextBox; }
         }

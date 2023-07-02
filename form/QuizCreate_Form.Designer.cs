@@ -199,9 +199,11 @@ namespace ExamApp
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(469, 29);
             this.comboBox2.TabIndex = 10;
+            this.comboBox2.SelectedIndex = 0;
             // 
             // comboBox1
             // 
+            this.comboBox1.BackColor = System.Drawing.SystemColors.Window;
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Enabled = false;
             this.comboBox1.FormattingEnabled = true;
@@ -545,7 +547,7 @@ namespace ExamApp
             this.panel3.Size = new System.Drawing.Size(1182, 10);
             this.panel3.TabIndex = 2;
             // 
-            // quiz_form
+            // QuizCreate_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -553,7 +555,7 @@ namespace ExamApp
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "quiz_form";
+            this.Name = "QuizCreate_Form";
             this.Text = "sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss";
             this.panel1.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
