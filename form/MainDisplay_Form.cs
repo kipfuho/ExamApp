@@ -356,14 +356,11 @@ namespace ExamApp
             {
                 BigPanel4.QzPR.Controls.Add(temp.Container);
             }
-            if (BigPanel5 != null)
-            {
-                BigPanel5.QuestionLayout.Controls.Clear();
-            }
+            BigPanel5?.QuestionLayout.Controls.Clear();
             //
             direction1.Cursor = Cursors.Hand;
             direction1.ForeColor = Color.IndianRed;
-            direction1.Click += new EventHandler(MP_FirstDirection_Click);
+            direction1.Click += new EventHandler(MP_FirstDirectionAlter_Click);
             direction2.ForeColor = SystemColors.ControlText;
             direction2.Cursor = Cursors.Default;
             if (quiz.Name.Length > 50)
@@ -1907,10 +1904,15 @@ namespace ExamApp
             
             if (preQuiz.EndTime == DateTime.MaxValue)
             {
+                if(preQuiz.Tag.Time.TimeLimit != 0)
+                {
+                    preQuiz.Timer.ChangeMode(true);
+                }
                 BP6_ShowQuestion(0);
             }
             else
             {
+                BigPanel6.QuestionIndexFlowLayout.Controls.Clear();
                 int index = 1;
                 for (int i = 0; i < CurrentPreQuiz.Tag.QuestionList.Count; i++)
                 {
@@ -1923,8 +1925,6 @@ namespace ExamApp
                     };
                     index++;
                     temp1.Click += new EventHandler(BP6_QuestionIndexReview_Click);
-                    temp1.GotFocus += new EventHandler(BP6_QuestionIndex_GotFocus);
-                    temp1.LostFocus += new EventHandler(BP6_QuestionIndex_LostFocus);
                     BigPanel6.QuestionIndexFlowLayout.Controls.Add(temp1);
                 }
                 BigPanel6.FinishAttempt.Text = "Finish Review...";
@@ -1959,17 +1959,16 @@ namespace ExamApp
         // initiate function
         private void BP6_InitiateQuizPlayPanel()
         {
+            TimerPlus timer;
             if (CurrentQuiz.Time.TimeLimit == 0)
             {
                 BigPanel6.TimerLabel.Text = "Time Left: None";
-                BigPanel6.Timer = new Timer();
+                timer = new TimerPlus(0, null);
             }
             else
             {
-                BigPanel6.StartTimer(CurrentQuiz.Time.TimeLimit);
+                timer = new TimerPlus(CurrentQuiz.Time.TimeLimit, BigPanel6.TimerLabel);
             }
-
-            
 
             int quizSize = CurrentQuiz.QuestionList.Count();
             CurrentQuiz.OngoingPreview = new PreviewQuiz
@@ -1978,10 +1977,12 @@ namespace ExamApp
                 qLayouts = new List<QuestionDisplayPanel>(),
                 StartTime = DateTime.Now,
                 EndTime = DateTime.MaxValue,
-                Timer = BigPanel6.Timer,
+                Timer = timer,
                 Tag = CurrentQuiz
             };
-            BigPanel6.Timer.Tag = CurrentQuiz.OngoingPreview;
+            timer.Tag = CurrentQuiz.OngoingPreview;
+            CurrentPreQuiz = CurrentQuiz.OngoingPreview;
+            CurrentQuiz.Previews.Add(CurrentQuiz.OngoingPreview);
 
             PreviewBlock previewBlock = new PreviewBlock(CurrentQuiz.OngoingPreview);
             BigPanel4.QzPR.Controls.Add(previewBlock);
@@ -2004,6 +2005,7 @@ namespace ExamApp
             {
                 Utilities.NonShuffle(quizSize);
             }
+            BigPanel6.QuestionIndexFlowLayout.Controls.Clear();
             int index = 1;
             for (int i = 0; i < quizSize; i++)
             {
@@ -2023,12 +2025,11 @@ namespace ExamApp
                 };
                 index++;
                 temp.Click += new EventHandler(BP6_QuestionIndex_Click);
-                temp.GotFocus += new EventHandler(BP6_QuestionIndex_GotFocus);
-                temp.LostFocus += new EventHandler(BP6_QuestionIndex_LostFocus);
                 BigPanel6.QuestionIndexFlowLayout.Controls.Add(temp);
             }
 
             BP6_ShowQuestion(0);
+            timer.Start();
         }
 
         // question index click event
@@ -2047,10 +2048,11 @@ namespace ExamApp
         private void BP6_QuestionCheckBox_CheckChanged(object sender, EventArgs e)
         {
             CheckBoxPlus temp = (CheckBoxPlus)sender;
+            int index = Convert.ToInt32(BigPanel6.QuestionIndexLabel.Text) - 1;
             temp.CheckedChanged -= new EventHandler(BP6_QuestionCheckBox_CheckChanged);
             if (temp.Checked)
             {
-                int index = Convert.ToInt32(BigPanel6.QuestionIndexLabel.Text) - 1;
+                BigPanel6.QuestionIndexFlowLayout.Controls[index].BackColor = SystemColors.ControlDark;
                 CurrentQuiz.OngoingPreview.QAnswerList[index].Answer = temp.ChoiceAttached;
                 QuestionDisplayPanel temp1 = (QuestionDisplayPanel)((Panel)((Panel)temp.Parent).Parent).Parent;
                 for (int i = 0; i < 5; i++)
@@ -2065,23 +2067,9 @@ namespace ExamApp
             }
             else
             {
-                temp.Checked = true;
+                BigPanel6.QuestionIndexFlowLayout.Controls[index].BackColor = SystemColors.Control;
             }
             temp.CheckedChanged += new EventHandler(BP6_QuestionCheckBox_CheckChanged);
-        }
-
-        // gotfocus event for questionindexbutton
-        private void BP6_QuestionIndex_GotFocus(object sender, EventArgs e)
-        {
-            ButtonPlus temp = (ButtonPlus)sender;
-            temp.BackColor = SystemColors.ControlDark;
-        }
-
-        // lostfocus event for questionindexbutton
-        private void BP6_QuestionIndex_LostFocus(object sender, EventArgs e)
-        {
-            ButtonPlus temp = (ButtonPlus)sender;
-            temp.BackColor = SystemColors.Window;
         }
 
         // method to show question
@@ -2139,8 +2127,8 @@ namespace ExamApp
                 BigPanel6.QuestionPanel.Controls.RemoveAt(2);
             }
             catch { }
-            BigPanel6.QuestionPanel.Controls.Add(CurrentQuiz.OngoingPreview.qLayouts[index]);
-            BigPanel6.QuestionPanel.Controls.SetChildIndex(CurrentQuiz.OngoingPreview.qLayouts[index], 2);
+            BigPanel6.QuestionPanel.Controls.Add(CurrentPreQuiz.qLayouts[index]);
+            BigPanel6.QuestionPanel.Controls.SetChildIndex(CurrentPreQuiz.qLayouts[index], 2);
             BigPanel6.QuestionIndexFlowLayout.Controls[index].Focus();
         }
 
@@ -2148,7 +2136,7 @@ namespace ExamApp
         private void BP6_FlagLabel_Click(object sender, EventArgs e)
         {
             int index = Convert.ToInt32(BigPanel6.QuestionIndexLabel.Text) - 1;
-            QAnswer temp = CurrentQuiz.OngoingPreview.QAnswerList[index];
+            QAnswer temp = CurrentPreQuiz.QAnswerList[index];
             if (temp.Flag)
             {
                 temp.Flag = false;
@@ -2241,10 +2229,10 @@ namespace ExamApp
             {
                 return;
             }
-            BigPanel6.StopTimer();
-            CurrentQuiz.Previews.Add(CurrentQuiz.OngoingPreview);
-            CurrentPreQuiz = CurrentQuiz.OngoingPreview;
             CurrentQuiz.OngoingPreview = null;
+            CurrentPreQuiz.Timer.Stop();
+            CurrentPreQuiz.Timer.Dispose();
+            CurrentPreQuiz.Timer = null;
 
             // get this test information value
             CurrentPreQuiz.EndTime = DateTime.Now;
@@ -3112,17 +3100,42 @@ namespace ExamApp
 
             if (BigPanel5_2 != null && BigPanel5_2.Visible)
             {
-                DialogResult result = MessageBox.Show("Do you want to undo the changes?", "Directing to home page", MessageBoxButtons.YesNo);
-                if (result == DialogResult.No)
+                if (CurrentQuiz.PendingList.Count > 0 || BigPanel5_2.AddAll.Checked)
                 {
-                    return;
-                }
+                    DialogResult result = MessageBox.Show("Do you want to undo the changes?", "Directing to home page", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
 
-                CurrentQuiz.PendingList.Clear();
-                BigPanel5.Hide();
+                    CurrentQuiz.PendingList.Clear();
+                    BigPanel5.Hide();
+                }
+            }
+
+            if (BigPanel6 != null && BigPanel6.Visible)
+            {
+                if (CurrentPreQuiz.EndTime == DateTime.MaxValue)
+                {
+                    DialogResult result = MessageBox.Show("Do you want to go back, this attempt will still continue?", "Back to attempt page", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+                    if (CurrentPreQuiz.Timer.active)
+                    {
+                        CurrentPreQuiz.Timer.ChangeMode(false);
+                    }
+                    BigPanel6.Hide();
+                }
+                else
+                {
+                    BigPanel6.Hide();
+                }
             }
 
             CurrentQuiz = null;
+            CurrentPreQuiz = null;
             heading.Size = new Size(1114, 117);
             functionbutton1.Show();
             button1.Show();
@@ -3174,38 +3187,40 @@ namespace ExamApp
                 BigPanel5.Hide();
             }
 
-            if (BigPanel5_1 != null && BigPanel5_1.Visible)
-            {
-                DialogResult result = MessageBox.Show("Do you want to undo the changes?", "Directing to quiz attempt page", MessageBoxButtons.YesNo);
-                if (result == DialogResult.No)
-                {
-                    return;
-                }
-
-                BigPanel5_1.Hide();
-            }
-
             if (BigPanel5_2 != null && BigPanel5_2.Visible)
             {
-                DialogResult result = MessageBox.Show("Do you want to undo the changes?", "Directing to quiz attempt page", MessageBoxButtons.YesNo);
-                if (result == DialogResult.No)
+                if (CurrentQuiz.PendingList.Count > 0 || BigPanel5_2.AddAll.Checked)
                 {
-                    return;
-                }
+                    DialogResult result = MessageBox.Show("Do you want to undo the changes?", "Directing to home page", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
 
-                CurrentQuiz.PendingList.Clear();
-                BigPanel5_2.Hide();
+                    CurrentQuiz.PendingList.Clear();
+                    BigPanel5.Hide();
+                }
             }
 
             if (BigPanel6 != null && BigPanel6.Visible)
             {
-                DialogResult result = MessageBox.Show("Do you want to go back, this attempt will still continue?", "Back to attempt page", MessageBoxButtons.YesNo);
-                if (result == DialogResult.No)
+                if(CurrentPreQuiz.EndTime == DateTime.MaxValue)
                 {
-                    return;
+                    DialogResult result = MessageBox.Show("Do you want to go back, this attempt will still continue?", "Back to attempt page", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+                    if (CurrentPreQuiz.Timer.active)
+                    {
+                        CurrentPreQuiz.Timer.ChangeMode(false);
+                    }
+                    BigPanel6.Hide();
                 }
-
-                BigPanel6.Hide();
+                else
+                {
+                    BigPanel6.Hide();
+                }
             }
             //
             slash2.Hide();

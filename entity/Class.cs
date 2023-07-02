@@ -241,6 +241,83 @@ class Timing
     }
 }
 
+class TimerPlus : Timer
+{
+    private DateTime startTime;
+    private DateTime endTime;
+    private TimeSpan timeLimit;
+    public Label timerLabel;
+    public bool active;
+
+    public TimerPlus(int seconds, Label label)
+    {
+        if (seconds == 0)
+        {
+            active = false;
+            return;
+        }
+        active = true;
+        timerLabel = label;
+        timeLimit = TimeSpan.FromSeconds(seconds);
+
+        // Calculate the end time based on the time limit
+        startTime = DateTime.Now;
+        endTime = startTime.Add(timeLimit);
+
+        Interval = 1000; // Update the label every 1 second
+        Tick += new EventHandler(ForeGroundTimer_Tick);
+    }
+
+    public void ChangeMode(bool mode)
+    {
+        if (mode)
+        {
+            Tick += new EventHandler(ForeGroundTimer_Tick);
+            Tick -= new EventHandler(BackGroundTimer_Tick);
+        }
+        else
+        {
+            Tick -= new EventHandler(ForeGroundTimer_Tick);
+            Tick += new EventHandler(BackGroundTimer_Tick);
+        }
+    }
+
+    private void ForeGroundTimer_Tick(object sender, EventArgs e)
+    {
+        // Calculate the remaining time
+        TimeSpan remainingTime = endTime - DateTime.Now;
+
+        // Check if the time limit has been reached
+        if (remainingTime <= TimeSpan.Zero)
+        {
+            // Stop the timer
+            Stop();
+            timerLabel.Text = "Time's up!";
+            Program.Instance.BP6_Timer_TimeUp(Tag, true);
+        }
+        else
+        {
+            // Update the label with the remaining time
+            timerLabel.Text = "Time Left: " + remainingTime.ToString(@"mm\:ss");
+        }
+    }
+
+    private void BackGroundTimer_Tick(object sender, EventArgs e)
+    {
+        // Calculate the remaining time
+        TimeSpan remainingTime = endTime - DateTime.Now;
+
+        // Check if the time limit has been reached
+        if (remainingTime <= TimeSpan.Zero)
+        {
+            // Stop the timer
+            Stop();
+            timerLabel.Text = "Time's up!";
+            Program.Instance.BP6_Timer_TimeUp(Tag, false);
+        }
+    }
+}
+
 class PreviewQuiz
 {
     private Quiz tag;
@@ -249,7 +326,7 @@ class PreviewQuiz
     private DateTime startTime;
     private DateTime endTime;
     private double mark;
-    private Timer timer;
+    private TimerPlus timer;
     private PreviewBlock containBlock;
 
     public Quiz Tag
@@ -289,10 +366,10 @@ class PreviewQuiz
         return timeTaken;
     }
 
-    public Timer Timer
+    public TimerPlus Timer
     {
         get { return timer; }
-        set {  timer = value; }
+        set { timer = value; }
     }
 
     public PreviewBlock Container

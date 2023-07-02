@@ -5,11 +5,6 @@ namespace ExamApp
 {
     public partial class QuizPlay_Form : Form
     {
-        private Timer timer;
-        private DateTime startTime;
-        private DateTime endTime;
-        private TimeSpan timeLimit;
-
         public QuizPlay_Form()
         {
             InitializeComponent();
@@ -18,6 +13,7 @@ namespace ExamApp
         public Label TimerLabel
         {
             get { return timerLabel; }
+            set { timerLabel = value; }
         }
 
         public Label FinishAttempt
@@ -99,89 +95,6 @@ namespace ExamApp
         public FlowLayoutPanel QuestionIndexFlowLayout
         {
             get { return flowLayoutPanel1; }
-        }
-
-        public Timer Timer
-        {
-            get { return timer; }
-            set { timer = value; }
-        }
-
-        public void StartTimer(int seconds)
-        {
-            if (timer != null)
-            {
-                timer.Tick -= new EventHandler(ForeGroundTimer_Tick);
-                timer.Tick += new EventHandler(BackGroundTimer_Tick);
-                return;
-            }
-            timeLimit = TimeSpan.FromSeconds(seconds);
-
-            // Calculate the end time based on the time limit
-            startTime = DateTime.Now;
-            endTime = startTime.Add(timeLimit);
-
-            // Create and configure the Timer
-            timer = new Timer
-            {
-                Interval = 1000 // Update the label every 1 second
-            };
-            timer.Tick += new EventHandler(ForeGroundTimer_Tick);
-
-            // Start the timer
-            timer.Start();
-        }
-
-        public void ContinueTimer(Timer oldTimer)
-        {
-            timer = oldTimer;
-        }
-
-        public void StopTimer()
-        {
-            if(timer != null)
-            {
-                timer.Stop();
-                timer.Dispose();
-                timer = null;
-            }
-        }
-
-        private void ForeGroundTimer_Tick(object sender, EventArgs e)
-        {
-            // Calculate the remaining time
-            TimeSpan remainingTime = endTime - DateTime.Now;
-
-            // Check if the time limit has been reached
-            if (remainingTime <= TimeSpan.Zero)
-            {
-                // Stop the timer
-                timer.Stop();
-                timerLabel.Text = "Time's up!";
-                ExamApp temp = this.Tag as ExamApp;
-                temp.BP6_Timer_TimeUp(timer.Tag, true);
-            }
-            else
-            {
-                // Update the label with the remaining time
-                timerLabel.Text = "Time Left: " + remainingTime.ToString(@"mm\:ss");
-            }
-        }
-
-        private void BackGroundTimer_Tick(object sender, EventArgs e)
-        {
-            // Calculate the remaining time
-            TimeSpan remainingTime = endTime - DateTime.Now;
-
-            // Check if the time limit has been reached
-            if (remainingTime <= TimeSpan.Zero)
-            {
-                // Stop the timer
-                timer.Stop();
-                timerLabel.Text = "Time's up!";
-                ExamApp temp = this.Tag as ExamApp;
-                temp.BP6_Timer_TimeUp(timer.Tag, false);
-            }
         }
     }
 }

@@ -5,6 +5,8 @@ namespace ExamApp
 {
     internal static class Program
     {
+        public static ExamApp Instance { get; private set; }
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -13,7 +15,8 @@ namespace ExamApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ExamApp());
+            Instance = new ExamApp();
+            Application.Run(Instance);
         }
     }
 }

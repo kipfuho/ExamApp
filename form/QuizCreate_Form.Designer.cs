@@ -215,6 +215,7 @@ namespace ExamApp
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(127, 29);
             this.comboBox1.TabIndex = 9;
+            this.comboBox1.SelectedIndex = 0;
             // 
             // timelim
             // 

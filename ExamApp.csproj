@@ -166,6 +166,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="aiken_examples\aiken.docx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -198,6 +199,7 @@
     <None Include="picture\icon7.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="aiken_examples\aiken.txt" />
     <Content Include="picture\docxIcon.jpg" />
     <Content Include="picture\icon10.png" />
     <Content Include="picture\icon11.png" />
