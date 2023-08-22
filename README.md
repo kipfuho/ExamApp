@@ -9,7 +9,7 @@ Một số tính năng:
  +Import câu hỏi dạng aiken
 
  
- +Export câu hỏi
+ +Export đề thi
 
  
  +Tạo câu hỏi, đề thi
